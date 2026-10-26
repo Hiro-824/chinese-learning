@@ -1,8 +1,25 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Chess, type Color, type PieceSymbol, type Square } from "chess.js";
+import {
+  Chess,
+  type Color,
+  type Move,
+  type PieceSymbol,
+  type Square,
+} from "chess.js";
 import { Chessboard, type ChessboardOptions } from "react-chessboard";
+import {
+  GENERIC_DIALOGUES,
+  explainDialogue,
+  getMoveTriggerCode,
+  loadDialogueSet,
+  selectUnusedDialogue,
+  type Dialogue,
+  type DialogueActor,
+  type DialogueSetNumber,
+  type PreviousCapture,
+} from "./dialogues";
 
 type Difficulty = "beginner" | "intermediate" | "advanced";
 type GameStatus = "playing" | "won" | "lost" | "draw";
@@ -24,7 +41,12 @@ const ENGINE_SETTINGS: Record<
 
 const DIFFICULTY_KEY = "chess-difficulty";
 const STREAK_KEY = "chess-daily-streak";
+const DIALOGUE_SET_KEY = "chess-dialogue-set";
+const SPEECH_ENABLED_KEY = "chess-speech-enabled";
+const FIRST_COLOR_KEY = "chess-first-player-colors";
 const MIN_AI_VISIBLE_TIME = 800;
+const MIN_DIALOGUE_VISIBLE_TIME = 1800;
+const MAX_DIALOGUE_VISIBLE_TIME = 3200;
 const PIECE_VALUES: Record<PieceSymbol, number> = {
   p: 1,
   n: 3,
@@ -51,6 +73,10 @@ function isDifficulty(value: string | null): value is Difficulty {
   return DIFFICULTIES.some((item) => item.value === value);
 }
 
+function isDialogueSet(value: number): value is DialogueSetNumber {
+  return value >= 1 && value <= 4 && Number.isInteger(value);
+}
+
 export default function Home() {
   const chessRef = useRef(new Chess());
   const workerRef = useRef<Worker | null>(null);
@@ -63,6 +89,13 @@ export default function Home() {
   const beginnerCandidatesRef = useRef<Map<number, string>>(new Map());
   const aiMoveTimerRef = useRef<number | null>(null);
   const thinkingStartedAtRef = useRef(0);
+  const dialogueSetRef = useRef<DialogueSetNumber>(1);
+  const dialoguesRef = useRef<Dialogue[]>([]);
+  const usedDialogueIdsRef = useRef(new Set<string>());
+  const lastCaptureRef = useRef<PreviousCapture | null>(null);
+  const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+  const speechEnabledRef = useRef(true);
+  const dialogueVisibleUntilRef = useRef(0);
 
   const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
   const [savedDifficulty, setSavedDifficulty] =
@@ -83,6 +116,95 @@ export default function Home() {
   const [streak, setStreak] = useState(0);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [resultOpen, setResultOpen] = useState(false);
+  const [dialogueSet, setDialogueSet] = useState<DialogueSetNumber>(1);
+  const [speechEnabled, setSpeechEnabled] = useState(true);
+  const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
+  const [explanationDialogue, setExplanationDialogue] =
+    useState<Dialogue | null>(null);
+
+  function speak(text: string, force = false) {
+    if ((!force && !speechEnabledRef.current) || !("speechSynthesis" in window)) {
+      return;
+    }
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "zh-CN";
+      const voices = voicesRef.current;
+      utterance.voice =
+        voices.find(
+          (voice) =>
+            /^zh(?:-|_)/i.test(voice.lang) && /google/i.test(voice.name),
+        ) ??
+        voices.find((voice) => /^zh(?:-|_)CN$/i.test(voice.lang)) ??
+        voices.find((voice) => /^zh(?:-|_)/i.test(voice.lang)) ??
+        null;
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      // Dialogue remains usable when speech synthesis is unavailable or blocked.
+    }
+  }
+
+  function showDialogue(dialogue: Dialogue | null) {
+    if (!dialogue) return;
+    const readableCharacters = Array.from(dialogue.zhHans).filter(
+      (character) => !/[\s，。！？、；：…,.!?;:“”‘’（）()《》]/u.test(character),
+    ).length;
+    const visibleTime = Math.min(
+      MAX_DIALOGUE_VISIBLE_TIME,
+      Math.max(MIN_DIALOGUE_VISIBLE_TIME, 900 + readableCharacters * 140),
+    );
+    dialogueVisibleUntilRef.current = performance.now() + visibleTime;
+    setCurrentDialogue(dialogue);
+    speak(dialogue.zhHans);
+  }
+
+  function selectDialogue(triggerCode: string, actor?: DialogueActor) {
+    const dedicated = dialoguesRef.current.filter(
+      (dialogue) => dialogue.triggerCode === triggerCode,
+    );
+    const candidates = dedicated.length
+      ? dedicated
+      : GENERIC_DIALOGUES.filter((dialogue) => dialogue.target === actor);
+    return selectUnusedDialogue(candidates, usedDialogueIdsRef.current);
+  }
+
+  function announceMove(move: Move, actor: DialogueActor) {
+    const game = chessRef.current;
+    const triggerCode = getMoveTriggerCode(
+      {
+        actor,
+        captured: move.captured,
+        to: move.to,
+        isCheck: game.isCheck(),
+        isCheckmate: game.isCheckmate(),
+      },
+      lastCaptureRef.current,
+    );
+    const dialogue = selectDialogue(triggerCode ?? "normal", actor);
+    showDialogue(dialogue);
+    lastCaptureRef.current = move.isCapture()
+      ? { to: move.to, actor }
+      : null;
+  }
+
+  function openingTrigger(color: Color) {
+    const key = color === "w" ? "white" : "black";
+    try {
+      const seen = JSON.parse(localStorage.getItem(FIRST_COLOR_KEY) || "{}") as {
+        white?: boolean;
+        black?: boolean;
+      };
+      if (!seen[key]) {
+        seen[key] = true;
+        localStorage.setItem(FIRST_COLOR_KEY, JSON.stringify(seen));
+        return color === "w" ? "2.1" : "2.2";
+      }
+    } catch {
+      // A blocked or invalid localStorage falls back to the regular greeting.
+    }
+    return "2.3";
+  }
 
   function playMoveSound(isCapture: boolean) {
     try {
@@ -211,9 +333,10 @@ export default function Home() {
     const from = uci.slice(0, 2) as Square;
     const to = uci.slice(2, 4) as Square;
     const promotedPiece = uci[4] as PieceSymbol | undefined;
+    let move: Move;
 
     try {
-      const move = game.move({ from, to, promotion: promotedPiece });
+      move = game.move({ from, to, promotion: promotedPiece });
       playMoveSound(move.isCapture());
     } catch {
       return;
@@ -221,6 +344,7 @@ export default function Home() {
 
     setFen(game.fen());
     setLastMove([from, to]);
+    announceMove(move, "npc");
     checkGameEnd();
   }
 
@@ -258,6 +382,10 @@ export default function Home() {
     engineReadyRef.current = false;
     thinkingRef.current = false;
     beginnerCandidatesRef.current.clear();
+    usedDialogueIdsRef.current.clear();
+    lastCaptureRef.current = null;
+    dialogueVisibleUntilRef.current = 0;
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 
     setGameDifficulty(difficulty);
     setPlayerColor(color);
@@ -270,6 +398,8 @@ export default function Home() {
     setPromotion(null);
     setSettingsOpen(false);
     setResultOpen(false);
+    setExplanationDialogue(null);
+    setCurrentDialogue(null);
 
     const worker = new Worker("/stockfish/stockfish-19-lite-single.js");
     workerRef.current = worker;
@@ -303,7 +433,12 @@ export default function Home() {
             ? chooseBeginnerMove(bestMove[1])
             : bestMove[1];
         const elapsed = performance.now() - thinkingStartedAtRef.current;
-        const delay = Math.max(0, MIN_AI_VISIBLE_TIME - elapsed);
+        const dialogueDelay = dialogueVisibleUntilRef.current - performance.now();
+        const delay = Math.max(
+          0,
+          MIN_AI_VISIBLE_TIME - elapsed,
+          dialogueDelay,
+        );
 
         aiMoveTimerRef.current = window.setTimeout(() => {
           aiMoveTimerRef.current = null;
@@ -328,12 +463,36 @@ export default function Home() {
       `setoption name MultiPV value ${difficulty === "beginner" ? 8 : 1}`,
     );
     worker.postMessage("isready");
+    showDialogue(selectDialogue(openingTrigger(color)));
   }
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
+    let cancelled = false;
+    const synth = "speechSynthesis" in window ? window.speechSynthesis : null;
+    const updateVoices = () => {
+      voicesRef.current = synth?.getVoices() ?? [];
+    };
+    updateVoices();
+    synth?.addEventListener("voiceschanged", updateVoices);
+
+    const timer = window.setTimeout(async () => {
       const storedDifficulty = localStorage.getItem(DIFFICULTY_KEY);
+      const storedSet = Number(localStorage.getItem(DIALOGUE_SET_KEY));
+      const initialSet = isDialogueSet(storedSet) ? storedSet : 1;
+      const initialSpeech = localStorage.getItem(SPEECH_ENABLED_KEY) !== "false";
+
+      dialogueSetRef.current = initialSet;
+      speechEnabledRef.current = initialSpeech;
+      setDialogueSet(initialSet);
+      setSpeechEnabled(initialSpeech);
       setStreak(readStreak());
+
+      try {
+        dialoguesRef.current = await loadDialogueSet(initialSet);
+      } catch {
+        dialoguesRef.current = [];
+      }
+      if (cancelled) return;
 
       if (isDifficulty(storedDifficulty)) {
         setSavedDifficulty(storedDifficulty);
@@ -345,10 +504,13 @@ export default function Home() {
     }, 0);
 
     return () => {
+      cancelled = true;
       window.clearTimeout(timer);
       clearAiMoveTimer();
       workerRef.current?.terminate();
       void audioRef.current?.close();
+      synth?.removeEventListener("voiceschanged", updateVoices);
+      synth?.cancel();
     };
     // This initialization intentionally runs once per mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -357,6 +519,26 @@ export default function Home() {
   function saveDifficulty(difficulty: Difficulty) {
     setSavedDifficulty(difficulty);
     localStorage.setItem(DIFFICULTY_KEY, difficulty);
+  }
+
+  async function saveDialogueSet(nextSet: DialogueSetNumber) {
+    dialogueSetRef.current = nextSet;
+    setDialogueSet(nextSet);
+    localStorage.setItem(DIALOGUE_SET_KEY, String(nextSet));
+    dialoguesRef.current = [];
+    try {
+      const loaded = await loadDialogueSet(nextSet);
+      if (dialogueSetRef.current === nextSet) dialoguesRef.current = loaded;
+    } catch {
+      // Generic move lines keep the game usable if a local JSON file is missing.
+    }
+  }
+
+  function saveSpeechEnabled(enabled: boolean) {
+    speechEnabledRef.current = enabled;
+    setSpeechEnabled(enabled);
+    localStorage.setItem(SPEECH_ENABLED_KEY, String(enabled));
+    if (!enabled && "speechSynthesis" in window) window.speechSynthesis.cancel();
   }
 
   function beginFirstGame() {
@@ -410,8 +592,9 @@ export default function Home() {
   }
 
   function finishHumanMove(from: Square, to: Square, piece?: PieceSymbol) {
+    let move: Move;
     try {
-      const move = chessRef.current.move({ from, to, promotion: piece });
+      move = chessRef.current.move({ from, to, promotion: piece });
       playMoveSound(move.isCapture());
     } catch {
       return false;
@@ -422,8 +605,17 @@ export default function Home() {
     setSelectedSquare(null);
     setLegalTargets([]);
     setPromotion(null);
+    lastCaptureRef.current = move.isCapture()
+      ? { to: move.to, actor: "player" }
+      : null;
+    dialogueVisibleUntilRef.current = 0;
 
-    if (!checkGameEnd()) requestAiMove();
+    if (checkGameEnd()) {
+      setCurrentDialogue(null);
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    } else {
+      requestAiMove();
+    }
     return true;
   }
 
@@ -628,8 +820,11 @@ export default function Home() {
 
       <section className="game-area">
         <PlayerRow
-          name="Opponent"
+          name="Oscar"
           detail={thinking ? "思考中…" : ""}
+          dialogue={currentDialogue}
+          onOpenDialogue={() => setExplanationDialogue(currentDialogue)}
+          onSpeak={() => currentDialogue && speak(currentDialogue.zhHans, true)}
         />
 
         <div className="board-shell">
@@ -690,6 +885,23 @@ export default function Home() {
                   ? "負け"
                   : "引き分け"}
             </strong>
+            {currentDialogue && (
+              <div className="result-dialogue">
+                <button
+                  className="result-dialogue-text"
+                  onClick={() => setExplanationDialogue(currentDialogue)}
+                >
+                  {currentDialogue.zhHans}
+                </button>
+                <button
+                  className="speaker-button"
+                  onClick={() => speak(currentDialogue.zhHans, true)}
+                  aria-label="中国語をもう一度聞く"
+                >
+                  <SpeakerIcon />
+                </button>
+              </div>
+            )}
             <button className="primary-button" onClick={() => startGame()}>
               新しい対局
             </button>
@@ -709,8 +921,8 @@ export default function Home() {
             aria-label="設定"
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <div className="modal-header">
-              <span>難易度</span>
+            <div className="modal-header settings-header">
+              <strong>設定</strong>
               <button
                 className="close-button"
                 onClick={() => setSettingsOpen(false)}
@@ -719,12 +931,45 @@ export default function Home() {
                 ×
               </button>
             </div>
+            <span className="setting-label">難易度</span>
             <DifficultyButtons
               value={savedDifficulty}
               onChange={saveDifficulty}
             />
+            <span className="setting-label">セリフセット</span>
+            <div className="dialogue-set-buttons">
+              {([1, 2, 3, 4] as DialogueSetNumber[]).map((setNumber) => (
+                <button
+                  type="button"
+                  key={setNumber}
+                  className={dialogueSet === setNumber ? "selected" : ""}
+                  onClick={() => void saveDialogueSet(setNumber)}
+                >
+                  セット{setNumber}
+                </button>
+              ))}
+            </div>
+            <label className="speech-setting">
+              <span>
+                <strong>自動読み上げ</strong>
+                <small>中国語音声</small>
+              </span>
+              <input
+                type="checkbox"
+                checked={speechEnabled}
+                onChange={(event) => saveSpeechEnabled(event.target.checked)}
+              />
+            </label>
           </section>
         </div>
+      )}
+
+      {explanationDialogue && (
+        <ExplanationModal
+          dialogue={explanationDialogue}
+          onClose={() => setExplanationDialogue(null)}
+          onSpeak={() => speak(explanationDialogue.zhHans, true)}
+        />
       )}
     </main>
   );
@@ -757,10 +1002,16 @@ function PlayerRow({
   name,
   detail,
   active = false,
+  dialogue,
+  onOpenDialogue,
+  onSpeak,
 }: {
   name: string;
   detail: string;
   active?: boolean;
+  dialogue?: Dialogue | null;
+  onOpenDialogue?: () => void;
+  onSpeak?: () => void;
 }) {
   return (
     <div className="player-row">
@@ -771,6 +1022,74 @@ function PlayerRow({
         <strong>{name}</strong>
         <span>{detail || "\u00a0"}</span>
       </div>
+      {dialogue && onOpenDialogue && onSpeak && (
+        <div className="speech-bubble">
+          <button className="speech-text" onClick={onOpenDialogue}>
+            <span lang="zh-CN">{dialogue.zhHans}</span>
+          </button>
+          <button
+            className="speaker-button"
+            onClick={onSpeak}
+            aria-label="中国語をもう一度聞く"
+          >
+            <SpeakerIcon />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ExplanationModal({
+  dialogue,
+  onClose,
+  onSpeak,
+}: {
+  dialogue: Dialogue;
+  onClose: () => void;
+  onSpeak: () => void;
+}) {
+  const learningItems = explainDialogue(dialogue);
+  return (
+    <div className="modal-backdrop explanation-backdrop" onPointerDown={onClose}>
+      <section
+        className="explanation-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="中国語の解説"
+        onPointerDown={(event) => event.stopPropagation()}
+      >
+        <div className="modal-header explanation-header">
+          <span>中国語の解説</span>
+          <button className="close-button" onClick={onClose} aria-label="閉じる">
+            ×
+          </button>
+        </div>
+        <div className="explanation-full-text">
+          <div className="explanation-chinese-row">
+            <p lang="zh-CN">{dialogue.zhHans}</p>
+            <button
+              className="speaker-button explanation-speaker"
+              onClick={onSpeak}
+              aria-label="中国語をもう一度聞く"
+            >
+              <SpeakerIcon />
+            </button>
+          </div>
+          <p className="explanation-japanese" lang="ja">
+            {dialogue.ja}
+          </p>
+        </div>
+        <div className="learning-list" aria-label="単語と表現">
+          {learningItems.map((item, index) => (
+            <div className="learning-row" key={`${item.phrase}-${index}`}>
+              <strong lang="zh-CN">{item.phrase}</strong>
+              <span>{item.role}</span>
+              <p>{item.meaning}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
@@ -780,6 +1099,17 @@ function GearIcon() {
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M9.7 2h4.6l.55 2.18c.47.2.91.45 1.31.75l2.12-.63 2.3 4-1.57 1.54c.06.38.09.77.09 1.16s-.03.78-.09 1.16l1.57 1.54-2.3 4-2.12-.63c-.4.3-.84.55-1.31.75L14.3 20H9.7l-.55-2.18a7.35 7.35 0 0 1-1.31-.75l-2.12.63-2.3-4 1.57-1.54A7.2 7.2 0 0 1 4.9 11c0-.39.03-.78.09-1.16L3.42 8.3l2.3-4 2.12.63c.4-.3.84-.55 1.31-.75L9.7 2Zm2.3 5.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function SpeakerIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M4 9v6h4l5 4V5L8 9H4Zm12.1-.9a5.5 5.5 0 0 1 0 7.8l-1.4-1.4a3.5 3.5 0 0 0 0-5l1.4-1.4Zm2.8-2.8a9.5 9.5 0 0 1 0 13.4l-1.4-1.4a7.5 7.5 0 0 0 0-10.6l1.4-1.4Z"
         fill="currentColor"
       />
     </svg>
