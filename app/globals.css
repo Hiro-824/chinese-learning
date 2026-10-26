@@ -195,7 +195,7 @@ button:focus-visible {
 
 .player-row,
 .controls {
-  width: min(92vw, calc(100svh - 218px), 660px);
+  width: min(92vw, calc(100svh - 258px), 660px);
 }
 
 .player-row {
@@ -203,6 +203,10 @@ button:focus-visible {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.dialogue-player-row {
+  min-height: 76px;
 }
 
 .avatar {
@@ -243,10 +247,18 @@ button:focus-visible {
   line-height: 1.2;
 }
 
-.speech-bubble {
+.speech-stack {
   min-width: 0;
   max-width: min(430px, calc(100% - 100px));
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.speech-bubble {
+  width: 100%;
+  min-width: 0;
   display: flex;
   align-items: center;
   border: 1px solid #d8e1da;
@@ -266,6 +278,7 @@ button:focus-visible {
 }
 
 .speech-text {
+  flex: 1;
   padding: 8px 7px 8px 12px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -320,7 +333,7 @@ button:focus-visible {
 
 .board-shell {
   position: relative;
-  width: min(92vw, calc(100svh - 218px), 660px);
+  width: min(92vw, calc(100svh - 258px), 660px);
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(30, 49, 37, 0.14);
@@ -422,10 +435,16 @@ button:focus-visible {
   font-size: 26px;
 }
 
+.result-dialogues {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
 .result-dialogue {
   display: flex;
   align-items: center;
-  margin: 0 0 6px;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #f7faf7;
@@ -646,11 +665,15 @@ button:focus-visible {
   .player-row,
   .controls,
   .board-shell {
-    width: min(92vw, calc(100svh - 174px), 660px);
+    width: min(92vw, calc(100svh - 214px), 660px);
   }
 
   .player-row {
     min-height: 35px;
+  }
+
+  .dialogue-player-row {
+    min-height: 76px;
   }
 
   .avatar {

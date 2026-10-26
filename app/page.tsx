@@ -100,6 +100,7 @@ export default function Home() {
   const speechSafetyTimerRef = useRef<number | null>(null);
   const pendingAiMoveRef = useRef<(() => void) | null>(null);
   const dialogueVisibleUntilRef = useRef(0);
+  const beforeNpcDialogueRef = useRef<Dialogue | null>(null);
 
   const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
   const [savedDifficulty, setSavedDifficulty] =
@@ -124,6 +125,7 @@ export default function Home() {
   const [speechEnabled, setSpeechEnabled] = useState(true);
   const [speechPlaying, setSpeechPlaying] = useState(false);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
+  const [pairedDialogue, setPairedDialogue] = useState<Dialogue | null>(null);
   const [explanationDialogue, setExplanationDialogue] =
     useState<Dialogue | null>(null);
 
@@ -195,7 +197,10 @@ export default function Home() {
     }
   }
 
-  function showDialogue(dialogue: Dialogue | null) {
+  function showDialogue(
+    dialogue: Dialogue | null,
+    previousDialogue?: Dialogue | null,
+  ) {
     if (!dialogue) return;
     const readableCharacters = Array.from(dialogue.zhHans).filter(
       (character) => !/[\s，。！？、；：…,.!?;:“”‘’（）()《》]/u.test(character),
@@ -205,6 +210,7 @@ export default function Home() {
       Math.max(MIN_DIALOGUE_VISIBLE_TIME, 900 + readableCharacters * 140),
     );
     dialogueVisibleUntilRef.current = performance.now() + visibleTime;
+    setPairedDialogue(previousDialogue ?? null);
     setCurrentDialogue(dialogue);
     speak(dialogue.zhHans);
   }
@@ -228,8 +234,17 @@ export default function Home() {
       },
       lastCaptureRef.current,
     );
-    if (triggerCode && shouldAnnounceTrigger(triggerCode, actor)) {
-      showDialogue(selectDialogue(triggerCode));
+    const dialogue =
+      triggerCode && shouldAnnounceTrigger(triggerCode, actor)
+        ? selectDialogue(triggerCode)
+        : null;
+    if (actor === "player") {
+      beforeNpcDialogueRef.current = dialogue;
+      showDialogue(dialogue);
+    } else {
+      const beforeDialogue = beforeNpcDialogueRef.current;
+      beforeNpcDialogueRef.current = null;
+      showDialogue(dialogue, beforeDialogue);
     }
     lastCaptureRef.current = move.isCapture()
       ? { to: move.to, actor, captured: move.captured! }
@@ -432,6 +447,7 @@ export default function Home() {
     beginnerCandidatesRef.current.clear();
     usedDialogueIdsRef.current.clear();
     lastCaptureRef.current = null;
+    beforeNpcDialogueRef.current = null;
     dialogueVisibleUntilRef.current = 0;
     pendingAiMoveRef.current = null;
     cancelSpeech();
@@ -448,6 +464,7 @@ export default function Home() {
     setSettingsOpen(false);
     setResultOpen(false);
     setExplanationDialogue(null);
+    setPairedDialogue(null);
     setCurrentDialogue(null);
 
     const worker = new Worker("/stockfish/stockfish-19-lite-single.js");
@@ -519,7 +536,9 @@ export default function Home() {
       `setoption name MultiPV value ${difficulty === "beginner" ? 8 : 1}`,
     );
     worker.postMessage("isready");
-    showDialogue(selectDialogue(openingTrigger(color)));
+    const openingDialogue = selectDialogue(openingTrigger(color));
+    showDialogue(openingDialogue);
+    beforeNpcDialogueRef.current = color === "b" ? openingDialogue : null;
   }
 
   useEffect(() => {
@@ -855,6 +874,11 @@ export default function Home() {
           : fen.split(" ")[1] === playerColor
             ? "あなたの手番"
             : "相手の手番";
+  const visibleDialogues = currentDialogue
+    ? pairedDialogue
+      ? [pairedDialogue, currentDialogue]
+      : [currentDialogue]
+    : [];
 
   return (
     <main className="game-screen">
@@ -881,9 +905,10 @@ export default function Home() {
         <PlayerRow
           name="Oscar"
           detail={thinking ? "思考中…" : ""}
-          dialogue={currentDialogue}
-          onOpenDialogue={() => setExplanationDialogue(currentDialogue)}
-          onSpeak={() => currentDialogue && speak(currentDialogue.zhHans, true)}
+          reserveDialogueSpace
+          dialogues={visibleDialogues}
+          onOpenDialogue={setExplanationDialogue}
+          onSpeak={(dialogue) => speak(dialogue.zhHans, true)}
         />
 
         <div className="board-shell">
@@ -944,21 +969,28 @@ export default function Home() {
                   ? "負け"
                   : "引き分け"}
             </strong>
-            {currentDialogue && (
-              <div className="result-dialogue">
-                <button
-                  className="result-dialogue-text"
-                  onClick={() => setExplanationDialogue(currentDialogue)}
-                >
-                  {currentDialogue.zhHans}
-                </button>
-                <button
-                  className="speaker-button"
-                  onClick={() => speak(currentDialogue.zhHans, true)}
-                  aria-label="中国語をもう一度聞く"
-                >
-                  <SpeakerIcon />
-                </button>
+            {visibleDialogues.length > 0 && (
+              <div className="result-dialogues">
+                {visibleDialogues.map((dialogue) => (
+                  <div
+                    className="result-dialogue"
+                    key={`${dialogue.setId}-${dialogue.id}`}
+                  >
+                    <button
+                      className="result-dialogue-text"
+                      onClick={() => setExplanationDialogue(dialogue)}
+                    >
+                      {dialogue.zhHans}
+                    </button>
+                    <button
+                      className="speaker-button"
+                      onClick={() => speak(dialogue.zhHans, true)}
+                      aria-label="中国語をもう一度聞く"
+                    >
+                      <SpeakerIcon />
+                    </button>
+                  </div>
+                ))}
               </div>
             )}
             <button className="primary-button" onClick={() => startGame()}>
@@ -1061,19 +1093,23 @@ function PlayerRow({
   name,
   detail,
   active = false,
-  dialogue,
+  reserveDialogueSpace = false,
+  dialogues,
   onOpenDialogue,
   onSpeak,
 }: {
   name: string;
   detail: string;
   active?: boolean;
-  dialogue?: Dialogue | null;
-  onOpenDialogue?: () => void;
-  onSpeak?: () => void;
+  reserveDialogueSpace?: boolean;
+  dialogues?: Dialogue[];
+  onOpenDialogue?: (dialogue: Dialogue) => void;
+  onSpeak?: (dialogue: Dialogue) => void;
 }) {
   return (
-    <div className="player-row">
+    <div
+      className={`player-row ${reserveDialogueSpace ? "dialogue-player-row" : ""}`}
+    >
       <div className={`avatar ${active ? "active" : ""}`} aria-hidden="true">
         {name === "You" ? "Y" : "O"}
       </div>
@@ -1081,18 +1117,28 @@ function PlayerRow({
         <strong>{name}</strong>
         <span>{detail || "\u00a0"}</span>
       </div>
-      {dialogue && onOpenDialogue && onSpeak && (
-        <div className="speech-bubble">
-          <button className="speech-text" onClick={onOpenDialogue}>
-            <span lang="zh-CN">{dialogue.zhHans}</span>
-          </button>
-          <button
-            className="speaker-button"
-            onClick={onSpeak}
-            aria-label="中国語をもう一度聞く"
-          >
-            <SpeakerIcon />
-          </button>
+      {dialogues && dialogues.length > 0 && onOpenDialogue && onSpeak && (
+        <div className="speech-stack">
+          {dialogues.map((dialogue) => (
+            <div
+              className="speech-bubble"
+              key={`${dialogue.setId}-${dialogue.id}`}
+            >
+              <button
+                className="speech-text"
+                onClick={() => onOpenDialogue(dialogue)}
+              >
+                <span lang="zh-CN">{dialogue.zhHans}</span>
+              </button>
+              <button
+                className="speaker-button"
+                onClick={() => onSpeak(dialogue)}
+                aria-label="中国語をもう一度聞く"
+              >
+                <SpeakerIcon />
+              </button>
+            </div>
+          ))}
         </div>
       )}
     </div>
