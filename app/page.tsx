@@ -1,69 +1,800 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Chess, type Color, type PieceSymbol, type Square } from "chess.js";
+import { Chessboard, type ChessboardOptions } from "react-chessboard";
+
+type Difficulty = "beginner" | "intermediate" | "advanced";
+type GameStatus = "playing" | "won" | "lost" | "draw";
+
+const DIFFICULTIES: { value: Difficulty; label: string }[] = [
+  { value: "beginner", label: "初級" },
+  { value: "intermediate", label: "中級" },
+  { value: "advanced", label: "上級" },
+];
+
+const ENGINE_SETTINGS: Record<
+  Difficulty,
+  { skill: number; moveTime: number }
+> = {
+  beginner: { skill: 0, moveTime: 100 },
+  intermediate: { skill: 9, moveTime: 400 },
+  advanced: { skill: 18, moveTime: 800 },
+};
+
+const DIFFICULTY_KEY = "chess-difficulty";
+const STREAK_KEY = "chess-daily-streak";
+const MIN_AI_VISIBLE_TIME = 800;
+const PIECE_VALUES: Record<PieceSymbol, number> = {
+  p: 1,
+  n: 3,
+  b: 3,
+  r: 5,
+  q: 9,
+  k: 0,
+};
+
+function localDate(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function yesterday() {
+  const date = new Date();
+  date.setDate(date.getDate() - 1);
+  return localDate(date);
+}
+
+function isDifficulty(value: string | null): value is Difficulty {
+  return DIFFICULTIES.some((item) => item.value === value);
+}
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+  const chessRef = useRef(new Chess());
+  const workerRef = useRef<Worker | null>(null);
+  const audioRef = useRef<AudioContext | null>(null);
+  const playerColorRef = useRef<Color>("w");
+  const statusRef = useRef<GameStatus>("playing");
+  const engineReadyRef = useRef(false);
+  const thinkingRef = useRef(false);
+  const gameIdRef = useRef(0);
+  const beginnerCandidatesRef = useRef<Map<number, string>>(new Map());
+  const aiMoveTimerRef = useRef<number | null>(null);
+  const thinkingStartedAtRef = useRef(0);
+
+  const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
+  const [savedDifficulty, setSavedDifficulty] =
+    useState<Difficulty>("beginner");
+  const [gameDifficulty, setGameDifficulty] =
+    useState<Difficulty>("beginner");
+  const [playerColor, setPlayerColor] = useState<Color>("w");
+  const [fen, setFen] = useState(() => new Chess().fen());
+  const [status, setStatus] = useState<GameStatus>("playing");
+  const [thinking, setThinking] = useState(false);
+  const [lastMove, setLastMove] = useState<[Square, Square] | null>(null);
+  const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
+  const [legalTargets, setLegalTargets] = useState<Square[]>([]);
+  const [promotion, setPromotion] = useState<{
+    from: Square;
+    to: Square;
+  } | null>(null);
+  const [streak, setStreak] = useState(0);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [resultOpen, setResultOpen] = useState(false);
+
+  function playMoveSound(isCapture: boolean) {
+    try {
+      const context = audioRef.current || new AudioContext();
+      audioRef.current = context;
+      void context.resume();
+
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+      oscillator.type = "triangle";
+      oscillator.frequency.setValueAtTime(isCapture ? 190 : 410, context.currentTime);
+      gain.gain.setValueAtTime(0.045, context.currentTime);
+      gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        context.currentTime + 0.075,
+      );
+      oscillator.connect(gain);
+      gain.connect(context.destination);
+      oscillator.start();
+      oscillator.stop(context.currentTime + 0.08);
+    } catch {
+      // Sound is optional when the browser blocks audio playback.
+    }
+  }
+
+  function clearAiMoveTimer() {
+    if (aiMoveTimerRef.current !== null) {
+      window.clearTimeout(aiMoveTimerRef.current);
+      aiMoveTimerRef.current = null;
+    }
+  }
+
+  function readStreak() {
+    try {
+      const value = JSON.parse(localStorage.getItem(STREAK_KEY) || "null") as {
+        date?: string;
+        count?: number;
+      } | null;
+      if (
+        value &&
+        typeof value.count === "number" &&
+        (value.date === localDate() || value.date === yesterday())
+      ) {
+        return value.count;
+      }
+    } catch {
+      // Ignore an invalid saved value.
+    }
+    return 0;
+  }
+
+  function completeToday() {
+    const today = localDate();
+    try {
+      const previous = JSON.parse(
+        localStorage.getItem(STREAK_KEY) || "null",
+      ) as { date?: string; count?: number } | null;
+
+      if (previous?.date === today && typeof previous.count === "number") {
+        setStreak(previous.count);
+        return;
+      }
+
+      const count =
+        previous?.date === yesterday() && typeof previous.count === "number"
+          ? previous.count + 1
+          : 1;
+      localStorage.setItem(STREAK_KEY, JSON.stringify({ date: today, count }));
+      setStreak(count);
+    } catch {
+      setStreak(1);
+    }
+  }
+
+  function finishGame(result: Exclude<GameStatus, "playing">) {
+    if (statusRef.current !== "playing") return;
+    clearAiMoveTimer();
+    statusRef.current = result;
+    thinkingRef.current = false;
+    setStatus(result);
+    setThinking(false);
+    setSelectedSquare(null);
+    setLegalTargets([]);
+    setPromotion(null);
+    setSettingsOpen(false);
+    setResultOpen(true);
+    completeToday();
+  }
+
+  function checkGameEnd() {
+    const game = chessRef.current;
+    if (!game.isGameOver()) return false;
+
+    if (game.isCheckmate()) {
+      finishGame(game.turn() === playerColorRef.current ? "lost" : "won");
+    } else {
+      finishGame("draw");
+    }
+    return true;
+  }
+
+  function requestAiMove(difficulty = gameDifficulty) {
+    const game = chessRef.current;
+    if (
+      !engineReadyRef.current ||
+      !workerRef.current ||
+      thinkingRef.current ||
+      statusRef.current !== "playing" ||
+      game.turn() === playerColorRef.current ||
+      game.isGameOver()
+    ) {
+      return;
+    }
+
+    thinkingRef.current = true;
+    thinkingStartedAtRef.current = performance.now();
+    beginnerCandidatesRef.current.clear();
+    setThinking(true);
+    const { moveTime } = ENGINE_SETTINGS[difficulty];
+    workerRef.current.postMessage(`position fen ${game.fen()}`);
+    workerRef.current.postMessage(`go movetime ${moveTime}`);
+  }
+
+  function applyAiMove(uci: string) {
+    const game = chessRef.current;
+    const from = uci.slice(0, 2) as Square;
+    const to = uci.slice(2, 4) as Square;
+    const promotedPiece = uci[4] as PieceSymbol | undefined;
+
+    try {
+      const move = game.move({ from, to, promotion: promotedPiece });
+      playMoveSound(move.isCapture());
+    } catch {
+      return;
+    }
+
+    setFen(game.fen());
+    setLastMove([from, to]);
+    checkGameEnd();
+  }
+
+  function chooseBeginnerMove(bestMove: string) {
+    const game = chessRef.current;
+    if (Math.random() < 0.3) {
+      const legalMoves = game.moves({ verbose: true });
+      const move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
+      if (move) return `${move.from}${move.to}${move.promotion ?? ""}`;
+    }
+
+    const candidates = [...beginnerCandidatesRef.current.entries()]
+      .sort(([rankA], [rankB]) => rankA - rankB)
+      .map(([, move]) => move);
+    if (!candidates.length) return bestMove;
+
+    const index = Math.min(
+      candidates.length - 1,
+      Math.floor(Math.pow(Math.random(), 0.6) * candidates.length),
+    );
+    return candidates[index];
+  }
+
+  function startGame(difficulty = savedDifficulty) {
+    const gameId = gameIdRef.current + 1;
+    gameIdRef.current = gameId;
+    clearAiMoveTimer();
+    workerRef.current?.terminate();
+
+    const color: Color = Math.random() < 0.5 ? "w" : "b";
+    const game = new Chess();
+    chessRef.current = game;
+    playerColorRef.current = color;
+    statusRef.current = "playing";
+    engineReadyRef.current = false;
+    thinkingRef.current = false;
+    beginnerCandidatesRef.current.clear();
+
+    setGameDifficulty(difficulty);
+    setPlayerColor(color);
+    setFen(game.fen());
+    setStatus("playing");
+    setThinking(false);
+    setLastMove(null);
+    setSelectedSquare(null);
+    setLegalTargets([]);
+    setPromotion(null);
+    setSettingsOpen(false);
+    setResultOpen(false);
+
+    const worker = new Worker("/stockfish/stockfish-19-lite-single.js");
+    workerRef.current = worker;
+    worker.onmessage = ({ data }: MessageEvent<string>) => {
+      if (gameIdRef.current !== gameId) return;
+      const line = String(data);
+
+      if (line === "readyok") {
+        engineReadyRef.current = true;
+        requestAiMove(difficulty);
+        return;
+      }
+
+      if (difficulty === "beginner") {
+        const candidate = line.match(
+          /\bmultipv\s+(\d+)\b.*\bpv\s+([a-h][1-8][a-h][1-8][qrbn]?)/,
+        );
+        if (candidate) {
+          beginnerCandidatesRef.current.set(Number(candidate[1]), candidate[2]);
+        }
+      }
+
+      const bestMove = line.match(/^bestmove\s+([a-h][1-8][a-h][1-8][qrbn]?)/);
+      if (
+        bestMove &&
+        thinkingRef.current &&
+        aiMoveTimerRef.current === null
+      ) {
+        const move =
+          difficulty === "beginner"
+            ? chooseBeginnerMove(bestMove[1])
+            : bestMove[1];
+        const elapsed = performance.now() - thinkingStartedAtRef.current;
+        const delay = Math.max(0, MIN_AI_VISIBLE_TIME - elapsed);
+
+        aiMoveTimerRef.current = window.setTimeout(() => {
+          aiMoveTimerRef.current = null;
+          if (
+            gameIdRef.current !== gameId ||
+            statusRef.current !== "playing" ||
+            !thinkingRef.current
+          ) {
+            return;
+          }
+          thinkingRef.current = false;
+          setThinking(false);
+          applyAiMove(move);
+        }, delay);
+      }
+    };
+    worker.postMessage("uci");
+    worker.postMessage(
+      `setoption name Skill Level value ${ENGINE_SETTINGS[difficulty].skill}`,
+    );
+    worker.postMessage(
+      `setoption name MultiPV value ${difficulty === "beginner" ? 8 : 1}`,
+    );
+    worker.postMessage("isready");
+  }
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const storedDifficulty = localStorage.getItem(DIFFICULTY_KEY);
+      setStreak(readStreak());
+
+      if (isDifficulty(storedDifficulty)) {
+        setSavedDifficulty(storedDifficulty);
+        setIsConfigured(true);
+        startGame(storedDifficulty);
+      } else {
+        setIsConfigured(false);
+      }
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timer);
+      clearAiMoveTimer();
+      workerRef.current?.terminate();
+      void audioRef.current?.close();
+    };
+    // This initialization intentionally runs once per mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function saveDifficulty(difficulty: Difficulty) {
+    setSavedDifficulty(difficulty);
+    localStorage.setItem(DIFFICULTY_KEY, difficulty);
+  }
+
+  function beginFirstGame() {
+    saveDifficulty(savedDifficulty);
+    setIsConfigured(true);
+    startGame(savedDifficulty);
+  }
+
+  function showLegalMoves(square: string | null) {
+    if (
+      !square ||
+      statusRef.current !== "playing" ||
+      chessRef.current.turn() !== playerColorRef.current ||
+      thinkingRef.current
+    ) {
+      setLegalTargets([]);
+      return;
+    }
+    const moves = chessRef.current.moves({
+      square: square as Square,
+      verbose: true,
+    });
+    setLegalTargets(moves.map((move) => move.to));
+  }
+
+  function handleSquareClick(square: string) {
+    if (
+      promotion ||
+      statusRef.current !== "playing" ||
+      thinkingRef.current ||
+      chessRef.current.turn() !== playerColorRef.current
+    ) {
+      return;
+    }
+
+    const target = square as Square;
+    if (selectedSquare && legalTargets.includes(target)) {
+      setSelectedSquare(null);
+      handleDrop(selectedSquare, target);
+      return;
+    }
+
+    const piece = chessRef.current.get(target);
+    if (piece?.color === playerColorRef.current) {
+      setSelectedSquare(target);
+      showLegalMoves(target);
+    } else {
+      setSelectedSquare(null);
+      setLegalTargets([]);
+    }
+  }
+
+  function finishHumanMove(from: Square, to: Square, piece?: PieceSymbol) {
+    try {
+      const move = chessRef.current.move({ from, to, promotion: piece });
+      playMoveSound(move.isCapture());
+    } catch {
+      return false;
+    }
+
+    setFen(chessRef.current.fen());
+    setLastMove([from, to]);
+    setSelectedSquare(null);
+    setLegalTargets([]);
+    setPromotion(null);
+
+    if (!checkGameEnd()) requestAiMove();
+    return true;
+  }
+
+  function handleDrop(sourceSquare: string, targetSquare: string | null) {
+    if (
+      !targetSquare ||
+      statusRef.current !== "playing" ||
+      thinkingRef.current ||
+      chessRef.current.turn() !== playerColorRef.current
+    ) {
+      setSelectedSquare(null);
+      setLegalTargets([]);
+      return false;
+    }
+
+    const from = sourceSquare as Square;
+    const to = targetSquare as Square;
+    const candidate = chessRef.current
+      .moves({ square: from, verbose: true })
+      .find((move) => move.to === to);
+
+    if (!candidate) {
+      setSelectedSquare(null);
+      setLegalTargets([]);
+      return false;
+    }
+
+    if (candidate.isPromotion()) {
+      setPromotion({ from, to });
+      setSelectedSquare(null);
+      setLegalTargets([]);
+      return false;
+    }
+
+    return finishHumanMove(from, to);
+  }
+
+  function resign() {
+    if (statusRef.current !== "playing") return;
+    workerRef.current?.postMessage("stop");
+    finishGame("lost");
+  }
+
+  const positionInfo = useMemo(() => {
+    const game = new Chess(fen);
+    let whiteMaterial = 0;
+    let blackMaterial = 0;
+
+    for (const row of game.board()) {
+      for (const piece of row) {
+        if (!piece) continue;
+        if (piece.color === "w") whiteMaterial += PIECE_VALUES[piece.type];
+        else blackMaterial += PIECE_VALUES[piece.type];
+      }
+    }
+
+    const checkedKing = game.isCheck()
+      ? (game.findPiece({ color: game.turn(), type: "k" })[0] ?? null)
+      : null;
+
+    return {
+      materialBalance: whiteMaterial - blackMaterial,
+      checkedKing,
+      checkedColor: game.isCheck() ? game.turn() : null,
+      matedKing: game.isCheckmate() ? checkedKing : null,
+    };
+  }, [fen]);
+
+  const squareStyles = useMemo(() => {
+    const styles: Record<string, React.CSSProperties> = {};
+    const game = new Chess(fen);
+    if (lastMove) {
+      styles[lastMove[0]] = { backgroundColor: "rgba(250, 204, 21, 0.42)" };
+      styles[lastMove[1]] = { backgroundColor: "rgba(250, 204, 21, 0.52)" };
+    }
+    if (selectedSquare) {
+      styles[selectedSquare] = {
+        ...styles[selectedSquare],
+        backgroundColor: "rgba(52, 132, 82, 0.45)",
+      };
+    }
+    for (const square of legalTargets) {
+      const occupied = game.get(square);
+      styles[square] = occupied
+        ? {
+            ...styles[square],
+            boxShadow: "inset 0 0 0 5px rgba(34, 92, 59, 0.42)",
+          }
+        : {
+            ...styles[square],
+            backgroundImage:
+              "radial-gradient(circle, rgba(34, 92, 59, 0.44) 0 16%, transparent 18%)",
+          };
+    }
+    if (positionInfo.checkedKing && positionInfo.checkedColor) {
+      const isPlayer = positionInfo.checkedColor === playerColor;
+      styles[positionInfo.checkedKing] = {
+        ...styles[positionInfo.checkedKing],
+        backgroundColor: isPlayer
+          ? "rgba(215, 72, 70, 0.68)"
+          : "rgba(54, 170, 91, 0.68)",
+        boxShadow: `inset 0 0 0 4px ${isPlayer ? "#a62f31" : "#267c43"}`,
+      };
+    }
+    return styles;
+  }, [fen, lastMove, legalTargets, playerColor, positionInfo, selectedSquare]);
+
+  const playerBalance =
+    playerColor === "w"
+      ? positionInfo.materialBalance
+      : -positionInfo.materialBalance;
+  const playerMaterial = playerBalance > 0 ? `+${playerBalance}` : `${playerBalance}`;
+
+  const boardOptions: ChessboardOptions = {
+    position: fen,
+    boardOrientation: playerColor === "w" ? "white" : "black",
+    boardStyle: { borderRadius: "10px" },
+    lightSquareStyle: { backgroundColor: "#f2ead8" },
+    darkSquareStyle: { backgroundColor: "#769982" },
+    squareStyles,
+    animationDurationInMs: 180,
+    allowDrawingArrows: false,
+    allowAutoScroll: false,
+    canDragPiece: ({ piece }) =>
+      status === "playing" &&
+      !thinking &&
+      chessRef.current.turn() === playerColor &&
+      piece.pieceType[0] === playerColor,
+    onPieceDrag: ({ square }) => {
+      setSelectedSquare(null);
+      showLegalMoves(square);
+    },
+    onPieceDragCancel: () => setLegalTargets([]),
+    onSquareClick: ({ square }) => handleSquareClick(square),
+    onPieceDrop: ({ sourceSquare, targetSquare }) =>
+      handleDrop(sourceSquare, targetSquare),
+    squareRenderer: ({ square, children }) => (
+      <div
+        className={
+          square === positionInfo.matedKing ? "mated-king-square" : undefined
+        }
+        style={{ width: "100%", height: "100%", ...squareStyles[square] }}
+      >
+        {children}
+      </div>
+    ),
+  };
+
+  if (isConfigured === null) return <main className="loading-screen" />;
+
+  if (!isConfigured) {
+    return (
+      <main className="setup-screen">
+        <section className="setup-box" aria-label="初回設定">
+          <h1>Chess</h1>
+          <fieldset className="difficulty-field">
+            <legend>難易度</legend>
+            <DifficultyButtons
+              value={savedDifficulty}
+              onChange={setSavedDifficulty}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </fieldset>
+          <button className="primary-button" onClick={beginFirstGame}>
+            対局開始
+          </button>
+        </section>
       </main>
+    );
+  }
+
+  const statusText =
+    status === "won"
+      ? "勝ち"
+      : status === "lost"
+        ? "負け"
+        : status === "draw"
+          ? "引き分け"
+          : fen.split(" ")[1] === playerColor
+            ? "あなたの手番"
+            : "相手の手番";
+
+  return (
+    <main className="game-screen">
+      <header className="topbar">
+        <span className="streak" aria-label={`連続対局 ${streak} 日`}>
+          🔥 {streak} {streak === 1 ? "day" : "days"}
+        </span>
+        <button
+          className="icon-button"
+          onClick={() => setSettingsOpen(true)}
+          aria-label="設定"
+        >
+          <GearIcon />
+        </button>
+      </header>
+
+      <section className="game-area">
+        <PlayerRow
+          name="Opponent"
+          detail={thinking ? "思考中…" : ""}
+        />
+
+        <div className="board-shell">
+          <Chessboard options={boardOptions} />
+          {promotion && (
+            <div className="promotion-picker" aria-label="昇格する駒を選択">
+              {(["q", "r", "b", "n"] as PieceSymbol[]).map((piece) => (
+                <button
+                  key={piece}
+                  onClick={() =>
+                    finishHumanMove(promotion.from, promotion.to, piece)
+                  }
+                  aria-label={`${piece}に昇格`}
+                >
+                  {promotionSymbol(playerColor, piece)}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <PlayerRow
+          name="You"
+          detail={statusText}
+          material={playerMaterial}
+          active={status === "playing"}
+        />
+
+        <div className="controls">
+          <button className="primary-button" onClick={() => startGame()}>
+            新しい対局
+          </button>
+          <button
+            className="text-button"
+            onClick={resign}
+            disabled={status !== "playing"}
+          >
+            投了
+          </button>
+        </div>
+      </section>
+
+      {resultOpen && status !== "playing" && (
+        <div
+          className="modal-backdrop result-backdrop"
+          onPointerDown={() => setResultOpen(false)}
+        >
+          <section
+            className="result-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="対局結果"
+            onPointerDown={(event) => event.stopPropagation()}
+          >
+            <strong>
+              {status === "won"
+                ? "勝ち"
+                : status === "lost"
+                  ? "負け"
+                  : "引き分け"}
+            </strong>
+            <button className="primary-button" onClick={() => startGame()}>
+              新しい対局
+            </button>
+            <button className="text-button result-close" onClick={() => setResultOpen(false)}>
+              最終盤面を見る
+            </button>
+          </section>
+        </div>
+      )}
+
+      {settingsOpen && (
+        <div className="modal-backdrop" onMouseDown={() => setSettingsOpen(false)}>
+          <section
+            className="settings-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="設定"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <div className="modal-header">
+              <span>難易度</span>
+              <button
+                className="close-button"
+                onClick={() => setSettingsOpen(false)}
+                aria-label="閉じる"
+              >
+                ×
+              </button>
+            </div>
+            <DifficultyButtons
+              value={savedDifficulty}
+              onChange={saveDifficulty}
+            />
+          </section>
+        </div>
+      )}
+    </main>
+  );
+}
+
+function DifficultyButtons({
+  value,
+  onChange,
+}: {
+  value: Difficulty;
+  onChange: (value: Difficulty) => void;
+}) {
+  return (
+    <div className="difficulty-buttons">
+      {DIFFICULTIES.map((difficulty) => (
+        <button
+          type="button"
+          key={difficulty.value}
+          className={value === difficulty.value ? "selected" : ""}
+          onClick={() => onChange(difficulty.value)}
+        >
+          {difficulty.label}
+        </button>
+      ))}
     </div>
   );
+}
+
+function PlayerRow({
+  name,
+  detail,
+  material,
+  active = false,
+}: {
+  name: string;
+  detail: string;
+  material?: string;
+  active?: boolean;
+}) {
+  return (
+    <div className="player-row">
+      <div className={`avatar ${active ? "active" : ""}`} aria-hidden="true">
+        {name === "You" ? "Y" : "O"}
+      </div>
+      <div className="player-copy">
+        <strong>{name}</strong>
+        <span>{detail || "\u00a0"}</span>
+      </div>
+      {material !== undefined && (
+        <span
+          className={`material-balance ${material.startsWith("-") ? "negative" : ""}`}
+          aria-label={`マテリアル差 ${material}`}
+        >
+          {material}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function GearIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M9.7 2h4.6l.55 2.18c.47.2.91.45 1.31.75l2.12-.63 2.3 4-1.57 1.54c.06.38.09.77.09 1.16s-.03.78-.09 1.16l1.57 1.54-2.3 4-2.12-.63c-.4.3-.84.55-1.31.75L14.3 20H9.7l-.55-2.18a7.35 7.35 0 0 1-1.31-.75l-2.12.63-2.3-4 1.57-1.54A7.2 7.2 0 0 1 4.9 11c0-.39.03-.78.09-1.16L3.42 8.3l2.3-4 2.12.63c.4-.3.84-.55 1.31-.75L9.7 2Zm2.3 5.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function promotionSymbol(color: Color, piece: PieceSymbol) {
+  const symbols: Record<Color, Record<PieceSymbol, string>> = {
+    w: { q: "♕", r: "♖", b: "♗", n: "♘", k: "♔", p: "♙" },
+    b: { q: "♛", r: "♜", b: "♝", n: "♞", k: "♚", p: "♟" },
+  };
+  return symbols[color][piece];
 }
