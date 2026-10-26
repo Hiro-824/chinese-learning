@@ -10,11 +10,11 @@ import {
 } from "chess.js";
 import { Chessboard, type ChessboardOptions } from "react-chessboard";
 import {
-  GENERIC_DIALOGUES,
   explainDialogue,
   getMoveTriggerCode,
   loadDialogueSet,
   selectUnusedDialogue,
+  shouldAnnounceTrigger,
   type Dialogue,
   type DialogueActor,
   type DialogueSetNumber,
@@ -95,6 +95,10 @@ export default function Home() {
   const lastCaptureRef = useRef<PreviousCapture | null>(null);
   const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
   const speechEnabledRef = useRef(true);
+  const speechPlayingRef = useRef(false);
+  const speechGenerationRef = useRef(0);
+  const speechSafetyTimerRef = useRef<number | null>(null);
+  const pendingAiMoveRef = useRef<(() => void) | null>(null);
   const dialogueVisibleUntilRef = useRef(0);
 
   const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
@@ -118,18 +122,55 @@ export default function Home() {
   const [resultOpen, setResultOpen] = useState(false);
   const [dialogueSet, setDialogueSet] = useState<DialogueSetNumber>(1);
   const [speechEnabled, setSpeechEnabled] = useState(true);
+  const [speechPlaying, setSpeechPlaying] = useState(false);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
   const [explanationDialogue, setExplanationDialogue] =
     useState<Dialogue | null>(null);
+
+  function finishSpeech(generation: number) {
+    if (speechGenerationRef.current !== generation) return;
+    if (speechSafetyTimerRef.current !== null) {
+      window.clearTimeout(speechSafetyTimerRef.current);
+      speechSafetyTimerRef.current = null;
+    }
+    speechPlayingRef.current = false;
+    setSpeechPlaying(false);
+    const pendingMove = pendingAiMoveRef.current;
+    pendingAiMoveRef.current = null;
+    pendingMove?.();
+  }
+
+  function cancelSpeech(runPendingMove = false) {
+    speechGenerationRef.current += 1;
+    if (speechSafetyTimerRef.current !== null) {
+      window.clearTimeout(speechSafetyTimerRef.current);
+      speechSafetyTimerRef.current = null;
+    }
+    speechPlayingRef.current = false;
+    setSpeechPlaying(false);
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    if (runPendingMove) {
+      const pendingMove = pendingAiMoveRef.current;
+      pendingAiMoveRef.current = null;
+      pendingMove?.();
+    }
+  }
 
   function speak(text: string, force = false) {
     if ((!force && !speechEnabledRef.current) || !("speechSynthesis" in window)) {
       return;
     }
     try {
+      if (speechSafetyTimerRef.current !== null) {
+        window.clearTimeout(speechSafetyTimerRef.current);
+        speechSafetyTimerRef.current = null;
+      }
       window.speechSynthesis.cancel();
+      const generation = speechGenerationRef.current + 1;
+      speechGenerationRef.current = generation;
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = "zh-CN";
+      utterance.rate = 0.78;
       const voices = voicesRef.current;
       utterance.voice =
         voices.find(
@@ -139,8 +180,17 @@ export default function Home() {
         voices.find((voice) => /^zh(?:-|_)CN$/i.test(voice.lang)) ??
         voices.find((voice) => /^zh(?:-|_)/i.test(voice.lang)) ??
         null;
+      speechPlayingRef.current = true;
+      setSpeechPlaying(true);
+      utterance.onend = () => finishSpeech(generation);
+      utterance.onerror = () => finishSpeech(generation);
+      speechSafetyTimerRef.current = window.setTimeout(
+        () => finishSpeech(generation),
+        10000,
+      );
       window.speechSynthesis.speak(utterance);
     } catch {
+      cancelSpeech(true);
       // Dialogue remains usable when speech synthesis is unavailable or blocked.
     }
   }
@@ -159,13 +209,10 @@ export default function Home() {
     speak(dialogue.zhHans);
   }
 
-  function selectDialogue(triggerCode: string, actor?: DialogueActor) {
-    const dedicated = dialoguesRef.current.filter(
+  function selectDialogue(triggerCode: string) {
+    const candidates = dialoguesRef.current.filter(
       (dialogue) => dialogue.triggerCode === triggerCode,
     );
-    const candidates = dedicated.length
-      ? dedicated
-      : GENERIC_DIALOGUES.filter((dialogue) => dialogue.target === actor);
     return selectUnusedDialogue(candidates, usedDialogueIdsRef.current);
   }
 
@@ -181,10 +228,11 @@ export default function Home() {
       },
       lastCaptureRef.current,
     );
-    const dialogue = selectDialogue(triggerCode ?? "normal", actor);
-    showDialogue(dialogue);
+    if (triggerCode && shouldAnnounceTrigger(triggerCode, actor)) {
+      showDialogue(selectDialogue(triggerCode));
+    }
     lastCaptureRef.current = move.isCapture()
-      ? { to: move.to, actor }
+      ? { to: move.to, actor, captured: move.captured! }
       : null;
   }
 
@@ -385,7 +433,8 @@ export default function Home() {
     usedDialogueIdsRef.current.clear();
     lastCaptureRef.current = null;
     dialogueVisibleUntilRef.current = 0;
-    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    pendingAiMoveRef.current = null;
+    cancelSpeech();
 
     setGameDifficulty(difficulty);
     setPlayerColor(color);
@@ -442,16 +491,23 @@ export default function Home() {
 
         aiMoveTimerRef.current = window.setTimeout(() => {
           aiMoveTimerRef.current = null;
-          if (
-            gameIdRef.current !== gameId ||
-            statusRef.current !== "playing" ||
-            !thinkingRef.current
-          ) {
-            return;
+          const completeMove = () => {
+            if (
+              gameIdRef.current !== gameId ||
+              statusRef.current !== "playing" ||
+              !thinkingRef.current
+            ) {
+              return;
+            }
+            thinkingRef.current = false;
+            setThinking(false);
+            applyAiMove(move);
+          };
+          if (speechPlayingRef.current) {
+            pendingAiMoveRef.current = completeMove;
+          } else {
+            completeMove();
           }
-          thinkingRef.current = false;
-          setThinking(false);
-          applyAiMove(move);
         }, delay);
       }
     };
@@ -509,6 +565,11 @@ export default function Home() {
       clearAiMoveTimer();
       workerRef.current?.terminate();
       void audioRef.current?.close();
+      speechGenerationRef.current += 1;
+      pendingAiMoveRef.current = null;
+      if (speechSafetyTimerRef.current !== null) {
+        window.clearTimeout(speechSafetyTimerRef.current);
+      }
       synth?.removeEventListener("voiceschanged", updateVoices);
       synth?.cancel();
     };
@@ -523,14 +584,15 @@ export default function Home() {
 
   async function saveDialogueSet(nextSet: DialogueSetNumber) {
     dialogueSetRef.current = nextSet;
-    setDialogueSet(nextSet);
-    localStorage.setItem(DIALOGUE_SET_KEY, String(nextSet));
-    dialoguesRef.current = [];
     try {
       const loaded = await loadDialogueSet(nextSet);
-      if (dialogueSetRef.current === nextSet) dialoguesRef.current = loaded;
+      if (dialogueSetRef.current === nextSet) {
+        dialoguesRef.current = loaded;
+        setDialogueSet(nextSet);
+        localStorage.setItem(DIALOGUE_SET_KEY, String(nextSet));
+      }
     } catch {
-      // Generic move lines keep the game usable if a local JSON file is missing.
+      // Keep the currently loaded set if a local JSON file is unavailable.
     }
   }
 
@@ -538,7 +600,7 @@ export default function Home() {
     speechEnabledRef.current = enabled;
     setSpeechEnabled(enabled);
     localStorage.setItem(SPEECH_ENABLED_KEY, String(enabled));
-    if (!enabled && "speechSynthesis" in window) window.speechSynthesis.cancel();
+    if (!enabled) cancelSpeech(true);
   }
 
   function beginFirstGame() {
@@ -552,7 +614,8 @@ export default function Home() {
       !square ||
       statusRef.current !== "playing" ||
       chessRef.current.turn() !== playerColorRef.current ||
-      thinkingRef.current
+      thinkingRef.current ||
+      speechPlayingRef.current
     ) {
       setLegalTargets([]);
       return;
@@ -569,6 +632,7 @@ export default function Home() {
       promotion ||
       statusRef.current !== "playing" ||
       thinkingRef.current ||
+      speechPlayingRef.current ||
       chessRef.current.turn() !== playerColorRef.current
     ) {
       return;
@@ -605,17 +669,10 @@ export default function Home() {
     setSelectedSquare(null);
     setLegalTargets([]);
     setPromotion(null);
-    lastCaptureRef.current = move.isCapture()
-      ? { to: move.to, actor: "player" }
-      : null;
     dialogueVisibleUntilRef.current = 0;
+    announceMove(move, "player");
 
-    if (checkGameEnd()) {
-      setCurrentDialogue(null);
-      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-    } else {
-      requestAiMove();
-    }
+    if (!checkGameEnd()) requestAiMove();
     return true;
   }
 
@@ -624,6 +681,7 @@ export default function Home() {
       !targetSquare ||
       statusRef.current !== "playing" ||
       thinkingRef.current ||
+      speechPlayingRef.current ||
       chessRef.current.turn() !== playerColorRef.current
     ) {
       setSelectedSquare(null);
@@ -742,6 +800,7 @@ export default function Home() {
     canDragPiece: ({ piece }) =>
       status === "playing" &&
       !thinking &&
+      !speechPlaying &&
       chessRef.current.turn() === playerColor &&
       piece.pieceType[0] === playerColor,
     onPieceDrag: ({ square }) => {

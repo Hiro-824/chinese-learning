@@ -1,0 +1,6788 @@
+{
+  "annotations" : {
+    "2-dialogue-2" : [
+      {
+        "meaning" : "あなた（敬称）",
+        "phrase" : "您",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "始める・始まる",
+        "phrase" : "开始",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "7-dialogue-1" : [
+      {
+        "meaning" : "バイバイ",
+        "phrase" : "拜拜",
+        "role" : "動詞"
+      }
+    ],
+    "8-dialogue-2" : [
+      {
+        "meaning" : "朝",
+        "phrase" : "早上",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "来る",
+        "phrase" : "来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "下る、置く。チェスでは対局する・指す",
+        "phrase" : "下",
+        "role" : "方向語・動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "9-dialogue-2" : [
+      {
+        "meaning" : "夜・晩",
+        "phrase" : "晚上",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "今夜",
+        "phrase" : "今晚",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "11-dialogue-1" : [
+      {
+        "meaning" : "ごめんなさい",
+        "phrase" : "对不起",
+        "role" : "動詞"
+      }
+    ],
+    "12-dialogue-2" : [
+      {
+        "meaning" : "すみません・恐縮です",
+        "phrase" : "不好意思",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "これ・この一つ",
+        "phrase" : "这个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "13-dialogue-1" : [
+      {
+        "meaning" : "大丈夫です・気にしないで",
+        "phrase" : "没关系",
+        "role" : "定型表現"
+      }
+    ],
+    "20-dialogue-1" : [
+      {
+        "meaning" : "そのとおり",
+        "phrase" : "没错",
+        "role" : "動詞"
+      }
+    ],
+    "23-dialogue-1" : [
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      }
+    ],
+    "24-dialogue-2" : [
+      {
+        "meaning" : "いいよ・可能だ",
+        "phrase" : "行",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "こんなに・このように",
+        "phrase" : "这么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "交換する、交換",
+        "phrase" : "交换",
+        "role" : "チェス表現・動詞"
+      }
+    ],
+    "26-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一頭の馬。チェスではナイト一個",
+        "phrase" : "匹马",
+        "role" : "数量表現"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "強い",
+        "phrase" : "强",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "呼ぶ・〜という名前",
+        "phrase" : "叫",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "何",
+        "phrase" : "什么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "名前",
+        "phrase" : "名字",
+        "role" : "名詞"
+      }
+    ],
+    "36-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "問題・質問",
+        "phrase" : "问题",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "必要とする",
+        "phrase" : "需要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この一つ",
+        "phrase" : "这个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "38-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜は？・問い返しなど",
+        "phrase" : "呢",
+        "role" : "語気助詞"
+      }
+    ],
+    "40-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜も",
+        "phrase" : "也",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "同じだ",
+        "phrase" : "一样",
+        "role" : "形容詞"
+      }
+    ],
+    "43-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "好きである",
+        "phrase" : "喜欢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "チェスなどの駒",
+        "phrase" : "棋子",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "44-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜してもよい・できる",
+        "phrase" : "可以",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この一つ",
+        "phrase" : "这个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "51-dialogue-1" : [
+      {
+        "meaning" : "頑張って！",
+        "phrase" : "加油",
+        "role" : "動詞"
+      }
+    ],
+    "52-dialogue-2" : [
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      },
+      {
+        "meaning" : "あげる・〜に",
+        "phrase" : "给",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      }
+    ],
+    "56-dialogue-2" : [
+      {
+        "meaning" : "だめ・無理",
+        "phrase" : "不行",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "あれ・それ・あの",
+        "phrase" : "那",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "59-dialogue-2" : [
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "意外にも、なんと",
+        "phrase" : "竟然",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "それ（人以外）",
+        "phrase" : "它",
+        "role" : "代名詞"
+      }
+    ],
+    "61-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "決める、定まる",
+        "phrase" : "定",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "63-dialogue-1" : [
+      {
+        "meaning" : "あなた（敬称）",
+        "phrase" : "您",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      }
+    ],
+    "64-dialogue-2" : [
+      {
+        "meaning" : "彼",
+        "phrase" : "他",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      }
+    ],
+    "65-dialogue-1" : [
+      {
+        "meaning" : "彼女",
+        "phrase" : "她",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "73-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "自分",
+        "phrase" : "自己",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "間違っている、間違い",
+        "phrase" : "错",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "75-dialogue-2" : [
+      {
+        "meaning" : "あれ・それ・あの",
+        "phrase" : "那",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      }
+    ],
+    "79-dialogue-1" : [
+      {
+        "meaning" : "あれら・それら",
+        "phrase" : "那些",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "82-dialogue-1" : [
+      {
+        "meaning" : "ここ（儿化）",
+        "phrase" : "这儿",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "縄張り、陣地",
+        "phrase" : "地盘",
+        "role" : "名詞"
+      }
+    ],
+    "84-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "何",
+        "phrase" : "什么",
+        "role" : "代名詞"
+      }
+    ],
+    "85-dialogue-1" : [
+      {
+        "meaning" : "誰",
+        "phrase" : "谁",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "86-dialogue-2" : [
+      {
+        "meaning" : "どの",
+        "phrase" : "哪",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "間違っている、間違い",
+        "phrase" : "错",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "88-dialogue-2" : [
+      {
+        "meaning" : "どこ",
+        "phrase" : "哪里",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "間違っている、間違い",
+        "phrase" : "错",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "89-dialogue-2" : [
+      {
+        "meaning" : "どこ（儿化）",
+        "phrase" : "哪儿",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "間違っている、間違い",
+        "phrase" : "错",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "90-dialogue-1" : [
+      {
+        "meaning" : "何",
+        "phrase" : "什么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "時・頃",
+        "phrase" : "时候",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "終える・終わる",
+        "phrase" : "结束",
+        "role" : "動詞"
+      }
+    ],
+    "92-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "どう・どのように",
+        "phrase" : "怎么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "能力・事情からできる",
+        "phrase" : "能",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "こういうふうに",
+        "phrase" : "这样",
+        "role" : "代名詞"
+      }
+    ],
+    "93-dialogue-1" : [
+      {
+        "meaning" : "どう・どんな具合",
+        "phrase" : "怎么样",
+        "role" : "代名詞"
+      }
+    ],
+    "95-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "まだ・さらに",
+        "phrase" : "还",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "必要とする",
+        "phrase" : "需要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "いくつ（小さい数）",
+        "phrase" : "几",
+        "role" : "疑問数詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "やっと・〜になって初めて",
+        "phrase" : "才",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "能力・事情からできる",
+        "phrase" : "能",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜は？・問い返しなど",
+        "phrase" : "呢",
+        "role" : "語気助詞"
+      }
+    ],
+    "99-dialogue-1" : [
+      {
+        "meaning" : "だめ・無理",
+        "phrase" : "不行",
+        "role" : "形容詞"
+      }
+    ],
+    "101-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "面倒だ、迷惑をかける",
+        "phrase" : "麻烦",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "103-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "104-dialogue-2" : [
+      {
+        "meaning" : "準備する",
+        "phrase" : "准备",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "106-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "108-dialogue-2" : [
+      {
+        "meaning" : "ああ・語気を整える",
+        "phrase" : "啊",
+        "role" : "語気助詞"
+      },
+      {
+        "meaning" : "チェスでチェックする、王手をかける",
+        "phrase" : "将军",
+        "role" : "チェス用語"
+      }
+    ],
+    "109-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜も",
+        "phrase" : "也",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      }
+    ],
+    "110-dialogue-1" : [
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜していない・〜がない",
+        "phrase" : "没",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "116-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "二つ（数量）",
+        "phrase" : "两",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "123-dialogue-2" : [
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "価値がある、値する",
+        "phrase" : "值",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "9点",
+        "phrase" : "九分",
+        "role" : "数量表現"
+      }
+    ],
+    "128-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "する・作る",
+        "phrase" : "做",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "何",
+        "phrase" : "什么",
+        "role" : "代名詞"
+      }
+    ],
+    "129-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "行く",
+        "phrase" : "去",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "どこ",
+        "phrase" : "哪里",
+        "role" : "代名詞"
+      }
+    ],
+    "131-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "戻る",
+        "phrase" : "回",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "行く",
+        "phrase" : "去",
+        "role" : "動詞"
+      }
+    ],
+    "133-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      }
+    ],
+    "134-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "走る",
+        "phrase" : "跑",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "落ちる、失われる。動作の完了も表す",
+        "phrase" : "掉",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "135-dialogue-1" : [
+      {
+        "meaning" : "見る・読む",
+        "phrase" : "看",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "ここ",
+        "phrase" : "这里",
+        "role" : "代名詞"
+      }
+    ],
+    "136-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "見える・目に入る",
+        "phrase" : "看见",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "車。チェスの文脈ではルーク",
+        "phrase" : "车",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "137-dialogue-1" : [
+      {
+        "meaning" : "聞く",
+        "phrase" : "听",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "言う・話す",
+        "phrase" : "说",
+        "role" : "動詞"
+      }
+    ],
+    "139-dialogue-1" : [
+      {
+        "meaning" : "〜しないで",
+        "phrase" : "别",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "言う・話す",
+        "phrase" : "说",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "144-dialogue-1" : [
+      {
+        "meaning" : "飲む",
+        "phrase" : "喝",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "コップ一杯の量詞",
+        "phrase" : "杯",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "お茶",
+        "phrase" : "茶",
+        "role" : "名詞"
+      }
+    ],
+    "148-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "持っていく、取り去る",
+        "phrase" : "拿走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "149-dialogue-1" : [
+      {
+        "meaning" : "見逃す、許す",
+        "phrase" : "放过",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "154-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "来る",
+        "phrase" : "来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "教える",
+        "phrase" : "教",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      }
+    ],
+    "157-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "知っている",
+        "phrase" : "知道",
+        "role" : "動詞"
+      }
+    ],
+    "158-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "知り合いである・見知る",
+        "phrase" : "认识",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "彼",
+        "phrase" : "他",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "159-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "思う・〜したい",
+        "phrase" : "想",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "ボードゲームの駒・棋戯",
+        "phrase" : "棋",
+        "role" : "名詞"
+      }
+    ],
+    "161-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "必要とする",
+        "phrase" : "需要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あれ・それ・あの一つ",
+        "phrase" : "那个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "車。チェスの文脈ではルーク",
+        "phrase" : "车",
+        "role" : "名詞"
+      }
+    ],
+    "162-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "最も",
+        "phrase" : "最",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "好きである",
+        "phrase" : "喜欢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あれ・それ・あの",
+        "phrase" : "那",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一頭の馬。チェスではナイト一個",
+        "phrase" : "匹马",
+        "role" : "数量表現"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "165-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "能力・事情からできる",
+        "phrase" : "能",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "逃げる",
+        "phrase" : "逃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "167-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜しなければならない",
+        "phrase" : "必须",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "守る、保護する",
+        "phrase" : "保护",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "168-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜と感じる・思う",
+        "phrase" : "觉得",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "今日",
+        "phrase" : "今天",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "（習得して）できる・〜だろう",
+        "phrase" : "会",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      }
+    ],
+    "171-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "忘れる",
+        "phrase" : "忘",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "172-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "理解する",
+        "phrase" : "懂",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "チェスなどの盤ゲームを指す",
+        "phrase" : "下棋",
+        "role" : "チェス表現・動詞"
+      }
+    ],
+    "175-dialogue-2" : [
+      {
+        "meaning" : "〜しないで",
+        "phrase" : "别",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "伝える",
+        "phrase" : "告诉",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "お母さん",
+        "phrase" : "妈妈",
+        "role" : "名詞"
+      }
+    ],
+    "177-dialogue-2" : [
+      {
+        "meaning" : "第一の",
+        "phrase" : "第一",
+        "role" : "順序数詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜させる・譲る",
+        "phrase" : "让",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      }
+    ],
+    "179-dialogue-1" : [
+      {
+        "meaning" : "必要とする",
+        "phrase" : "需要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "手伝う",
+        "phrase" : "帮忙",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "180-dialogue-1" : [
+      {
+        "meaning" : "我々",
+        "phrase" : "我等",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "長い間",
+        "phrase" : "久",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "182-dialogue-1" : [
+      {
+        "meaning" : "終える・終わる",
+        "phrase" : "结束",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "189-dialogue-1" : [
+      {
+        "meaning" : "希望する",
+        "phrase" : "希望",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "好きである",
+        "phrase" : "喜欢",
+        "role" : "動詞"
+      }
+    ],
+    "191-dialogue-2" : [
+      {
+        "meaning" : "〜しないで",
+        "phrase" : "别",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "心配する",
+        "phrase" : "担心",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "まだある、さらにある",
+        "phrase" : "还有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "チェスなどの駒",
+        "phrase" : "棋子",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "192-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜にいる・〜で・進行中",
+        "phrase" : "在",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "危険だ",
+        "phrase" : "危险",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "中、中央",
+        "phrase" : "中",
+        "role" : "場所表現"
+      }
+    ],
+    "193-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ちょうど〜している",
+        "phrase" : "正在",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      }
+    ],
+    "194-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "待つ",
+        "phrase" : "等",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "継続中の状態などを示す",
+        "phrase" : "着",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜は？・問い返しなど",
+        "phrase" : "呢",
+        "role" : "語気助詞"
+      }
+    ],
+    "195-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "これまで（通常否定と）",
+        "phrase" : "从来",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜していない・〜がない",
+        "phrase" : "没",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "経験などを表す",
+        "phrase" : "过",
+        "role" : "助詞"
+      }
+    ],
+    "197-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "真剣だ、まじめだ",
+        "phrase" : "认真",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "状況語を導く助詞",
+        "phrase" : "地",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜と・〜について",
+        "phrase" : "跟",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "下る、置く。チェスでは対局する・指す",
+        "phrase" : "下",
+        "role" : "方向語・動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      }
+    ],
+    "200-dialogue-2" : [
+      {
+        "meaning" : "〜から",
+        "phrase" : "从",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "今",
+        "phrase" : "现在",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "始める・始まる",
+        "phrase" : "开始",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "遠慮する、礼儀正しい",
+        "phrase" : "客气",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "202-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜より",
+        "phrase" : "比",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "すごい、手ごわい",
+        "phrase" : "厉害",
+        "role" : "形容詞"
+      }
+    ],
+    "204-dialogue-1" : [
+      {
+        "meaning" : "だから",
+        "phrase" : "所以",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "207-dialogue-2" : [
+      {
+        "meaning" : "もし〜なら",
+        "phrase" : "如果",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "わざと",
+        "phrase" : "故意",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "208-dialogue-2" : [
+      {
+        "meaning" : "あれ・それ・あの",
+        "phrase" : "那",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "始める・始まる",
+        "phrase" : "开始",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "211-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "また（すでに）",
+        "phrase" : "又",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "来る",
+        "phrase" : "来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "挑戦する、挑戦",
+        "phrase" : "挑战",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "212-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "さらに必要だ、まだ〜する",
+        "phrase" : "还要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "打つ、する",
+        "phrase" : "打",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "215-dialogue-2" : [
+      {
+        "meaning" : "あれ・それ・あの",
+        "phrase" : "那",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "最も",
+        "phrase" : "最",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "好きである",
+        "phrase" : "喜欢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "217-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "比較的",
+        "phrase" : "比较",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "好きである",
+        "phrase" : "喜欢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "使う",
+        "phrase" : "用",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      }
+    ],
+    "218-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "知っている",
+        "phrase" : "知道",
+        "role" : "動詞"
+      }
+    ],
+    "219-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "理解する",
+        "phrase" : "懂",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "なぜ",
+        "phrase" : "为什么",
+        "role" : "代名詞"
+      }
+    ],
+    "220-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "わかる・明らかだ",
+        "phrase" : "明白",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "221-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "思う・〜したい",
+        "phrase" : "想",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この一つ",
+        "phrase" : "这个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "車。チェスの文脈ではルーク",
+        "phrase" : "车",
+        "role" : "名詞"
+      }
+    ],
+    "222-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この一つ",
+        "phrase" : "这个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "〜してもよい・できる",
+        "phrase" : "可以",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "224-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "236-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "学ぶ",
+        "phrase" : "学",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "到着する・〜まで",
+        "phrase" : "到",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "いくらか",
+        "phrase" : "一些",
+        "role" : "数量表現"
+      },
+      {
+        "meaning" : "物・もの",
+        "phrase" : "东西",
+        "role" : "名詞"
+      }
+    ],
+    "237-dialogue-1" : [
+      {
+        "meaning" : "死ぬ",
+        "phrase" : "死",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "たくさん",
+        "phrase" : "很多",
+        "role" : "数量表現"
+      },
+      {
+        "meaning" : "人",
+        "phrase" : "人",
+        "role" : "名詞"
+      }
+    ],
+    "239-dialogue-1" : [
+      {
+        "meaning" : "毎〜・それぞれ",
+        "phrase" : "每",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "重要だ",
+        "phrase" : "重要",
+        "role" : "形容詞"
+      }
+    ],
+    "240-dialogue-1" : [
+      {
+        "meaning" : "それぞれの",
+        "phrase" : "每个",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "重要だ",
+        "phrase" : "重要",
+        "role" : "形容詞"
+      }
+    ],
+    "241-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "第一の",
+        "phrase" : "第一",
+        "role" : "順序数詞"
+      },
+      {
+        "meaning" : "局、ゲームを数える量詞",
+        "phrase" : "局",
+        "role" : "名詞・量詞"
+      }
+    ],
+    "245-dialogue-2" : [
+      {
+        "meaning" : "今",
+        "phrase" : "现在",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "受け身の標識",
+        "phrase" : "被",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "チェスでチェックする、王手をかける",
+        "phrase" : "将军",
+        "role" : "チェス用語"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "247-dialogue-2" : [
+      {
+        "meaning" : "明日",
+        "phrase" : "明天",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "再び・あとで",
+        "phrase" : "再",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "下る、置く。チェスでは対局する・指す",
+        "phrase" : "下",
+        "role" : "方向語・動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      }
+    ],
+    "257-dialogue-1" : [
+      {
+        "meaning" : "夜中",
+        "phrase" : "夜里",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "チェスなどの盤ゲームを指す",
+        "phrase" : "下棋",
+        "role" : "チェス表現・動詞"
+      },
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "静かだ",
+        "phrase" : "安静",
+        "role" : "形容詞"
+      }
+    ],
+    "258-dialogue-1" : [
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "費やす、費用がかかる",
+        "phrase" : "费",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "時間（長さ）",
+        "phrase" : "小时",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "260-dialogue-1" : [
+      {
+        "meaning" : "〜しさえすれば",
+        "phrase" : "只要",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "いくつ（小さい数）",
+        "phrase" : "几",
+        "role" : "疑問数詞"
+      },
+      {
+        "meaning" : "秒",
+        "phrase" : "秒",
+        "role" : "時間・数量表現"
+      }
+    ],
+    "262-dialogue-2" : [
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "時・頃",
+        "phrase" : "时候",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "攻める、攻撃",
+        "phrase" : "进攻",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "264-dialogue-1" : [
+      {
+        "meaning" : "以後",
+        "phrase" : "以后",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "気をつけて",
+        "phrase" : "小心",
+        "role" : "動詞"
+      }
+    ],
+    "267-dialogue-2" : [
+      {
+        "meaning" : "さっき",
+        "phrase" : "刚才",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "油断する",
+        "phrase" : "大意",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "271-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "毎日",
+        "phrase" : "每天",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "チェスなどの盤ゲームを指す",
+        "phrase" : "下棋",
+        "role" : "チェス表現・動詞"
+      }
+    ],
+    "291-dialogue-2" : [
+      {
+        "meaning" : "小さな兵士。チェスではポーン",
+        "phrase" : "小兵",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "〜の方向へ",
+        "phrase" : "往",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "前",
+        "phrase" : "前",
+        "role" : "方向・位置表現"
+      },
+      {
+        "meaning" : "突進する、突っ込む",
+        "phrase" : "冲",
+        "role" : "動詞"
+      }
+    ],
+    "297-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜にいる・〜で・進行中",
+        "phrase" : "在",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "隣・そば",
+        "phrase" : "旁边",
+        "role" : "場所表現"
+      }
+    ],
+    "298-dialogue-2" : [
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "占領する",
+        "phrase" : "占领",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "チェス盤",
+        "phrase" : "棋盘",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "真ん中",
+        "phrase" : "中间",
+        "role" : "場所表現"
+      }
+    ],
+    "299-dialogue-1" : [
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "近く",
+        "phrase" : "附近",
+        "role" : "場所表現"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "危険だ",
+        "phrase" : "危险",
+        "role" : "形容詞"
+      }
+    ],
+    "301-dialogue-1" : [
+      {
+        "meaning" : "チェス盤",
+        "phrase" : "棋盘",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "上・上側",
+        "phrase" : "上面",
+        "role" : "場所表現"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "三",
+        "phrase" : "三",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "十二",
+        "phrase" : "十二",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "チェスなどの駒",
+        "phrase" : "棋子",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "307-dialogue-1" : [
+      {
+        "meaning" : "左側",
+        "phrase" : "左边",
+        "role" : "場所表現"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "危険だ",
+        "phrase" : "危险",
+        "role" : "形容詞"
+      }
+    ],
+    "313-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "大きい",
+        "phrase" : "大",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "ミス、失敗",
+        "phrase" : "失误",
+        "role" : "動詞"
+      }
+    ],
+    "314-dialogue-1" : [
+      {
+        "meaning" : "たいしたことではない",
+        "phrase" : "小事一桩",
+        "role" : "定型表現"
+      }
+    ],
+    "316-dialogue-2" : [
+      {
+        "meaning" : "少ない",
+        "phrase" : "少",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "〜していない・〜がない",
+        "phrase" : "没",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "関係",
+        "phrase" : "关系",
+        "role" : "名詞"
+      }
+    ],
+    "318-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "お茶",
+        "phrase" : "茶",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "飲む",
+        "phrase" : "喝",
+        "role" : "動詞"
+      }
+    ],
+    "320-dialogue-1" : [
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "難しい",
+        "phrase" : "难",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "逃げ去る",
+        "phrase" : "逃走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "321-dialogue-2" : [
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "易しい・容易だ",
+        "phrase" : "容易",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "322-dialogue-2" : [
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "簡単だ",
+        "phrase" : "简单",
+        "role" : "形容詞"
+      }
+    ],
+    "323-dialogue-1" : [
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "重要だ",
+        "phrase" : "重要",
+        "role" : "形容詞"
+      }
+    ],
+    "327-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "〜させる・譲る",
+        "phrase" : "让",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "目覚める",
+        "phrase" : "醒",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "こちらへ来る",
+        "phrase" : "过来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "329-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "行く",
+        "phrase" : "去",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "顔を洗う",
+        "phrase" : "洗脸",
+        "role" : "動詞"
+      }
+    ],
+    "343-dialogue-1" : [
+      {
+        "meaning" : "出る",
+        "phrase" : "出",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "来る",
+        "phrase" : "来",
+        "role" : "動詞"
+      }
+    ],
+    "344-dialogue-2" : [
+      {
+        "meaning" : "どうぞ・〜してください",
+        "phrase" : "请",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "出ていく",
+        "phrase" : "出去",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "象。チェスの文脈ではビショップを指すことがある",
+        "phrase" : "象",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜さん・男性への敬称",
+        "phrase" : "先生",
+        "role" : "名詞"
+      }
+    ],
+    "348-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "こちらへ来る",
+        "phrase" : "过来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "352-dialogue-2" : [
+      {
+        "meaning" : "目的語を先に置く構文の標識",
+        "phrase" : "把",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "まだ・さらに",
+        "phrase" : "还",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "あげる・〜に",
+        "phrase" : "给",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      }
+    ],
+    "357-dialogue-2" : [
+      {
+        "meaning" : "おっと、しまった",
+        "phrase" : "哎呀",
+        "role" : "感嘆詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "なくす・捨てる",
+        "phrase" : "丢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "車。チェスの文脈ではルーク",
+        "phrase" : "车",
+        "role" : "名詞"
+      }
+    ],
+    "358-dialogue-1" : [
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "壊れる・悪い",
+        "phrase" : "坏",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "360-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "準備する",
+        "phrase" : "准备",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "来る",
+        "phrase" : "来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "361-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ただ〜だけだ",
+        "phrase" : "只是",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "掃除する",
+        "phrase" : "打扫",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "少し〜する",
+        "phrase" : "一下",
+        "role" : "数量補語"
+      },
+      {
+        "meaning" : "チェス盤",
+        "phrase" : "棋盘",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "365-dialogue-1" : [
+      {
+        "meaning" : "切断する",
+        "phrase" : "切断",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "道",
+        "phrase" : "路",
+        "role" : "名詞"
+      }
+    ],
+    "366-dialogue-1" : [
+      {
+        "meaning" : "ちょっと味わう、試してみる",
+        "phrase" : "尝尝",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この一つ",
+        "phrase" : "这个",
+        "role" : "代名詞"
+      }
+    ],
+    "377-dialogue-1" : [
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "踊る",
+        "phrase" : "跳舞",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "378-dialogue-1" : [
+      {
+        "meaning" : "しっかり、十分に",
+        "phrase" : "好好",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "遊ぶ",
+        "phrase" : "玩",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "379-dialogue-2" : [
+      {
+        "meaning" : "ゲームをする（名詞としても）",
+        "phrase" : "游戏",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "始める・始まる",
+        "phrase" : "开始",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "380-dialogue-2" : [
+      {
+        "meaning" : "チェス",
+        "phrase" : "国际象棋",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "頭脳の力",
+        "phrase" : "脑力",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "運動・スポーツ／運動する",
+        "phrase" : "运动",
+        "role" : "名詞"
+      }
+    ],
+    "382-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "（自転車などに）乗る",
+        "phrase" : "骑",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      }
+    ],
+    "395-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "同意する",
+        "phrase" : "同意",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "今回",
+        "phrase" : "这次",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "交換する、交換",
+        "phrase" : "交换",
+        "role" : "チェス表現・動詞"
+      }
+    ],
+    "396-dialogue-2" : [
+      {
+        "meaning" : "ただで与える",
+        "phrase" : "白送",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "車。チェスの文脈ではルーク",
+        "phrase" : "车",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "能力・事情からできる",
+        "phrase" : "能",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "断る",
+        "phrase" : "拒绝",
+        "role" : "動詞"
+      }
+    ],
+    "397-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "承諾する",
+        "phrase" : "答应",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "401-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "まだ・さらに",
+        "phrase" : "还",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "必要とする",
+        "phrase" : "需要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "多い",
+        "phrase" : "多",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "練習・練習する",
+        "phrase" : "练习",
+        "role" : "名詞"
+      }
+    ],
+    "402-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "戻っていく",
+        "phrase" : "回去",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "復習する",
+        "phrase" : "复习",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "少し〜する",
+        "phrase" : "一下",
+        "role" : "数量補語"
+      },
+      {
+        "meaning" : "棋譜",
+        "phrase" : "棋谱",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "403-dialogue-2" : [
+      {
+        "meaning" : "今日",
+        "phrase" : "今天",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "合っている・そうです",
+        "phrase" : "对",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "試験・試験を受ける",
+        "phrase" : "考试",
+        "role" : "動詞"
+      }
+    ],
+    "404-dialogue-2" : [
+      {
+        "meaning" : "課題・任務",
+        "phrase" : "任务",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "完成する",
+        "phrase" : "完成",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しようとする。将軍の略にもなる",
+        "phrase" : "将",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "死ぬ",
+        "phrase" : "死",
+        "role" : "動詞"
+      }
+    ],
+    "411-dialogue-2" : [
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "チェスなどの駒",
+        "phrase" : "棋子",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "減る・減らす",
+        "phrase" : "减少",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "412-dialogue-1" : [
+      {
+        "meaning" : "どうぞ・〜してください",
+        "phrase" : "请",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "入る",
+        "phrase" : "进",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "わな",
+        "phrase" : "陷阱",
+        "role" : "名詞"
+      }
+    ],
+    "413-dialogue-1" : [
+      {
+        "meaning" : "どうぞ・〜してください",
+        "phrase" : "请",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "座る・乗る",
+        "phrase" : "坐",
+        "role" : "動詞"
+      }
+    ],
+    "414-dialogue-1" : [
+      {
+        "meaning" : "どうぞ・〜してください",
+        "phrase" : "请",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "待つ",
+        "phrase" : "等",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "少し〜する",
+        "phrase" : "一下",
+        "role" : "数量補語"
+      }
+    ],
+    "415-dialogue-1" : [
+      {
+        "meaning" : "遅い",
+        "phrase" : "慢",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "少し",
+        "phrase" : "一点",
+        "role" : "数量表現"
+      }
+    ],
+    "417-dialogue-1" : [
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "使う",
+        "phrase" : "用",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "418-dialogue-1" : [
+      {
+        "meaning" : "〜する必要がない",
+        "phrase" : "不用",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "感謝する、ありがとう",
+        "phrase" : "谢",
+        "role" : "動詞"
+      }
+    ],
+    "419-dialogue-1" : [
+      {
+        "meaning" : "〜しないで",
+        "phrase" : "别",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "心配する",
+        "phrase" : "担心",
+        "role" : "動詞"
+      }
+    ],
+    "421-dialogue-2" : [
+      {
+        "meaning" : "気をつけて",
+        "phrase" : "小心",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "チェスでチェックする、王手をかける",
+        "phrase" : "将军",
+        "role" : "チェス用語"
+      }
+    ],
+    "422-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "本当に〜だ",
+        "phrase" : "真是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "悪者",
+        "phrase" : "坏人",
+        "role" : "名詞"
+      }
+    ],
+    "431-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "（習得して）できる・〜だろう",
+        "phrase" : "会",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "こういうふうに",
+        "phrase" : "这样",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "合っている・そうです",
+        "phrase" : "对",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "友だち",
+        "phrase" : "朋友",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "433-dialogue-1" : [
+      {
+        "meaning" : "歓迎する、ようこそ",
+        "phrase" : "欢迎",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "新しい",
+        "phrase" : "新",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "同級生",
+        "phrase" : "同学",
+        "role" : "名詞"
+      }
+    ],
+    "437-dialogue-2" : [
+      {
+        "meaning" : "〜しようとする。将軍の略にもなる",
+        "phrase" : "将",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "死ぬ",
+        "phrase" : "死",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "生徒・学生",
+        "phrase" : "学生",
+        "role" : "名詞"
+      }
+    ],
+    "438-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "必要とする",
+        "phrase" : "需要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "医師",
+        "phrase" : "医生",
+        "role" : "名詞"
+      }
+    ],
+    "442-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "社長・店主",
+        "phrase" : "老板",
+        "role" : "名詞"
+      }
+    ],
+    "448-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "チェスなどの駒",
+        "phrase" : "棋子",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜のようだ、似ている",
+        "phrase" : "像",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "家族",
+        "phrase" : "家人",
+        "role" : "名詞"
+      }
+    ],
+    "451-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "伝える",
+        "phrase" : "告诉",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "お母さん",
+        "phrase" : "妈妈",
+        "role" : "名詞"
+      }
+    ],
+    "469-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "名前",
+        "phrase" : "名字",
+        "role" : "名詞"
+      }
+    ],
+    "479-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "面目がない",
+        "phrase" : "没脸",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "会う、見る",
+        "phrase" : "见",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "人",
+        "phrase" : "人",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "480-dialogue-1" : [
+      {
+        "meaning" : "閉じる",
+        "phrase" : "闭",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "上",
+        "phrase" : "上",
+        "role" : "方向・位置表現"
+      },
+      {
+        "meaning" : "目",
+        "phrase" : "眼睛",
+        "role" : "名詞"
+      }
+    ],
+    "490-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "腹",
+        "phrase" : "肚子",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "空腹だ",
+        "phrase" : "饿",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "思う・〜したい",
+        "phrase" : "想",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "491-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "心・心臓",
+        "phrase" : "心",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "痛い",
+        "phrase" : "痛",
+        "role" : "形容詞"
+      }
+    ],
+    "494-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "熱が出る",
+        "phrase" : "发烧",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "496-dialogue-2" : [
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "痛い",
+        "phrase" : "痛",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "しかし",
+        "phrase" : "但",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "下る、置く。チェスでは対局する・指す",
+        "phrase" : "下",
+        "role" : "方向語・動詞"
+      },
+      {
+        "meaning" : "動詞後の程度補語などを導く",
+        "phrase" : "得",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      }
+    ],
+    "497-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "疲れている",
+        "phrase" : "累",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "499-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "喉が渇いている",
+        "phrase" : "渴",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "501-dialogue-2" : [
+      {
+        "meaning" : "今回",
+        "phrase" : "这次",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "交換する、交換",
+        "phrase" : "交换",
+        "role" : "チェス表現・動詞"
+      },
+      {
+        "meaning" : "〜させる・譲る",
+        "phrase" : "让",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "快適だ",
+        "phrase" : "舒服",
+        "role" : "形容詞"
+      }
+    ],
+    "502-dialogue-2" : [
+      {
+        "meaning" : "ない・持っていない",
+        "phrase" : "没有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "つらい・気分が悪い",
+        "phrase" : "难受",
+        "role" : "形容詞"
+      }
+    ],
+    "506-dialogue-1" : [
+      {
+        "meaning" : "時間",
+        "phrase" : "时间",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "短い",
+        "phrase" : "短",
+        "role" : "形容詞"
+      }
+    ],
+    "507-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "太っている",
+        "phrase" : "胖",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "511-dialogue-1" : [
+      {
+        "meaning" : "する、やる",
+        "phrase" : "干",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "動詞後の程度補語などを導く",
+        "phrase" : "得",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "きれいだ",
+        "phrase" : "漂亮",
+        "role" : "形容詞"
+      }
+    ],
+    "515-dialogue-2" : [
+      {
+        "meaning" : "食べてしまう。チェスでは駒を取る",
+        "phrase" : "吃掉",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "うれしい",
+        "phrase" : "高兴",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "516-dialogue-1" : [
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "うれしい・楽しい",
+        "phrase" : "开心",
+        "role" : "形容詞"
+      }
+    ],
+    "517-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "怒っている",
+        "phrase" : "生气",
+        "role" : "形容詞"
+      }
+    ],
+    "518-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "怖がる",
+        "phrase" : "害怕",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "551-dialogue-1" : [
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "料理・野菜",
+        "phrase" : "菜",
+        "role" : "名詞"
+      }
+    ],
+    "555-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "朝食",
+        "phrase" : "早餐",
+        "role" : "名詞"
+      }
+    ],
+    "560-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜にいる・〜で・進行中",
+        "phrase" : "在",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "メニュー",
+        "phrase" : "菜单",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "上",
+        "phrase" : "上",
+        "role" : "方向・位置表現"
+      }
+    ],
+    "566-dialogue-1" : [
+      {
+        "meaning" : "〜にいる・〜で・進行中",
+        "phrase" : "在",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "机・テーブル",
+        "phrase" : "桌子",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "上",
+        "phrase" : "上",
+        "role" : "方向・位置表現"
+      }
+    ],
+    "584-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "思う・〜したい",
+        "phrase" : "想",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "家へ帰る",
+        "phrase" : "回家",
+        "role" : "動詞"
+      }
+    ],
+    "595-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "守る、防御",
+        "phrase" : "防守",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜のようだ、似ている",
+        "phrase" : "像",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "壁",
+        "phrase" : "墙",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "同じだ",
+        "phrase" : "一样",
+        "role" : "形容詞"
+      }
+    ],
+    "619-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜させる・譲る",
+        "phrase" : "让",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "思い出す",
+        "phrase" : "想起",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "高校",
+        "phrase" : "高中",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "時代",
+        "phrase" : "时代",
+        "role" : "名詞"
+      }
+    ],
+    "624-dialogue-1" : [
+      {
+        "meaning" : "授業が終わる",
+        "phrase" : "下课",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "638-dialogue-2" : [
+      {
+        "meaning" : "〜しようとする。将軍の略にもなる",
+        "phrase" : "将",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "死ぬ",
+        "phrase" : "死",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "言語",
+        "phrase" : "语言",
+        "role" : "名詞"
+      }
+    ],
+    "649-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "答え",
+        "phrase" : "答案",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "650-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "道。細長いものなどの量詞にもなる",
+        "phrase" : "道",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "設問",
+        "phrase" : "题",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "難しい",
+        "phrase" : "难",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "652-dialogue-2" : [
+      {
+        "meaning" : "五",
+        "phrase" : "五",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "点、分",
+        "phrase" : "分",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "手に入る",
+        "phrase" : "到手",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "点数",
+        "phrase" : "分数",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜のものになる、帰属する",
+        "phrase" : "归",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "654-dialogue-2" : [
+      {
+        "meaning" : "〜させる・譲る",
+        "phrase" : "让",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ちょっと見る、見てみる",
+        "phrase" : "看看",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "チェス",
+        "phrase" : "国际象棋",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "知識",
+        "phrase" : "知识",
+        "role" : "名詞"
+      }
+    ],
+    "658-dialogue-2" : [
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "物語",
+        "phrase" : "故事",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "終える・終わる",
+        "phrase" : "结束",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "682-dialogue-1" : [
+      {
+        "meaning" : "本当に〜だ",
+        "phrase" : "真是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "壊れる・悪い",
+        "phrase" : "坏",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "メッセージ・知らせ",
+        "phrase" : "消息",
+        "role" : "名詞"
+      }
+    ],
+    "689-dialogue-2" : [
+      {
+        "meaning" : "食べる。チェスでは相手の駒を取る",
+        "phrase" : "吃",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "兵士。チェスではポーン",
+        "phrase" : "兵",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "仕事",
+        "phrase" : "工作",
+        "role" : "動詞"
+      }
+    ],
+    "700-dialogue-2" : [
+      {
+        "meaning" : "行く",
+        "phrase" : "去",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "度、程度を数える単位",
+        "phrase" : "度",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一般的な量詞",
+        "phrase" : "个",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "休暇",
+        "phrase" : "假期",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "馬",
+        "phrase" : "马儿",
+        "role" : "名詞"
+      }
+    ],
+    "702-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "趣味",
+        "phrase" : "爱好",
+        "role" : "名詞"
+      }
+    ],
+    "708-dialogue-1" : [
+      {
+        "meaning" : "チェスなどの盤ゲームを指す",
+        "phrase" : "下棋",
+        "role" : "チェス表現・動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "710-dialogue-2" : [
+      {
+        "meaning" : "チェス",
+        "phrase" : "国际象棋",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "命",
+        "phrase" : "生命",
+        "role" : "名詞"
+      }
+    ],
+    "711-dialogue-2" : [
+      {
+        "meaning" : "新しい",
+        "phrase" : "新",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "試合などを数える量詞、場所",
+        "phrase" : "场",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "試合",
+        "phrase" : "比赛",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "始める・始まる",
+        "phrase" : "开始",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "712-dialogue-2" : [
+      {
+        "meaning" : "ルール",
+        "phrase" : "规则",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "簡単だ",
+        "phrase" : "简单",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "白の駒、白番",
+        "phrase" : "白棋",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      }
+    ],
+    "769-dialogue-1" : [
+      {
+        "meaning" : "〜へ戻る",
+        "phrase" : "回到",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "座席",
+        "phrase" : "座位",
+        "role" : "名詞"
+      }
+    ],
+    "771-dialogue-1" : [
+      {
+        "meaning" : "速度",
+        "phrase" : "速度",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "速い",
+        "phrase" : "快",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "777-dialogue-2" : [
+      {
+        "meaning" : "小さな兵士。チェスではポーン",
+        "phrase" : "小兵",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "ただ〜だけ／動物を数える量詞",
+        "phrase" : "只",
+        "role" : "副詞・量詞"
+      },
+      {
+        "meaning" : "能力・事情からできる",
+        "phrase" : "能",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜の方向へ",
+        "phrase" : "往",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "前",
+        "phrase" : "前",
+        "role" : "方向・位置表現"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      }
+    ],
+    "780-dialogue-1" : [
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "出発する",
+        "phrase" : "出发",
+        "role" : "動詞"
+      }
+    ],
+    "784-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ただ〜だけだ",
+        "phrase" : "只是",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "通りかかる",
+        "phrase" : "路过",
+        "role" : "動詞"
+      }
+    ],
+    "786-dialogue-2" : [
+      {
+        "meaning" : "〜に向かって",
+        "phrase" : "向",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "攻める、攻撃",
+        "phrase" : "进攻",
+        "role" : "動詞"
+      }
+    ],
+    "793-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "道に迷う",
+        "phrase" : "迷路",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "808-dialogue-2" : [
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "突然",
+        "phrase" : "突然",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "814-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      }
+    ],
+    "817-dialogue-1" : [
+      {
+        "meaning" : "かわいそうだ",
+        "phrase" : "可怜",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "羊",
+        "phrase" : "羊",
+        "role" : "名詞"
+      }
+    ],
+    "824-dialogue-2" : [
+      {
+        "meaning" : "気をつけて",
+        "phrase" : "小心",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "チェス盤",
+        "phrase" : "棋盘",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "上",
+        "phrase" : "上",
+        "role" : "方向・位置表現"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "トラ",
+        "phrase" : "老虎",
+        "role" : "名詞"
+      }
+    ],
+    "831-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "食べてしまう。チェスでは駒を取る",
+        "phrase" : "吃掉",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "ペット",
+        "phrase" : "宠物",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "馬。チェスの文脈ではナイト",
+        "phrase" : "马",
+        "role" : "名詞"
+      }
+    ],
+    "833-dialogue-1" : [
+      {
+        "meaning" : "空",
+        "phrase" : "天空",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "晴れて明るい",
+        "phrase" : "晴朗",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "840-dialogue-1" : [
+      {
+        "meaning" : "風",
+        "phrase" : "风",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "大きい",
+        "phrase" : "大",
+        "role" : "形容詞"
+      }
+    ],
+    "841-dialogue-2" : [
+      {
+        "meaning" : "今日",
+        "phrase" : "今天",
+        "role" : "時間表現"
+      },
+      {
+        "meaning" : "天気",
+        "phrase" : "天气",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "悪くない、なかなかよい",
+        "phrase" : "不错",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "適している",
+        "phrase" : "适合",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "チェスなどの盤ゲームを指す",
+        "phrase" : "下棋",
+        "role" : "チェス表現・動詞"
+      }
+    ],
+    "863-dialogue-1" : [
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "冷酷だ",
+        "phrase" : "冷酷",
+        "role" : "形容詞"
+      }
+    ],
+    "878-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "白の駒、白番",
+        "phrase" : "白棋",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "881-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "使う",
+        "phrase" : "用",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "黒色",
+        "phrase" : "黑色",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "チェスなどの駒",
+        "phrase" : "棋子",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      }
+    ],
+    "886-dialogue-1" : [
+      {
+        "meaning" : "本当に〜だ",
+        "phrase" : "真是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "塊。かけらなどを数える量詞",
+        "phrase" : "块",
+        "role" : "量詞"
+      },
+      {
+        "meaning" : "手ごわい相手、硬骨漢",
+        "phrase" : "硬骨头",
+        "role" : "名詞"
+      }
+    ],
+    "887-dialogue-1" : [
+      {
+        "meaning" : "たやすい、楽々と",
+        "phrase" : "轻而易举",
+        "role" : "定型表現"
+      }
+    ],
+    "888-dialogue-1" : [
+      {
+        "meaning" : "損失、失うこと",
+        "phrase" : "损失",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "重い",
+        "phrase" : "重",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "889-dialogue-2" : [
+      {
+        "meaning" : "新しい",
+        "phrase" : "新",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "試合",
+        "phrase" : "比赛",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "始める・始まる",
+        "phrase" : "开始",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "890-dialogue-1" : [
+      {
+        "meaning" : "古い（物）",
+        "phrase" : "旧",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "からくり、手口",
+        "phrase" : "把戏",
+        "role" : "名詞"
+      }
+    ],
+    "892-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "手、技",
+        "phrase" : "招",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "汚い",
+        "phrase" : "脏",
+        "role" : "形容詞"
+      }
+    ],
+    "893-dialogue-1" : [
+      {
+        "meaning" : "静かだ",
+        "phrase" : "安静",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "时刻・点・少量",
+        "phrase" : "点",
+        "role" : "名詞・数量表現"
+      }
+    ],
+    "894-dialogue-1" : [
+      {
+        "meaning" : "〜すぎる・とても",
+        "phrase" : "太",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "うるさい",
+        "phrase" : "吵",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "897-dialogue-2" : [
+      {
+        "meaning" : "終える・終わる",
+        "phrase" : "结束",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "動詞後の程度補語などを導く",
+        "phrase" : "得",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "本当に",
+        "phrase" : "真",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "速い",
+        "phrase" : "快",
+        "role" : "形容詞"
+      }
+    ],
+    "900-dialogue-1" : [
+      {
+        "meaning" : "〜から（距離）",
+        "phrase" : "离",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "勝利",
+        "phrase" : "胜利",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "遠い",
+        "phrase" : "远",
+        "role" : "形容詞"
+      }
+    ],
+    "902-dialogue-1" : [
+      {
+        "meaning" : "占める、占領する",
+        "phrase" : "占",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "安い",
+        "phrase" : "便宜",
+        "role" : "形容詞"
+      }
+    ],
+    "906-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "ボードゲームの駒・棋戯",
+        "phrase" : "棋",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "感覚・感じ",
+        "phrase" : "感觉",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "907-dialogue-2" : [
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "考え",
+        "phrase" : "想法",
+        "role" : "名詞"
+      }
+    ],
+    "910-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "動詞後の程度補語などを導く",
+        "phrase" : "得",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "ちょっと探す",
+        "phrase" : "找找",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "ボードゲームの駒・棋戯",
+        "phrase" : "棋",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "原因",
+        "phrase" : "原因",
+        "role" : "名詞"
+      }
+    ],
+    "912-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "目標",
+        "phrase" : "目标",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "914-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "どう・どのように",
+        "phrase" : "怎么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜かもしれない・可能性",
+        "phrase" : "可能",
+        "role" : "動詞"
+      }
+    ],
+    "915-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "機会",
+        "phrase" : "机会",
+        "role" : "名詞"
+      }
+    ],
+    "916-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ない・持っていない",
+        "phrase" : "没有",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "選択",
+        "phrase" : "选择",
+        "role" : "動詞"
+      }
+    ],
+    "918-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "違い",
+        "phrase" : "区别",
+        "role" : "名詞"
+      }
+    ],
+    "920-dialogue-1" : [
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "異なる",
+        "phrase" : "不同",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "922-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜より",
+        "phrase" : "比",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "強い",
+        "phrase" : "强",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "事実",
+        "phrase" : "事实",
+        "role" : "名詞"
+      }
+    ],
+    "924-dialogue-1" : [
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "命",
+        "phrase" : "生命",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "終える・終わる",
+        "phrase" : "结束",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "926-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "すぐに・その場合は",
+        "phrase" : "就",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "歴史",
+        "phrase" : "历史",
+        "role" : "名詞"
+      }
+    ],
+    "934-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "能力",
+        "phrase" : "能力",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "強い",
+        "phrase" : "强",
+        "role" : "形容詞"
+      }
+    ],
+    "935-dialogue-1" : [
+      {
+        "meaning" : "〜しかない、〜だけある",
+        "phrase" : "只有",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "この種の、このような",
+        "phrase" : "这种",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "程度",
+        "phrase" : "程度",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "937-dialogue-1" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜と",
+        "phrase" : "和",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "異なる",
+        "phrase" : "不同",
+        "role" : "形容詞"
+      }
+    ],
+    "938-dialogue-2" : [
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "または（平叙文）",
+        "phrase" : "或者",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "付き添う、一緒にする",
+        "phrase" : "陪",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "下る、置く。チェスでは対局する・指す",
+        "phrase" : "下",
+        "role" : "方向語・動詞"
+      }
+    ],
+    "939-dialogue-1" : [
+      {
+        "meaning" : "攻める、攻撃",
+        "phrase" : "进攻",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "それとも（疑问）",
+        "phrase" : "还是",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "守る、防御",
+        "phrase" : "防守",
+        "role" : "動詞"
+      }
+    ],
+    "941-dialogue-1" : [
+      {
+        "meaning" : "それから",
+        "phrase" : "然后",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "〜は？・問い返しなど",
+        "phrase" : "呢",
+        "role" : "語気助詞"
+      }
+    ],
+    "944-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜のために",
+        "phrase" : "为了",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      }
+    ],
+    "946-dialogue-1" : [
+      {
+        "meaning" : "〜を除いて",
+        "phrase" : "除了",
+        "role" : "介詞"
+      },
+      {
+        "meaning" : "逃げる",
+        "phrase" : "逃跑",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ない・持っていない",
+        "phrase" : "没有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "別の、ほかの",
+        "phrase" : "别的",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "方法、手段",
+        "phrase" : "办法",
+        "role" : "名詞"
+      }
+    ],
+    "947-dialogue-2" : [
+      {
+        "meaning" : "私たち",
+        "phrase" : "我们",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一緒に",
+        "phrase" : "一起",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "下る、置く。チェスでは対局する・指す",
+        "phrase" : "下",
+        "role" : "方向語・動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "ボードゲームの駒・棋戯",
+        "phrase" : "棋",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "949-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "しょっちゅう",
+        "phrase" : "常常",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "ボードゲームの駒・棋戯",
+        "phrase" : "棋",
+        "role" : "名詞"
+      }
+    ],
+    "950-dialogue-1" : [
+      {
+        "meaning" : "時々",
+        "phrase" : "有时候",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "（習得して）できる・〜だろう",
+        "phrase" : "会",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "間違いを犯す",
+        "phrase" : "犯错",
+        "role" : "動詞"
+      }
+    ],
+    "953-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "いつも",
+        "phrase" : "总是",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "こんなに・このように",
+        "phrase" : "这么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "容赦がない、激しい",
+        "phrase" : "狠",
+        "role" : "形容詞"
+      }
+    ],
+    "954-dialogue-2" : [
+      {
+        "meaning" : "通常",
+        "phrase" : "通常",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "みんな・いずれも",
+        "phrase" : "都",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "勝つ",
+        "phrase" : "赢",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      }
+    ],
+    "956-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "おそらく・だいたい",
+        "phrase" : "大概",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "負ける",
+        "phrase" : "输",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "決める、定まる",
+        "phrase" : "定",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "959-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "非常に",
+        "phrase" : "非常",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "すごい、手ごわい",
+        "phrase" : "厉害",
+        "role" : "形容詞"
+      }
+    ],
+    "961-dialogue-2" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "本当に〜だ",
+        "phrase" : "真是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "盤。一局を数える量詞にもなる",
+        "phrase" : "盘",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "よい・いい",
+        "phrase" : "好",
+        "role" : "形容詞"
+      },
+      {
+        "meaning" : "ボードゲームの駒・棋戯",
+        "phrase" : "棋",
+        "role" : "名詞"
+      }
+    ],
+    "962-dialogue-1" : [
+      {
+        "meaning" : "それでは・それほど",
+        "phrase" : "那么",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "続ける",
+        "phrase" : "继续",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "963-dialogue-1" : [
+      {
+        "meaning" : "どう・どのように",
+        "phrase" : "怎么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "（習得して）できる・〜だろう",
+        "phrase" : "会",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "こんなに・このように",
+        "phrase" : "这么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "悲惨だ",
+        "phrase" : "惨",
+        "role" : "形容詞"
+      }
+    ],
+    "964-dialogue-1" : [
+      {
+        "meaning" : "〜でない・〜しない",
+        "phrase" : "不",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "〜すべき",
+        "phrase" : "应该",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "こういうふうに",
+        "phrase" : "这样",
+        "role" : "代名詞"
+      }
+    ],
+    "966-dialogue-2" : [
+      {
+        "meaning" : "見る・読む",
+        "phrase" : "看",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "どんなふうに",
+        "phrase" : "怎样",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "逃げる",
+        "phrase" : "逃跑",
+        "role" : "動詞"
+      }
+    ],
+    "973-dialogue-2" : [
+      {
+        "meaning" : "助けて、命を救う",
+        "phrase" : "救命",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "どうぞ・〜してください",
+        "phrase" : "请",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "手伝う",
+        "phrase" : "帮",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "守る、保護する",
+        "phrase" : "保护",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      }
+    ],
+    "976-dialogue-2" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "思う・〜したい",
+        "phrase" : "想",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "欲しい・〜するつもり",
+        "phrase" : "要",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "何",
+        "phrase" : "什么",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜の・修飾を表す",
+        "phrase" : "的",
+        "role" : "助詞"
+      },
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "978-dialogue-1" : [
+      {
+        "meaning" : "ここ",
+        "phrase" : "这里",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "出口、活路",
+        "phrase" : "出路",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "985-dialogue-1" : [
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "時間",
+        "phrase" : "时间",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "986-dialogue-2" : [
+      {
+        "meaning" : "国王。チェスではキング",
+        "phrase" : "国王",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "殿下",
+        "phrase" : "殿下",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "すぐに",
+        "phrase" : "马上",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "来る",
+        "phrase" : "来",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "つかむ、捕まえる",
+        "phrase" : "抓",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      }
+    ],
+    "988-dialogue-1" : [
+      {
+        "meaning" : "祝う、祈る",
+        "phrase" : "祝",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "幸運、グッドラック",
+        "phrase" : "好运",
+        "role" : "名詞"
+      }
+    ],
+    "990-dialogue-2" : [
+      {
+        "meaning" : "〜していない・〜がない",
+        "phrase" : "没",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "思いつく、考えつく",
+        "phrase" : "想到",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "あなた",
+        "phrase" : "你",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "（習得して）できる・〜だろう",
+        "phrase" : "会",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      }
+    ],
+    "992-dialogue-1" : [
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜ですか（疑問）",
+        "phrase" : "吗",
+        "role" : "語気助詞"
+      }
+    ],
+    "994-dialogue-1" : [
+      {
+        "meaning" : "〜していない・〜がない",
+        "phrase" : "没",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "必要、必要だ",
+        "phrase" : "必要",
+        "role" : "形容詞"
+      }
+    ],
+    "995-dialogue-2" : [
+      {
+        "meaning" : "うん、うーん",
+        "phrase" : "嗯",
+        "role" : "感嘆詞"
+      },
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "一",
+        "phrase" : "一",
+        "role" : "数詞"
+      },
+      {
+        "meaning" : "歩み。チェスでは一手",
+        "phrase" : "步",
+        "role" : "名詞・量詞"
+      },
+      {
+        "meaning" : "とても・形容詞述語の前にも置く",
+        "phrase" : "很",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "ある・持っている",
+        "phrase" : "有",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "道理、理由",
+        "phrase" : "道理",
+        "role" : "名詞"
+      }
+    ],
+    "996-dialogue-1" : [
+      {
+        "meaning" : "これ・この",
+        "phrase" : "这",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "こと、用事",
+        "phrase" : "事",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "また話す。それに、あとで考える",
+        "phrase" : "再说",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "〜しよう・〜でしょう",
+        "phrase" : "吧",
+        "role" : "語気助詞"
+      }
+    ],
+    "997-dialogue-2" : [
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "〜である（名詞を結ぶ）",
+        "phrase" : "是",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "白の駒、白番",
+        "phrase" : "白棋",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "あれ・それ・あの",
+        "phrase" : "那",
+        "role" : "接続詞"
+      },
+      {
+        "meaning" : "私",
+        "phrase" : "我",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "先に、まず",
+        "phrase" : "先",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "歩く、行く。チェスでは駒を動かす・指す",
+        "phrase" : "走",
+        "role" : "動詞"
+      },
+      {
+        "meaning" : "完了・変化などを表す",
+        "phrase" : "了",
+        "role" : "助詞"
+      }
+    ],
+    "999-dialogue-1" : [
+      {
+        "meaning" : "多い",
+        "phrase" : "多",
+        "role" : "副詞"
+      },
+      {
+        "meaning" : "体を大切にする",
+        "phrase" : "保重",
+        "role" : "動詞"
+      }
+    ],
+    "1000-dialogue-2" : [
+      {
+        "meaning" : "皇后。チェスではクイーン",
+        "phrase" : "皇后",
+        "role" : "チェス用語・名詞"
+      },
+      {
+        "meaning" : "女性への敬称",
+        "phrase" : "女士",
+        "role" : "名詞"
+      },
+      {
+        "meaning" : "あなた（敬称）",
+        "phrase" : "您",
+        "role" : "代名詞"
+      },
+      {
+        "meaning" : "お気をつけて（見送り）",
+        "phrase" : "慢走",
+        "role" : "動詞"
+      }
+    ]
+  },
+  "schemaVersion" : 1,
+  "setId" : 2
+}
