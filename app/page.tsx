@@ -611,6 +611,12 @@ export default function Home() {
         <span className="streak" aria-label={`連続対局 ${streak} 日`}>
           🔥 {streak} {streak === 1 ? "day" : "days"}
         </span>
+        <span
+          className={`material-balance ${playerMaterial.startsWith("-") ? "negative" : ""}`}
+          aria-label={`マテリアル差 ${playerMaterial}`}
+        >
+          {playerMaterial}
+        </span>
         <button
           className="icon-button"
           onClick={() => setSettingsOpen(true)}
@@ -648,7 +654,6 @@ export default function Home() {
         <PlayerRow
           name="You"
           detail={statusText}
-          material={playerMaterial}
           active={status === "playing"}
         />
 
@@ -751,12 +756,10 @@ function DifficultyButtons({
 function PlayerRow({
   name,
   detail,
-  material,
   active = false,
 }: {
   name: string;
   detail: string;
-  material?: string;
   active?: boolean;
 }) {
   return (
@@ -768,14 +771,6 @@ function PlayerRow({
         <strong>{name}</strong>
         <span>{detail || "\u00a0"}</span>
       </div>
-      {material !== undefined && (
-        <span
-          className={`material-balance ${material.startsWith("-") ? "negative" : ""}`}
-          aria-label={`マテリアル差 ${material}`}
-        >
-          {material}
-        </span>
-      )}
     </div>
   );
 }

@@ -143,6 +143,7 @@ button:focus-visible {
 }
 
 .topbar {
+  position: relative;
   width: min(100%, 660px);
   height: 40px;
   flex: 0 0 40px;
@@ -243,16 +244,21 @@ button:focus-visible {
 }
 
 .material-balance {
-  min-width: 42px;
-  margin-left: auto;
-  padding: 5px 9px;
+  min-width: 46px;
+  padding: 6px 10px;
   border-radius: 999px;
   background: #dcece1;
   color: #23683b;
   text-align: center;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 900;
   line-height: 1;
+}
+
+.topbar .material-balance {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .material-balance.negative {
