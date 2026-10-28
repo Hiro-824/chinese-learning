@@ -267,8 +267,7 @@ button:focus-visible {
   box-shadow: 0 1px 3px rgba(30, 49, 37, 0.08);
 }
 
-.speech-text,
-.result-dialogue-text {
+.speech-text {
   min-width: 0;
   border: 0;
   background: transparent;
@@ -283,6 +282,7 @@ button:focus-visible {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: left;
   font-size: 14px;
 }
 
@@ -433,28 +433,6 @@ button:focus-visible {
   margin-bottom: 8px;
   text-align: center;
   font-size: 26px;
-}
-
-.result-dialogues {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 6px;
-}
-
-.result-dialogue {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #f7faf7;
-}
-
-.result-dialogue-text {
-  flex: 1;
-  padding: 10px 4px 10px 12px;
-  text-align: left;
-  font-size: 15px;
 }
 
 .result-modal .primary-button,

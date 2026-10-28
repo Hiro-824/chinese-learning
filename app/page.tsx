@@ -969,30 +969,6 @@ export default function Home() {
                   ? "負け"
                   : "引き分け"}
             </strong>
-            {visibleDialogues.length > 0 && (
-              <div className="result-dialogues">
-                {visibleDialogues.map((dialogue) => (
-                  <div
-                    className="result-dialogue"
-                    key={`${dialogue.setId}-${dialogue.id}`}
-                  >
-                    <button
-                      className="result-dialogue-text"
-                      onClick={() => setExplanationDialogue(dialogue)}
-                    >
-                      {dialogue.zhHans}
-                    </button>
-                    <button
-                      className="speaker-button"
-                      onClick={() => speak(dialogue.zhHans, true)}
-                      aria-label="中国語をもう一度聞く"
-                    >
-                      <SpeakerIcon />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
             <button className="primary-button" onClick={() => startGame()}>
               新しい対局
             </button>
