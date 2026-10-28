@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import {
   Chess,
   type Color,
@@ -24,23 +24,17 @@ import {
   type PreviousCapture,
 } from "./dialogues";
 
-type Difficulty = "beginner" | "intermediate" | "advanced";
+import {
+  DEFAULT_DIFFICULTY,
+  DIFFICULTY_STEP,
+  ENGINE_MOVE_TIME,
+  getDifficultyCommands,
+  MAX_DIFFICULTY,
+  MIN_DIFFICULTY,
+  parseSavedDifficulty,
+} from "./difficulty";
+
 type GameStatus = "playing" | "won" | "lost" | "draw";
-
-const DIFFICULTIES: { value: Difficulty; label: string }[] = [
-  { value: "beginner", label: "初級" },
-  { value: "intermediate", label: "中級" },
-  { value: "advanced", label: "上級" },
-];
-
-const ENGINE_SETTINGS: Record<
-  Difficulty,
-  { skill: number; moveTime: number }
-> = {
-  beginner: { skill: 0, moveTime: 100 },
-  intermediate: { skill: 9, moveTime: 400 },
-  advanced: { skill: 18, moveTime: 800 },
-};
 
 const DIFFICULTY_KEY = "chess-difficulty";
 const STREAK_KEY = "chess-daily-streak";
@@ -64,10 +58,6 @@ function yesterday() {
   return localDate(date);
 }
 
-function isDifficulty(value: string | null): value is Difficulty {
-  return DIFFICULTIES.some((item) => item.value === value);
-}
-
 export default function Home() {
   const chessRef = useRef(new Chess());
   const workerRef = useRef<Worker | null>(null);
@@ -77,7 +67,6 @@ export default function Home() {
   const engineReadyRef = useRef(false);
   const thinkingRef = useRef(false);
   const gameIdRef = useRef(0);
-  const beginnerCandidatesRef = useRef<Map<number, string>>(new Map());
   const aiMoveTimerRef = useRef<number | null>(null);
   const thinkingStartedAtRef = useRef(0);
   const usedDialogueIdsRef = useRef(new Set<string>());
@@ -93,10 +82,7 @@ export default function Home() {
   const beforeNpcDialogueRef = useRef<Dialogue | null>(null);
 
   const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
-  const [savedDifficulty, setSavedDifficulty] =
-    useState<Difficulty>("beginner");
-  const [gameDifficulty, setGameDifficulty] =
-    useState<Difficulty>("beginner");
+  const [savedDifficulty, setSavedDifficulty] = useState(DEFAULT_DIFFICULTY);
   const [playerColor, setPlayerColor] = useState<Color>("w");
   const [fen, setFen] = useState(() => new Chess().fen());
   const [status, setStatus] = useState<GameStatus>("playing");
@@ -358,7 +344,7 @@ export default function Home() {
     return true;
   }
 
-  function requestAiMove(difficulty = gameDifficulty) {
+  function requestAiMove() {
     const game = chessRef.current;
     if (
       !engineReadyRef.current ||
@@ -373,11 +359,9 @@ export default function Home() {
 
     thinkingRef.current = true;
     thinkingStartedAtRef.current = performance.now();
-    beginnerCandidatesRef.current.clear();
     setThinking(true);
-    const { moveTime } = ENGINE_SETTINGS[difficulty];
     workerRef.current.postMessage(`position fen ${game.fen()}`);
-    workerRef.current.postMessage(`go movetime ${moveTime}`);
+    workerRef.current.postMessage(`go movetime ${ENGINE_MOVE_TIME}`);
   }
 
   function applyAiMove(uci: string) {
@@ -400,26 +384,6 @@ export default function Home() {
     checkGameEnd();
   }
 
-  function chooseBeginnerMove(bestMove: string) {
-    const game = chessRef.current;
-    if (Math.random() < 0.3) {
-      const legalMoves = game.moves({ verbose: true });
-      const move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
-      if (move) return `${move.from}${move.to}${move.promotion ?? ""}`;
-    }
-
-    const candidates = [...beginnerCandidatesRef.current.entries()]
-      .sort(([rankA], [rankB]) => rankA - rankB)
-      .map(([, move]) => move);
-    if (!candidates.length) return bestMove;
-
-    const index = Math.min(
-      candidates.length - 1,
-      Math.floor(Math.pow(Math.random(), 0.6) * candidates.length),
-    );
-    return candidates[index];
-  }
-
   function startGame(difficulty = savedDifficulty) {
     const gameId = gameIdRef.current + 1;
     gameIdRef.current = gameId;
@@ -433,7 +397,6 @@ export default function Home() {
     statusRef.current = "playing";
     engineReadyRef.current = false;
     thinkingRef.current = false;
-    beginnerCandidatesRef.current.clear();
     usedDialogueIdsRef.current.clear();
     lastCaptureRef.current = null;
     materialHistoryRef.current = { npcWasBehind: false, playerWasBehind: false };
@@ -442,7 +405,6 @@ export default function Home() {
     pendingAiMoveRef.current = null;
     cancelSpeech();
 
-    setGameDifficulty(difficulty);
     setPlayerColor(color);
     setFen(game.fen());
     setStatus("playing");
@@ -465,17 +427,8 @@ export default function Home() {
 
       if (line === "readyok") {
         engineReadyRef.current = true;
-        requestAiMove(difficulty);
+        requestAiMove();
         return;
-      }
-
-      if (difficulty === "beginner") {
-        const candidate = line.match(
-          /\bmultipv\s+(\d+)\b.*\bpv\s+([a-h][1-8][a-h][1-8][qrbn]?)/,
-        );
-        if (candidate) {
-          beginnerCandidatesRef.current.set(Number(candidate[1]), candidate[2]);
-        }
       }
 
       const bestMove = line.match(/^bestmove\s+([a-h][1-8][a-h][1-8][qrbn]?)/);
@@ -484,10 +437,7 @@ export default function Home() {
         thinkingRef.current &&
         aiMoveTimerRef.current === null
       ) {
-        const move =
-          difficulty === "beginner"
-            ? chooseBeginnerMove(bestMove[1])
-            : bestMove[1];
+        const move = bestMove[1];
         const elapsed = performance.now() - thinkingStartedAtRef.current;
         const dialogueDelay = dialogueVisibleUntilRef.current - performance.now();
         const delay = Math.max(
@@ -519,12 +469,7 @@ export default function Home() {
       }
     };
     worker.postMessage("uci");
-    worker.postMessage(
-      `setoption name Skill Level value ${ENGINE_SETTINGS[difficulty].skill}`,
-    );
-    worker.postMessage(
-      `setoption name MultiPV value ${difficulty === "beginner" ? 8 : 1}`,
-    );
+    for (const command of getDifficultyCommands(difficulty)) worker.postMessage(command);
     worker.postMessage("isready");
     const openingDialogue = selectDialogue(openingTrigger(color));
     showDialogue(openingDialogue);
@@ -541,7 +486,7 @@ export default function Home() {
     synth?.addEventListener("voiceschanged", updateVoices);
 
     const timer = window.setTimeout(() => {
-      const storedDifficulty = localStorage.getItem(DIFFICULTY_KEY);
+      const storedDifficulty = parseSavedDifficulty(localStorage.getItem(DIFFICULTY_KEY));
       const initialSpeech = localStorage.getItem(SPEECH_ENABLED_KEY) !== "false";
 
       speechEnabledRef.current = initialSpeech;
@@ -550,7 +495,8 @@ export default function Home() {
 
       if (cancelled) return;
 
-      if (isDifficulty(storedDifficulty)) {
+      if (storedDifficulty !== null) {
+        localStorage.setItem(DIFFICULTY_KEY, String(storedDifficulty));
         setSavedDifficulty(storedDifficulty);
         setIsConfigured(true);
         startGame(storedDifficulty);
@@ -577,9 +523,9 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function saveDifficulty(difficulty: Difficulty) {
+  function saveDifficulty(difficulty: number) {
     setSavedDifficulty(difficulty);
-    localStorage.setItem(DIFFICULTY_KEY, difficulty);
+    localStorage.setItem(DIFFICULTY_KEY, String(difficulty));
   }
 
   function saveSpeechEnabled(enabled: boolean) {
@@ -819,13 +765,7 @@ export default function Home() {
       <main className="setup-screen">
         <section className="setup-box" aria-label="初回設定">
           <h1>Chess</h1>
-          <fieldset className="difficulty-field">
-            <legend>難易度</legend>
-            <DifficultyButtons
-              value={savedDifficulty}
-              onChange={setSavedDifficulty}
-            />
-          </fieldset>
+          <DifficultySlider value={savedDifficulty} onChange={setSavedDifficulty} />
           <button className="primary-button" onClick={beginFirstGame}>
             対局開始
           </button>
@@ -968,10 +908,10 @@ export default function Home() {
                 ×
               </button>
             </div>
-            <span className="setting-label">難易度</span>
-            <DifficultyButtons
+            <DifficultySlider
               value={savedDifficulty}
               onChange={saveDifficulty}
+              nextGame
             />
             <label className="speech-setting">
               <span>
@@ -999,25 +939,41 @@ export default function Home() {
   );
 }
 
-function DifficultyButtons({
+function DifficultySlider({
   value,
   onChange,
+  nextGame = false,
 }: {
-  value: Difficulty;
-  onChange: (value: Difficulty) => void;
+  value: number;
+  onChange: (value: number) => void;
+  nextGame?: boolean;
 }) {
+  const id = useId();
   return (
-    <div className="difficulty-buttons">
-      {DIFFICULTIES.map((difficulty) => (
-        <button
-          type="button"
-          key={difficulty.value}
-          className={value === difficulty.value ? "selected" : ""}
-          onClick={() => onChange(difficulty.value)}
-        >
-          {difficulty.label}
-        </button>
-      ))}
+    <div className="difficulty-control">
+      <div className="difficulty-heading">
+        <label htmlFor={id}>難易度</label>
+        <output htmlFor={id}>{value}<span> / {MAX_DIFFICULTY}</span></output>
+      </div>
+      <input
+        id={id}
+        className="difficulty-slider"
+        style={{
+          "--slider-progress": `${(value - MIN_DIFFICULTY) / (MAX_DIFFICULTY - MIN_DIFFICULTY) * 100}%`,
+        } as CSSProperties}
+        type="range"
+        min={MIN_DIFFICULTY}
+        max={MAX_DIFFICULTY}
+        step={DIFFICULTY_STEP}
+        value={value}
+        aria-valuetext={`${value} / ${MAX_DIFFICULTY}`}
+        aria-describedby={nextGame ? `${id}-hint` : undefined}
+        onChange={(event) => onChange(event.currentTarget.valueAsNumber)}
+      />
+      <div className="difficulty-scale" aria-hidden="true">
+        <span>やさしい</span><span>手強い</span>
+      </div>
+      {nextGame && <p id={`${id}-hint`} className="difficulty-hint">次の対局から適用</p>}
     </div>
   );
 }

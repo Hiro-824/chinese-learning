@@ -9,7 +9,7 @@
     "lint": "eslint",
     "dialogues:generate": "node scripts/generate-dialogues.mjs",
     "dialogues:check": "node scripts/generate-dialogues.mjs --check",
-    "test": "npm run dialogues:check && node --test app/dialogues.test.mjs"
+    "test": "npm run dialogues:check && node --test app/*.test.mjs"
   },
   "dependencies": {
     "chess.js": "^1.4.0",

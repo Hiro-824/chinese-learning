@@ -62,6 +62,20 @@ test("checks and checkmates select the correct side, with mate taking priority",
   }
 });
 
+test("rebellion is a response to the NPC king being checked, with either player color", () => {
+  for (const [fen, san, moverColor] of [
+    ["4k3/p7/8/8/8/8/6P1/R6K w - - 0 1", "Re1+", "w"],
+    ["r6k/6p1/8/8/8/8/P7/4K3 b - - 0 1", "Re8+", "b"],
+  ]) {
+    const playerCheck = getDialogueCandidates(trigger(fen, san, "player"), { playerColor: moverColor });
+    assert.ok(playerCheck.some((line) => line.zhHans === "这是叛乱！"));
+    const npcCheck = getDialogueCandidates(trigger(fen, san, "npc"), {
+      playerColor: moverColor === "w" ? "b" : "w",
+    });
+    assert.ok(npcCheck.every((line) => line.zhHans !== "这是叛乱！"));
+  }
+});
+
 test("promotion names and queen-return lines follow the actual promoted piece and board", () => {
   const noQueen = "7k/P6p/8/8/8/8/6P1/7K w - - 0 1";
   assert.equal(trigger(noQueen, "a8=Q+", "npc"), "19");

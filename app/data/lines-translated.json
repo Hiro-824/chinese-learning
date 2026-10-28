@@ -1362,34 +1362,6 @@
     ]
   },
   {
-    "id": "translated-15-4",
-    "triggerCode": "15",
-    "zhHans": "这是叛乱！",
-    "ja": "これは反乱よ！",
-    "learning": [
-      {
-        "phrase": "这",
-        "role": "指示代名詞",
-        "meaning": "これ"
-      },
-      {
-        "phrase": "是",
-        "role": "動詞",
-        "meaning": "〜である"
-      },
-      {
-        "phrase": "叛乱",
-        "role": "名詞",
-        "meaning": "反乱"
-      },
-      {
-        "phrase": "这是叛乱！",
-        "role": "文法",
-        "meaning": "STEP4・5：是構文・指示代名詞"
-      }
-    ]
-  },
-  {
     "id": "translated-16-1",
     "triggerCode": "16",
     "zhHans": "陛下要过来了！让路！",
@@ -1447,6 +1419,34 @@
         "phrase": "别过来！",
         "role": "文法",
         "meaning": "STEP30：複合方向補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-16-3",
+    "triggerCode": "16",
+    "zhHans": "这是叛乱！",
+    "ja": "これは反乱よ！",
+    "learning": [
+      {
+        "phrase": "这",
+        "role": "指示代名詞",
+        "meaning": "これ"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "叛乱",
+        "role": "名詞",
+        "meaning": "反乱"
+      },
+      {
+        "phrase": "这是叛乱！",
+        "role": "文法",
+        "meaning": "STEP4・5：是構文・指示代名詞"
       }
     ]
   },
