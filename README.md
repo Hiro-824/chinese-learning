@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chinese Learning Chess
 
-## Getting Started
-
-First, run the development server:
+チェスを指しながら、Oscarの中国語の台詞と日本語の解説を学ぶNext.jsアプリです。
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) で開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 台詞の管理
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+台詞は [drafts/lines-translated.md](drafts/lines-translated.md) の90本・31条件に統一しています。旧4セットと設定画面のセット切り替えは廃止しました。以前のセット選択の保存値は参照しません。
 
-## Learn More
+- 中国語と文法STEP: `drafts/lines-translated.md`
+- 日本語訳・単語と表現の解説: `scripts/generate-dialogues.mjs` の `groups`（原稿の条件・台詞順に対応）
+- アプリで使う生成データ: `app/data/lines-translated.json`
+- 発動判定: `app/dialogues.ts`
 
-To learn more about Next.js, take a look at the following resources:
+原稿を変更した場合は、日本語訳・解説も対応させ、次を実行します。生成データをアプリに直接組み込むため、旧セットのJSONへの通信は発生しません。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dialogues:generate
+npm test
+npm run lint
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`npm run dialogues:check` は原稿・解説・生成データの一致を確認します。テストにはTypeScriptを直接実行できるNode.js 22.18以降を使用してください。
 
-## Deploy on Vercel
+## 発動条件
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+条件番号は `lines-translated.md` の1〜31に対応します。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 1〜10: AI／プレイヤーが種類別に駒を取った直後。アンパッサンもポーンの捕獲として扱います。
+- 11: 相手が直前に取ったマスで、同じ価値の駒を取り返したとき。
+- 12〜14: その色で初めての対局／通常の開始。白番・黒番に言及する台詞は実際の色と一致するものだけを選びます。
+- 15〜18: チェック／チェックメイトによる勝敗。プレイヤーの投了でもAI勝利の台詞が出ます。引き分けには勝敗の台詞を出しません。
+- 19〜20: 昇格。`〇〇` は実際の昇格先に置換します。「王后回来了！」は、プレイヤーのクイーンが0個の状態からクイーンへ昇格した場合に限ります。
+- 21〜22: その手によって、片側の駒がキング1個だけになったとき。
+- 23〜24: ブラウザーの現地時刻で朝は5:00〜11:59、夜は18:00〜翌4:59に対局開始。
+- 25〜26: AI／プレイヤーのキャッスリング。
+- 27: 現地日付で当日2回目以降の対局開始。開始回数はブラウザーに保存します。
+- 28: プレイヤーのルークが1手で4マス以上移動。
+- 29〜30: **一度3点以上のマテリアル劣勢になった側が、その後3点以上の優勢になった瞬間。** 途中で互角や1〜2点差を挟んでも劣勢の記録を保持します。到達時に1回発動し、再び3点以上の劣勢になれば再度発動可能です。新しい対局では履歴をリセットします。
+- 31: AIが動かした駒で新しくフォーク（ポーン以外の敵駒2個以上への同時攻撃）、キングへのピン、キング越しのスキュアーを作ったとき。
+
+マテリアルはポーン1・ナイト3・ビショップ3・ルーク5・クイーン9点で計算します。
+
+1回の開始・着手につき台詞は1本です。開始時は「初めての色 → 当日2回目以降 → 朝／夜 → 通常」の優先順です。着手後は「チェックメイト → 昇格 → キングだけへの変化 → 逆転 → 交換 → AIの技 → チェック → キャッスリング → 捕獲 → ルークの長距離移動」の順で選びます。逆転の履歴は、ほかの台詞が優先される手でも更新します。同じ条件内では候補を一巡するまで重複を避けます。

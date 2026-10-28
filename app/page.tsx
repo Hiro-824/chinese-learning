@@ -11,13 +11,16 @@ import {
 import { Chessboard, type ChessboardOptions } from "react-chessboard";
 import {
   explainDialogue,
+  getDialogueCandidates,
+  getMoveDialogueContext,
   getMoveTriggerCode,
-  loadDialogueSet,
+  getOpeningTriggerCode,
+  PIECE_VALUES,
   selectUnusedDialogue,
-  shouldAnnounceTrigger,
   type Dialogue,
   type DialogueActor,
-  type DialogueSetNumber,
+  type DialogueContext,
+  type MaterialHistory,
   type PreviousCapture,
 } from "./dialogues";
 
@@ -41,20 +44,12 @@ const ENGINE_SETTINGS: Record<
 
 const DIFFICULTY_KEY = "chess-difficulty";
 const STREAK_KEY = "chess-daily-streak";
-const DIALOGUE_SET_KEY = "chess-dialogue-set";
 const SPEECH_ENABLED_KEY = "chess-speech-enabled";
-const FIRST_COLOR_KEY = "chess-first-player-colors";
+const FIRST_COLOR_KEY = "chess-first-player-colors:lines-translated";
+const DAILY_GAMES_KEY = "chess-started-games:lines-translated";
 const MIN_AI_VISIBLE_TIME = 800;
 const MIN_DIALOGUE_VISIBLE_TIME = 1800;
 const MAX_DIALOGUE_VISIBLE_TIME = 3200;
-const PIECE_VALUES: Record<PieceSymbol, number> = {
-  p: 1,
-  n: 3,
-  b: 3,
-  r: 5,
-  q: 9,
-  k: 0,
-};
 
 function localDate(date = new Date()) {
   const year = date.getFullYear();
@@ -73,10 +68,6 @@ function isDifficulty(value: string | null): value is Difficulty {
   return DIFFICULTIES.some((item) => item.value === value);
 }
 
-function isDialogueSet(value: number): value is DialogueSetNumber {
-  return value >= 1 && value <= 4 && Number.isInteger(value);
-}
-
 export default function Home() {
   const chessRef = useRef(new Chess());
   const workerRef = useRef<Worker | null>(null);
@@ -89,10 +80,9 @@ export default function Home() {
   const beginnerCandidatesRef = useRef<Map<number, string>>(new Map());
   const aiMoveTimerRef = useRef<number | null>(null);
   const thinkingStartedAtRef = useRef(0);
-  const dialogueSetRef = useRef<DialogueSetNumber>(1);
-  const dialoguesRef = useRef<Dialogue[]>([]);
   const usedDialogueIdsRef = useRef(new Set<string>());
   const lastCaptureRef = useRef<PreviousCapture | null>(null);
+  const materialHistoryRef = useRef<MaterialHistory>({ npcWasBehind: false, playerWasBehind: false });
   const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
   const speechEnabledRef = useRef(true);
   const speechPlayingRef = useRef(false);
@@ -121,7 +111,6 @@ export default function Home() {
   const [streak, setStreak] = useState(0);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [resultOpen, setResultOpen] = useState(false);
-  const [dialogueSet, setDialogueSet] = useState<DialogueSetNumber>(1);
   const [speechEnabled, setSpeechEnabled] = useState(true);
   const [speechPlaying, setSpeechPlaying] = useState(false);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
@@ -215,29 +204,19 @@ export default function Home() {
     speak(dialogue.zhHans);
   }
 
-  function selectDialogue(triggerCode: string) {
-    const candidates = dialoguesRef.current.filter(
-      (dialogue) => dialogue.triggerCode === triggerCode,
-    );
+  function selectDialogue(
+    triggerCode: string,
+    context: DialogueContext = { playerColor: playerColorRef.current },
+  ) {
+    const candidates = getDialogueCandidates(triggerCode, context);
     return selectUnusedDialogue(candidates, usedDialogueIdsRef.current);
   }
 
   function announceMove(move: Move, actor: DialogueActor) {
-    const game = chessRef.current;
-    const triggerCode = getMoveTriggerCode(
-      {
-        actor,
-        captured: move.captured,
-        to: move.to,
-        isCheck: game.isCheck(),
-        isCheckmate: game.isCheckmate(),
-      },
-      lastCaptureRef.current,
-    );
-    const dialogue =
-      triggerCode && shouldAnnounceTrigger(triggerCode, actor)
-        ? selectDialogue(triggerCode)
-        : null;
+    const triggerCode = getMoveTriggerCode(move, actor, lastCaptureRef.current, materialHistoryRef.current);
+    const dialogue = triggerCode
+      ? selectDialogue(triggerCode, getMoveDialogueContext(move, playerColorRef.current))
+      : null;
     if (actor === "player") {
       beforeNpcDialogueRef.current = dialogue;
       showDialogue(dialogue);
@@ -246,27 +225,37 @@ export default function Home() {
       beforeNpcDialogueRef.current = null;
       showDialogue(dialogue, beforeDialogue);
     }
-    lastCaptureRef.current = move.isCapture()
+    lastCaptureRef.current = move.captured
       ? { to: move.to, actor, captured: move.captured! }
       : null;
   }
 
   function openingTrigger(color: Color) {
     const key = color === "w" ? "white" : "black";
+    const now = new Date();
+    let firstWithColor = false;
+    let gamesToday = 1;
     try {
       const seen = JSON.parse(localStorage.getItem(FIRST_COLOR_KEY) || "{}") as {
         white?: boolean;
         black?: boolean;
       };
-      if (!seen[key]) {
-        seen[key] = true;
-        localStorage.setItem(FIRST_COLOR_KEY, JSON.stringify(seen));
-        return color === "w" ? "2.1" : "2.2";
-      }
+      firstWithColor = seen?.[key] !== true;
+      localStorage.setItem(FIRST_COLOR_KEY, JSON.stringify({ ...seen, [key]: true }));
     } catch {
-      // A blocked or invalid localStorage falls back to the regular greeting.
+      // Without storage, use the time-based greeting.
     }
-    return "2.3";
+    try {
+      const previous = JSON.parse(localStorage.getItem(DAILY_GAMES_KEY) || "null") as {
+        date?: string; count?: number;
+      } | null;
+      if (previous?.date === localDate(now) && Number.isSafeInteger(previous.count) &&
+        previous.count! > 0) gamesToday = previous.count! + 1;
+      localStorage.setItem(DAILY_GAMES_KEY, JSON.stringify({ date: localDate(now), count: gamesToday }));
+    } catch {
+      // Without storage, treat this as today's first game.
+    }
+    return getOpeningTriggerCode({ playerColor: color, firstWithColor, gamesToday, hour: now.getHours() });
   }
 
   function playMoveSound(isCapture: boolean) {
@@ -447,6 +436,7 @@ export default function Home() {
     beginnerCandidatesRef.current.clear();
     usedDialogueIdsRef.current.clear();
     lastCaptureRef.current = null;
+    materialHistoryRef.current = { npcWasBehind: false, playerWasBehind: false };
     beforeNpcDialogueRef.current = null;
     dialogueVisibleUntilRef.current = 0;
     pendingAiMoveRef.current = null;
@@ -550,23 +540,14 @@ export default function Home() {
     updateVoices();
     synth?.addEventListener("voiceschanged", updateVoices);
 
-    const timer = window.setTimeout(async () => {
+    const timer = window.setTimeout(() => {
       const storedDifficulty = localStorage.getItem(DIFFICULTY_KEY);
-      const storedSet = Number(localStorage.getItem(DIALOGUE_SET_KEY));
-      const initialSet = isDialogueSet(storedSet) ? storedSet : 1;
       const initialSpeech = localStorage.getItem(SPEECH_ENABLED_KEY) !== "false";
 
-      dialogueSetRef.current = initialSet;
       speechEnabledRef.current = initialSpeech;
-      setDialogueSet(initialSet);
       setSpeechEnabled(initialSpeech);
       setStreak(readStreak());
 
-      try {
-        dialoguesRef.current = await loadDialogueSet(initialSet);
-      } catch {
-        dialoguesRef.current = [];
-      }
       if (cancelled) return;
 
       if (isDifficulty(storedDifficulty)) {
@@ -599,20 +580,6 @@ export default function Home() {
   function saveDifficulty(difficulty: Difficulty) {
     setSavedDifficulty(difficulty);
     localStorage.setItem(DIFFICULTY_KEY, difficulty);
-  }
-
-  async function saveDialogueSet(nextSet: DialogueSetNumber) {
-    dialogueSetRef.current = nextSet;
-    try {
-      const loaded = await loadDialogueSet(nextSet);
-      if (dialogueSetRef.current === nextSet) {
-        dialoguesRef.current = loaded;
-        setDialogueSet(nextSet);
-        localStorage.setItem(DIALOGUE_SET_KEY, String(nextSet));
-      }
-    } catch {
-      // Keep the currently loaded set if a local JSON file is unavailable.
-    }
   }
 
   function saveSpeechEnabled(enabled: boolean) {
@@ -733,6 +700,9 @@ export default function Home() {
   function resign() {
     if (statusRef.current !== "playing") return;
     workerRef.current?.postMessage("stop");
+    beforeNpcDialogueRef.current = null;
+    pendingAiMoveRef.current = null;
+    showDialogue(selectDialogue("18"));
     finishGame("lost");
   }
 
@@ -1003,19 +973,6 @@ export default function Home() {
               value={savedDifficulty}
               onChange={saveDifficulty}
             />
-            <span className="setting-label">セリフセット</span>
-            <div className="dialogue-set-buttons">
-              {([1, 2, 3, 4] as DialogueSetNumber[]).map((setNumber) => (
-                <button
-                  type="button"
-                  key={setNumber}
-                  className={dialogueSet === setNumber ? "selected" : ""}
-                  onClick={() => void saveDialogueSet(setNumber)}
-                >
-                  セット{setNumber}
-                </button>
-              ))}
-            </div>
             <label className="speech-setting">
               <span>
                 <strong>自動読み上げ</strong>
@@ -1098,7 +1055,7 @@ function PlayerRow({
           {dialogues.map((dialogue) => (
             <div
               className="speech-bubble"
-              key={`${dialogue.setId}-${dialogue.id}`}
+              key={dialogue.id}
             >
               <button
                 className="speech-text"

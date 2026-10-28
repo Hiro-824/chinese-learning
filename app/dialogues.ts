@@ -1,204 +1,202 @@
-import type { PieceSymbol, Square } from "chess.js";
+import { Chess, type Color, type Move, type PieceSymbol, type Square } from "chess.js";
+import translatedLines from "./data/lines-translated.json" with { type: "json" };
 
 export type DialogueActor = "npc" | "player";
-export type DialogueSetNumber = 1 | 2 | 3 | 4;
-
-export type LearningItem = {
-  phrase: string;
-  role: string;
-  meaning: string;
-};
-
+export type LearningItem = { phrase: string; role: string; meaning: string };
 export type Dialogue = {
   id: string;
   zhHans: string;
   ja: string;
   triggerCode: string;
   learning: LearningItem[];
-  source: "set";
-  setId?: DialogueSetNumber;
+  condition?: string;
 };
-
-export type DialogueTiming =
-  | "game-start"
-  | "after-player-move-before-npc"
-  | "after-npc-move"
-  | "after-triggering-recapture";
-
 export type PreviousCapture = {
   to: Square;
   actor: DialogueActor;
   captured: PieceSymbol;
 };
-
-type MoveEvent = {
-  actor: DialogueActor;
-  captured?: PieceSymbol;
-  to: Square;
-  isCheck: boolean;
-  isCheckmate: boolean;
+export type DialogueContext = {
+  playerColor: Color;
+  promotion?: PieceSymbol;
+  queenReturned?: boolean;
+};
+export type MaterialHistory = {
+  npcWasBehind: boolean;
+  playerWasBehind: boolean;
 };
 
-type RawDialogueSet = {
-  expressions?: Array<{
-    dialogues?: Array<{
-      id?: unknown;
-      text?: { zhHans?: unknown; ja?: unknown };
-      trigger?: { code?: unknown };
-    }>;
-  }>;
+export const DIALOGUES: Dialogue[] = translatedLines;
+export const PIECE_VALUES: Record<PieceSymbol, number> = {
+  p: 1, n: 3, b: 3, r: 5, q: 9, k: 0,
+};
+export const LONG_ROOK_DISTANCE = 4;
+export const REVERSAL_THRESHOLD = 3;
+
+const CAPTURE_TRIGGER = {
+  p: { npc: "1", player: "2" },
+  n: { npc: "3", player: "4" },
+  b: { npc: "5", player: "6" },
+  r: { npc: "7", player: "8" },
+  q: { npc: "9", player: "10" },
+};
+const PROMOTION_NAMES: Partial<Record<PieceSymbol, [string, string]>> = {
+  q: ["王后", "クイーン"], r: ["车", "ルーク"],
+  b: ["象", "ビショップ"], n: ["马", "ナイト"],
 };
 
-type RawAnnotationSet = {
-  annotations?: Record<
-    string,
-    Array<{ phrase?: unknown; role?: unknown; meaning?: unknown }>
-  >;
-};
+export function getDialogueCandidates(triggerCode: string, context: DialogueContext) {
+  return DIALOGUES.filter((dialogue) => {
+    if (dialogue.triggerCode !== triggerCode) return false;
+    if (dialogue.condition === "player-white") return context.playerColor === "w";
+    if (dialogue.condition === "player-black") return context.playerColor === "b";
+    if (dialogue.condition === "queen-returned") return context.queenReturned === true;
+    return true;
+  }).map((dialogue) => {
+    if (!dialogue.zhHans.includes("〇〇")) return dialogue;
+    const names = context.promotion && PROMOTION_NAMES[context.promotion];
+    if (!names) return null;
+    return {
+      ...dialogue,
+      zhHans: dialogue.zhHans.replaceAll("〇〇", names[0]),
+      ja: dialogue.ja.replaceAll("〇〇", names[1]),
+      learning: dialogue.learning.map((item) => ({
+        ...item,
+        phrase: item.phrase.replaceAll("〇〇", names[0]),
+        meaning: item.meaning.replaceAll("〇〇", names[1]),
+      })),
+    };
+  }).filter((dialogue): dialogue is Dialogue => dialogue !== null);
+}
 
-const CAPTURE_TRIGGER: Record<
-  Exclude<PieceSymbol, "k">,
-  Record<DialogueActor, string>
-> = {
-  p: { npc: "1.1", player: "1.2" },
-  n: { npc: "1.3", player: "1.4" },
-  b: { npc: "1.5", player: "1.6" },
-  r: { npc: "1.7", player: "1.8" },
-  q: { npc: "1.9", player: "1.10" },
-};
+export function getMaterialBalance(game: Chess, color: Color) {
+  return game.board().flat().reduce((sum, piece) => {
+    if (!piece) return sum;
+    return sum + PIECE_VALUES[piece.type] * (piece.color === color ? 1 : -1);
+  }, 0);
+}
 
-const EXCHANGE_VALUE: Record<PieceSymbol, number> = {
-  p: 1,
-  n: 3,
-  b: 3,
-  r: 5,
-  q: 9,
-  k: 0,
-};
-
-export const TRIGGER_TIMING: Record<string, DialogueTiming> = {
-  "1.1": "after-npc-move",
-  "1.2": "after-player-move-before-npc",
-  "1.3": "after-npc-move",
-  "1.4": "after-player-move-before-npc",
-  "1.5": "after-npc-move",
-  "1.6": "after-player-move-before-npc",
-  "1.7": "after-npc-move",
-  "1.8": "after-player-move-before-npc",
-  "1.9": "after-npc-move",
-  "1.10": "after-player-move-before-npc",
-  "1.11": "after-triggering-recapture",
-  "2.1": "game-start",
-  "2.2": "game-start",
-  "2.3": "game-start",
-  "3.1": "after-npc-move",
-  "3.2": "after-player-move-before-npc",
-  "4.1": "after-player-move-before-npc",
-  "4.2": "after-npc-move",
-};
-
-export function shouldAnnounceTrigger(
-  triggerCode: string,
-  actor: DialogueActor,
+export function getMaterialReversalTrigger(
+  previousBalance: number,
+  balance: number,
+  history: MaterialHistory,
 ) {
-  const timing = TRIGGER_TIMING[triggerCode];
-  return (
-    timing === "after-triggering-recapture" ||
-    (actor === "player" && timing === "after-player-move-before-npc") ||
-    (actor === "npc" && timing === "after-npc-move")
+  // Balances are always from the NPC's perspective. Keep the disadvantage
+  // through neutral positions, then consume it when that side reaches +3.
+  const npcWasBehind = history.npcWasBehind || previousBalance <= -REVERSAL_THRESHOLD;
+  const playerWasBehind = history.playerWasBehind || previousBalance >= REVERSAL_THRESHOLD;
+  const npcReversed = npcWasBehind && previousBalance < REVERSAL_THRESHOLD && balance >= REVERSAL_THRESHOLD;
+  const playerReversed = playerWasBehind && previousBalance > -REVERSAL_THRESHOLD && balance <= -REVERSAL_THRESHOLD;
+  history.npcWasBehind = !npcReversed && (npcWasBehind || balance <= -REVERSAL_THRESHOLD);
+  history.playerWasBehind = !playerReversed && (playerWasBehind || balance >= REVERSAL_THRESHOLD);
+  return npcReversed ? "29" : playerReversed ? "30" : null;
+}
+
+function piecesFor(game: Chess, color: Color) {
+  return game.board().flat().filter((piece) => piece?.color === color);
+}
+
+export function getMoveDialogueContext(move: Move, playerColor: Color): DialogueContext {
+  const before = new Chess(move.before);
+  return {
+    playerColor,
+    promotion: move.promotion,
+    queenReturned: move.color === playerColor && move.promotion === "q" &&
+      !piecesFor(before, playerColor).some((piece) => piece?.type === "q"),
+  };
+}
+
+function hasTactic(game: Chess, square: Square, color: Color) {
+  const enemy = color === "w" ? "b" : "w";
+  // A fork attacks at least two non-pawn targets with the moved piece.
+  const targets = piecesFor(game, enemy).filter((piece) =>
+    piece && piece.type !== "p" && game.attackers(piece.square, color).includes(square),
   );
+  if (targets.length >= 2) return true;
+
+  // Sliding pieces can also pin a piece to its king or skewer a valuable piece.
+  const piece = game.get(square);
+  if (!piece || !["b", "r", "q"].includes(piece.type)) return false;
+  const directions = [
+    ...(piece.type !== "b" ? [[1, 0], [-1, 0], [0, 1], [0, -1]] : []),
+    ...(piece.type !== "r" ? [[1, 1], [1, -1], [-1, 1], [-1, -1]] : []),
+  ];
+  for (const [dx, dy] of directions) {
+    let first: PieceSymbol | null = null;
+    for (let x = square.charCodeAt(0) - 97 + dx, y = Number(square[1]) - 1 + dy;
+      x >= 0 && x < 8 && y >= 0 && y < 8; x += dx, y += dy) {
+      const target = game.get(`${String.fromCharCode(97 + x)}${y + 1}` as Square);
+      if (!target) continue;
+      if (target.color === color) break;
+      if (first === null) {
+        first = target.type;
+      } else {
+        if ((first !== "k" && target.type === "k") ||
+          (first === "k" && PIECE_VALUES[target.type] > 1)) return true;
+        break;
+      }
+    }
+  }
+  return false;
 }
 
 export function getMoveTriggerCode(
-  event: MoveEvent,
+  move: Move,
+  actor: DialogueActor,
   previousCapture: PreviousCapture | null,
+  materialHistory: MaterialHistory,
 ) {
-  if (event.isCheckmate) return event.actor === "player" ? "4.1" : "4.2";
-  if (event.isCheck) return event.actor === "npc" ? "3.1" : "3.2";
-  if (
-    event.captured &&
-    previousCapture &&
-    previousCapture.actor !== event.actor &&
-    previousCapture.to === event.to &&
-    EXCHANGE_VALUE[previousCapture.captured] === EXCHANGE_VALUE[event.captured]
-  ) {
-    return "1.11";
+  const before = new Chess(move.before);
+  const after = new Chess(move.after);
+  const enemy = move.color === "w" ? "b" : "w";
+  const npcColor = actor === "npc" ? move.color : enemy;
+  const reversal = getMaterialReversalTrigger(
+    getMaterialBalance(before, npcColor), getMaterialBalance(after, npcColor), materialHistory,
+  );
+  if (after.isCheckmate()) return actor === "player" ? "17" : "18";
+  if (move.isPromotion()) return actor === "npc" ? "19" : "20";
+
+  if (piecesFor(before, enemy).length > 1 && piecesFor(after, enemy).length === 1) {
+    return actor === "player" ? "21" : "22";
   }
-  if (event.captured && event.captured !== "k") {
-    return CAPTURE_TRIGGER[event.captured][event.actor];
+  if (reversal) return reversal;
+  if (move.captured && previousCapture && previousCapture.actor !== actor &&
+    previousCapture.to === move.to &&
+    PIECE_VALUES[previousCapture.captured] === PIECE_VALUES[move.captured]) return "11";
+  if (actor === "npc" && hasTactic(after, move.to, move.color) &&
+    !hasTactic(before, move.from, move.color)) return "31";
+  if (after.isCheck()) return actor === "npc" ? "15" : "16";
+  if (move.isKingsideCastle() || move.isQueensideCastle()) {
+    return actor === "npc" ? "25" : "26";
+  }
+  if (move.captured && move.captured !== "k") return CAPTURE_TRIGGER[move.captured][actor];
+  if (actor === "player" && move.piece === "r") {
+    const distance = Math.max(Math.abs(move.from.charCodeAt(0) - move.to.charCodeAt(0)),
+      Math.abs(Number(move.from[1]) - Number(move.to[1])));
+    if (distance >= LONG_ROOK_DISTANCE) return "28";
   }
   return null;
 }
 
-export async function loadDialogueSet(
-  setId: DialogueSetNumber,
-): Promise<Dialogue[]> {
-  const setNumber = String(setId).padStart(2, "0");
-  const [dialogueResponse, annotationResponse] = await Promise.all([
-    fetch(`/data/line/chess_set_${setNumber}.json`),
-    fetch(`/data/line/chess_set_${setNumber}_annotations.json`),
-  ]);
-  if (!dialogueResponse.ok || !annotationResponse.ok) {
-    throw new Error(`Dialogue set ${setId} could not be loaded`);
-  }
-
-  const data = (await dialogueResponse.json()) as RawDialogueSet;
-  const annotationData = (await annotationResponse.json()) as RawAnnotationSet;
-  const dialogues: Dialogue[] = [];
-  for (const expression of data.expressions ?? []) {
-    for (const item of expression.dialogues ?? []) {
-      if (
-        typeof item.id === "string" &&
-        typeof item.text?.zhHans === "string" &&
-        typeof item.text.ja === "string" &&
-        typeof item.trigger?.code === "string"
-      ) {
-        const rawLearning = annotationData.annotations?.[item.id];
-        if (
-          !rawLearning?.length ||
-          rawLearning.some(
-            (learningItem) =>
-              typeof learningItem.phrase !== "string" ||
-              typeof learningItem.role !== "string" ||
-              typeof learningItem.meaning !== "string",
-          )
-        ) {
-          throw new Error(`Dialogue ${item.id} has no complete annotation`);
-        }
-        dialogues.push({
-          id: item.id,
-          zhHans: item.text.zhHans,
-          ja: item.text.ja,
-          triggerCode: item.trigger.code,
-          learning: rawLearning as LearningItem[],
-          source: "set",
-          setId,
-        });
-      }
-    }
-  }
-  return dialogues;
+export function getOpeningTriggerCode({ playerColor, firstWithColor, gamesToday, hour }: {
+  playerColor: Color; firstWithColor: boolean; gamesToday: number; hour: number;
+}) {
+  if (firstWithColor) return playerColor === "w" ? "12" : "13";
+  if (gamesToday >= 2) return "27";
+  if (hour >= 5 && hour < 12) return "23";
+  if (hour >= 18 || hour < 5) return "24";
+  return "14";
 }
 
-export function dialogueSelectionKey(dialogue: Dialogue) {
-  return `${dialogue.source}:${dialogue.setId ?? "shared"}:${dialogue.id}`;
-}
-
-export function selectUnusedDialogue(
-  candidates: Dialogue[],
-  used: Set<string>,
-  random = Math.random,
-) {
+export function selectUnusedDialogue(candidates: Dialogue[], used: Set<string>, random = Math.random) {
   if (!candidates.length) return null;
-  let available = candidates.filter(
-    (dialogue) => !used.has(dialogueSelectionKey(dialogue)),
-  );
+  let available = candidates.filter((dialogue) => !used.has(dialogue.id));
   if (!available.length) {
-    for (const dialogue of candidates) used.delete(dialogueSelectionKey(dialogue));
+    for (const dialogue of candidates) used.delete(dialogue.id);
     available = candidates;
   }
   const selected = available[Math.floor(random() * available.length)];
-  used.add(dialogueSelectionKey(selected));
+  used.add(selected.id);
   return selected;
 }
 

@@ -470,28 +470,6 @@ button:focus-visible {
   font-weight: 700;
 }
 
-.dialogue-set-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-}
-
-.dialogue-set-buttons button {
-  height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: #f4f6f4;
-  color: #667269;
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.dialogue-set-buttons button.selected {
-  border-color: #82ad90;
-  background: #e5f2e8;
-  color: var(--green-dark);
-}
-
 .speech-setting {
   min-height: 50px;
   margin-top: 5px;

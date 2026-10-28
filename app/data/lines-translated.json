@@ -1,0 +1,2532 @@
+[
+  {
+    "id": "translated-1-1",
+    "triggerCode": "1",
+    "zhHans": "他被关进监狱了。",
+    "ja": "彼は牢屋に入れられたよ。",
+    "learning": [
+      {
+        "phrase": "他",
+        "role": "代名詞",
+        "meaning": "彼"
+      },
+      {
+        "phrase": "被",
+        "role": "介詞",
+        "meaning": "〜される（受身）"
+      },
+      {
+        "phrase": "关进",
+        "role": "動詞・方向補語",
+        "meaning": "閉じ込める、閉じ込めて入れる"
+      },
+      {
+        "phrase": "监狱",
+        "role": "名詞",
+        "meaning": "牢屋、刑務所"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了や状況の変化"
+      },
+      {
+        "phrase": "他被关进监狱了。",
+        "role": "文法",
+        "meaning": "STEP37：受身文"
+      }
+    ]
+  },
+  {
+    "id": "translated-1-2",
+    "triggerCode": "1",
+    "zhHans": "我在打扫房间。",
+    "ja": "部屋を掃除しているの。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "在",
+        "role": "副詞",
+        "meaning": "〜している（進行）"
+      },
+      {
+        "phrase": "打扫",
+        "role": "動詞",
+        "meaning": "掃除する"
+      },
+      {
+        "phrase": "房间",
+        "role": "名詞",
+        "meaning": "部屋"
+      },
+      {
+        "phrase": "我在打扫房间。",
+        "role": "文法",
+        "meaning": "STEP26：進行の在"
+      }
+    ]
+  },
+  {
+    "id": "translated-1-3",
+    "triggerCode": "1",
+    "zhHans": "我在收拾桌上的东西。",
+    "ja": "机の上のものを片付けているの。",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "副詞",
+        "meaning": "〜している（進行）"
+      },
+      {
+        "phrase": "收拾",
+        "role": "動詞",
+        "meaning": "片付ける"
+      },
+      {
+        "phrase": "桌上",
+        "role": "場所表現",
+        "meaning": "机の上"
+      },
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "前の語句で後ろの名詞を修飾する"
+      },
+      {
+        "phrase": "东西",
+        "role": "名詞",
+        "meaning": "もの"
+      },
+      {
+        "phrase": "我在收拾桌上的东西。",
+        "role": "文法",
+        "meaning": "STEP13・26：方位詞・進行"
+      }
+    ]
+  },
+  {
+    "id": "translated-2-1",
+    "triggerCode": "2",
+    "zhHans": "可惜，兵消失了。",
+    "ja": "残念、ポーンが消えちゃった。",
+    "learning": [
+      {
+        "phrase": "可惜",
+        "role": "形容詞・感嘆表現",
+        "meaning": "惜しい、残念だ"
+      },
+      {
+        "phrase": "兵",
+        "role": "チェス用語",
+        "meaning": "ポーン"
+      },
+      {
+        "phrase": "消失",
+        "role": "動詞",
+        "meaning": "消える"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-2-2",
+    "triggerCode": "2",
+    "zhHans": "那可是我喜欢的兵！",
+    "ja": "好きなポーンだったのに！",
+    "learning": [
+      {
+        "phrase": "那",
+        "role": "指示代名詞",
+        "meaning": "あれ、それ"
+      },
+      {
+        "phrase": "可是",
+        "role": "強調表現",
+        "meaning": "ここでは『〜なんだよ』と強調する"
+      },
+      {
+        "phrase": "喜欢",
+        "role": "動詞",
+        "meaning": "好きだ"
+      },
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "『好きな』と名詞を修飾する"
+      },
+      {
+        "phrase": "兵",
+        "role": "チェス用語",
+        "meaning": "ポーン"
+      },
+      {
+        "phrase": "那可是我喜欢的兵！",
+        "role": "文法",
+        "meaning": "STEP16：連体修飾"
+      }
+    ]
+  },
+  {
+    "id": "translated-2-3",
+    "triggerCode": "2",
+    "zhHans": "他们只是我的手和脚。",
+    "ja": "彼らは私の手足に過ぎない。",
+    "learning": [
+      {
+        "phrase": "他们",
+        "role": "代名詞",
+        "meaning": "彼ら"
+      },
+      {
+        "phrase": "只是",
+        "role": "表現",
+        "meaning": "ただ〜に過ぎない"
+      },
+      {
+        "phrase": "我的",
+        "role": "所有表現",
+        "meaning": "私の"
+      },
+      {
+        "phrase": "手",
+        "role": "名詞",
+        "meaning": "手"
+      },
+      {
+        "phrase": "和",
+        "role": "接続詞",
+        "meaning": "〜と"
+      },
+      {
+        "phrase": "脚",
+        "role": "名詞",
+        "meaning": "足"
+      },
+      {
+        "phrase": "他们只是我的手和脚。",
+        "role": "文法",
+        "meaning": "STEP4：是構文"
+      }
+    ]
+  },
+  {
+    "id": "translated-3-1",
+    "triggerCode": "3",
+    "zhHans": "再见了。",
+    "ja": "お別れだね。",
+    "learning": [
+      {
+        "phrase": "再见",
+        "role": "あいさつ",
+        "meaning": "さようなら、また会おう"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここでは別れの状況への変化を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-4-1",
+    "triggerCode": "4",
+    "zhHans": "我那匹可爱的马啊！",
+    "ja": "私の可愛い馬が！",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "那匹",
+        "role": "数量表現",
+        "meaning": "あの一頭（匹は馬などを数える量詞）"
+      },
+      {
+        "phrase": "可爱",
+        "role": "形容詞",
+        "meaning": "可愛い"
+      },
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞を修飾する"
+      },
+      {
+        "phrase": "马",
+        "role": "名詞・チェス用語",
+        "meaning": "馬、ナイト"
+      },
+      {
+        "phrase": "啊",
+        "role": "語気助詞",
+        "meaning": "感情を添える"
+      },
+      {
+        "phrase": "我那匹可爱的马啊！",
+        "role": "文法",
+        "meaning": "STEP10・16：量詞・連体修飾"
+      }
+    ]
+  },
+  {
+    "id": "translated-4-2",
+    "triggerCode": "4",
+    "zhHans": "我刚买了它！",
+    "ja": "買ったばかりだったのよ！",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "刚",
+        "role": "副詞",
+        "meaning": "たった今、〜したばかり"
+      },
+      {
+        "phrase": "买",
+        "role": "動詞",
+        "meaning": "買う"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了"
+      },
+      {
+        "phrase": "它",
+        "role": "代名詞",
+        "meaning": "それ（物や動物）"
+      },
+      {
+        "phrase": "我刚买了它！",
+        "role": "文法",
+        "meaning": "STEP24：アスペクトの了"
+      }
+    ]
+  },
+  {
+    "id": "translated-5-1",
+    "triggerCode": "5",
+    "zhHans": "呼，热起来了！",
+    "ja": "ふう、暑くなってきた！",
+    "learning": [
+      {
+        "phrase": "呼",
+        "role": "感嘆詞",
+        "meaning": "ふう"
+      },
+      {
+        "phrase": "热",
+        "role": "形容詞",
+        "meaning": "暑い"
+      },
+      {
+        "phrase": "起来",
+        "role": "方向補語",
+        "meaning": "状態が始まることを表す"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "変化を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-5-2",
+    "triggerCode": "5",
+    "zhHans": "你有一颗冰冷的心！",
+    "ja": "冷たい心の持ち主だね！",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている"
+      },
+      {
+        "phrase": "一颗",
+        "role": "数量表現",
+        "meaning": "一つ（颗は心や小さな粒状の物を数える）"
+      },
+      {
+        "phrase": "冰冷",
+        "role": "形容詞",
+        "meaning": "氷のように冷たい"
+      },
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞を修飾する"
+      },
+      {
+        "phrase": "心",
+        "role": "名詞",
+        "meaning": "心"
+      },
+      {
+        "phrase": "你有一颗冰冷的心！",
+        "role": "文法",
+        "meaning": "STEP9・10・16：所有の有・量詞・連体修飾"
+      }
+    ]
+  },
+  {
+    "id": "translated-6-1",
+    "triggerCode": "6",
+    "zhHans": "再见了。",
+    "ja": "お別れだね。",
+    "learning": [
+      {
+        "phrase": "再见",
+        "role": "あいさつ",
+        "meaning": "さようなら、また会おう"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここでは別れの状況への変化を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-7-1",
+    "triggerCode": "7",
+    "zhHans": "你累了吗？",
+    "ja": "疲れているの？",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "累",
+        "role": "形容詞",
+        "meaning": "疲れている"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状態の変化"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      },
+      {
+        "phrase": "你累了吗？",
+        "role": "文法",
+        "meaning": "STEP2・15：吗疑問文・形容詞"
+      }
+    ]
+  },
+  {
+    "id": "translated-7-2",
+    "triggerCode": "7",
+    "zhHans": "再见了。",
+    "ja": "お別れだね。",
+    "learning": [
+      {
+        "phrase": "再见",
+        "role": "あいさつ",
+        "meaning": "さようなら、また会おう"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここでは別れの状況への変化を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-7-3",
+    "triggerCode": "7",
+    "zhHans": "我攻下了移动的城堡！",
+    "ja": "動く城を攻略した！",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "攻下",
+        "role": "動詞・結果補語",
+        "meaning": "攻め落とす"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了"
+      },
+      {
+        "phrase": "移动",
+        "role": "動詞",
+        "meaning": "移動する"
+      },
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞を修飾する"
+      },
+      {
+        "phrase": "城堡",
+        "role": "名詞",
+        "meaning": "城"
+      }
+    ]
+  },
+  {
+    "id": "translated-7-4",
+    "triggerCode": "7",
+    "zhHans": "你的车？我给你洗！",
+    "ja": "君の車？　洗ってあげるよ！",
+    "learning": [
+      {
+        "phrase": "你的",
+        "role": "所有表現",
+        "meaning": "あなたの"
+      },
+      {
+        "phrase": "车",
+        "role": "名詞・チェス用語",
+        "meaning": "車、ルーク。ここでは洒落"
+      },
+      {
+        "phrase": "给你",
+        "role": "介詞句",
+        "meaning": "あなたのために"
+      },
+      {
+        "phrase": "洗",
+        "role": "動詞",
+        "meaning": "洗う"
+      },
+      {
+        "phrase": "你的车？我给你洗！",
+        "role": "文法",
+        "meaning": "STEP17：介詞"
+      }
+    ]
+  },
+  {
+    "id": "translated-8-1",
+    "triggerCode": "8",
+    "zhHans": "喝杯咖啡，冷静一下。",
+    "ja": "コーヒーでも飲んで落ち着こう。",
+    "learning": [
+      {
+        "phrase": "喝",
+        "role": "動詞",
+        "meaning": "飲む"
+      },
+      {
+        "phrase": "杯",
+        "role": "量詞",
+        "meaning": "コップやカップ一杯を数える"
+      },
+      {
+        "phrase": "咖啡",
+        "role": "名詞",
+        "meaning": "コーヒー"
+      },
+      {
+        "phrase": "冷静",
+        "role": "形容詞・動詞",
+        "meaning": "冷静だ、落ち着く"
+      },
+      {
+        "phrase": "一下",
+        "role": "数量補語",
+        "meaning": "少し〜する"
+      }
+    ]
+  },
+  {
+    "id": "translated-8-2",
+    "triggerCode": "8",
+    "zhHans": "喝点水，冷静一下。",
+    "ja": "水でも飲んで落ち着こう。",
+    "learning": [
+      {
+        "phrase": "喝",
+        "role": "動詞",
+        "meaning": "飲む"
+      },
+      {
+        "phrase": "点",
+        "role": "数量表現",
+        "meaning": "少し"
+      },
+      {
+        "phrase": "水",
+        "role": "名詞",
+        "meaning": "水"
+      },
+      {
+        "phrase": "冷静",
+        "role": "形容詞・動詞",
+        "meaning": "冷静だ、落ち着く"
+      },
+      {
+        "phrase": "一下",
+        "role": "数量補語",
+        "meaning": "少し〜する"
+      }
+    ]
+  },
+  {
+    "id": "translated-9-1",
+    "triggerCode": "9",
+    "zhHans": "别生气啊！",
+    "ja": "怒らないでね！",
+    "learning": [
+      {
+        "phrase": "别",
+        "role": "副詞",
+        "meaning": "〜しないで（禁止）"
+      },
+      {
+        "phrase": "生气",
+        "role": "動詞",
+        "meaning": "怒る"
+      },
+      {
+        "phrase": "啊",
+        "role": "語気助詞",
+        "meaning": "語調を和らげる"
+      }
+    ]
+  },
+  {
+    "id": "translated-9-2",
+    "triggerCode": "9",
+    "zhHans": "再见了。",
+    "ja": "お別れだね。",
+    "learning": [
+      {
+        "phrase": "再见",
+        "role": "あいさつ",
+        "meaning": "さようなら、また会おう"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここでは別れの状況への変化を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-9-3",
+    "triggerCode": "9",
+    "zhHans": "怎么了？脸都白了！",
+    "ja": "どうしたの？　顔が真っ青だよ！",
+    "learning": [
+      {
+        "phrase": "怎么了",
+        "role": "疑問表現",
+        "meaning": "どうしたの"
+      },
+      {
+        "phrase": "脸",
+        "role": "名詞",
+        "meaning": "顔"
+      },
+      {
+        "phrase": "都",
+        "role": "副詞",
+        "meaning": "ここでは『もう〜まで』と程度を強調"
+      },
+      {
+        "phrase": "白",
+        "role": "形容詞",
+        "meaning": "白い、顔が青ざめている"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状態の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-9-4",
+    "triggerCode": "9",
+    "zhHans": "我胸口很疼。",
+    "ja": "胸がとても痛いよ。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "胸口",
+        "role": "名詞",
+        "meaning": "胸、みぞおち"
+      },
+      {
+        "phrase": "很",
+        "role": "副詞",
+        "meaning": "とても。形容詞述語文では程度を強調しないこともある"
+      },
+      {
+        "phrase": "疼",
+        "role": "形容詞",
+        "meaning": "痛い"
+      },
+      {
+        "phrase": "我胸口很疼。",
+        "role": "文法",
+        "meaning": "STEP15：形容詞述語文"
+      }
+    ]
+  },
+  {
+    "id": "translated-9-5",
+    "triggerCode": "9",
+    "zhHans": "王后……死了……",
+    "ja": "王妃が……死んだ……。",
+    "learning": [
+      {
+        "phrase": "王后",
+        "role": "名詞・チェス用語",
+        "meaning": "王妃、クイーン"
+      },
+      {
+        "phrase": "死",
+        "role": "動詞",
+        "meaning": "死ぬ"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了、状態の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-10-1",
+    "triggerCode": "10",
+    "zhHans": "我想回家了。",
+    "ja": "もう帰りたいよ。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "想",
+        "role": "助動詞",
+        "meaning": "〜したい"
+      },
+      {
+        "phrase": "回家",
+        "role": "動詞句",
+        "meaning": "家に帰る"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "気持ちの変化を表す"
+      },
+      {
+        "phrase": "我想回家了。",
+        "role": "文法",
+        "meaning": "STEP20：願望の助動詞"
+      }
+    ]
+  },
+  {
+    "id": "translated-10-2",
+    "triggerCode": "10",
+    "zhHans": "我快哭了。",
+    "ja": "泣きそうだよ。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "快……了",
+        "role": "文型",
+        "meaning": "もうすぐ〜する、〜しそうだ"
+      },
+      {
+        "phrase": "哭",
+        "role": "動詞",
+        "meaning": "泣く"
+      }
+    ]
+  },
+  {
+    "id": "translated-10-3",
+    "triggerCode": "10",
+    "zhHans": "啊，头好疼。",
+    "ja": "ああ、頭が痛い。",
+    "learning": [
+      {
+        "phrase": "啊",
+        "role": "感嘆詞",
+        "meaning": "ああ"
+      },
+      {
+        "phrase": "头",
+        "role": "名詞",
+        "meaning": "頭"
+      },
+      {
+        "phrase": "好",
+        "role": "副詞",
+        "meaning": "とても"
+      },
+      {
+        "phrase": "疼",
+        "role": "形容詞",
+        "meaning": "痛い"
+      },
+      {
+        "phrase": "啊，头好疼。",
+        "role": "文法",
+        "meaning": "STEP15：形容詞述語文"
+      }
+    ]
+  },
+  {
+    "id": "translated-10-4",
+    "triggerCode": "10",
+    "zhHans": "王后……死了……",
+    "ja": "王妃が……死んだ……。",
+    "learning": [
+      {
+        "phrase": "王后",
+        "role": "名詞・チェス用語",
+        "meaning": "王妃、クイーン"
+      },
+      {
+        "phrase": "死",
+        "role": "動詞",
+        "meaning": "死ぬ"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了、状態の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-11-1",
+    "triggerCode": "11",
+    "zhHans": "这局真好玩！",
+    "ja": "楽しい試合だね！",
+    "learning": [
+      {
+        "phrase": "这局",
+        "role": "数量表現",
+        "meaning": "この一局（局は対局を数える量詞）"
+      },
+      {
+        "phrase": "真",
+        "role": "副詞",
+        "meaning": "本当に"
+      },
+      {
+        "phrase": "好玩",
+        "role": "形容詞",
+        "meaning": "楽しい、面白い"
+      }
+    ]
+  },
+  {
+    "id": "translated-12-1",
+    "triggerCode": "12",
+    "zhHans": "你是白方。",
+    "ja": "君が白番だね。",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "白方",
+        "role": "チェス用語",
+        "meaning": "白番、白側"
+      },
+      {
+        "phrase": "你是白方。",
+        "role": "文法",
+        "meaning": "STEP4：是構文"
+      }
+    ]
+  },
+  {
+    "id": "translated-12-2",
+    "triggerCode": "12",
+    "zhHans": "我是黑方。",
+    "ja": "私が黒番だね。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "黑方",
+        "role": "チェス用語",
+        "meaning": "黒番、黒側"
+      },
+      {
+        "phrase": "我是黑方。",
+        "role": "文法",
+        "meaning": "STEP4：是構文"
+      }
+    ]
+  },
+  {
+    "id": "translated-13-1",
+    "triggerCode": "13",
+    "zhHans": "你是黑方。",
+    "ja": "君が黒番だね。",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "黑方",
+        "role": "チェス用語",
+        "meaning": "黒番、黒側"
+      },
+      {
+        "phrase": "你是黑方。",
+        "role": "文法",
+        "meaning": "STEP4：是構文"
+      }
+    ]
+  },
+  {
+    "id": "translated-13-2",
+    "triggerCode": "13",
+    "zhHans": "我是白方。",
+    "ja": "私が白番だね。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "白方",
+        "role": "チェス用語",
+        "meaning": "白番、白側"
+      },
+      {
+        "phrase": "我是白方。",
+        "role": "文法",
+        "meaning": "STEP4：是構文"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-1",
+    "triggerCode": "14",
+    "zhHans": "听说国际象棋起源于印度。",
+    "ja": "チェスのルーツはインドらしいよ。",
+    "learning": [
+      {
+        "phrase": "听说",
+        "role": "動詞",
+        "meaning": "〜と聞いている、〜らしい"
+      },
+      {
+        "phrase": "国际象棋",
+        "role": "名詞",
+        "meaning": "チェス"
+      },
+      {
+        "phrase": "起源于",
+        "role": "動詞句",
+        "meaning": "〜に起源を持つ"
+      },
+      {
+        "phrase": "印度",
+        "role": "地名",
+        "meaning": "インド"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-2",
+    "triggerCode": "14",
+    "zhHans": "我们下棋吧！",
+    "ja": "チェスをしよう！",
+    "learning": [
+      {
+        "phrase": "我们",
+        "role": "代名詞",
+        "meaning": "私たち"
+      },
+      {
+        "phrase": "下棋",
+        "role": "動詞句",
+        "meaning": "チェスなどの盤ゲームをする"
+      },
+      {
+        "phrase": "吧",
+        "role": "語気助詞",
+        "meaning": "勧誘や提案を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-3",
+    "triggerCode": "14",
+    "zhHans": "你是白方。",
+    "ja": "君が白番だね。",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "白方",
+        "role": "チェス用語",
+        "meaning": "白番、白側"
+      }
+    ],
+    "condition": "player-white"
+  },
+  {
+    "id": "translated-14-4",
+    "triggerCode": "14",
+    "zhHans": "你是黑方。",
+    "ja": "君が黒番だね。",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "黑方",
+        "role": "チェス用語",
+        "meaning": "黒番、黒側"
+      }
+    ],
+    "condition": "player-black"
+  },
+  {
+    "id": "translated-14-5",
+    "triggerCode": "14",
+    "zhHans": "我是白方。",
+    "ja": "私が白番だね。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "白方",
+        "role": "チェス用語",
+        "meaning": "白番、白側"
+      }
+    ],
+    "condition": "player-black"
+  },
+  {
+    "id": "translated-14-6",
+    "triggerCode": "14",
+    "zhHans": "我是黑方。",
+    "ja": "私が黒番だね。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "黑方",
+        "role": "チェス用語",
+        "meaning": "黒番、黒側"
+      }
+    ],
+    "condition": "player-white"
+  },
+  {
+    "id": "translated-14-7",
+    "triggerCode": "14",
+    "zhHans": "你怕输吗？",
+    "ja": "負けるのが怖い？",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "怕",
+        "role": "動詞",
+        "meaning": "怖がる"
+      },
+      {
+        "phrase": "输",
+        "role": "動詞",
+        "meaning": "負ける"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      },
+      {
+        "phrase": "你怕输吗？",
+        "role": "文法",
+        "meaning": "STEP2：吗疑問文"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-8",
+    "triggerCode": "14",
+    "zhHans": "我一定会赢！",
+    "ja": "絶対勝つからね！",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "一定",
+        "role": "副詞",
+        "meaning": "必ず"
+      },
+      {
+        "phrase": "会",
+        "role": "助動詞",
+        "meaning": "〜するだろう"
+      },
+      {
+        "phrase": "赢",
+        "role": "動詞",
+        "meaning": "勝つ"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-9",
+    "triggerCode": "14",
+    "zhHans": "欢迎来到国际象棋学校！",
+    "ja": "チェスの学校へようこそ！",
+    "learning": [
+      {
+        "phrase": "欢迎",
+        "role": "動詞",
+        "meaning": "歓迎する、ようこそ"
+      },
+      {
+        "phrase": "来到",
+        "role": "動詞",
+        "meaning": "やって来る"
+      },
+      {
+        "phrase": "国际象棋",
+        "role": "名詞",
+        "meaning": "チェス"
+      },
+      {
+        "phrase": "学校",
+        "role": "名詞",
+        "meaning": "学校"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-10",
+    "triggerCode": "14",
+    "zhHans": "我们开始吧！",
+    "ja": "対局を始めよう！",
+    "learning": [
+      {
+        "phrase": "我们",
+        "role": "代名詞",
+        "meaning": "私たち"
+      },
+      {
+        "phrase": "开始",
+        "role": "動詞",
+        "meaning": "始める"
+      },
+      {
+        "phrase": "吧",
+        "role": "語気助詞",
+        "meaning": "勧誘や提案を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-14-11",
+    "triggerCode": "14",
+    "zhHans": "我是老师，你是学生。",
+    "ja": "私が先生、あなたが生徒ね。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "老师",
+        "role": "名詞",
+        "meaning": "先生"
+      },
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "学生",
+        "role": "名詞",
+        "meaning": "生徒、学生"
+      },
+      {
+        "phrase": "我是老师，你是学生。",
+        "role": "文法",
+        "meaning": "STEP4：是構文"
+      }
+    ]
+  },
+  {
+    "id": "translated-15-1",
+    "triggerCode": "15",
+    "zhHans": "我去找国王了！",
+    "ja": "陛下のところに行くよ！",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "去",
+        "role": "動詞",
+        "meaning": "行く"
+      },
+      {
+        "phrase": "找",
+        "role": "動詞",
+        "meaning": "探す、訪ねる"
+      },
+      {
+        "phrase": "国王",
+        "role": "名詞",
+        "meaning": "国王、キング"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここではこれから行動することを告げる"
+      },
+      {
+        "phrase": "我去找国王了！",
+        "role": "文法",
+        "meaning": "STEP18：連動文"
+      }
+    ]
+  },
+  {
+    "id": "translated-15-2",
+    "triggerCode": "15",
+    "zhHans": "你逃不掉了！",
+    "ja": "逃げられないよ！",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "逃",
+        "role": "動詞",
+        "meaning": "逃げる"
+      },
+      {
+        "phrase": "不掉",
+        "role": "可能補語",
+        "meaning": "〜しきれない、〜して離れられない"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      },
+      {
+        "phrase": "你逃不掉了！",
+        "role": "文法",
+        "meaning": "STEP31：可能補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-15-3",
+    "triggerCode": "15",
+    "zhHans": "小心背后！",
+    "ja": "背後に気をつけて！",
+    "learning": [
+      {
+        "phrase": "小心",
+        "role": "動詞",
+        "meaning": "気をつける"
+      },
+      {
+        "phrase": "背后",
+        "role": "場所表現",
+        "meaning": "背後、後ろ"
+      },
+      {
+        "phrase": "小心背后！",
+        "role": "文法",
+        "meaning": "STEP13：方位詞"
+      }
+    ]
+  },
+  {
+    "id": "translated-15-4",
+    "triggerCode": "15",
+    "zhHans": "这是叛乱！",
+    "ja": "これは反乱よ！",
+    "learning": [
+      {
+        "phrase": "这",
+        "role": "指示代名詞",
+        "meaning": "これ"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "叛乱",
+        "role": "名詞",
+        "meaning": "反乱"
+      },
+      {
+        "phrase": "这是叛乱！",
+        "role": "文法",
+        "meaning": "STEP4・5：是構文・指示代名詞"
+      }
+    ]
+  },
+  {
+    "id": "translated-16-1",
+    "triggerCode": "16",
+    "zhHans": "陛下要过来了！让路！",
+    "ja": "陛下がいらっしゃる！　道を開けて！",
+    "learning": [
+      {
+        "phrase": "陛下",
+        "role": "名詞",
+        "meaning": "陛下"
+      },
+      {
+        "phrase": "要",
+        "role": "助動詞",
+        "meaning": "これから〜する"
+      },
+      {
+        "phrase": "过来",
+        "role": "複合方向補語・動詞",
+        "meaning": "こちらへやって来る"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "近い未来や状況の変化"
+      },
+      {
+        "phrase": "让路",
+        "role": "動詞",
+        "meaning": "道を譲る"
+      },
+      {
+        "phrase": "陛下要过来了！让路！",
+        "role": "文法",
+        "meaning": "STEP30：複合方向補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-16-2",
+    "triggerCode": "16",
+    "zhHans": "别过来！",
+    "ja": "こっちに来ないで！",
+    "learning": [
+      {
+        "phrase": "别",
+        "role": "副詞",
+        "meaning": "〜しないで（禁止）"
+      },
+      {
+        "phrase": "过来",
+        "role": "複合方向補語・動詞",
+        "meaning": "こちらへ来る"
+      },
+      {
+        "phrase": "别过来！",
+        "role": "文法",
+        "meaning": "STEP30：複合方向補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-1",
+    "triggerCode": "17",
+    "zhHans": "赢了，开心吗？太好了！",
+    "ja": "勝って嬉しい？　よかったね！",
+    "learning": [
+      {
+        "phrase": "赢",
+        "role": "動詞",
+        "meaning": "勝つ"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了"
+      },
+      {
+        "phrase": "开心",
+        "role": "形容詞",
+        "meaning": "嬉しい、楽しい"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "疑問を表す"
+      },
+      {
+        "phrase": "太好了",
+        "role": "定型表現",
+        "meaning": "よかった、素晴らしい"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-2",
+    "triggerCode": "17",
+    "zhHans": "国破山河在。",
+    "ja": "国破れて山河在り。",
+    "learning": [
+      {
+        "phrase": "国破",
+        "role": "古典表現",
+        "meaning": "国が戦乱で破れる"
+      },
+      {
+        "phrase": "山河在",
+        "role": "古典表現",
+        "meaning": "山や川は変わらず残る。杜甫『春望』の一句で、現代口語の文法例とは分けて学ぶ"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-3",
+    "triggerCode": "17",
+    "zhHans": "我讨厌输。",
+    "ja": "負けるのは嫌い。",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "讨厌",
+        "role": "動詞",
+        "meaning": "嫌う、嫌いだ"
+      },
+      {
+        "phrase": "输",
+        "role": "動詞",
+        "meaning": "負ける"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-4",
+    "triggerCode": "17",
+    "zhHans": "你比我强！",
+    "ja": "あんた、私より強いね！",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "比",
+        "role": "介詞",
+        "meaning": "〜より（比較）"
+      },
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "强",
+        "role": "形容詞",
+        "meaning": "強い"
+      },
+      {
+        "phrase": "你比我强！",
+        "role": "文法",
+        "meaning": "STEP33：比による比較"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-5",
+    "triggerCode": "17",
+    "zhHans": "别告诉我妈妈！",
+    "ja": "お母さんには言わないで！",
+    "learning": [
+      {
+        "phrase": "别",
+        "role": "副詞",
+        "meaning": "〜しないで（禁止）"
+      },
+      {
+        "phrase": "告诉",
+        "role": "動詞",
+        "meaning": "告げる、知らせる"
+      },
+      {
+        "phrase": "我妈妈",
+        "role": "名詞句",
+        "meaning": "私のお母さん"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-6",
+    "triggerCode": "17",
+    "zhHans": "别告诉我爸爸！",
+    "ja": "お父さんには言わないで！",
+    "learning": [
+      {
+        "phrase": "别",
+        "role": "副詞",
+        "meaning": "〜しないで（禁止）"
+      },
+      {
+        "phrase": "告诉",
+        "role": "動詞",
+        "meaning": "告げる、知らせる"
+      },
+      {
+        "phrase": "我爸爸",
+        "role": "名詞句",
+        "meaning": "私のお父さん"
+      }
+    ]
+  },
+  {
+    "id": "translated-17-7",
+    "triggerCode": "17",
+    "zhHans": "明天我会赢！",
+    "ja": "明日は勝つよ！",
+    "learning": [
+      {
+        "phrase": "明天",
+        "role": "時間表現",
+        "meaning": "明日"
+      },
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "会",
+        "role": "助動詞",
+        "meaning": "〜するだろう"
+      },
+      {
+        "phrase": "赢",
+        "role": "動詞",
+        "meaning": "勝つ"
+      }
+    ]
+  },
+  {
+    "id": "translated-18-1",
+    "triggerCode": "18",
+    "zhHans": "借你一本棋书？",
+    "ja": "チェスの本、貸してあげようか？",
+    "learning": [
+      {
+        "phrase": "借你",
+        "role": "動詞句",
+        "meaning": "あなたに貸す（借は文脈で貸す・借りる）"
+      },
+      {
+        "phrase": "一本",
+        "role": "数量表現",
+        "meaning": "一冊（本は本を数える量詞）"
+      },
+      {
+        "phrase": "棋书",
+        "role": "名詞",
+        "meaning": "チェスなどの棋書"
+      },
+      {
+        "phrase": "借你一本棋书？",
+        "role": "文法",
+        "meaning": "STEP10：量詞"
+      }
+    ]
+  },
+  {
+    "id": "translated-18-2",
+    "triggerCode": "18",
+    "zhHans": "比赛结束了。",
+    "ja": "対局は終わりだよ。",
+    "learning": [
+      {
+        "phrase": "比赛",
+        "role": "名詞",
+        "meaning": "試合、対局"
+      },
+      {
+        "phrase": "结束",
+        "role": "動詞",
+        "meaning": "終わる"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-18-3",
+    "triggerCode": "18",
+    "zhHans": "弱一点也没关系。",
+    "ja": "少しくらい弱くてもいいんだよ。",
+    "learning": [
+      {
+        "phrase": "弱",
+        "role": "形容詞",
+        "meaning": "弱い"
+      },
+      {
+        "phrase": "一点",
+        "role": "数量表現",
+        "meaning": "少し"
+      },
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜でも"
+      },
+      {
+        "phrase": "没关系",
+        "role": "定型表現",
+        "meaning": "大丈夫、構わない"
+      }
+    ]
+  },
+  {
+    "id": "translated-18-4",
+    "triggerCode": "18",
+    "zhHans": "不甘心吗？",
+    "ja": "悔しい？",
+    "learning": [
+      {
+        "phrase": "不甘心",
+        "role": "形容詞句",
+        "meaning": "納得がいかない、悔しい"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      },
+      {
+        "phrase": "不甘心吗？",
+        "role": "文法",
+        "meaning": "STEP2：吗疑問文"
+      }
+    ]
+  },
+  {
+    "id": "translated-18-5",
+    "triggerCode": "18",
+    "zhHans": "真该录个视频！",
+    "ja": "動画を撮っておくべきだったよ！",
+    "learning": [
+      {
+        "phrase": "真",
+        "role": "副詞",
+        "meaning": "本当に"
+      },
+      {
+        "phrase": "该",
+        "role": "助動詞",
+        "meaning": "〜すべきだ"
+      },
+      {
+        "phrase": "录",
+        "role": "動詞",
+        "meaning": "録画する、録音する"
+      },
+      {
+        "phrase": "个",
+        "role": "量詞",
+        "meaning": "ここでは一本の動画を数える"
+      },
+      {
+        "phrase": "视频",
+        "role": "名詞",
+        "meaning": "動画"
+      }
+    ]
+  },
+  {
+    "id": "translated-18-6",
+    "triggerCode": "18",
+    "zhHans": "明天再下吧！",
+    "ja": "また明日やろう！",
+    "learning": [
+      {
+        "phrase": "明天",
+        "role": "時間表現",
+        "meaning": "明日"
+      },
+      {
+        "phrase": "再",
+        "role": "副詞",
+        "meaning": "また、もう一度"
+      },
+      {
+        "phrase": "下",
+        "role": "動詞",
+        "meaning": "ここではチェスを指す"
+      },
+      {
+        "phrase": "吧",
+        "role": "語気助詞",
+        "meaning": "提案や勧誘を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-19-1",
+    "triggerCode": "19",
+    "zhHans": "你看到了吗？",
+    "ja": "今の見た？",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "看到",
+        "role": "動詞・結果補語",
+        "meaning": "見える、目にする（到は結果の達成）"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "疑問を表す"
+      },
+      {
+        "phrase": "你看到了吗？",
+        "role": "文法",
+        "meaning": "STEP28：結果補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-19-2",
+    "triggerCode": "19",
+    "zhHans": "王侯将相，宁有种乎！",
+    "ja": "王侯将相に生まれつきの種などあるものか！",
+    "learning": [
+      {
+        "phrase": "王侯将相",
+        "role": "古典表現",
+        "meaning": "王、諸侯、将軍、宰相などの高い地位"
+      },
+      {
+        "phrase": "宁有种乎",
+        "role": "古典表現",
+        "meaning": "生まれつきの血筋があるものか、いやない。陳勝の言葉で、現代口語の文法例とは分けて学ぶ"
+      }
+    ]
+  },
+  {
+    "id": "translated-20-1",
+    "triggerCode": "20",
+    "zhHans": "〇〇出现了！",
+    "ja": "〇〇が現れた！",
+    "learning": [
+      {
+        "phrase": "〇〇",
+        "role": "チェス用語",
+        "meaning": "昇格先の駒（〇〇）"
+      },
+      {
+        "phrase": "出现",
+        "role": "動詞",
+        "meaning": "現れる"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-20-2",
+    "triggerCode": "20",
+    "zhHans": "王后回来了！",
+    "ja": "クイーンが帰ってきた！",
+    "learning": [
+      {
+        "phrase": "王后",
+        "role": "名詞・チェス用語",
+        "meaning": "王妃、クイーン"
+      },
+      {
+        "phrase": "回来",
+        "role": "動詞・複合方向補語",
+        "meaning": "帰ってくる"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了、状況の変化"
+      },
+      {
+        "phrase": "王后回来了！",
+        "role": "文法",
+        "meaning": "STEP30：複合方向補語"
+      }
+    ],
+    "condition": "queen-returned"
+  },
+  {
+    "id": "translated-21-1",
+    "triggerCode": "21",
+    "zhHans": "我不会放弃！",
+    "ja": "私は諦めないよ！",
+    "learning": [
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "不会",
+        "role": "助動詞句",
+        "meaning": "〜するつもりはない、〜しないだろう"
+      },
+      {
+        "phrase": "放弃",
+        "role": "動詞",
+        "meaning": "諦める"
+      }
+    ]
+  },
+  {
+    "id": "translated-21-2",
+    "triggerCode": "21",
+    "zhHans": "救命！",
+    "ja": "助けて！",
+    "learning": [
+      {
+        "phrase": "救命",
+        "role": "定型表現",
+        "meaning": "助けて、命を救って"
+      }
+    ]
+  },
+  {
+    "id": "translated-21-3",
+    "triggerCode": "21",
+    "zhHans": "借我手机！我要打电话求救！",
+    "ja": "携帯を貸して！　電話で助けを呼ぶから！",
+    "learning": [
+      {
+        "phrase": "借我",
+        "role": "動詞句",
+        "meaning": "私に貸す"
+      },
+      {
+        "phrase": "手机",
+        "role": "名詞",
+        "meaning": "携帯電話"
+      },
+      {
+        "phrase": "要",
+        "role": "助動詞",
+        "meaning": "〜するつもりだ"
+      },
+      {
+        "phrase": "打电话",
+        "role": "動詞句",
+        "meaning": "電話をかける"
+      },
+      {
+        "phrase": "求救",
+        "role": "動詞",
+        "meaning": "助けを求める"
+      }
+    ]
+  },
+  {
+    "id": "translated-22-1",
+    "triggerCode": "22",
+    "zhHans": "只剩你一个了。",
+    "ja": "ひとりぼっちになったね。",
+    "learning": [
+      {
+        "phrase": "只",
+        "role": "副詞",
+        "meaning": "ただ〜だけ"
+      },
+      {
+        "phrase": "剩",
+        "role": "動詞",
+        "meaning": "残る"
+      },
+      {
+        "phrase": "你一个",
+        "role": "数量表現",
+        "meaning": "あなた一人"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-22-2",
+    "triggerCode": "22",
+    "zhHans": "寂寞吗？",
+    "ja": "寂しい？",
+    "learning": [
+      {
+        "phrase": "寂寞",
+        "role": "形容詞",
+        "meaning": "寂しい"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-22-3",
+    "triggerCode": "22",
+    "zhHans": "陛下，您寂寞吗？",
+    "ja": "陛下、寂しいですか？",
+    "learning": [
+      {
+        "phrase": "陛下",
+        "role": "名詞",
+        "meaning": "陛下"
+      },
+      {
+        "phrase": "您",
+        "role": "代名詞",
+        "meaning": "あなた（敬称）"
+      },
+      {
+        "phrase": "寂寞",
+        "role": "形容詞",
+        "meaning": "寂しい"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "translated-23-1",
+    "triggerCode": "23",
+    "zhHans": "早上好！",
+    "ja": "おはよう！",
+    "learning": [
+      {
+        "phrase": "早上好",
+        "role": "あいさつ",
+        "meaning": "おはよう（早上は朝、好はよい）"
+      }
+    ]
+  },
+  {
+    "id": "translated-23-2",
+    "triggerCode": "23",
+    "zhHans": "你起得真早！",
+    "ja": "起きるのが早いね！",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "起",
+        "role": "動詞",
+        "meaning": "起きる"
+      },
+      {
+        "phrase": "得",
+        "role": "助詞",
+        "meaning": "動詞の後ろに様態補語を導く"
+      },
+      {
+        "phrase": "真早",
+        "role": "様態補語",
+        "meaning": "本当に早い"
+      },
+      {
+        "phrase": "你起得真早！",
+        "role": "文法",
+        "meaning": "STEP32：様態補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-23-3",
+    "triggerCode": "23",
+    "zhHans": "外面很亮。",
+    "ja": "外が明るいね。",
+    "learning": [
+      {
+        "phrase": "外面",
+        "role": "場所表現",
+        "meaning": "外"
+      },
+      {
+        "phrase": "很",
+        "role": "副詞",
+        "meaning": "形容詞述語文で程度を強調しないこともある"
+      },
+      {
+        "phrase": "亮",
+        "role": "形容詞",
+        "meaning": "明るい"
+      },
+      {
+        "phrase": "外面很亮。",
+        "role": "文法",
+        "meaning": "STEP15：形容詞述語文"
+      }
+    ]
+  },
+  {
+    "id": "translated-24-1",
+    "triggerCode": "24",
+    "zhHans": "晚上好！",
+    "ja": "こんばんは！",
+    "learning": [
+      {
+        "phrase": "晚上好",
+        "role": "あいさつ",
+        "meaning": "こんばんは（晚上は夜）"
+      }
+    ]
+  },
+  {
+    "id": "translated-24-2",
+    "triggerCode": "24",
+    "zhHans": "现在？你不困吗？",
+    "ja": "今から？　眠くないの？",
+    "learning": [
+      {
+        "phrase": "现在",
+        "role": "時間表現",
+        "meaning": "今"
+      },
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "〜ない"
+      },
+      {
+        "phrase": "困",
+        "role": "形容詞",
+        "meaning": "眠い"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "疑問を表す"
+      },
+      {
+        "phrase": "现在？你不困吗？",
+        "role": "文法",
+        "meaning": "STEP2：吗疑問文"
+      }
+    ]
+  },
+  {
+    "id": "translated-24-3",
+    "triggerCode": "24",
+    "zhHans": "你睡得真晚！",
+    "ja": "寝るのが遅いね！",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "睡",
+        "role": "動詞",
+        "meaning": "寝る"
+      },
+      {
+        "phrase": "得",
+        "role": "助詞",
+        "meaning": "動詞の後ろに様態補語を導く"
+      },
+      {
+        "phrase": "真晚",
+        "role": "様態補語",
+        "meaning": "本当に遅い"
+      },
+      {
+        "phrase": "你睡得真晚！",
+        "role": "文法",
+        "meaning": "STEP32：様態補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-24-4",
+    "triggerCode": "24",
+    "zhHans": "外面已经黑了。",
+    "ja": "もう外は暗いよ。",
+    "learning": [
+      {
+        "phrase": "外面",
+        "role": "場所表現",
+        "meaning": "外"
+      },
+      {
+        "phrase": "已经",
+        "role": "副詞",
+        "meaning": "すでに、もう"
+      },
+      {
+        "phrase": "黑",
+        "role": "形容詞",
+        "meaning": "暗い、黒い"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-24-5",
+    "triggerCode": "24",
+    "zhHans": "现在几点了？",
+    "ja": "今何時？",
+    "learning": [
+      {
+        "phrase": "现在",
+        "role": "時間表現",
+        "meaning": "今"
+      },
+      {
+        "phrase": "几点",
+        "role": "疑問表現",
+        "meaning": "何時（几は数を尋ね、点は時刻を表す）"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここでは現在の時刻を尋ねる語調を表す"
+      },
+      {
+        "phrase": "现在几点了？",
+        "role": "文法",
+        "meaning": "STEP8：疑問詞疑問文"
+      }
+    ]
+  },
+  {
+    "id": "translated-25-1",
+    "triggerCode": "25",
+    "zhHans": "陛下进城堡了！",
+    "ja": "陛下はお城に入られました！",
+    "learning": [
+      {
+        "phrase": "陛下",
+        "role": "名詞",
+        "meaning": "陛下"
+      },
+      {
+        "phrase": "进",
+        "role": "動詞",
+        "meaning": "入る"
+      },
+      {
+        "phrase": "城堡",
+        "role": "名詞",
+        "meaning": "城"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了"
+      }
+    ]
+  },
+  {
+    "id": "translated-26-1",
+    "triggerCode": "26",
+    "zhHans": "陛下，请出来！",
+    "ja": "陛下、出てきてください！",
+    "learning": [
+      {
+        "phrase": "陛下",
+        "role": "名詞",
+        "meaning": "陛下"
+      },
+      {
+        "phrase": "请",
+        "role": "動詞・依頼表現",
+        "meaning": "どうぞ〜してください"
+      },
+      {
+        "phrase": "出来",
+        "role": "動詞・複合方向補語",
+        "meaning": "出てくる"
+      },
+      {
+        "phrase": "陛下，请出来！",
+        "role": "文法",
+        "meaning": "STEP30：複合方向補語"
+      }
+    ]
+  },
+  {
+    "id": "translated-27-1",
+    "triggerCode": "27",
+    "zhHans": "又见面了！",
+    "ja": "また会ったね！",
+    "learning": [
+      {
+        "phrase": "又",
+        "role": "副詞",
+        "meaning": "また（すでに繰り返されたこと）"
+      },
+      {
+        "phrase": "见面",
+        "role": "動詞",
+        "meaning": "会う"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "動作の完了"
+      }
+    ]
+  },
+  {
+    "id": "translated-27-2",
+    "triggerCode": "27",
+    "zhHans": "今天都见你好几次了！",
+    "ja": "今日はもう何度も会っているね！",
+    "learning": [
+      {
+        "phrase": "今天",
+        "role": "時間表現",
+        "meaning": "今日"
+      },
+      {
+        "phrase": "都",
+        "role": "副詞",
+        "meaning": "ここでは『もう〜にもなる』と強調"
+      },
+      {
+        "phrase": "见你",
+        "role": "動詞句",
+        "meaning": "あなたに会う"
+      },
+      {
+        "phrase": "好几次",
+        "role": "数量表現",
+        "meaning": "何度も（次は回数を数える量詞）"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "ここまでの累積を表す"
+      },
+      {
+        "phrase": "今天都见你好几次了！",
+        "role": "文法",
+        "meaning": "STEP21：動作の回数"
+      }
+    ]
+  },
+  {
+    "id": "translated-28-1",
+    "triggerCode": "28",
+    "zhHans": "真快！",
+    "ja": "とても速い！",
+    "learning": [
+      {
+        "phrase": "真",
+        "role": "副詞",
+        "meaning": "本当に"
+      },
+      {
+        "phrase": "快",
+        "role": "形容詞",
+        "meaning": "速い"
+      }
+    ]
+  },
+  {
+    "id": "translated-28-2",
+    "triggerCode": "28",
+    "zhHans": "太快了！",
+    "ja": "速すぎ！",
+    "learning": [
+      {
+        "phrase": "太……了",
+        "role": "文型",
+        "meaning": "とても〜だ、〜すぎる"
+      },
+      {
+        "phrase": "快",
+        "role": "形容詞",
+        "meaning": "速い"
+      }
+    ]
+  },
+  {
+    "id": "translated-29-1",
+    "triggerCode": "29",
+    "zhHans": "形势逆转了！",
+    "ja": "形勢逆転だね！",
+    "learning": [
+      {
+        "phrase": "形势",
+        "role": "名詞",
+        "meaning": "形勢、情勢"
+      },
+      {
+        "phrase": "逆转",
+        "role": "動詞",
+        "meaning": "逆転する"
+      },
+      {
+        "phrase": "了",
+        "role": "助詞",
+        "meaning": "状況の変化"
+      }
+    ]
+  },
+  {
+    "id": "translated-30-1",
+    "triggerCode": "30",
+    "zhHans": "求你了，等一下！",
+    "ja": "お願い、ちょっと待って！",
+    "learning": [
+      {
+        "phrase": "求你了",
+        "role": "依頼表現",
+        "meaning": "お願いだから"
+      },
+      {
+        "phrase": "等",
+        "role": "動詞",
+        "meaning": "待つ"
+      },
+      {
+        "phrase": "一下",
+        "role": "数量補語",
+        "meaning": "少し〜する"
+      }
+    ]
+  },
+  {
+    "id": "translated-31-1",
+    "triggerCode": "31",
+    "zhHans": "小时候，爷爷教过我。",
+    "ja": "子供の頃、おじいちゃんに教えてもらったの。",
+    "learning": [
+      {
+        "phrase": "小时候",
+        "role": "時間表現",
+        "meaning": "子供の頃"
+      },
+      {
+        "phrase": "爷爷",
+        "role": "名詞",
+        "meaning": "父方の祖父、おじいちゃん"
+      },
+      {
+        "phrase": "教",
+        "role": "動詞",
+        "meaning": "教える"
+      },
+      {
+        "phrase": "过",
+        "role": "助詞",
+        "meaning": "〜したことがある（経験）"
+      },
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "小时候，爷爷教过我。",
+        "role": "文法",
+        "meaning": "STEP23：経験の过"
+      }
+    ]
+  },
+  {
+    "id": "translated-31-2",
+    "triggerCode": "31",
+    "zhHans": "小时候，奶奶教过我。",
+    "ja": "子供の頃、おばあちゃんに教えてもらったの。",
+    "learning": [
+      {
+        "phrase": "小时候",
+        "role": "時間表現",
+        "meaning": "子供の頃"
+      },
+      {
+        "phrase": "奶奶",
+        "role": "名詞",
+        "meaning": "父方の祖母、おばあちゃん"
+      },
+      {
+        "phrase": "教",
+        "role": "動詞",
+        "meaning": "教える"
+      },
+      {
+        "phrase": "过",
+        "role": "助詞",
+        "meaning": "〜したことがある（経験）"
+      },
+      {
+        "phrase": "我",
+        "role": "代名詞",
+        "meaning": "私"
+      },
+      {
+        "phrase": "小时候，奶奶教过我。",
+        "role": "文法",
+        "meaning": "STEP23：経験の过"
+      }
+    ]
+  }
+]
