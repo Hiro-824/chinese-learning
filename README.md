@@ -1,6 +1,6 @@
 # Chinese Learning Chess
 
-チェスを指しながら、Oscarの中国語の台詞を学ぶNext.jsアプリです。
+チェスを指しながら、対戦キャラクターの中国語の台詞を学ぶNext.jsアプリです。
 
 ```bash
 npm install
@@ -51,7 +51,12 @@ npm run build
 
 ## キャラクターの立ち絵
 
-`public/character/oscar-*.webp` に10種類の透過立ち絵（560×700px）を置いています。通常・笑顔・自信・疑問・驚き・不安・動揺・怒り・悲しみ・得意顔を、それぞれ `neutral`・`happy`・`confident`・`curious`・`surprised`・`worried`・`distressed`・`angry`・`sad`・`smug` と命名しています。
+透過立ち絵は性別ごとにディレクトリを分け、すべて560×700pxのWebPでそろえています。
+
+- `public/character/female/`: 女性キャラクターの10表情。通常・笑顔・自信・疑問・驚き・不安・動揺・怒り・悲しみ・得意顔を、それぞれ `neutral.webp`・`happy.webp`・`confident.webp`・`curious.webp`・`surprised.webp`・`worried.webp`・`distressed.webp`・`angry.webp`・`sad.webp`・`smug.webp` と命名しています。
+- `public/character/male/neutral.webp`: 男性キャラクターの基本の立ち絵（現在は笑顔の1枚）。今後の表情差分も女性と同じファイル名で追加できます。
+
+設定の「対戦キャラクター」で「女性」「男性」「ランダム」を選べます。初期値は女性で、変更はすぐ反映され、次回以降もブラウザーに保存します。「ランダム」を選ぶとその場で男女を等確率で選び、その後は新しい対局ごとに選び直します。対局中の着手やセリフの再生ではキャラクターを変えません。男性の未収録表情は基本画像を使います。画像を増やす場合は `app/character.ts` の `CHARACTER_PORTRAITS.male` に登録します。固有のキャラクター名は設定せず、画面読み上げ用のラベルでは「対戦キャラクター」と呼びます。
 
 全272本の表情は `app/character.ts` の `DIALOGUE_EXPRESSIONS` で台詞IDごとに指定します。同じ発動条件でも、褒める台詞は笑顔、強がる台詞は自信のある顔など、内容に合わせて切り替えます。2本の吹き出しを表示するときは最新の台詞に対応し、スピーカーボタンで以前の台詞を再生するとその表情へ戻ります。台詞がないときは通常の表情です。新しい台詞を追加した際は表情も指定してください（未指定は通常の表情にフォールバックし、テストで指定漏れを検出します）。
 

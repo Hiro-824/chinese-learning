@@ -1,17 +1,53 @@
 export const CHARACTER_EXPRESSIONS = {
-  neutral: { src: "/character/oscar-neutral.webp", label: "いつもの表情" },
-  happy: { src: "/character/oscar-happy.webp", label: "笑顔" },
-  confident: { src: "/character/oscar-confident.webp", label: "自信のある表情" },
-  curious: { src: "/character/oscar-curious.webp", label: "不思議そうな表情" },
-  surprised: { src: "/character/oscar-surprised.webp", label: "驚いた表情" },
-  worried: { src: "/character/oscar-worried.webp", label: "不安そうな表情" },
-  distressed: { src: "/character/oscar-distressed.webp", label: "泣きそうな表情" },
-  angry: { src: "/character/oscar-angry.webp", label: "怒った表情" },
-  sad: { src: "/character/oscar-sad.webp", label: "悲しそうな表情" },
-  smug: { src: "/character/oscar-smug.webp", label: "得意げな表情" },
+  neutral: { src: "/character/female/neutral.webp", label: "いつもの表情" },
+  happy: { src: "/character/female/happy.webp", label: "笑顔" },
+  confident: { src: "/character/female/confident.webp", label: "自信のある表情" },
+  curious: { src: "/character/female/curious.webp", label: "不思議そうな表情" },
+  surprised: { src: "/character/female/surprised.webp", label: "驚いた表情" },
+  worried: { src: "/character/female/worried.webp", label: "不安そうな表情" },
+  distressed: { src: "/character/female/distressed.webp", label: "泣きそうな表情" },
+  angry: { src: "/character/female/angry.webp", label: "怒った表情" },
+  sad: { src: "/character/female/sad.webp", label: "悲しそうな表情" },
+  smug: { src: "/character/female/smug.webp", label: "得意げな表情" },
 } as const;
 
 export type CharacterExpression = keyof typeof CHARACTER_EXPRESSIONS;
+
+export const CHARACTER_OPTIONS = {
+  female: "女性",
+  male: "男性",
+  random: "ランダム",
+} as const;
+export type CharacterGender = "female" | "male";
+export type CharacterPreference = keyof typeof CHARACTER_OPTIONS;
+type CharacterPortrait = { src: string; label: string };
+
+export const CHARACTER_PORTRAITS: Record<
+  CharacterGender,
+  Partial<Record<CharacterExpression, CharacterPortrait>> & { neutral: CharacterPortrait }
+> = {
+  female: CHARACTER_EXPRESSIONS,
+  male: {
+    neutral: { src: "/character/male/neutral.webp", label: "いつもの表情" },
+  },
+};
+
+export function parseCharacterPreference(value: unknown): CharacterPreference {
+  return value === "male" || value === "random" ? value : "female";
+}
+
+export function resolveCharacterGender(
+  preference: CharacterPreference,
+  random = Math.random,
+): CharacterGender {
+  return preference === "random" ? (random() < 0.5 ? "female" : "male") : preference;
+}
+
+export function getCharacterPortrait(gender: CharacterGender, expression: CharacterExpression) {
+  const portraits = CHARACTER_PORTRAITS[gender];
+  const resolvedExpression = portraits[expression] ? expression : "neutral";
+  return { ...portraits[resolvedExpression]!, expression: resolvedExpression };
+}
 
 // Assign by stable dialogue ID: the same event can contain grief, anger,
 // praise, or a joke. Keep this separate from the generated learning data.

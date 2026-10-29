@@ -30,7 +30,17 @@ import {
   type MaterialHistory,
   type PreviousCapture,
 } from "./dialogues";
-import { CHARACTER_EXPRESSIONS, getCharacterExpression, type CharacterExpression } from "./character";
+import {
+  CHARACTER_OPTIONS,
+  CHARACTER_PORTRAITS,
+  getCharacterExpression,
+  getCharacterPortrait,
+  parseCharacterPreference,
+  resolveCharacterGender,
+  type CharacterExpression,
+  type CharacterGender,
+  type CharacterPreference,
+} from "./character";
 
 import {
   DEFAULT_DIFFICULTY,
@@ -49,6 +59,7 @@ const STREAK_KEY = "chess-daily-streak";
 const SPEECH_ENABLED_KEY = "chess-speech-enabled";
 const PINYIN_ENABLED_KEY = "chess-pinyin-enabled";
 const JAPANESE_ENABLED_KEY = "chess-japanese-enabled";
+const CHARACTER_PREFERENCE_KEY = "chess-character-preference";
 const FIRST_COLOR_KEY = "chess-first-player-colors:lines-translated";
 const DAILY_GAMES_KEY = "chess-started-games:lines-translated";
 const MIN_AI_VISIBLE_TIME = 800;
@@ -90,6 +101,7 @@ export default function Home() {
   const pendingAiMoveRef = useRef<(() => void) | null>(null);
   const dialogueVisibleUntilRef = useRef(0);
   const beforeNpcDialogueRef = useRef<Dialogue | null>(null);
+  const characterPreferenceRef = useRef<CharacterPreference>("female");
 
   const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
   const [savedDifficulty, setSavedDifficulty] = useState(DEFAULT_DIFFICULTY);
@@ -113,6 +125,8 @@ export default function Home() {
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
   const [pairedDialogue, setPairedDialogue] = useState<Dialogue | null>(null);
   const [characterDialogue, setCharacterDialogue] = useState<Dialogue | null>(null);
+  const [characterPreference, setCharacterPreference] = useState<CharacterPreference>("female");
+  const [characterGender, setCharacterGender] = useState<CharacterGender>("female");
 
   function finishSpeech(generation: number) {
     if (speechGenerationRef.current !== generation) return;
@@ -397,6 +411,7 @@ export default function Home() {
     gameIdRef.current = gameId;
     clearAiMoveTimer();
     workerRef.current?.terminate();
+    setCharacterGender(resolveCharacterGender(characterPreferenceRef.current));
 
     const color: Color = Math.random() < 0.5 ? "w" : "b";
     const game = new Chess();
@@ -501,6 +516,9 @@ export default function Home() {
       setSpeechEnabled(initialSpeech);
       setPinyinEnabled(localStorage.getItem(PINYIN_ENABLED_KEY) !== "false");
       setJapaneseEnabled(localStorage.getItem(JAPANESE_ENABLED_KEY) !== "false");
+      const initialCharacter = parseCharacterPreference(localStorage.getItem(CHARACTER_PREFERENCE_KEY));
+      characterPreferenceRef.current = initialCharacter;
+      setCharacterPreference(initialCharacter);
       setStreak(readStreak());
 
       if (cancelled) return;
@@ -553,6 +571,13 @@ export default function Home() {
   function saveJapaneseEnabled(enabled: boolean) {
     setJapaneseEnabled(enabled);
     localStorage.setItem(JAPANESE_ENABLED_KEY, String(enabled));
+  }
+
+  function saveCharacterPreference(preference: CharacterPreference) {
+    characterPreferenceRef.current = preference;
+    setCharacterPreference(preference);
+    setCharacterGender(resolveCharacterGender(preference));
+    localStorage.setItem(CHARACTER_PREFERENCE_KEY, preference);
   }
 
   function beginFirstGame() {
@@ -828,6 +853,7 @@ export default function Home() {
       <section className="game-area" aria-label="対局">
         <CharacterRow
           dialogues={visibleDialogues}
+          gender={characterGender}
           expression={getCharacterExpression(characterDialogue)}
           showPinyin={pinyinEnabled}
           showJapanese={japaneseEnabled}
@@ -903,6 +929,20 @@ export default function Home() {
               onChange={saveDifficulty}
               nextGame
             />
+            <div className="character-setting">
+              <label htmlFor="character-preference">対戦キャラクター</label>
+              <select
+                id="character-preference"
+                value={characterPreference}
+                aria-describedby="character-preference-hint"
+                onChange={(event) => saveCharacterPreference(parseCharacterPreference(event.target.value))}
+              >
+                {Object.entries(CHARACTER_OPTIONS).map(([value, label]) => (
+                  <option key={value} value={value}>{label}</option>
+                ))}
+              </select>
+              <small id="character-preference-hint">ランダムは対局ごとに選びます</small>
+            </div>
             <SettingsToggle
               label="拼音を表示"
               description="オフにすると漢字を大きく表示"
@@ -997,7 +1037,7 @@ function Modal({
         if (event.key !== "Tab") return;
         const controls = Array.from(
           event.currentTarget.querySelectorAll<HTMLElement>(
-            'button:not(:disabled), input:not(:disabled), [tabindex="0"]',
+            'button:not(:disabled), input:not(:disabled), select:not(:disabled), [tabindex="0"]',
           ),
         ).filter((element) => element.getClientRects().length > 0);
         const first = controls[0];
@@ -1057,30 +1097,34 @@ function DifficultySlider({
 
 function CharacterRow({
   dialogues,
+  gender,
   expression,
   showPinyin,
   showJapanese,
   onSpeak,
 }: {
   dialogues?: Dialogue[];
+  gender: CharacterGender;
   expression: CharacterExpression;
   showPinyin: boolean;
   showJapanese: boolean;
   onSpeak?: (dialogue: Dialogue) => void;
 }) {
+  const portrait = getCharacterPortrait(gender, expression);
   return (
     <div className="character-row">
       <div
         className="character-portrait"
         role="img"
-        aria-label={`Oscar：${CHARACTER_EXPRESSIONS[expression].label}`}
-        data-expression={expression}
+        aria-label={`対戦キャラクター（${CHARACTER_OPTIONS[gender]}）：${portrait.label}`}
+        data-character={gender}
+        data-expression={portrait.expression}
       >
-        {Object.entries(CHARACTER_EXPRESSIONS).map(([name, portrait]) => (
+        {Object.entries(CHARACTER_PORTRAITS[gender]).map(([name, image]) => image && (
           <Image
-            key={name}
-            className={`character-image${name === expression ? " is-active" : ""}`}
-            src={portrait.src}
+            key={`${gender}-${name}`}
+            className={`character-image${name === portrait.expression ? " is-active" : ""}`}
+            src={image.src}
             alt=""
             fill
             sizes="144px"
