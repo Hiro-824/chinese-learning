@@ -92,7 +92,7 @@ export class SpeechPlayer {
         audio.src = src;
         audio.onended = () => { if (active()) finish(); };
         // Chrome can classify an initial fetch failure as SRC_NOT_SUPPORTED (4).
-        // Our sources are known M4A recordings, so retry that case once too.
+        // Our sources are known audio recordings, so retry that case once too.
         audio.onerror = () => fail("unavailable", audio.error?.code === 2 || audio.error?.code === 4);
         audio.onplaying = () => {
           if (!active()) return;

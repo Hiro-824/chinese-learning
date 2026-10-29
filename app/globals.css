@@ -436,6 +436,33 @@ button:disabled {
   transform: rotate(45deg);
 }
 
+.speech-content {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  flex: 1;
+  min-width: 0;
+}
+
+.voice-credit {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.voice-credit a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.speech-credit {
+  flex: 0 0 auto;
+  padding: 0 0 8px 12px;
+  text-align: left;
+}
+
 .speech-text {
   position: relative;
   display: flex;

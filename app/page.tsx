@@ -849,6 +849,7 @@ export default function Home() {
           expression={getCharacterExpression(characterDialogue)}
           showPinyin={pinyinEnabled}
           showJapanese={japaneseEnabled}
+          showOndokuCredit={voiceVariant === "3" && characterGender === "female"}
           onSpeak={(dialogue) => {
             setCharacterDialogue(dialogue);
             speak(dialogue, true);
@@ -930,7 +931,12 @@ export default function Home() {
                   <option key={value} value={value}>{label}</option>
                 ))}
               </select>
-              <small id="voice-variant-hint">キャラクターの性別に合わせて再生します</small>
+              <small id="voice-variant-hint">
+                {voiceVariant === "3"
+                  ? "声3は女性専用です。男性キャラクターでは声1を再生します"
+                  : "キャラクターの性別に合わせて再生します"}
+              </small>
+              {voiceVariant === "3" && <OndokuCredit />}
             </div>
             <SettingsToggle
               label="拼音を表示"
@@ -954,6 +960,14 @@ export default function Home() {
         </Modal>
       )}
     </main>
+  );
+}
+
+function OndokuCredit({ className = "" }: { className?: string }) {
+  return (
+    <span className={`voice-credit ${className}`}>
+      音声：<a href="https://ondoku3.com/" target="_blank" rel="noopener noreferrer">音読さん</a>
+    </span>
   );
 }
 
@@ -1090,6 +1104,7 @@ function CharacterRow({
   expression,
   showPinyin,
   showJapanese,
+  showOndokuCredit,
   onSpeak,
 }: {
   dialogues?: Dialogue[];
@@ -1097,6 +1112,7 @@ function CharacterRow({
   expression: CharacterExpression;
   showPinyin: boolean;
   showJapanese: boolean;
+  showOndokuCredit: boolean;
   onSpeak?: (dialogue: Dialogue) => void;
 }) {
   const portrait = getCharacterPortrait(gender, expression);
@@ -1130,22 +1146,25 @@ function CharacterRow({
               className="speech-bubble"
               key={dialogue.id}
             >
-              <a
-                className="speech-text"
-                href={`https://www.google.com/search?${new URLSearchParams({ q: `${dialogue.zhHans}を品詞分解`, udm: "50", hl: "ja" })}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${dialogue.zhHans}を品詞分解（Google AIモードを新しいタブで開く）`}
-                title="Google AIモードで品詞分解を調べる（新しいタブ）"
-              >
-                {showPinyin && (
-                  <span className="speech-pinyin speech-primary" lang="zh-Latn-pinyin">{dialogue.pinyin}</span>
-                )}
-                <span className={`speech-chinese${showPinyin ? "" : " speech-primary"}`} lang="zh-CN">{dialogue.zhHans}</span>
-                {showJapanese && (
-                  <span className="speech-japanese" lang="ja">{dialogue.ja}</span>
-                )}
-              </a>
+              <div className="speech-content">
+                <a
+                  className="speech-text"
+                  href={`https://www.google.com/search?${new URLSearchParams({ q: `${dialogue.zhHans}を品詞分解`, udm: "50", hl: "ja" })}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${dialogue.zhHans}を品詞分解（Google AIモードを新しいタブで開く）`}
+                  title="Google AIモードで品詞分解を調べる（新しいタブ）"
+                >
+                  {showPinyin && (
+                    <span className="speech-pinyin speech-primary" lang="zh-Latn-pinyin">{dialogue.pinyin}</span>
+                  )}
+                  <span className={`speech-chinese${showPinyin ? "" : " speech-primary"}`} lang="zh-CN">{dialogue.zhHans}</span>
+                  {showJapanese && (
+                    <span className="speech-japanese" lang="ja">{dialogue.ja}</span>
+                  )}
+                </a>
+                {showOndokuCredit && <OndokuCredit className="speech-credit" />}
+              </div>
               <button
                 className="speaker-button"
                 onClick={() => onSpeak(dialogue)}
