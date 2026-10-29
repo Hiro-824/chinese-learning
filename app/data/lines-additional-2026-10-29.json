@@ -1,0 +1,2609 @@
+[
+  {
+    "id": "additional-2026-10-29-1-1",
+    "triggerCode": "17",
+    "zhHans": "我不喜欢输。",
+    "ja": "負けるのは好きじゃない。",
+    "learning": [
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "動詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-1-2",
+    "triggerCode": "21",
+    "zhHans": "我不走！",
+    "ja": "私は逃げないぞ！",
+    "learning": [
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "動詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-1-3",
+    "triggerCode": "14",
+    "zhHans": "你也喜欢下棋吗？",
+    "ja": "君もチェスが好き？",
+    "learning": [
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜も"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-1-4",
+    "triggerCode": "27",
+    "zhHans": "我也来了！",
+    "ja": "私も来たよ！",
+    "learning": [
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜も"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-1-5",
+    "triggerCode": "14",
+    "zhHans": "我们都准备好了。",
+    "ja": "私たちはみんな準備できたよ。",
+    "learning": [
+      {
+        "phrase": "都",
+        "role": "副詞",
+        "meaning": "みんな、すべて"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-1",
+    "triggerCode": "14",
+    "zhHans": "咱们开始吧！",
+    "ja": "さあ、一緒に始めよう！",
+    "learning": [
+      {
+        "phrase": "咱们",
+        "role": "代名詞",
+        "meaning": "話し相手を含む私たち"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-2",
+    "triggerCode": "27",
+    "zhHans": "咱们再来一局！",
+    "ja": "もう一局やろう！",
+    "learning": [
+      {
+        "phrase": "咱们",
+        "role": "代名詞",
+        "meaning": "話し相手を含む私たち"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-3",
+    "triggerCode": "18",
+    "zhHans": "咱们明天再玩吧！",
+    "ja": "明日また一緒に遊ぼう！",
+    "learning": [
+      {
+        "phrase": "咱们",
+        "role": "代名詞",
+        "meaning": "話し相手を含む私たち"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-4",
+    "triggerCode": "14",
+    "zhHans": "你们准备好了吗？",
+    "ja": "君たち、準備できた？",
+    "learning": [
+      {
+        "phrase": "你们",
+        "role": "代名詞",
+        "meaning": "君たち"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-5",
+    "triggerCode": "17",
+    "zhHans": "你们真厉害！",
+    "ja": "君たちは本当にすごいね！",
+    "learning": [
+      {
+        "phrase": "你们",
+        "role": "代名詞",
+        "meaning": "君たち"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-6",
+    "triggerCode": "23",
+    "zhHans": "你们起得真早！",
+    "ja": "君たち、起きるのが早いね！",
+    "learning": [
+      {
+        "phrase": "你们",
+        "role": "代名詞",
+        "meaning": "君たち"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-7",
+    "triggerCode": "14",
+    "zhHans": "大家准备好了吗？",
+    "ja": "みんな、準備はいい？",
+    "learning": [
+      {
+        "phrase": "大家",
+        "role": "代名詞",
+        "meaning": "みんな"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-2-8",
+    "triggerCode": "17",
+    "zhHans": "大家都笑我！",
+    "ja": "みんな私を笑ってる！",
+    "learning": [
+      {
+        "phrase": "大家",
+        "role": "代名詞",
+        "meaning": "みんな"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-3-1",
+    "triggerCode": "2",
+    "zhHans": "她是我的朋友。",
+    "ja": "彼女は私の友達なの。",
+    "learning": [
+      {
+        "phrase": "她",
+        "role": "代名詞",
+        "meaning": "彼女"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-3-2",
+    "triggerCode": "4",
+    "zhHans": "她跑得真快！",
+    "ja": "彼女は本当に走るのが速い！",
+    "learning": [
+      {
+        "phrase": "她",
+        "role": "代名詞",
+        "meaning": "彼女"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-3-3",
+    "triggerCode": "20",
+    "zhHans": "她回来了！",
+    "ja": "彼女が帰ってきた！",
+    "learning": [
+      {
+        "phrase": "她",
+        "role": "代名詞",
+        "meaning": "彼女"
+      }
+    ],
+    "condition": "queen-returned"
+  },
+  {
+    "id": "additional-2026-10-29-3-4",
+    "triggerCode": "10",
+    "zhHans": "她们都走了。",
+    "ja": "彼女たちはみんな行ってしまった。",
+    "learning": [
+      {
+        "phrase": "她们",
+        "role": "代名詞",
+        "meaning": "彼女たち"
+      },
+      {
+        "phrase": "她",
+        "role": "代名詞",
+        "meaning": "彼女"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-3-5",
+    "triggerCode": "22",
+    "zhHans": "他们都走了。",
+    "ja": "彼らはみんな行ってしまったね。",
+    "learning": [
+      {
+        "phrase": "他们",
+        "role": "代名詞",
+        "meaning": "彼ら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-3-6",
+    "triggerCode": "21",
+    "zhHans": "他们不在这里。",
+    "ja": "彼らはここにはいない。",
+    "learning": [
+      {
+        "phrase": "他们",
+        "role": "代名詞",
+        "meaning": "彼ら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-1",
+    "triggerCode": "2",
+    "zhHans": "它不见了！",
+    "ja": "それが消えちゃった！",
+    "learning": [
+      {
+        "phrase": "它",
+        "role": "代名詞",
+        "meaning": "それ（物や動物）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-2",
+    "triggerCode": "4",
+    "zhHans": "它去哪儿了？",
+    "ja": "それはどこへ行っちゃったの？",
+    "learning": [
+      {
+        "phrase": "它",
+        "role": "代名詞",
+        "meaning": "それ（物や動物）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-3",
+    "triggerCode": "20",
+    "zhHans": "它变了！",
+    "ja": "それが変わった！",
+    "learning": [
+      {
+        "phrase": "它",
+        "role": "代名詞",
+        "meaning": "それ（物や動物）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-4",
+    "triggerCode": "21",
+    "zhHans": "它们去哪儿了？",
+    "ja": "それらはどこへ行ったの？",
+    "learning": [
+      {
+        "phrase": "它们",
+        "role": "代名詞",
+        "meaning": "それら（物や動物）"
+      },
+      {
+        "phrase": "它",
+        "role": "代名詞",
+        "meaning": "それ（物や動物）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-5",
+    "triggerCode": "21",
+    "zhHans": "我自己来！",
+    "ja": "自分でやる！",
+    "learning": [
+      {
+        "phrase": "自己",
+        "role": "代名詞",
+        "meaning": "自分"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-6",
+    "triggerCode": "22",
+    "zhHans": "你自己来吗？",
+    "ja": "一人でやるの？",
+    "learning": [
+      {
+        "phrase": "自己",
+        "role": "代名詞",
+        "meaning": "自分"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-7",
+    "triggerCode": "17",
+    "zhHans": "别告诉别人！",
+    "ja": "ほかの人には言わないで！",
+    "learning": [
+      {
+        "phrase": "别人",
+        "role": "代名詞",
+        "meaning": "ほかの人"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-4-8",
+    "triggerCode": "17",
+    "zhHans": "人家不想输嘛！",
+    "ja": "だって負けたくないんだもん！",
+    "learning": [
+      {
+        "phrase": "人家",
+        "role": "代名詞",
+        "meaning": "ここでは甘えや不満を込めた自称"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-1",
+    "triggerCode": "12",
+    "zhHans": "你不是黑方。",
+    "ja": "君は黒番じゃないよ。",
+    "learning": [
+      {
+        "phrase": "不是",
+        "role": "動詞の否定",
+        "meaning": "〜ではない"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-2",
+    "triggerCode": "13",
+    "zhHans": "我不是黑方。",
+    "ja": "私は黒番じゃない。",
+    "learning": [
+      {
+        "phrase": "不是",
+        "role": "動詞の否定",
+        "meaning": "〜ではない"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-3",
+    "triggerCode": "16",
+    "zhHans": "这不是玩笑！",
+    "ja": "これは冗談じゃない！",
+    "learning": [
+      {
+        "phrase": "不是",
+        "role": "動詞の否定",
+        "meaning": "〜ではない"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-4",
+    "triggerCode": "14",
+    "zhHans": "你是学生吗？",
+    "ja": "君は学生なの？",
+    "learning": [
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-5",
+    "triggerCode": "14",
+    "zhHans": "这是你的棋盘吗？",
+    "ja": "これは君のチェス盤？",
+    "learning": [
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-6",
+    "triggerCode": "32",
+    "zhHans": "这是你的计划吗？",
+    "ja": "これは君の計画だったの？",
+    "learning": [
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-7",
+    "triggerCode": "14",
+    "zhHans": "我也是学生。",
+    "ja": "私も学生だよ。",
+    "learning": [
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜も"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-8",
+    "triggerCode": "20",
+    "zhHans": "她也是王后！",
+    "ja": "彼女もクイーンだ！",
+    "learning": [
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜も"
+      }
+    ],
+    "condition": "additional-queen"
+  },
+  {
+    "id": "additional-2026-10-29-5-9",
+    "triggerCode": "14",
+    "zhHans": "我们都是学生。",
+    "ja": "私たちはみんな学生だよ。",
+    "learning": [
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "都",
+        "role": "副詞",
+        "meaning": "みんな、すべて"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-5-10",
+    "triggerCode": "17",
+    "zhHans": "我也不是每次都赢。",
+    "ja": "私だって毎回勝つわけじゃないよ。",
+    "learning": [
+      {
+        "phrase": "不是",
+        "role": "動詞の否定",
+        "meaning": "〜ではない"
+      },
+      {
+        "phrase": "是",
+        "role": "動詞",
+        "meaning": "〜である"
+      },
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜も"
+      },
+      {
+        "phrase": "都",
+        "role": "副詞",
+        "meaning": "みんな、すべて"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-1",
+    "triggerCode": "31",
+    "zhHans": "这个很好！",
+    "ja": "これはいいね！",
+    "learning": [
+      {
+        "phrase": "这个",
+        "role": "指示表現",
+        "meaning": "これ、この"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-2",
+    "triggerCode": "30",
+    "zhHans": "那个更好！",
+    "ja": "そっちの方がいい！",
+    "learning": [
+      {
+        "phrase": "那个",
+        "role": "指示表現",
+        "meaning": "あれ、それ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-3",
+    "triggerCode": "14",
+    "zhHans": "这个游戏真有趣！",
+    "ja": "このゲーム、本当に面白いね！",
+    "learning": [
+      {
+        "phrase": "这个",
+        "role": "指示表現",
+        "meaning": "これ、この"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-4",
+    "triggerCode": "32",
+    "zhHans": "那个办法真好！",
+    "ja": "その方法はいいね！",
+    "learning": [
+      {
+        "phrase": "那个",
+        "role": "指示表現",
+        "meaning": "あれ、それ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-5",
+    "triggerCode": "20",
+    "zhHans": "你喜欢哪个？",
+    "ja": "どれが好き？",
+    "learning": [
+      {
+        "phrase": "哪个",
+        "role": "疑問表現",
+        "meaning": "どれ、どの"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-6",
+    "triggerCode": "20",
+    "zhHans": "你要哪个？",
+    "ja": "どれにする？",
+    "learning": [
+      {
+        "phrase": "哪个",
+        "role": "疑問表現",
+        "meaning": "どれ、どの"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-7",
+    "triggerCode": "4",
+    "zhHans": "哪匹马不见了？",
+    "ja": "どの馬がいなくなったの？",
+    "learning": [
+      {
+        "phrase": "哪匹",
+        "role": "疑問表現",
+        "meaning": "どの一頭（匹は馬などの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-8",
+    "triggerCode": "3",
+    "zhHans": "这些是谁的？",
+    "ja": "これらは誰のもの？",
+    "learning": [
+      {
+        "phrase": "这些",
+        "role": "指示代名詞",
+        "meaning": "これら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-9",
+    "triggerCode": "21",
+    "zhHans": "那些都是我的！",
+    "ja": "あれらは全部私のものよ！",
+    "learning": [
+      {
+        "phrase": "那些",
+        "role": "指示代名詞",
+        "meaning": "あれら、それら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-10",
+    "triggerCode": "14",
+    "zhHans": "这些是什么？",
+    "ja": "これらは何？",
+    "learning": [
+      {
+        "phrase": "这些",
+        "role": "指示代名詞",
+        "meaning": "これら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-11",
+    "triggerCode": "22",
+    "zhHans": "哪些是你的？",
+    "ja": "どれが君のもの？",
+    "learning": [
+      {
+        "phrase": "哪些",
+        "role": "疑問代名詞",
+        "meaning": "どれら、どのもの"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-6-12",
+    "triggerCode": "21",
+    "zhHans": "那些兵都去哪儿了？",
+    "ja": "あのポーンたちはみんなどこへ行ったの？",
+    "learning": [
+      {
+        "phrase": "那些",
+        "role": "指示代名詞",
+        "meaning": "あれら、それら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-1",
+    "triggerCode": "14",
+    "zhHans": "这是中国的游戏吗？",
+    "ja": "これは中国のゲームなの？",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞修飾や所有を表す。名詞を省略すると〜のものの意味にもなる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-2",
+    "triggerCode": "14",
+    "zhHans": "这是我的，你的是那个。",
+    "ja": "これは私の、君のはあれだよ。",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞修飾や所有を表す。名詞を省略すると〜のものの意味にもなる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-3",
+    "triggerCode": "12",
+    "zhHans": "白色的是你的。",
+    "ja": "白い方は君のだよ。",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞修飾や所有を表す。名詞を省略すると〜のものの意味にもなる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-4",
+    "triggerCode": "13",
+    "zhHans": "黑色的是你的。",
+    "ja": "黒い方は君のだよ。",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞修飾や所有を表す。名詞を省略すると〜のものの意味にもなる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-5",
+    "triggerCode": "14",
+    "zhHans": "我的老师喜欢下棋。",
+    "ja": "私の先生はチェスが好きなんだ。",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞修飾や所有を表す。名詞を省略すると〜のものの意味にもなる"
+      },
+      {
+        "phrase": "我的老师",
+        "role": "名詞句",
+        "meaning": "私の先生"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-6",
+    "triggerCode": "17",
+    "zhHans": "我老师会生气的！",
+    "ja": "先生に怒られちゃうよ！",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "文末に置いて、そうなるという確信を表す"
+      },
+      {
+        "phrase": "我老师",
+        "role": "名詞句",
+        "meaning": "私の先生。親しい関係では所有の的を省ける"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-7",
+    "triggerCode": "14",
+    "zhHans": "我们学校也有棋社。",
+    "ja": "私たちの学校にもチェス部があるよ。",
+    "learning": [
+      {
+        "phrase": "我们学校",
+        "role": "名詞句",
+        "meaning": "私たちの学校（的を省略）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-8",
+    "triggerCode": "14",
+    "zhHans": "我家有棋盘。",
+    "ja": "私の家にはチェス盤があるよ。",
+    "learning": [
+      {
+        "phrase": "我家",
+        "role": "名詞句",
+        "meaning": "私の家（的を省略）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-9",
+    "triggerCode": "16",
+    "zhHans": "这是一个重要的问题。",
+    "ja": "これは重要な問題だよ。",
+    "learning": [
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞修飾や所有を表す。名詞を省略すると〜のものの意味にもなる"
+      },
+      {
+        "phrase": "一个",
+        "role": "数量表現",
+        "meaning": "一つ（个は一般的な量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-7-10",
+    "triggerCode": "31",
+    "zhHans": "这是一个好办法！",
+    "ja": "これはいい方法だ！",
+    "learning": [
+      {
+        "phrase": "一个",
+        "role": "数量表現",
+        "meaning": "一つ（个は一般的な量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-1",
+    "triggerCode": "14",
+    "zhHans": "你玩不玩？",
+    "ja": "遊ぶ？ 遊ばない？",
+    "learning": [
+      {
+        "phrase": "玩不玩",
+        "role": "反復疑問",
+        "meaning": "遊ぶか遊ばないか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-2",
+    "triggerCode": "27",
+    "zhHans": "你来不来？",
+    "ja": "来る？ 来ない？",
+    "learning": [
+      {
+        "phrase": "来不来",
+        "role": "反復疑問",
+        "meaning": "来るか来ないか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-3",
+    "triggerCode": "18",
+    "zhHans": "你走不走？",
+    "ja": "もう帰る？",
+    "learning": [
+      {
+        "phrase": "走不走",
+        "role": "反復疑問",
+        "meaning": "帰るか帰らないか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-4",
+    "triggerCode": "14",
+    "zhHans": "你是不是学生？",
+    "ja": "君は学生？",
+    "learning": [
+      {
+        "phrase": "是不是",
+        "role": "反復疑問",
+        "meaning": "〜であるかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-5",
+    "triggerCode": "16",
+    "zhHans": "这是不是将军？",
+    "ja": "これはチェックなの？",
+    "learning": [
+      {
+        "phrase": "是不是",
+        "role": "反復疑問",
+        "meaning": "〜であるかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-6",
+    "triggerCode": "31",
+    "zhHans": "这是不是陷阱？",
+    "ja": "これは罠なの？",
+    "learning": [
+      {
+        "phrase": "是不是",
+        "role": "反復疑問",
+        "meaning": "〜であるかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-7",
+    "triggerCode": "27",
+    "zhHans": "你想不想再玩？",
+    "ja": "もう一回遊びたい？",
+    "learning": [
+      {
+        "phrase": "想不想",
+        "role": "反復疑問",
+        "meaning": "〜したいかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-8",
+    "triggerCode": "14",
+    "zhHans": "你下不下棋？",
+    "ja": "チェスをする？",
+    "learning": [
+      {
+        "phrase": "下不下棋",
+        "role": "反復疑問",
+        "meaning": "チェスをするかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-9",
+    "triggerCode": "18",
+    "zhHans": "你喝不喝水？",
+    "ja": "水を飲む？",
+    "learning": [
+      {
+        "phrase": "喝不喝水",
+        "role": "反復疑問",
+        "meaning": "水を飲むかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-10",
+    "triggerCode": "14",
+    "zhHans": "你下棋不下？",
+    "ja": "チェスをする？",
+    "learning": [
+      {
+        "phrase": "下棋不下",
+        "role": "反復疑問",
+        "meaning": "動詞＋目的語＋不＋動詞の形で尋ねる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-8-11",
+    "triggerCode": "18",
+    "zhHans": "你喝水不喝？",
+    "ja": "水を飲む？",
+    "learning": [
+      {
+        "phrase": "喝水不喝",
+        "role": "反復疑問",
+        "meaning": "動詞＋目的語＋不＋動詞の形で尋ねる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-1",
+    "triggerCode": "32",
+    "zhHans": "这是什么？",
+    "ja": "これは何？",
+    "learning": [
+      {
+        "phrase": "什么",
+        "role": "疑問代名詞",
+        "meaning": "何"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-2",
+    "triggerCode": "16",
+    "zhHans": "你想干什么？",
+    "ja": "何をするつもり？",
+    "learning": [
+      {
+        "phrase": "什么",
+        "role": "疑問代名詞",
+        "meaning": "何"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-3",
+    "triggerCode": "10",
+    "zhHans": "谁干的？",
+    "ja": "誰がやったの？",
+    "learning": [
+      {
+        "phrase": "谁",
+        "role": "疑問代名詞",
+        "meaning": "誰"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-4",
+    "triggerCode": "32",
+    "zhHans": "谁教你的？",
+    "ja": "誰に教わったの？",
+    "learning": [
+      {
+        "phrase": "谁",
+        "role": "疑問代名詞",
+        "meaning": "誰"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-5",
+    "triggerCode": "22",
+    "zhHans": "你的朋友在哪儿？",
+    "ja": "君の友達はどこ？",
+    "learning": [
+      {
+        "phrase": "哪儿",
+        "role": "疑問表現",
+        "meaning": "どこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-6",
+    "triggerCode": "21",
+    "zhHans": "我的朋友去哪儿了？",
+    "ja": "私の友達はどこへ行ったの？",
+    "learning": [
+      {
+        "phrase": "哪儿",
+        "role": "疑問表現",
+        "meaning": "どこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-7",
+    "triggerCode": "18",
+    "zhHans": "你什么时候回家？",
+    "ja": "いつ家に帰るの？",
+    "learning": [
+      {
+        "phrase": "什么",
+        "role": "疑問代名詞",
+        "meaning": "何"
+      },
+      {
+        "phrase": "什么时候",
+        "role": "疑問表現",
+        "meaning": "いつ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-8",
+    "triggerCode": "17",
+    "zhHans": "你什么时候学的棋？",
+    "ja": "いつチェスを習ったの？",
+    "learning": [
+      {
+        "phrase": "什么",
+        "role": "疑問代名詞",
+        "meaning": "何"
+      },
+      {
+        "phrase": "什么时候",
+        "role": "疑問表現",
+        "meaning": "いつ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-9",
+    "triggerCode": "10",
+    "zhHans": "为什么是她？",
+    "ja": "なんで彼女なの？",
+    "learning": [
+      {
+        "phrase": "什么",
+        "role": "疑問代名詞",
+        "meaning": "何"
+      },
+      {
+        "phrase": "为什么",
+        "role": "疑問表現",
+        "meaning": "なぜ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-10",
+    "triggerCode": "32",
+    "zhHans": "为什么走这一步？",
+    "ja": "なぜこの手を指したの？",
+    "learning": [
+      {
+        "phrase": "什么",
+        "role": "疑問代名詞",
+        "meaning": "何"
+      },
+      {
+        "phrase": "为什么",
+        "role": "疑問表現",
+        "meaning": "なぜ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-11",
+    "triggerCode": "14",
+    "zhHans": "今天怎么样？",
+    "ja": "今日はどう？",
+    "learning": [
+      {
+        "phrase": "怎么样",
+        "role": "疑問表現",
+        "meaning": "どう、どのようか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-12",
+    "triggerCode": "18",
+    "zhHans": "这局怎么样？",
+    "ja": "この対局、どうだった？",
+    "learning": [
+      {
+        "phrase": "怎么样",
+        "role": "疑問表現",
+        "meaning": "どう、どのようか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-9-13",
+    "triggerCode": "18",
+    "zhHans": "你觉得怎么样？",
+    "ja": "どう思う？",
+    "learning": [
+      {
+        "phrase": "怎么样",
+        "role": "疑問表現",
+        "meaning": "どう、どのようか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-1",
+    "triggerCode": "32",
+    "zhHans": "你有好办法！",
+    "ja": "いい方法を持ってるね！",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-2",
+    "triggerCode": "14",
+    "zhHans": "你有兄弟姐妹吗？",
+    "ja": "兄弟姉妹はいる？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-3",
+    "triggerCode": "22",
+    "zhHans": "你没有朋友了吗？",
+    "ja": "もう友達はいなくなったの？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      },
+      {
+        "phrase": "没有",
+        "role": "所有の否定",
+        "meaning": "持っていない、ない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-4",
+    "triggerCode": "21",
+    "zhHans": "我没有办法了！",
+    "ja": "もう打つ手がない！",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      },
+      {
+        "phrase": "没有",
+        "role": "所有の否定",
+        "meaning": "持っていない、ない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-5",
+    "triggerCode": "32",
+    "zhHans": "你有没有秘密？",
+    "ja": "何か秘密があるの？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      },
+      {
+        "phrase": "没有",
+        "role": "所有の否定",
+        "meaning": "持っていない、ない"
+      },
+      {
+        "phrase": "有没有",
+        "role": "反復疑問",
+        "meaning": "あるかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-6",
+    "triggerCode": "14",
+    "zhHans": "你有没有棋盘？",
+    "ja": "チェス盤は持ってる？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      },
+      {
+        "phrase": "没有",
+        "role": "所有の否定",
+        "meaning": "持っていない、ない"
+      },
+      {
+        "phrase": "有没有",
+        "role": "反復疑問",
+        "meaning": "あるかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-7",
+    "triggerCode": "16",
+    "zhHans": "你有没有办法？",
+    "ja": "何か方法があるの？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      },
+      {
+        "phrase": "没有",
+        "role": "所有の否定",
+        "meaning": "持っていない、ない"
+      },
+      {
+        "phrase": "有没有",
+        "role": "反復疑問",
+        "meaning": "あるかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-10-8",
+    "triggerCode": "29",
+    "zhHans": "你有计划没有？",
+    "ja": "計画はあるの？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている、ある"
+      },
+      {
+        "phrase": "没有",
+        "role": "所有の否定",
+        "meaning": "持っていない、ない"
+      },
+      {
+        "phrase": "有计划没有",
+        "role": "疑問表現",
+        "meaning": "有＋目的語＋没有の形で、あるかどうか尋ねる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-1",
+    "triggerCode": "31",
+    "zhHans": "这一步真好！",
+    "ja": "この一手、いいね！",
+    "learning": [
+      {
+        "phrase": "一步",
+        "role": "数量表現",
+        "meaning": "一手（步は手数の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-2",
+    "triggerCode": "27",
+    "zhHans": "再来一局！",
+    "ja": "もう一局！",
+    "learning": [
+      {
+        "phrase": "一局",
+        "role": "数量表現",
+        "meaning": "一局（局は対局の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-3",
+    "triggerCode": "14",
+    "zhHans": "我带了一本书。",
+    "ja": "本を一冊持ってきたよ。",
+    "learning": [
+      {
+        "phrase": "一本",
+        "role": "数量表現",
+        "meaning": "一冊（本は本の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-4",
+    "triggerCode": "18",
+    "zhHans": "我给你一张照片。",
+    "ja": "写真を一枚あげるよ。",
+    "learning": [
+      {
+        "phrase": "一张",
+        "role": "数量表現",
+        "meaning": "一枚（张は平たい物の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-5",
+    "triggerCode": "17",
+    "zhHans": "我要一把椅子。",
+    "ja": "椅子が一脚ほしい。",
+    "learning": [
+      {
+        "phrase": "一把",
+        "role": "数量表現",
+        "meaning": "一脚（把は椅子や柄のある物の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-6",
+    "triggerCode": "18",
+    "zhHans": "我想吃一条鱼。",
+    "ja": "魚を一匹食べたい。",
+    "learning": [
+      {
+        "phrase": "一条",
+        "role": "数量表現",
+        "meaning": "一匹（条は魚や細長い物の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-7",
+    "triggerCode": "32",
+    "zhHans": "给我一枝笔。",
+    "ja": "ペンを一本ちょうだい。",
+    "learning": [
+      {
+        "phrase": "一枝",
+        "role": "数量表現",
+        "meaning": "一本（枝は棒状の物の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-8",
+    "triggerCode": "18",
+    "zhHans": "我想吃一块蛋糕。",
+    "ja": "ケーキを一切れ食べたい。",
+    "learning": [
+      {
+        "phrase": "一块",
+        "role": "数量表現",
+        "meaning": "一切れ（块はかたまりの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-9",
+    "triggerCode": "18",
+    "zhHans": "我坐那辆车回家。",
+    "ja": "あの車で帰るよ。",
+    "learning": [
+      {
+        "phrase": "那辆",
+        "role": "数量表現",
+        "meaning": "あの一台（辆は車の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-10",
+    "triggerCode": "10",
+    "zhHans": "我的两只眼睛都哭红了！",
+    "ja": "両目とも泣いて真っ赤になっちゃった！",
+    "learning": [
+      {
+        "phrase": "两只",
+        "role": "数量表現",
+        "meaning": "二つ（只は目などの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-11",
+    "triggerCode": "18",
+    "zhHans": "我想买一双新鞋。",
+    "ja": "新しい靴を一足買いたい。",
+    "learning": [
+      {
+        "phrase": "一双",
+        "role": "数量表現",
+        "meaning": "一足（双は対になった物の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-12",
+    "triggerCode": "14",
+    "zhHans": "我穿了一件新衣服。",
+    "ja": "新しい服を一着着てきたよ。",
+    "learning": [
+      {
+        "phrase": "一件",
+        "role": "数量表現",
+        "meaning": "一着（件は衣類などの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-13",
+    "triggerCode": "18",
+    "zhHans": "我写了一封信。",
+    "ja": "手紙を一通書いたよ。",
+    "learning": [
+      {
+        "phrase": "一封",
+        "role": "数量表現",
+        "meaning": "一通（封は手紙の量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-14",
+    "triggerCode": "14",
+    "zhHans": "我坐飞机来的。",
+    "ja": "飛行機で来たんだ。",
+    "learning": [
+      {
+        "phrase": "坐飞机",
+        "role": "動詞句",
+        "meaning": "飛行機に乗る"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-15",
+    "triggerCode": "14",
+    "zhHans": "我看见一架飞机！",
+    "ja": "飛行機を一機見た！",
+    "learning": [
+      {
+        "phrase": "一架",
+        "role": "数量表現",
+        "meaning": "一機（架は飛行機などの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-16",
+    "triggerCode": "18",
+    "zhHans": "我想吃一碗面条。",
+    "ja": "麺を一杯食べたい。",
+    "learning": [
+      {
+        "phrase": "一碗",
+        "role": "数量表現",
+        "meaning": "一杯（碗は茶碗・どんぶりの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-11-17",
+    "triggerCode": "8",
+    "zhHans": "喝一杯水吧！",
+    "ja": "水を一杯飲んで！",
+    "learning": [
+      {
+        "phrase": "一杯",
+        "role": "数量表現",
+        "meaning": "一杯（杯はコップやカップの量詞）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-12-1",
+    "triggerCode": "31",
+    "zhHans": "这里有一个陷阱！",
+    "ja": "ここに罠が一つある！",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-12-2",
+    "triggerCode": "14",
+    "zhHans": "桌上有一个棋盘。",
+    "ja": "机の上にチェス盤が一つある。",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-12-3",
+    "triggerCode": "33",
+    "zhHans": "前面有敌人！",
+    "ja": "前に敵がいる！",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      }
+    ],
+    "condition": "check-front"
+  },
+  {
+    "id": "additional-2026-10-29-12-4",
+    "triggerCode": "21",
+    "zhHans": "这里没有人帮我！",
+    "ja": "ここには誰も助けてくれる人がいない！",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      },
+      {
+        "phrase": "没有",
+        "role": "存在の否定",
+        "meaning": "〜がない、誰もいない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-12-5",
+    "triggerCode": "22",
+    "zhHans": "你身边没有人了。",
+    "ja": "もう君のそばには誰もいないね。",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      },
+      {
+        "phrase": "没有",
+        "role": "存在の否定",
+        "meaning": "〜がない、誰もいない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-12-6",
+    "triggerCode": "32",
+    "zhHans": "这里有陷阱吗？",
+    "ja": "ここに罠があるの？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-12-7",
+    "triggerCode": "14",
+    "zhHans": "桌上有水吗？",
+    "ja": "机の上に水はある？",
+    "learning": [
+      {
+        "phrase": "有",
+        "role": "存在を表す動詞",
+        "meaning": "場所＋有＋人・物で、そこに〜がある／いる"
+      },
+      {
+        "phrase": "吗",
+        "role": "語気助詞",
+        "meaning": "文末で疑問を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-13-1",
+    "triggerCode": "16",
+    "zhHans": "国王在哪里？",
+    "ja": "王様はどこにいる？",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "所在を表す動詞",
+        "meaning": "人・物＋在＋場所で、〜はそこにある／いる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-13-2",
+    "triggerCode": "10",
+    "zhHans": "王后不在这里了！",
+    "ja": "クイーンはもうここにいない！",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "所在を表す動詞",
+        "meaning": "人・物＋在＋場所で、〜はそこにある／いる"
+      },
+      {
+        "phrase": "不在",
+        "role": "所在の否定",
+        "meaning": "そこにはいない、ない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-13-3",
+    "triggerCode": "33",
+    "zhHans": "敌人在后面！",
+    "ja": "敵は後ろにいる！",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "所在を表す動詞",
+        "meaning": "人・物＋在＋場所で、〜はそこにある／いる"
+      }
+    ],
+    "condition": "check-back"
+  },
+  {
+    "id": "additional-2026-10-29-13-4",
+    "triggerCode": "25",
+    "zhHans": "我在家。",
+    "ja": "私は家にいるよ。",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "所在を表す動詞",
+        "meaning": "人・物＋在＋場所で、〜はそこにある／いる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-13-5",
+    "triggerCode": "22",
+    "zhHans": "你的朋友不在这儿。",
+    "ja": "君の友達はここにはいない。",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "所在を表す動詞",
+        "meaning": "人・物＋在＋場所で、〜はそこにある／いる"
+      },
+      {
+        "phrase": "不在",
+        "role": "所在の否定",
+        "meaning": "そこにはいない、ない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-13-6",
+    "triggerCode": "21",
+    "zhHans": "我的朋友都不在了。",
+    "ja": "友達はもうみんないなくなった。",
+    "learning": [
+      {
+        "phrase": "在",
+        "role": "所在を表す動詞",
+        "meaning": "人・物＋在＋場所で、〜はそこにある／いる"
+      },
+      {
+        "phrase": "不在",
+        "role": "所在の否定",
+        "meaning": "そこにはいない、ない"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-1",
+    "triggerCode": "33",
+    "zhHans": "看后面！",
+    "ja": "後ろを見て！",
+    "learning": [
+      {
+        "phrase": "后面",
+        "role": "方位詞",
+        "meaning": "後ろ"
+      }
+    ],
+    "condition": "check-back"
+  },
+  {
+    "id": "additional-2026-10-29-14-2",
+    "triggerCode": "33",
+    "zhHans": "看前面！",
+    "ja": "前を見て！",
+    "learning": [
+      {
+        "phrase": "前面",
+        "role": "方位詞",
+        "meaning": "前"
+      }
+    ],
+    "condition": "check-front"
+  },
+  {
+    "id": "additional-2026-10-29-14-3",
+    "triggerCode": "33",
+    "zhHans": "看左边！",
+    "ja": "左を見て！",
+    "learning": [
+      {
+        "phrase": "左边",
+        "role": "方位詞",
+        "meaning": "左側"
+      }
+    ],
+    "condition": "check-left"
+  },
+  {
+    "id": "additional-2026-10-29-14-4",
+    "triggerCode": "33",
+    "zhHans": "看右边！",
+    "ja": "右を見て！",
+    "learning": [
+      {
+        "phrase": "右边",
+        "role": "方位詞",
+        "meaning": "右側"
+      }
+    ],
+    "condition": "check-right"
+  },
+  {
+    "id": "additional-2026-10-29-14-5",
+    "triggerCode": "33",
+    "zhHans": "他在我旁边！",
+    "ja": "彼が私の隣にいる！",
+    "learning": [
+      {
+        "phrase": "旁边",
+        "role": "方位詞",
+        "meaning": "隣、そば"
+      }
+    ],
+    "condition": "check-npc-adjacent"
+  },
+  {
+    "id": "additional-2026-10-29-14-6",
+    "triggerCode": "33",
+    "zhHans": "危险在上面！",
+    "ja": "危険は上にある！",
+    "learning": [
+      {
+        "phrase": "上面",
+        "role": "方位詞",
+        "meaning": "上側"
+      }
+    ],
+    "condition": "check-up"
+  },
+  {
+    "id": "additional-2026-10-29-14-7",
+    "triggerCode": "33",
+    "zhHans": "下面也有敌人！",
+    "ja": "下にも敵がいる！",
+    "learning": [
+      {
+        "phrase": "下面",
+        "role": "方位詞",
+        "meaning": "下側"
+      },
+      {
+        "phrase": "也",
+        "role": "副詞",
+        "meaning": "〜も"
+      }
+    ],
+    "condition": "check-below-also"
+  },
+  {
+    "id": "additional-2026-10-29-14-8",
+    "triggerCode": "2",
+    "zhHans": "我的兵在哪里？",
+    "ja": "私のポーンはどこ？",
+    "learning": [
+      {
+        "phrase": "哪里",
+        "role": "疑問表現",
+        "meaning": "どこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-9",
+    "triggerCode": "31",
+    "zhHans": "棋盘上有什么？",
+    "ja": "盤上に何がある？",
+    "learning": [
+      {
+        "phrase": "棋盘上",
+        "role": "場所表現",
+        "meaning": "チェス盤の上"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-10",
+    "triggerCode": "22",
+    "zhHans": "城堡里只有你。",
+    "ja": "城の中には君しかいない。",
+    "learning": [
+      {
+        "phrase": "城堡里",
+        "role": "場所表現",
+        "meaning": "城の中"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-11",
+    "triggerCode": "21",
+    "zhHans": "房间里只有我。",
+    "ja": "部屋には私しかいない。",
+    "learning": [
+      {
+        "phrase": "房间里",
+        "role": "場所表現",
+        "meaning": "部屋の中"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-12",
+    "triggerCode": "16",
+    "zhHans": "门外有人！",
+    "ja": "扉の外に誰かいる！",
+    "learning": [
+      {
+        "phrase": "门外",
+        "role": "場所表現",
+        "meaning": "扉の外"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-13",
+    "triggerCode": "15",
+    "zhHans": "敌人在门口！",
+    "ja": "敵が入口にいる！",
+    "learning": [
+      {
+        "phrase": "门口",
+        "role": "場所表現",
+        "meaning": "出入口、入口のところ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-14-14",
+    "triggerCode": "26",
+    "zhHans": "国王在城堡里。",
+    "ja": "王様は城の中にいる。",
+    "learning": [
+      {
+        "phrase": "城堡里",
+        "role": "場所表現",
+        "meaning": "城の中"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-1",
+    "triggerCode": "16",
+    "zhHans": "别来这儿！",
+    "ja": "ここに来ないで！",
+    "learning": [
+      {
+        "phrase": "这儿",
+        "role": "場所の指示表現",
+        "meaning": "ここ、こちら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-2",
+    "triggerCode": "15",
+    "zhHans": "快来这儿！",
+    "ja": "早くこっちに来て！",
+    "learning": [
+      {
+        "phrase": "这儿",
+        "role": "場所の指示表現",
+        "meaning": "ここ、こちら"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-3",
+    "triggerCode": "15",
+    "zhHans": "别去那儿！",
+    "ja": "そこへ行かないで！",
+    "learning": [
+      {
+        "phrase": "那儿",
+        "role": "場所の指示表現",
+        "meaning": "そこ、あそこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-4",
+    "triggerCode": "16",
+    "zhHans": "你怎么到那儿去了？",
+    "ja": "どうしてそこに行ったの？",
+    "learning": [
+      {
+        "phrase": "那儿",
+        "role": "場所の指示表現",
+        "meaning": "そこ、あそこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-5",
+    "triggerCode": "25",
+    "zhHans": "这里安全吗？",
+    "ja": "ここは安全？",
+    "learning": [
+      {
+        "phrase": "这里",
+        "role": "場所の指示表現",
+        "meaning": "ここ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-6",
+    "triggerCode": "16",
+    "zhHans": "这里很危险！",
+    "ja": "ここはとても危険！",
+    "learning": [
+      {
+        "phrase": "这里",
+        "role": "場所の指示表現",
+        "meaning": "ここ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-7",
+    "triggerCode": "31",
+    "zhHans": "那里有什么？",
+    "ja": "あそこには何がある？",
+    "learning": [
+      {
+        "phrase": "那里",
+        "role": "場所の指示表現",
+        "meaning": "そこ、あそこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-8",
+    "triggerCode": "16",
+    "zhHans": "那里不安全！",
+    "ja": "そこは安全じゃない！",
+    "learning": [
+      {
+        "phrase": "那里",
+        "role": "場所の指示表現",
+        "meaning": "そこ、あそこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-9",
+    "triggerCode": "15",
+    "zhHans": "你要去哪里？",
+    "ja": "どこに行くの？",
+    "learning": [
+      {
+        "phrase": "哪里",
+        "role": "場所の疑問表現",
+        "meaning": "どこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-10",
+    "triggerCode": "21",
+    "zhHans": "我该去哪里？",
+    "ja": "私はどこへ行けばいいの？",
+    "learning": [
+      {
+        "phrase": "哪里",
+        "role": "場所の疑問表現",
+        "meaning": "どこ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-11",
+    "triggerCode": "14",
+    "zhHans": "你那儿有棋盘吗？",
+    "ja": "君のところにはチェス盤がある？",
+    "learning": [
+      {
+        "phrase": "那儿",
+        "role": "場所の指示表現",
+        "meaning": "そこ、あそこ"
+      },
+      {
+        "phrase": "你那儿",
+        "role": "場所表現",
+        "meaning": "君のところ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-12",
+    "triggerCode": "18",
+    "zhHans": "我这儿有水。",
+    "ja": "私のところには水があるよ。",
+    "learning": [
+      {
+        "phrase": "这儿",
+        "role": "場所の指示表現",
+        "meaning": "ここ、こちら"
+      },
+      {
+        "phrase": "我这儿",
+        "role": "場所表現",
+        "meaning": "私のところ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-15-13",
+    "triggerCode": "22",
+    "zhHans": "你朋友那儿还有人吗？",
+    "ja": "君の友達のところにはまだ誰かいる？",
+    "learning": [
+      {
+        "phrase": "那儿",
+        "role": "場所の指示表現",
+        "meaning": "そこ、あそこ"
+      },
+      {
+        "phrase": "你朋友那儿",
+        "role": "場所表現",
+        "meaning": "君の友達のところ"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-1",
+    "triggerCode": "30",
+    "zhHans": "你非常聪明！",
+    "ja": "君はとても頭がいい！",
+    "learning": [
+      {
+        "phrase": "非常",
+        "role": "程度副詞",
+        "meaning": "とても、非常に"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-2",
+    "triggerCode": "17",
+    "zhHans": "你非常厉害！",
+    "ja": "君はすごく強いね！",
+    "learning": [
+      {
+        "phrase": "非常",
+        "role": "程度副詞",
+        "meaning": "とても、非常に"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-3",
+    "triggerCode": "11",
+    "zhHans": "今天比较热。",
+    "ja": "今日は比較的暑いね。",
+    "learning": [
+      {
+        "phrase": "比较",
+        "role": "程度副詞",
+        "meaning": "比較的、わりと"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-4",
+    "triggerCode": "18",
+    "zhHans": "这局比较难。",
+    "ja": "この試合は比較的難しかった。",
+    "learning": [
+      {
+        "phrase": "比较",
+        "role": "程度副詞",
+        "meaning": "比較的、わりと"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-5",
+    "triggerCode": "14",
+    "zhHans": "我有点儿紧张。",
+    "ja": "ちょっと緊張してる。",
+    "learning": [
+      {
+        "phrase": "有点儿",
+        "role": "程度副詞",
+        "meaning": "少し、ちょっと（好ましくない状態によく使う）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-6",
+    "triggerCode": "16",
+    "zhHans": "我有点儿害怕。",
+    "ja": "ちょっと怖いよ。",
+    "learning": [
+      {
+        "phrase": "有点儿",
+        "role": "程度副詞",
+        "meaning": "少し、ちょっと（好ましくない状態によく使う）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-16-7",
+    "triggerCode": "18",
+    "zhHans": "我有点儿累了。",
+    "ja": "ちょっと疲れた。",
+    "learning": [
+      {
+        "phrase": "有点儿",
+        "role": "程度副詞",
+        "meaning": "少し、ちょっと（好ましくない状態によく使う）"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-1",
+    "triggerCode": "17",
+    "zhHans": "我不开心。",
+    "ja": "嬉しくない。",
+    "learning": [
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "形容詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-2",
+    "triggerCode": "21",
+    "zhHans": "我不害怕！",
+    "ja": "怖くないぞ！",
+    "learning": [
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "形容詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-3",
+    "triggerCode": "17",
+    "zhHans": "我不很高兴。",
+    "ja": "あまり嬉しくない。",
+    "learning": [
+      {
+        "phrase": "不很",
+        "role": "程度と否定",
+        "meaning": "あまり〜ではない（部分的な否定）"
+      },
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "形容詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-4",
+    "triggerCode": "17",
+    "zhHans": "我很不高兴！",
+    "ja": "すごく不満だ！",
+    "learning": [
+      {
+        "phrase": "很不",
+        "role": "程度と否定",
+        "meaning": "とても〜でない（否定の程度を強調）"
+      },
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "形容詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-5",
+    "triggerCode": "23",
+    "zhHans": "今天不很冷。",
+    "ja": "今日はそれほど寒くない。",
+    "learning": [
+      {
+        "phrase": "不很",
+        "role": "程度と否定",
+        "meaning": "あまり〜ではない（部分的な否定）"
+      },
+      {
+        "phrase": "不",
+        "role": "副詞",
+        "meaning": "形容詞の前に置いて否定する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-6",
+    "triggerCode": "28",
+    "zhHans": "你太快了！",
+    "ja": "君は速すぎる！",
+    "learning": [
+      {
+        "phrase": "太",
+        "role": "程度副詞",
+        "meaning": "太＋形容詞＋了で、とても〜だ／〜すぎる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-17-7",
+    "triggerCode": "16",
+    "zhHans": "这太危险了！",
+    "ja": "これは危険すぎる！",
+    "learning": [
+      {
+        "phrase": "太",
+        "role": "程度副詞",
+        "meaning": "太＋形容詞＋了で、とても〜だ／〜すぎる"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-18-1",
+    "triggerCode": "14",
+    "zhHans": "你忙不忙？",
+    "ja": "忙しい？",
+    "learning": [
+      {
+        "phrase": "忙不忙",
+        "role": "反復疑問",
+        "meaning": "忙しいかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-18-2",
+    "triggerCode": "14",
+    "zhHans": "你紧张不紧张？",
+    "ja": "緊張してる？",
+    "learning": [
+      {
+        "phrase": "紧张不紧张",
+        "role": "反復疑問",
+        "meaning": "緊張しているかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-18-3",
+    "triggerCode": "18",
+    "zhHans": "你累不累？",
+    "ja": "疲れた？",
+    "learning": [
+      {
+        "phrase": "累不累",
+        "role": "反復疑問",
+        "meaning": "疲れているかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-18-4",
+    "triggerCode": "31",
+    "zhHans": "这一步难不难？",
+    "ja": "この手は難しい？",
+    "learning": [
+      {
+        "phrase": "难不难",
+        "role": "反復疑問",
+        "meaning": "難しいかどうか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-18-5",
+    "triggerCode": "11",
+    "zhHans": "这局有多难？",
+    "ja": "この対局はどれくらい難しい？",
+    "learning": [
+      {
+        "phrase": "有多难",
+        "role": "程度の疑問",
+        "meaning": "どれくらい難しいか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-18-6",
+    "triggerCode": "18",
+    "zhHans": "你觉得这局怎么样？",
+    "ja": "この対局、どう思った？",
+    "learning": [
+      {
+        "phrase": "怎么样",
+        "role": "疑問表現",
+        "meaning": "どう、どのようか"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-19-1",
+    "triggerCode": "30",
+    "zhHans": "这是一个很好的办法。",
+    "ja": "これはとてもいい方法だ。",
+    "learning": [
+      {
+        "phrase": "很好的办法",
+        "role": "名詞修飾",
+        "meaning": "很＋好＋的で办法を修飾し、とてもよい方法を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-19-2",
+    "triggerCode": "17",
+    "zhHans": "你是一个很强的对手。",
+    "ja": "君はとても強い相手だ。",
+    "learning": [
+      {
+        "phrase": "很强的对手",
+        "role": "名詞修飾",
+        "meaning": "很＋强＋的で对手を修飾し、とても強い相手を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-19-3",
+    "triggerCode": "14",
+    "zhHans": "今天是非常重要的一天。",
+    "ja": "今日はとても重要な一日だ。",
+    "learning": [
+      {
+        "phrase": "非常重要的一天",
+        "role": "名詞修飾",
+        "meaning": "非常＋重要＋的で一天を修飾する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-19-4",
+    "triggerCode": "31",
+    "zhHans": "这是一个非常好的主意！",
+    "ja": "これはすごくいいアイデア！",
+    "learning": [
+      {
+        "phrase": "非常好的主意",
+        "role": "名詞修飾",
+        "meaning": "非常＋好＋的で主意を修飾する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-19-5",
+    "triggerCode": "18",
+    "zhHans": "这是一场挺有意思的比赛。",
+    "ja": "なかなか面白い試合だった。",
+    "learning": [
+      {
+        "phrase": "挺有意思的比赛",
+        "role": "名詞修飾",
+        "meaning": "挺＋有意思＋的で比赛を修飾し、なかなか面白い試合を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-20-1",
+    "triggerCode": "18",
+    "zhHans": "我想喝热热的茶。",
+    "ja": "温かいお茶が飲みたい。",
+    "learning": [
+      {
+        "phrase": "热热的",
+        "role": "形容詞の重ね型",
+        "meaning": "温かい。形容詞の重ね型＋的で名詞を修飾する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-20-2",
+    "triggerCode": "17",
+    "zhHans": "我的小小的梦想破灭了。",
+    "ja": "私の小さな夢が壊れちゃった。",
+    "learning": [
+      {
+        "phrase": "小小的",
+        "role": "形容詞の重ね型",
+        "meaning": "小さな。形容詞の重ね型＋的で名詞を修飾する"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-21-1",
+    "triggerCode": "32",
+    "zhHans": "这是你想的办法吗？",
+    "ja": "これは君が考えた方法なの？",
+    "learning": [
+      {
+        "phrase": "你想的办法",
+        "role": "名詞修飾",
+        "meaning": "你想＋的で办法を修飾し、君が考えた方法を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-21-2",
+    "triggerCode": "18",
+    "zhHans": "这是我写的书。",
+    "ja": "これは私が書いた本だよ。",
+    "learning": [
+      {
+        "phrase": "我写的书",
+        "role": "名詞修飾",
+        "meaning": "我写＋的で书を修飾し、私が書いた本を表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-22-1",
+    "triggerCode": "17",
+    "zhHans": "我有很多问题！",
+    "ja": "聞きたいことがたくさんある！",
+    "learning": [
+      {
+        "phrase": "很多",
+        "role": "数量表現",
+        "meaning": "たくさんの、多くの"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-22-2",
+    "triggerCode": "30",
+    "zhHans": "你有不少好办法！",
+    "ja": "君はいい方法をたくさん知ってるね！",
+    "learning": [
+      {
+        "phrase": "不少",
+        "role": "数量表現",
+        "meaning": "少なくない、かなり多くの"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-22-3",
+    "triggerCode": "18",
+    "zhHans": "今天学了很多东西。",
+    "ja": "今日はたくさんのことを学んだ。",
+    "learning": [
+      {
+        "phrase": "很多",
+        "role": "数量表現",
+        "meaning": "たくさんの、多くの"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-22-4",
+    "triggerCode": "17",
+    "zhHans": "我还有很多要学的东西。",
+    "ja": "私にはまだ学ぶことがたくさんある。",
+    "learning": [
+      {
+        "phrase": "很多",
+        "role": "数量表現",
+        "meaning": "たくさんの、多くの"
+      },
+      {
+        "phrase": "要学的东西",
+        "role": "名詞修飾",
+        "meaning": "要学＋的で东西を修飾し、学ぶべきことを表す"
+      }
+    ]
+  },
+  {
+    "id": "additional-2026-10-29-23-1",
+    "triggerCode": "18",
+    "zhHans": "这局不很难。",
+    "ja": "この対局はそれほど難しくなかった。",
+    "learning": [
+      {
+        "phrase": "不很",
+        "role": "程度と否定",
+        "meaning": "あまり〜ではない（部分的な否定）"
+      }
+    ]
+  }
+]

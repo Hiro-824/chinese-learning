@@ -1,4 +1,5 @@
 import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { generateNewDialogues } from "./new-dialogues.mjs";
 
 // Rows correspond to the numbered lines in drafts/lines-translated.md.
 // Each row contains its Japanese translation and curated learning notes.
@@ -192,13 +193,20 @@ const dialogues = sections.flatMap((section, index) => {
     return dialogue;
   });
 });
-const output = new URL("../app/data/lines-translated.json", import.meta.url);
-const content = `${JSON.stringify(dialogues, null, 2)}\n`;
-if (process.argv.includes("--check")) {
-  if (await readFile(output, "utf8") !== content) throw new Error("npm run dialogues:generate を実行してください");
-  console.log(`Verified ${dialogues.length} translated dialogues / ${sections.length} conditions.`);
-} else {
-  await mkdir(new URL("../app/data/", import.meta.url), { recursive: true });
-  await writeFile(output, content);
-  console.log(`Generated ${dialogues.length} translated dialogues / ${sections.length} conditions.`);
+const newSource = new URL("../drafts/chinese_chess_new_dialogues_182_2026-10-29.md", import.meta.url);
+const additional = generateNewDialogues(await readFile(newSource, "utf8"));
+for (const [filename, lines] of [
+  ["lines-translated.json", dialogues],
+  ["lines-additional-2026-10-29.json", additional],
+]) {
+  const output = new URL(`../app/data/${filename}`, import.meta.url);
+  const content = `${JSON.stringify(lines, null, 2)}\n`;
+  if (process.argv.includes("--check")) {
+    if (await readFile(output, "utf8") !== content) throw new Error("npm run dialogues:generate を実行してください");
+    console.log(`Verified ${lines.length} dialogues in ${filename}.`);
+  } else {
+    await mkdir(new URL("../app/data/", import.meta.url), { recursive: true });
+    await writeFile(output, content);
+    console.log(`Generated ${lines.length} dialogues in ${filename}.`);
+  }
 }

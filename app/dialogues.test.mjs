@@ -12,7 +12,7 @@ function trigger(fen, san, actor = "player", history = freshHistory()) {
   return getMoveTriggerCode(new Chess(fen).move(san), actor, null, history);
 }
 
-test("the complete runtime corpus matches lines-translated, including escaped list numbers", async () => {
+test("the original 90 lines retain their text, order and trigger codes", async () => {
   const markdown = await readFile(new URL("../drafts/lines-translated.md", import.meta.url), "utf8");
   const expected = [];
   let code;
@@ -23,10 +23,22 @@ test("the complete runtime corpus matches lines-translated, including escaped li
     const match = line.match(/^\d+\\?\.\s+(.+?)(?:〔.+〕)?$/);
     if (code && match) expected.push([code, match[1].trim()]);
   }
-  assert.equal(DIALOGUES.length, 90);
-  assert.deepEqual(DIALOGUES.map((d) => [d.triggerCode, d.zhHans]), expected);
-  assert.equal(new Set(DIALOGUES.map((d) => d.triggerCode)).size, 31);
-  assert.equal(new Set(DIALOGUES.map((d) => d.id)).size, 90);
+  const original = DIALOGUES.filter((d) => d.id.startsWith("translated-"));
+  assert.equal(original.length, 90);
+  assert.deepEqual(original.map((d) => [d.triggerCode, d.zhHans]), expected);
+});
+
+test("all 182 additional lines preserve the source text, translation and trigger, with unique IDs and learning notes", async () => {
+  const markdown = await readFile(new URL("../drafts/chinese_chess_new_dialogues_182_2026-10-29.md", import.meta.url), "utf8");
+  const body = markdown.split("# 新規追加セリフ（文法事項別）")[1];
+  const expected = [...body.matchAll(/^\| (\d+) \| ([^|]+) \| ([^|]+) \|$/gm)]
+    .map(([, code, zh, ja]) => [code, zh.trim(), ja.trim()]);
+  const additional = DIALOGUES.filter((d) => d.id.startsWith("additional-"));
+  assert.equal(additional.length, 182);
+  assert.deepEqual(additional.map((d) => [d.triggerCode, d.zhHans, d.ja]), expected);
+  assert.equal(DIALOGUES.length, 272);
+  assert.equal(new Set(DIALOGUES.map((d) => d.triggerCode)).size, 33);
+  assert.equal(new Set(DIALOGUES.map((d) => d.id)).size, 272);
   for (const dialogue of DIALOGUES) {
     assert.ok(dialogue.ja && dialogue.learning.length);
     for (const item of dialogue.learning) assert.ok(item.phrase && item.role && item.meaning);
@@ -82,16 +94,20 @@ test("promotion names and queen-return lines follow the actual promoted piece an
   assert.equal(trigger(noQueen, "a8=Q+"), "20");
   const context = getMoveDialogueContext(new Chess(noQueen).move("a8=Q+"), "w");
   assert.equal(context.queenReturned, true);
-  assert.equal(getDialogueCandidates("20", context).length, 2);
+  assert.ok(getDialogueCandidates("20", context).some((d) => d.zhHans === "她回来了！"));
   for (const [piece, name] of [["q", "王后"], ["r", "车"], ["b", "象"], ["n", "马"]]) {
     const move = new Chess(noQueen).move({ from: "a7", to: "a8", promotion: piece });
     const candidates = getDialogueCandidates("20", getMoveDialogueContext(move, "w"));
     assert.equal(candidates[0].zhHans, `${name}出现了！`);
     assert.ok(candidates.every((d) => !JSON.stringify(d).includes("〇〇")));
-    assert.equal(candidates.length, piece === "q" ? 2 : 1);
+    assert.equal(candidates.some((d) => d.zhHans === "她回来了！"), piece === "q");
+    assert.equal(candidates.some((d) => d.id === "translated-20-2"), piece === "q");
+    assert.ok(candidates.every((d) => d.zhHans !== "她也是王后！"));
   }
   const existingQueen = new Chess("7k/P6p/8/8/8/8/6P1/3Q3K w - - 0 1").move("a8=Q+");
-  assert.equal(getDialogueCandidates("20", getMoveDialogueContext(existingQueen, "w")).length, 1);
+  const existingQueenLines = getDialogueCandidates("20", getMoveDialogueContext(existingQueen, "w"));
+  assert.ok(existingQueenLines.some((d) => d.zhHans === "她也是王后！"));
+  assert.ok(existingQueenLines.every((d) => !["她回来了！", "王后回来了！"].includes(d.zhHans)));
   assert.equal(getMoveDialogueContext(new Chess(noQueen).move("a8=Q+"), "b").queenReturned, false);
 });
 
@@ -119,15 +135,94 @@ test("player rook movement needs at least four squares", () => {
   assert.equal(trigger(fen, "Ra5", "npc"), null);
 });
 
-test("AI forks and pins trigger only when newly created", () => {
+test("AI and player forks and pins have distinct triggers and only fire when newly created", () => {
   const fork = "7k/8/8/1r3r2/8/8/2N3PP/7K w - - 0 1";
   assert.equal(trigger(fork, "Nd4", "npc"), "31");
-  assert.equal(trigger(fork, "Nd4"), null);
+  assert.equal(trigger(fork, "Nd4"), "32");
   const pin = "4k3/4n2p/8/8/8/8/6P1/R6K w - - 0 1";
   assert.equal(trigger(pin, "Re1", "npc"), "31");
+  assert.equal(trigger(pin, "Re1"), "32");
   const game = new Chess(pin);
   game.move("Re1"); game.move("h6");
   assert.equal(getMoveTriggerCode(game.move("Re2"), "npc", null, freshHistory()), null);
+  const playerGame = new Chess(pin);
+  playerGame.move("Re1"); playerGame.move("h6");
+  assert.equal(getMoveTriggerCode(playerGame.move("Re2"), "player", null, freshHistory()), null);
+  for (const [fen, san] of [
+    ["7k/2n3pp/8/8/1R3R2/8/8/7K b - - 0 1", "Nd5"],
+    ["r6k/6p1/8/8/8/8/4N2P/4K3 b - - 0 1", "Re8"],
+    ["8/3R4/8/4k3/8/8/6PK/4r3 w - - 0 1", "Re7+"],
+  ]) {
+    assert.equal(trigger(fen, san, "npc"), "31");
+    assert.equal(trigger(fen, san, "player"), "32");
+  }
+});
+
+function directionalLines(fen, san, playerColor) {
+  const move = new Chess(fen).move(san);
+  const actor = move.color === playerColor ? "player" : "npc";
+  const context = getMoveDialogueContext(move, playerColor);
+  const code = getMoveTriggerCode(move, actor, null, freshHistory());
+  return { context, code, lines: getDialogueCandidates(code, context)
+    .filter((d) => d.triggerCode === "33").map((d) => d.zhHans) };
+}
+
+test("directional checks use the checked king's forward direction and fixed board coordinates for either actor", () => {
+  for (const playerColor of ["w", "b"]) {
+    for (const [fen, san, directions, expected, excluded] of [
+      ["4k3/p7/8/8/8/8/6P1/R6K w - - 0 1", "Re1+", ["down", "front"],
+        ["前面有敌人！", "看前面！"], ["敌人在后面！", "危险在上面！", "下面也有敌人！"]],
+      ["r6k/6p1/8/8/8/8/P7/4K3 b - - 0 1", "Re8+", ["up", "front"],
+        ["前面有敌人！", "看前面！", "危险在上面！"], ["看后面！", "下面也有敌人！"]],
+      ["8/6kp/8/8/8/8/6P1/R6K w - - 0 1", "Ra7+", ["left"],
+        ["看左边！"], ["看右边！", "看前面！", "看后面！", "他在我旁边！"]],
+      ["8/pk6/8/8/8/8/7P/6RK w - - 0 1", "Rg7+", ["right"],
+        ["看右边！"], ["看左边！", "看前面！", "看后面！"]],
+      ["8/6kp/8/8/8/8/6P1/R6K w - - 0 1", "Ra8", [], [],
+        ["前面有敌人！", "看左边！"]],
+    ]) {
+      const move = new Chess(fen).move(san);
+      const context = getMoveDialogueContext(move, playerColor);
+      const code = move.color === playerColor ? "16" : "15";
+      const candidates = getDialogueCandidates(code, context);
+      const lines = candidates.filter((d) => d.triggerCode === "33").map((d) => d.zhHans);
+      assert.deepEqual(context.check?.directions ?? [], directions);
+      assert.ok(expected.every((line) => lines.includes(line)));
+      assert.ok(excluded.every((line) => !lines.includes(line)));
+      assert.ok(candidates.some((d) => d.triggerCode === code));
+      assert.ok(getDialogueCandidates(code === "15" ? "16" : "15", context)
+        .every((d) => d.triggerCode !== "33"));
+      assert.ok(getDialogueCandidates("1", context).every((d) => d.triggerCode !== "33"));
+    }
+  }
+  assert.deepEqual(getDialogueCandidates("33", { playerColor: "w" }), []);
+});
+
+test("rear checks, discovered checks and diagonal checks follow actual attackers", () => {
+  const rear = directionalLines("8/3R4/8/4k3/p7/8/6P1/7K w - - 0 1", "Rd8", "w");
+  assert.equal(rear.code, null); // No check, despite an enemy piece behind the king.
+  const back = directionalLines("8/3R4/8/4k3/p7/8/6P1/7K w - - 0 1", "Re7+", "w");
+  assert.ok(back.lines.includes("敌人在后面！"));
+  assert.ok(!back.lines.includes("看前面！"));
+  const discovered = directionalLines("4k3/p7/8/8/8/8/4B1P1/4R2K w - - 0 1", "Bf3+", "w");
+  assert.ok(discovered.lines.includes("看前面！"));
+  assert.ok(!discovered.lines.includes("看右边！")); // The bishop is not the checker.
+  const diagonal = directionalLines("4k3/p7/8/8/8/8/6P1/5B1K w - - 0 1", "Bb5+", "w");
+  assert.ok(diagonal.lines.includes("看左边！"));
+  assert.ok(diagonal.lines.includes("看前面！"));
+});
+
+test("adjacent attackers refer only to the NPC king; 'also below' needs a second checking direction", () => {
+  const fen = "8/8/4k3/8/4B3/8/6P1/4R2K w - - 0 1";
+  const double = directionalLines(fen, "Bd5+", "w");
+  assert.equal(double.code, "16");
+  assert.ok(double.lines.includes("他在我旁边！"));
+  assert.ok(!double.lines.includes("下面也有敌人！")); // Both attackers are below.
+  const npc = directionalLines(fen, "Bd5+", "b");
+  assert.ok(!npc.lines.includes("他在我旁边！"));
+  const bothSides = directionalLines("8/p7/8/4k3/3N4/8/1B4P1/7K w - - 0 1", "Nc6+", "w");
+  assert.ok(bothSides.lines.includes("下面也有敌人！"));
+  assert.ok(bothSides.lines.includes("危险在上面！"));
 });
 
 test("openings use first-color, repeat, time, then regular greetings", () => {

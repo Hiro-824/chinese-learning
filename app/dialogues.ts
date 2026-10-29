@@ -1,5 +1,6 @@
 import { Chess, type Color, type Move, type PieceSymbol, type Square } from "chess.js";
 import translatedLines from "./data/lines-translated.json" with { type: "json" };
+import additionalLines from "./data/lines-additional-2026-10-29.json" with { type: "json" };
 
 export type DialogueActor = "npc" | "player";
 export type LearningItem = { phrase: string; role: string; meaning: string };
@@ -20,13 +21,21 @@ export type DialogueContext = {
   playerColor: Color;
   promotion?: PieceSymbol;
   queenReturned?: boolean;
+  additionalQueen?: boolean;
+  check?: {
+    kingColor: Color;
+    directions: CheckDirection[];
+    adjacent: boolean;
+    belowAlso: boolean;
+  };
 };
+type CheckDirection = "front" | "back" | "left" | "right" | "up" | "down";
 export type MaterialHistory = {
   npcWasBehind: boolean;
   playerWasBehind: boolean;
 };
 
-export const DIALOGUES: Dialogue[] = translatedLines;
+export const DIALOGUES: Dialogue[] = [...translatedLines, ...additionalLines];
 export const PIECE_VALUES: Record<PieceSymbol, number> = {
   p: 1, n: 3, b: 3, r: 5, q: 9, k: 0,
 };
@@ -46,12 +55,27 @@ const PROMOTION_NAMES: Partial<Record<PieceSymbol, [string, string]>> = {
 };
 
 export function getDialogueCandidates(triggerCode: string, context: DialogueContext) {
+  const checkedKingColor = triggerCode === "15"
+    ? context.playerColor
+    : triggerCode === "16" ? (context.playerColor === "w" ? "b" : "w") : null;
   return DIALOGUES.filter((dialogue) => {
-    if (dialogue.triggerCode !== triggerCode) return false;
+    // Condition 33 shares the ordinary check event, so the original check
+    // dialogue remains available alongside board-specific directional lines.
+    const directionalCheck = dialogue.triggerCode === "33" &&
+      (triggerCode === "33" || context.check?.kingColor === checkedKingColor);
+    if (dialogue.triggerCode !== triggerCode && !directionalCheck) return false;
     if (dialogue.condition === "player-white") return context.playerColor === "w";
     if (dialogue.condition === "player-black") return context.playerColor === "b";
     if (dialogue.condition === "queen-returned") return context.queenReturned === true;
-    return true;
+    if (dialogue.condition === "additional-queen") return context.additionalQueen === true;
+    if (dialogue.condition === "check-npc-adjacent") {
+      return context.check?.kingColor !== context.playerColor && context.check?.adjacent === true;
+    }
+    if (dialogue.condition === "check-below-also") return context.check?.belowAlso === true;
+    if (dialogue.condition?.startsWith("check-")) {
+      return context.check?.directions.includes(dialogue.condition.slice(6) as CheckDirection) === true;
+    }
+    return dialogue.condition === undefined;
   }).map((dialogue) => {
     if (!dialogue.zhHans.includes("〇〇")) return dialogue;
     const names = context.promotion && PROMOTION_NAMES[context.promotion];
@@ -98,11 +122,44 @@ function piecesFor(game: Chess, color: Color) {
 
 export function getMoveDialogueContext(move: Move, playerColor: Color): DialogueContext {
   const before = new Chess(move.before);
+  const after = new Chess(move.after);
+  const kingColor = after.turn();
+  const king = piecesFor(after, kingColor).find((piece) => piece?.type === "k");
+  let check: DialogueContext["check"];
+  if (after.isCheck() && king) {
+    const attackers = after.attackers(king.square, move.color);
+    const offsets = attackers.map((square) => ({
+      dx: square.charCodeAt(0) - king.square.charCodeAt(0),
+      dy: Number(square[1]) - Number(king.square[1]),
+    }));
+    const directions = new Set<CheckDirection>();
+    for (const { dx, dy } of offsets) {
+      // Left/right and up/down use fixed board coordinates: a-file on the
+      // left, rank 8 at the top, even when the displayed board is rotated.
+      if (dx < 0) directions.add("left");
+      if (dx > 0) directions.add("right");
+      if (dy > 0) directions.add("up");
+      if (dy < 0) directions.add("down");
+      const forward = dy * (kingColor === "w" ? 1 : -1);
+      if (forward > 0) directions.add("front");
+      if (forward < 0) directions.add("back");
+    }
+    check = {
+      kingColor,
+      directions: [...directions],
+      adjacent: offsets.some(({ dx, dy }) => Math.max(Math.abs(dx), Math.abs(dy)) === 1),
+      // "Also below" needs another checking attacker in a different direction.
+      belowAlso: offsets.some(({ dy }) => dy < 0) && offsets.some(({ dy }) => dy >= 0),
+    };
+  }
   return {
     playerColor,
     promotion: move.promotion,
     queenReturned: move.color === playerColor && move.promotion === "q" &&
       !piecesFor(before, playerColor).some((piece) => piece?.type === "q"),
+    additionalQueen: move.color === playerColor && move.promotion === "q" &&
+      piecesFor(before, playerColor).some((piece) => piece?.type === "q"),
+    check,
   };
 }
 
@@ -163,8 +220,8 @@ export function getMoveTriggerCode(
   if (move.captured && previousCapture && previousCapture.actor !== actor &&
     previousCapture.to === move.to &&
     PIECE_VALUES[previousCapture.captured] === PIECE_VALUES[move.captured]) return "11";
-  if (actor === "npc" && hasTactic(after, move.to, move.color) &&
-    !hasTactic(before, move.from, move.color)) return "31";
+  if (hasTactic(after, move.to, move.color) &&
+    !hasTactic(before, move.from, move.color)) return actor === "npc" ? "31" : "32";
   if (after.isCheck()) return actor === "npc" ? "15" : "16";
   if (move.isKingsideCastle() || move.isQueensideCastle()) {
     return actor === "npc" ? "25" : "26";
