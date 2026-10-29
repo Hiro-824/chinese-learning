@@ -725,9 +725,10 @@ export default function Home() {
   const boardOptions: ChessboardOptions = {
     position: fen,
     boardOrientation: playerColor === "w" ? "white" : "black",
-    boardStyle: { borderRadius: "10px" },
-    lightSquareStyle: { backgroundColor: "#f2ead8" },
-    darkSquareStyle: { backgroundColor: "#769982" },
+    boardStyle: { borderRadius: "0" },
+    lightSquareStyle: { backgroundColor: "#ffffff" },
+    darkSquareStyle: { backgroundColor: "#f1f2f4" },
+    showNotation: false,
     squareStyles,
     animationDurationInMs: 180,
     allowDrawingArrows: false,
@@ -792,30 +793,34 @@ export default function Home() {
 
   return (
     <main className="game-screen">
+      <div className="game-brand">chess</div>
       <header className="topbar">
-        <span className="streak" aria-label={`連続対局 ${streak} 日`}>
-          🔥 {streak} {streak === 1 ? "day" : "days"}
-        </span>
-        <span
-          className={`material-balance ${playerMaterial.startsWith("-") ? "negative" : ""}`}
-          aria-label={`マテリアル差 ${playerMaterial}`}
-        >
-          {playerMaterial}
-        </span>
         <button
-          className="icon-button"
+          className="icon-button menu-button"
           onClick={() => setSettingsOpen(true)}
           aria-label="設定"
         >
           <GearIcon />
         </button>
+        <div className="status-capsule">
+          <span className="streak" aria-label={`連続対局 ${streak} 日`}>
+            <FlameIcon />
+            <span>{streak} {streak === 1 ? "DAY" : "DAYS"}</span>
+          </span>
+          <span
+            className={`material-balance ${playerMaterial.startsWith("-") ? "negative" : ""}`}
+            aria-label={`マテリアル差 ${playerMaterial}`}
+          >
+            <PointsIcon />
+            <span>{playerMaterial} <small>POINTS</small></span>
+          </span>
+        </div>
       </header>
 
       <section className="game-area">
-        <PlayerRow
-          name="Oscar"
+        <h1 className="game-title">Play Chess</h1>
+        <CharacterRow
           detail={thinking ? "思考中…" : ""}
-          reserveDialogueSpace
           dialogues={visibleDialogues}
           onOpenDialogue={setExplanationDialogue}
           onSpeak={(dialogue) => speak(dialogue.zhHans, true)}
@@ -840,22 +845,19 @@ export default function Home() {
           )}
         </div>
 
-        <PlayerRow
-          name="You"
-          detail={statusText}
-          active={status === "playing"}
-        />
-
         <div className="controls">
-          <button className="primary-button" onClick={() => startGame()}>
-            新しい対局
+          <button className="board-action" onClick={() => startGame()} aria-label="新しい対局" title="新しい対局">
+            <RestartIcon />
           </button>
+          <span className="turn-status" role="status">{statusText}</span>
           <button
-            className="text-button"
+            className="board-action resign-button"
             onClick={resign}
             disabled={status !== "playing"}
+            aria-label="投了"
+            title="投了"
           >
-            投了
+            <FlagIcon />
           </button>
         </div>
       </section>
@@ -978,34 +980,24 @@ function DifficultySlider({
   );
 }
 
-function PlayerRow({
-  name,
+function CharacterRow({
   detail,
-  active = false,
-  reserveDialogueSpace = false,
   dialogues,
   onOpenDialogue,
   onSpeak,
 }: {
-  name: string;
   detail: string;
-  active?: boolean;
-  reserveDialogueSpace?: boolean;
   dialogues?: Dialogue[];
   onOpenDialogue?: (dialogue: Dialogue) => void;
   onSpeak?: (dialogue: Dialogue) => void;
 }) {
   return (
-    <div
-      className={`player-row ${reserveDialogueSpace ? "dialogue-player-row" : ""}`}
-    >
-      <div className={`avatar ${active ? "active" : ""}`} aria-hidden="true">
-        {name === "You" ? "Y" : "O"}
+    <div className="character-row">
+      <div className="character-placeholder" role="img" aria-label="Oscarの仮キャラクター">
+        <div className="character-head" />
+        <div className="character-body" />
       </div>
-      <div className="player-copy">
-        <strong>{name}</strong>
-        <span>{detail || "\u00a0"}</span>
-      </div>
+      {detail && <span className="thinking-label" role="status">{detail}</span>}
       {dialogues && dialogues.length > 0 && onOpenDialogue && onSpeak && (
         <div className="speech-stack">
           {dialogues.map((dialogue) => (
@@ -1086,6 +1078,22 @@ function ExplanationModal({
       </section>
     </div>
   );
+}
+
+function FlameIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2c1 6-5 6-3 11-3-1-3-4-3-4s-4 4-3 8a8 8 0 0 0 16-1c0-5-4-7-4-7s1 4-2 5c2-6-1-12-1-12Z" fill="currentColor" /></svg>;
+}
+
+function PointsIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 9h-5v9H8v-9H3l9-9Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg>;
+}
+
+function RestartIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4-6 6 6 6M4 10h10a6 6 0 0 1 0 12" transform="translate(1 -2)" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
+function FlagIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4c5-5 9 5 14 0v11c-5 5-9-5-14 0" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
 function GearIcon() {
