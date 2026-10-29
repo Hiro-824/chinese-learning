@@ -7,6 +7,7 @@ export type LearningItem = { phrase: string; role: string; meaning: string };
 export type Dialogue = {
   id: string;
   zhHans: string;
+  pinyin: string;
   ja: string;
   triggerCode: string;
   learning: LearningItem[];
@@ -49,9 +50,9 @@ const CAPTURE_TRIGGER = {
   r: { npc: "7", player: "8" },
   q: { npc: "9", player: "10" },
 };
-const PROMOTION_NAMES: Partial<Record<PieceSymbol, [string, string]>> = {
-  q: ["王后", "クイーン"], r: ["车", "ルーク"],
-  b: ["象", "ビショップ"], n: ["马", "ナイト"],
+const PROMOTION_NAMES: Partial<Record<PieceSymbol, [string, string, string]>> = {
+  q: ["王后", "クイーン", "Wáng hòu"], r: ["车", "ルーク", "Chē"],
+  b: ["象", "ビショップ", "Xiàng"], n: ["马", "ナイト", "Mǎ"],
 };
 
 export function getDialogueCandidates(triggerCode: string, context: DialogueContext) {
@@ -83,6 +84,7 @@ export function getDialogueCandidates(triggerCode: string, context: DialogueCont
     return {
       ...dialogue,
       zhHans: dialogue.zhHans.replaceAll("〇〇", names[0]),
+      pinyin: dialogue.pinyin.replaceAll("〇〇", names[2]),
       ja: dialogue.ja.replaceAll("〇〇", names[1]),
       learning: dialogue.learning.map((item) => ({
         ...item,

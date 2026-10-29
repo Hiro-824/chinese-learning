@@ -12,6 +12,34 @@ function trigger(fen, san, actor = "player", history = freshHistory()) {
   return getMoveTriggerCode(new Chess(fen).move(san), actor, null, history);
 }
 
+test("every dialogue has complete stored pinyin, with erhua counted as one syllable", () => {
+  for (const dialogue of DIALOGUES) {
+    const text = dialogue.zhHans.replaceAll("〇〇", "");
+    const reading = dialogue.pinyin.replaceAll("〇〇", "");
+    assert.ok(reading.trim(), dialogue.id);
+    assert.doesNotMatch(reading, /\p{Script=Han}|\d| {2}/u, dialogue.id);
+    const characters = text.match(/\p{Script=Han}/gu)?.length ?? 0;
+    const erhua = text.match(/(?:哪|这|那|点)儿/gu)?.length ?? 0;
+    const syllables = reading.match(/\p{Script=Latin}+/gu)?.length ?? 0;
+    assert.equal(syllables, characters - erhua, dialogue.zhHans);
+  }
+});
+
+test("stored pinyin distinguishes contextual readings, neutral tones and erhua", () => {
+  for (const [text, expected] of [
+    ["你起得真早！", "Nǐ qǐ de zhēn zǎo!"],
+    ["谁教你的？", "Shuí jiāo nǐ de?"],
+    ["谁干的？", "Shuí gàn de?"],
+    ["只剩你一个了。", "Zhǐ shèng nǐ yí gè le."],
+    ["王侯将相，宁有种乎！", "Wáng hóu jiàng xiàng, nìng yǒu zhǒng hū!"],
+    ["我在收拾桌上的东西。", "Wǒ zài shōu shi zhuō shàng de dōng xi."],
+    ["我的朋友去哪儿了？", "Wǒ de péng you qù nǎr le?"],
+    ["我有点儿紧张。", "Wǒ yǒu diǎnr jǐn zhāng."],
+  ]) {
+    assert.equal(DIALOGUES.find((dialogue) => dialogue.zhHans === text)?.pinyin, expected, text);
+  }
+});
+
 test("the original 90 lines retain their text, order and trigger codes", async () => {
   const markdown = await readFile(new URL("../drafts/lines-translated.md", import.meta.url), "utf8");
   const expected = [];
@@ -95,10 +123,11 @@ test("promotion names and queen-return lines follow the actual promoted piece an
   const context = getMoveDialogueContext(new Chess(noQueen).move("a8=Q+"), "w");
   assert.equal(context.queenReturned, true);
   assert.ok(getDialogueCandidates("20", context).some((d) => d.zhHans === "她回来了！"));
-  for (const [piece, name] of [["q", "王后"], ["r", "车"], ["b", "象"], ["n", "马"]]) {
+  for (const [piece, name, reading] of [["q", "王后", "Wáng hòu"], ["r", "车", "Chē"], ["b", "象", "Xiàng"], ["n", "马", "Mǎ"]]) {
     const move = new Chess(noQueen).move({ from: "a7", to: "a8", promotion: piece });
     const candidates = getDialogueCandidates("20", getMoveDialogueContext(move, "w"));
     assert.equal(candidates[0].zhHans, `${name}出现了！`);
+    assert.equal(candidates[0].pinyin, `${reading} chū xiàn le!`);
     assert.ok(candidates.every((d) => !JSON.stringify(d).includes("〇〇")));
     assert.equal(candidates.some((d) => d.zhHans === "她回来了！"), piece === "q");
     assert.equal(candidates.some((d) => d.id === "translated-20-2"), piece === "q");

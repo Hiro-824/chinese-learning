@@ -1,5 +1,6 @@
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { generateNewDialogues } from "./new-dialogues.mjs";
+import { generateDialoguePinyin } from "./dialogue-pinyin.mjs";
 
 // Rows correspond to the numbered lines in drafts/lines-translated.md.
 // Each row contains its Japanese translation and curated learning notes.
@@ -200,7 +201,11 @@ for (const [filename, lines] of [
   ["lines-additional-2026-10-29.json", additional],
 ]) {
   const output = new URL(`../app/data/${filename}`, import.meta.url);
-  const content = `${JSON.stringify(lines, null, 2)}\n`;
+  const withPinyin = lines.map((dialogue) => ({
+    ...dialogue,
+    pinyin: generateDialoguePinyin(dialogue.zhHans),
+  }));
+  const content = `${JSON.stringify(withPinyin, null, 2)}\n`;
   if (process.argv.includes("--check")) {
     if (await readFile(output, "utf8") !== content) throw new Error("npm run dialogues:generate を実行してください");
     console.log(`Verified ${lines.length} dialogues in ${filename}.`);

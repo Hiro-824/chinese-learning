@@ -35,7 +35,8 @@
         "role": "文法",
         "meaning": "STEP37：受身文"
       }
-    ]
+    ],
+    "pinyin": "Tā bèi guān jìn jiān yù le."
   },
   {
     "id": "translated-1-2",
@@ -68,7 +69,8 @@
         "role": "文法",
         "meaning": "STEP26：進行の在"
       }
-    ]
+    ],
+    "pinyin": "Wǒ zài dǎ sǎo fáng jiān."
   },
   {
     "id": "translated-1-3",
@@ -106,7 +108,8 @@
         "role": "文法",
         "meaning": "STEP13・26：方位詞・進行"
       }
-    ]
+    ],
+    "pinyin": "Wǒ zài shōu shi zhuō shàng de dōng xi."
   },
   {
     "id": "translated-2-1",
@@ -134,7 +137,8 @@
         "role": "助詞",
         "meaning": "状況の変化"
       }
-    ]
+    ],
+    "pinyin": "Kě xī, bīng xiāo shī le."
   },
   {
     "id": "translated-2-2",
@@ -172,7 +176,8 @@
         "role": "文法",
         "meaning": "STEP16：連体修飾"
       }
-    ]
+    ],
+    "pinyin": "Nà kě shì wǒ xǐ huan de bīng!"
   },
   {
     "id": "translated-2-3",
@@ -215,7 +220,8 @@
         "role": "文法",
         "meaning": "STEP4：是構文"
       }
-    ]
+    ],
+    "pinyin": "Tā men zhǐ shì wǒ de shǒu hé jiǎo."
   },
   {
     "id": "translated-3-1",
@@ -233,7 +239,8 @@
         "role": "助詞",
         "meaning": "ここでは別れの状況への変化を表す"
       }
-    ]
+    ],
+    "pinyin": "Zài jiàn le."
   },
   {
     "id": "translated-4-1",
@@ -276,7 +283,8 @@
         "role": "文法",
         "meaning": "STEP10・16：量詞・連体修飾"
       }
-    ]
+    ],
+    "pinyin": "Wǒ nà pǐ kě ài de mǎ a!"
   },
   {
     "id": "translated-4-2",
@@ -314,7 +322,8 @@
         "role": "文法",
         "meaning": "STEP24：アスペクトの了"
       }
-    ]
+    ],
+    "pinyin": "Wǒ gāng mǎi le tā!"
   },
   {
     "id": "translated-5-1",
@@ -342,7 +351,8 @@
         "role": "助詞",
         "meaning": "変化を表す"
       }
-    ]
+    ],
+    "pinyin": "Hū, rè qǐ lái le!"
   },
   {
     "id": "translated-5-2",
@@ -385,7 +395,8 @@
         "role": "文法",
         "meaning": "STEP9・10・16：所有の有・量詞・連体修飾"
       }
-    ]
+    ],
+    "pinyin": "Nǐ yǒu yì kē bīng lěng de xīn!"
   },
   {
     "id": "translated-6-1",
@@ -403,7 +414,8 @@
         "role": "助詞",
         "meaning": "ここでは別れの状況への変化を表す"
       }
-    ]
+    ],
+    "pinyin": "Zài jiàn le."
   },
   {
     "id": "translated-7-1",
@@ -436,7 +448,8 @@
         "role": "文法",
         "meaning": "STEP2・15：吗疑問文・形容詞"
       }
-    ]
+    ],
+    "pinyin": "Nǐ lèi le ma?"
   },
   {
     "id": "translated-7-2",
@@ -454,7 +467,8 @@
         "role": "助詞",
         "meaning": "ここでは別れの状況への変化を表す"
       }
-    ]
+    ],
+    "pinyin": "Zài jiàn le."
   },
   {
     "id": "translated-7-3",
@@ -492,7 +506,8 @@
         "role": "名詞",
         "meaning": "城"
       }
-    ]
+    ],
+    "pinyin": "Wǒ gōng xià le yí dòng de chéng bǎo!"
   },
   {
     "id": "translated-7-4",
@@ -525,7 +540,8 @@
         "role": "文法",
         "meaning": "STEP17：介詞"
       }
-    ]
+    ],
+    "pinyin": "Nǐ de chē? Wǒ gěi nǐ xǐ!"
   },
   {
     "id": "translated-8-1",
@@ -558,7 +574,8 @@
         "role": "数量補語",
         "meaning": "少し〜する"
       }
-    ]
+    ],
+    "pinyin": "Hē bēi kā fēi, lěng jìng yí xià."
   },
   {
     "id": "translated-8-2",
@@ -591,7 +608,8 @@
         "role": "数量補語",
         "meaning": "少し〜する"
       }
-    ]
+    ],
+    "pinyin": "Hē diǎn shuǐ, lěng jìng yí xià."
   },
   {
     "id": "translated-9-1",
@@ -614,7 +632,8 @@
         "role": "語気助詞",
         "meaning": "語調を和らげる"
       }
-    ]
+    ],
+    "pinyin": "Bié shēng qì a!"
   },
   {
     "id": "translated-9-2",
@@ -632,7 +651,8 @@
         "role": "助詞",
         "meaning": "ここでは別れの状況への変化を表す"
       }
-    ]
+    ],
+    "pinyin": "Zài jiàn le."
   },
   {
     "id": "translated-9-3",
@@ -665,7 +685,8 @@
         "role": "助詞",
         "meaning": "状態の変化"
       }
-    ]
+    ],
+    "pinyin": "Zěn me le? Liǎn dōu bái le!"
   },
   {
     "id": "translated-9-4",
@@ -698,7 +719,8 @@
         "role": "文法",
         "meaning": "STEP15：形容詞述語文"
       }
-    ]
+    ],
+    "pinyin": "Wǒ xiōng kǒu hěn téng."
   },
   {
     "id": "translated-9-5",
@@ -721,7 +743,8 @@
         "role": "助詞",
         "meaning": "動作の完了、状態の変化"
       }
-    ]
+    ],
+    "pinyin": "Wáng hòu…… sǐ le……"
   },
   {
     "id": "translated-10-1",
@@ -754,7 +777,8 @@
         "role": "文法",
         "meaning": "STEP20：願望の助動詞"
       }
-    ]
+    ],
+    "pinyin": "Wǒ xiǎng huí jiā le."
   },
   {
     "id": "translated-10-2",
@@ -777,7 +801,8 @@
         "role": "動詞",
         "meaning": "泣く"
       }
-    ]
+    ],
+    "pinyin": "Wǒ kuài kū le."
   },
   {
     "id": "translated-10-3",
@@ -810,7 +835,8 @@
         "role": "文法",
         "meaning": "STEP15：形容詞述語文"
       }
-    ]
+    ],
+    "pinyin": "A, tóu hǎo téng."
   },
   {
     "id": "translated-10-4",
@@ -833,7 +859,8 @@
         "role": "助詞",
         "meaning": "動作の完了、状態の変化"
       }
-    ]
+    ],
+    "pinyin": "Wáng hòu…… sǐ le……"
   },
   {
     "id": "translated-11-1",
@@ -856,7 +883,8 @@
         "role": "形容詞",
         "meaning": "楽しい、面白い"
       }
-    ]
+    ],
+    "pinyin": "Zhè jú zhēn hǎo wán!"
   },
   {
     "id": "translated-12-1",
@@ -884,7 +912,8 @@
         "role": "文法",
         "meaning": "STEP4：是構文"
       }
-    ]
+    ],
+    "pinyin": "Nǐ shì bái fāng."
   },
   {
     "id": "translated-12-2",
@@ -912,7 +941,8 @@
         "role": "文法",
         "meaning": "STEP4：是構文"
       }
-    ]
+    ],
+    "pinyin": "Wǒ shì hēi fāng."
   },
   {
     "id": "translated-13-1",
@@ -940,7 +970,8 @@
         "role": "文法",
         "meaning": "STEP4：是構文"
       }
-    ]
+    ],
+    "pinyin": "Nǐ shì hēi fāng."
   },
   {
     "id": "translated-13-2",
@@ -968,7 +999,8 @@
         "role": "文法",
         "meaning": "STEP4：是構文"
       }
-    ]
+    ],
+    "pinyin": "Wǒ shì bái fāng."
   },
   {
     "id": "translated-14-1",
@@ -996,7 +1028,8 @@
         "role": "地名",
         "meaning": "インド"
       }
-    ]
+    ],
+    "pinyin": "Tīng shuō guó jì xiàng qí qǐ yuán yú yìn dù."
   },
   {
     "id": "translated-14-2",
@@ -1019,7 +1052,8 @@
         "role": "語気助詞",
         "meaning": "勧誘や提案を表す"
       }
-    ]
+    ],
+    "pinyin": "Wǒ men xià qí ba!"
   },
   {
     "id": "translated-14-3",
@@ -1043,7 +1077,8 @@
         "meaning": "白番、白側"
       }
     ],
-    "condition": "player-white"
+    "condition": "player-white",
+    "pinyin": "Nǐ shì bái fāng."
   },
   {
     "id": "translated-14-4",
@@ -1067,7 +1102,8 @@
         "meaning": "黒番、黒側"
       }
     ],
-    "condition": "player-black"
+    "condition": "player-black",
+    "pinyin": "Nǐ shì hēi fāng."
   },
   {
     "id": "translated-14-5",
@@ -1091,7 +1127,8 @@
         "meaning": "白番、白側"
       }
     ],
-    "condition": "player-black"
+    "condition": "player-black",
+    "pinyin": "Wǒ shì bái fāng."
   },
   {
     "id": "translated-14-6",
@@ -1115,7 +1152,8 @@
         "meaning": "黒番、黒側"
       }
     ],
-    "condition": "player-white"
+    "condition": "player-white",
+    "pinyin": "Wǒ shì hēi fāng."
   },
   {
     "id": "translated-14-7",
@@ -1148,7 +1186,8 @@
         "role": "文法",
         "meaning": "STEP2：吗疑問文"
       }
-    ]
+    ],
+    "pinyin": "Nǐ pà shū ma?"
   },
   {
     "id": "translated-14-8",
@@ -1176,7 +1215,8 @@
         "role": "動詞",
         "meaning": "勝つ"
       }
-    ]
+    ],
+    "pinyin": "Wǒ yí dìng huì yíng!"
   },
   {
     "id": "translated-14-9",
@@ -1204,7 +1244,8 @@
         "role": "名詞",
         "meaning": "学校"
       }
-    ]
+    ],
+    "pinyin": "Huān yíng lái dào guó jì xiàng qí xué xiào!"
   },
   {
     "id": "translated-14-10",
@@ -1227,7 +1268,8 @@
         "role": "語気助詞",
         "meaning": "勧誘や提案を表す"
       }
-    ]
+    ],
+    "pinyin": "Wǒ men kāi shǐ ba!"
   },
   {
     "id": "translated-14-11",
@@ -1265,7 +1307,8 @@
         "role": "文法",
         "meaning": "STEP4：是構文"
       }
-    ]
+    ],
+    "pinyin": "Wǒ shì lǎo shī, nǐ shì xué shēng."
   },
   {
     "id": "translated-15-1",
@@ -1303,7 +1346,8 @@
         "role": "文法",
         "meaning": "STEP18：連動文"
       }
-    ]
+    ],
+    "pinyin": "Wǒ qù zhǎo guó wáng le!"
   },
   {
     "id": "translated-15-2",
@@ -1336,7 +1380,8 @@
         "role": "文法",
         "meaning": "STEP31：可能補語"
       }
-    ]
+    ],
+    "pinyin": "Nǐ táo bú diào le!"
   },
   {
     "id": "translated-15-3",
@@ -1359,7 +1404,8 @@
         "role": "文法",
         "meaning": "STEP13：方位詞"
       }
-    ]
+    ],
+    "pinyin": "Xiǎo xīn bèi hòu!"
   },
   {
     "id": "translated-16-1",
@@ -1397,7 +1443,8 @@
         "role": "文法",
         "meaning": "STEP30：複合方向補語"
       }
-    ]
+    ],
+    "pinyin": "Bì xià yào guò lái le! Ràng lù!"
   },
   {
     "id": "translated-16-2",
@@ -1420,7 +1467,8 @@
         "role": "文法",
         "meaning": "STEP30：複合方向補語"
       }
-    ]
+    ],
+    "pinyin": "Bié guò lái!"
   },
   {
     "id": "translated-16-3",
@@ -1448,7 +1496,8 @@
         "role": "文法",
         "meaning": "STEP4・5：是構文・指示代名詞"
       }
-    ]
+    ],
+    "pinyin": "Zhè shì pàn luàn!"
   },
   {
     "id": "translated-17-1",
@@ -1481,7 +1530,8 @@
         "role": "定型表現",
         "meaning": "よかった、素晴らしい"
       }
-    ]
+    ],
+    "pinyin": "Yíng le, kāi xīn ma? Tài hǎo le!"
   },
   {
     "id": "translated-17-2",
@@ -1499,7 +1549,8 @@
         "role": "古典表現",
         "meaning": "山や川は変わらず残る。杜甫『春望』の一句で、現代口語の文法例とは分けて学ぶ"
       }
-    ]
+    ],
+    "pinyin": "Guó pò shān hé zài."
   },
   {
     "id": "translated-17-3",
@@ -1522,7 +1573,8 @@
         "role": "動詞",
         "meaning": "負ける"
       }
-    ]
+    ],
+    "pinyin": "Wǒ tǎo yàn shū."
   },
   {
     "id": "translated-17-4",
@@ -1555,7 +1607,8 @@
         "role": "文法",
         "meaning": "STEP33：比による比較"
       }
-    ]
+    ],
+    "pinyin": "Nǐ bǐ wǒ qiáng!"
   },
   {
     "id": "translated-17-5",
@@ -1578,7 +1631,8 @@
         "role": "名詞句",
         "meaning": "私のお母さん"
       }
-    ]
+    ],
+    "pinyin": "Bié gào su wǒ mā ma!"
   },
   {
     "id": "translated-17-6",
@@ -1601,7 +1655,8 @@
         "role": "名詞句",
         "meaning": "私のお父さん"
       }
-    ]
+    ],
+    "pinyin": "Bié gào su wǒ bà ba!"
   },
   {
     "id": "translated-17-7",
@@ -1629,7 +1684,8 @@
         "role": "動詞",
         "meaning": "勝つ"
       }
-    ]
+    ],
+    "pinyin": "Míng tiān wǒ huì yíng!"
   },
   {
     "id": "translated-18-1",
@@ -1657,7 +1713,8 @@
         "role": "文法",
         "meaning": "STEP10：量詞"
       }
-    ]
+    ],
+    "pinyin": "Jiè nǐ yì běn qí shū?"
   },
   {
     "id": "translated-18-2",
@@ -1680,7 +1737,8 @@
         "role": "助詞",
         "meaning": "状況の変化"
       }
-    ]
+    ],
+    "pinyin": "Bǐ sài jié shù le."
   },
   {
     "id": "translated-18-3",
@@ -1708,7 +1766,8 @@
         "role": "定型表現",
         "meaning": "大丈夫、構わない"
       }
-    ]
+    ],
+    "pinyin": "Ruò yì diǎn yě méi guān xi."
   },
   {
     "id": "translated-18-4",
@@ -1731,7 +1790,8 @@
         "role": "文法",
         "meaning": "STEP2：吗疑問文"
       }
-    ]
+    ],
+    "pinyin": "Bù gān xīn ma?"
   },
   {
     "id": "translated-18-5",
@@ -1764,7 +1824,8 @@
         "role": "名詞",
         "meaning": "動画"
       }
-    ]
+    ],
+    "pinyin": "Zhēn gāi lù gè shì pín!"
   },
   {
     "id": "translated-18-6",
@@ -1792,7 +1853,8 @@
         "role": "語気助詞",
         "meaning": "提案や勧誘を表す"
       }
-    ]
+    ],
+    "pinyin": "Míng tiān zài xià ba!"
   },
   {
     "id": "translated-19-1",
@@ -1825,7 +1887,8 @@
         "role": "文法",
         "meaning": "STEP28：結果補語"
       }
-    ]
+    ],
+    "pinyin": "Nǐ kàn dào le ma?"
   },
   {
     "id": "translated-19-2",
@@ -1843,7 +1906,8 @@
         "role": "古典表現",
         "meaning": "生まれつきの血筋があるものか、いやない。陳勝の言葉で、現代口語の文法例とは分けて学ぶ"
       }
-    ]
+    ],
+    "pinyin": "Wáng hóu jiàng xiàng, nìng yǒu zhǒng hū!"
   },
   {
     "id": "translated-20-1",
@@ -1866,7 +1930,8 @@
         "role": "助詞",
         "meaning": "状況の変化"
       }
-    ]
+    ],
+    "pinyin": "〇〇 chū xiàn le!"
   },
   {
     "id": "translated-20-2",
@@ -1895,7 +1960,8 @@
         "meaning": "STEP30：複合方向補語"
       }
     ],
-    "condition": "queen-returned"
+    "condition": "queen-returned",
+    "pinyin": "Wáng hòu huí lái le!"
   },
   {
     "id": "translated-21-1",
@@ -1918,7 +1984,8 @@
         "role": "動詞",
         "meaning": "諦める"
       }
-    ]
+    ],
+    "pinyin": "Wǒ bú huì fàng qì!"
   },
   {
     "id": "translated-21-2",
@@ -1931,7 +1998,8 @@
         "role": "定型表現",
         "meaning": "助けて、命を救って"
       }
-    ]
+    ],
+    "pinyin": "Jiù mìng!"
   },
   {
     "id": "translated-21-3",
@@ -1964,7 +2032,8 @@
         "role": "動詞",
         "meaning": "助けを求める"
       }
-    ]
+    ],
+    "pinyin": "Jiè wǒ shǒu jī! Wǒ yào dǎ diàn huà qiú jiù!"
   },
   {
     "id": "translated-22-1",
@@ -1992,7 +2061,8 @@
         "role": "助詞",
         "meaning": "状況の変化"
       }
-    ]
+    ],
+    "pinyin": "Zhǐ shèng nǐ yí gè le."
   },
   {
     "id": "translated-22-2",
@@ -2010,7 +2080,8 @@
         "role": "語気助詞",
         "meaning": "文末で疑問を表す"
       }
-    ]
+    ],
+    "pinyin": "Jì mò ma?"
   },
   {
     "id": "translated-22-3",
@@ -2038,7 +2109,8 @@
         "role": "語気助詞",
         "meaning": "疑問を表す"
       }
-    ]
+    ],
+    "pinyin": "Bì xià, nín jì mò ma?"
   },
   {
     "id": "translated-23-1",
@@ -2051,7 +2123,8 @@
         "role": "あいさつ",
         "meaning": "おはよう（早上は朝、好はよい）"
       }
-    ]
+    ],
+    "pinyin": "Zǎo shàng hǎo!"
   },
   {
     "id": "translated-23-2",
@@ -2084,7 +2157,8 @@
         "role": "文法",
         "meaning": "STEP32：様態補語"
       }
-    ]
+    ],
+    "pinyin": "Nǐ qǐ de zhēn zǎo!"
   },
   {
     "id": "translated-23-3",
@@ -2112,7 +2186,8 @@
         "role": "文法",
         "meaning": "STEP15：形容詞述語文"
       }
-    ]
+    ],
+    "pinyin": "Wài miàn hěn liàng."
   },
   {
     "id": "translated-24-1",
@@ -2125,7 +2200,8 @@
         "role": "あいさつ",
         "meaning": "こんばんは（晚上は夜）"
       }
-    ]
+    ],
+    "pinyin": "Wǎn shàng hǎo!"
   },
   {
     "id": "translated-24-2",
@@ -2163,7 +2239,8 @@
         "role": "文法",
         "meaning": "STEP2：吗疑問文"
       }
-    ]
+    ],
+    "pinyin": "Xiàn zài? Nǐ bú kùn ma?"
   },
   {
     "id": "translated-24-3",
@@ -2196,7 +2273,8 @@
         "role": "文法",
         "meaning": "STEP32：様態補語"
       }
-    ]
+    ],
+    "pinyin": "Nǐ shuì de zhēn wǎn!"
   },
   {
     "id": "translated-24-4",
@@ -2224,7 +2302,8 @@
         "role": "助詞",
         "meaning": "状況の変化"
       }
-    ]
+    ],
+    "pinyin": "Wài miàn yǐ jīng hēi le."
   },
   {
     "id": "translated-24-5",
@@ -2252,7 +2331,8 @@
         "role": "文法",
         "meaning": "STEP8：疑問詞疑問文"
       }
-    ]
+    ],
+    "pinyin": "Xiàn zài jǐ diǎn le?"
   },
   {
     "id": "translated-25-1",
@@ -2280,7 +2360,8 @@
         "role": "助詞",
         "meaning": "動作の完了"
       }
-    ]
+    ],
+    "pinyin": "Bì xià jìn chéng bǎo le!"
   },
   {
     "id": "translated-26-1",
@@ -2308,7 +2389,8 @@
         "role": "文法",
         "meaning": "STEP30：複合方向補語"
       }
-    ]
+    ],
+    "pinyin": "Bì xià, qǐng chū lái!"
   },
   {
     "id": "translated-27-1",
@@ -2331,7 +2413,8 @@
         "role": "助詞",
         "meaning": "動作の完了"
       }
-    ]
+    ],
+    "pinyin": "Yòu jiàn miàn le!"
   },
   {
     "id": "translated-27-2",
@@ -2369,7 +2452,8 @@
         "role": "文法",
         "meaning": "STEP21：動作の回数"
       }
-    ]
+    ],
+    "pinyin": "Jīn tiān dōu jiàn nǐ hǎo jǐ cì le!"
   },
   {
     "id": "translated-28-1",
@@ -2387,7 +2471,8 @@
         "role": "形容詞",
         "meaning": "速い"
       }
-    ]
+    ],
+    "pinyin": "Zhēn kuài!"
   },
   {
     "id": "translated-28-2",
@@ -2405,7 +2490,8 @@
         "role": "形容詞",
         "meaning": "速い"
       }
-    ]
+    ],
+    "pinyin": "Tài kuài le!"
   },
   {
     "id": "translated-29-1",
@@ -2428,7 +2514,8 @@
         "role": "助詞",
         "meaning": "状況の変化"
       }
-    ]
+    ],
+    "pinyin": "Xíng shì nì zhuǎn le!"
   },
   {
     "id": "translated-30-1",
@@ -2451,7 +2538,8 @@
         "role": "数量補語",
         "meaning": "少し〜する"
       }
-    ]
+    ],
+    "pinyin": "Qiú nǐ le, děng yí xià!"
   },
   {
     "id": "translated-31-1",
@@ -2489,7 +2577,8 @@
         "role": "文法",
         "meaning": "STEP23：経験の过"
       }
-    ]
+    ],
+    "pinyin": "Xiǎo shí hou, yé ye jiāo guo wǒ."
   },
   {
     "id": "translated-31-2",
@@ -2527,6 +2616,7 @@
         "role": "文法",
         "meaning": "STEP23：経験の过"
       }
-    ]
+    ],
+    "pinyin": "Xiǎo shí hou, nǎi nai jiāo guo wǒ."
   }
 ]

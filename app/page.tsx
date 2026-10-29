@@ -1034,6 +1034,7 @@ function CharacterRow({
                 onClick={() => onOpenDialogue(dialogue)}
               >
                 <span lang="zh-CN">{dialogue.zhHans}</span>
+                <span className="speech-pinyin" lang="zh-Latn-pinyin">{dialogue.pinyin}</span>
               </button>
               <button
                 className="speaker-button"
@@ -1080,6 +1081,9 @@ function ExplanationModal({
               <SpeakerWaveIcon />
             </button>
           </div>
+          <p className="explanation-pinyin" lang="zh-Latn-pinyin">
+            {dialogue.pinyin}
+          </p>
           <p className="explanation-japanese" lang="ja">
             {dialogue.ja}
           </p>
