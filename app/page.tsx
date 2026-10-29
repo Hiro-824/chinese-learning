@@ -59,6 +59,7 @@ import {
   VOICE_OPTIONS,
   type VoiceVariant,
 } from "./voice";
+import { SpeechPlayer } from "./speech-player";
 
 type GameStatus = "playing" | "won" | "lost" | "draw";
 
@@ -103,12 +104,10 @@ export default function Home() {
   const usedDialogueIdsRef = useRef(new Set<string>());
   const lastCaptureRef = useRef<PreviousCapture | null>(null);
   const materialHistoryRef = useRef<MaterialHistory>({ npcWasBehind: false, playerWasBehind: false });
-  const speechAudioRef = useRef<HTMLAudioElement | null>(null);
+  const speechPlayerRef = useRef<SpeechPlayer | null>(null);
   const speechEnabledRef = useRef(true);
   const voiceVariantRef = useRef<VoiceVariant>(DEFAULT_VOICE_VARIANT);
   const speechPlayingRef = useRef(false);
-  const speechGenerationRef = useRef(0);
-  const speechSafetyTimerRef = useRef<number | null>(null);
   const pendingAiMoveRef = useRef<(() => void) | null>(null);
   const dialogueVisibleUntilRef = useRef(0);
   const beforeNpcDialogueRef = useRef<Dialogue | null>(null);
@@ -132,6 +131,7 @@ export default function Home() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [speechEnabled, setSpeechEnabled] = useState(true);
   const [voiceVariant, setVoiceVariant] = useState<VoiceVariant>(DEFAULT_VOICE_VARIANT);
+  const [speechError, setSpeechError] = useState<string | null>(null);
   const [pinyinEnabled, setPinyinEnabled] = useState(true);
   const [japaneseEnabled, setJapaneseEnabled] = useState(true);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
@@ -140,38 +140,16 @@ export default function Home() {
   const [characterPreference, setCharacterPreference] = useState<CharacterPreference>("female");
   const [characterGender, setCharacterGender] = useState<CharacterGender>("female");
 
-  function stopSpeechAudio() {
-    const audio = speechAudioRef.current;
-    speechAudioRef.current = null;
-    if (!audio) return;
-    audio.onended = null;
-    audio.onerror = null;
-    audio.pause();
-    audio.removeAttribute("src");
-    audio.load();
-  }
-
-  function finishSpeech(generation: number) {
-    if (speechGenerationRef.current !== generation) return;
-    if (speechSafetyTimerRef.current !== null) {
-      window.clearTimeout(speechSafetyTimerRef.current);
-      speechSafetyTimerRef.current = null;
-    }
+  function finishSpeech() {
     speechPlayingRef.current = false;
-    stopSpeechAudio();
     const pendingMove = pendingAiMoveRef.current;
     pendingAiMoveRef.current = null;
     pendingMove?.();
   }
 
   function cancelSpeech(runPendingMove = false) {
-    speechGenerationRef.current += 1;
-    if (speechSafetyTimerRef.current !== null) {
-      window.clearTimeout(speechSafetyTimerRef.current);
-      speechSafetyTimerRef.current = null;
-    }
     speechPlayingRef.current = false;
-    stopSpeechAudio();
+    speechPlayerRef.current?.stop();
     if (runPendingMove) {
       const pendingMove = pendingAiMoveRef.current;
       pendingAiMoveRef.current = null;
@@ -182,27 +160,21 @@ export default function Home() {
   function speak(dialogue: Dialogue, force = false) {
     if (!force && !speechEnabledRef.current) return;
     cancelSpeech();
-    const generation = speechGenerationRef.current;
+    setSpeechError(null);
     const src = getDialogueAudioSrc(characterGenderRef.current, dialogue.id, voiceVariantRef.current);
     if (!src) {
-      finishSpeech(generation);
+      setSpeechError("この台詞の音声が見つかりませんでした。");
+      finishSpeech();
       return;
     }
-    try {
-      const audio = new Audio(src);
-      speechAudioRef.current = audio;
-      speechPlayingRef.current = true;
-      audio.onended = () => finishSpeech(generation);
-      audio.onerror = () => finishSpeech(generation);
-      speechSafetyTimerRef.current = window.setTimeout(
-        () => finishSpeech(generation),
-        10000,
-      );
-      void audio.play().catch(() => finishSpeech(generation));
-    } catch {
-      finishSpeech(generation);
-      // Dialogue remains usable when audio playback is unavailable or blocked.
-    }
+    const player = speechPlayerRef.current ?? new SpeechPlayer();
+    speechPlayerRef.current = player;
+    speechPlayingRef.current = true;
+    player.play(src, finishSpeech, (reason) => {
+      setSpeechError(reason === "blocked"
+        ? "音声がブロックされました。スピーカーボタンで再生してください。"
+        : "音声を読み込めませんでした。スピーカーボタンで再試行できます。");
+    });
   }
 
   function showDialogue(
@@ -445,6 +417,7 @@ export default function Home() {
     dialogueVisibleUntilRef.current = 0;
     pendingAiMoveRef.current = null;
     cancelSpeech();
+    setSpeechError(null);
 
     setPlayerColor(color);
     setFen(game.fen());
@@ -554,6 +527,8 @@ export default function Home() {
       void audioRef.current?.close();
       pendingAiMoveRef.current = null;
       cancelSpeech();
+      speechPlayerRef.current?.dispose();
+      speechPlayerRef.current = null;
     };
     // This initialization intentionally runs once per mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -879,6 +854,8 @@ export default function Home() {
             speak(dialogue, true);
           }}
         />
+
+        {speechError && <p className="speech-error" role="status">{speechError}</p>}
 
         <div className="board-shell">
           <Chessboard options={boardOptions} />

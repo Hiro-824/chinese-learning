@@ -490,6 +490,12 @@ button:disabled {
   color: #7f9486;
 }
 
+.speech-error {
+  margin: 0 8px 12px;
+  color: var(--danger);
+  font-size: 12px;
+}
+
 .board-shell {
   position: relative;
   width: var(--board-size);
