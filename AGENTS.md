@@ -1,3 +1,8 @@
+## UI verification
+
+- Do not use browser skills for this project.
+- When visual verification is needed, use a headless browser and capture only the minimum necessary screenshots.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

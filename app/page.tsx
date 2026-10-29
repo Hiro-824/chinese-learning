@@ -1,6 +1,15 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import {
+  ArrowPathIcon,
+  ArrowTrendingUpIcon,
+  Cog6ToothIcon,
+  FireIcon,
+  FlagIcon,
+  SpeakerWaveIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 import {
   Chess,
   type Color,
@@ -681,13 +690,13 @@ export default function Home() {
     const styles: Record<string, React.CSSProperties> = {};
     const game = new Chess(fen);
     if (lastMove) {
-      styles[lastMove[0]] = { backgroundColor: "rgba(250, 204, 21, 0.42)" };
-      styles[lastMove[1]] = { backgroundColor: "rgba(250, 204, 21, 0.52)" };
+      styles[lastMove[0]] = { backgroundColor: "var(--board-last-from)" };
+      styles[lastMove[1]] = { backgroundColor: "var(--board-last-to)" };
     }
     if (selectedSquare) {
       styles[selectedSquare] = {
         ...styles[selectedSquare],
-        backgroundColor: "rgba(52, 132, 82, 0.45)",
+        backgroundColor: "var(--board-selected)",
       };
     }
     for (const square of legalTargets) {
@@ -695,12 +704,12 @@ export default function Home() {
       styles[square] = occupied
         ? {
             ...styles[square],
-            boxShadow: "inset 0 0 0 5px rgba(34, 92, 59, 0.42)",
+            boxShadow: "inset 0 0 0 4px var(--board-target)",
           }
         : {
             ...styles[square],
             backgroundImage:
-              "radial-gradient(circle, rgba(34, 92, 59, 0.44) 0 16%, transparent 18%)",
+              "radial-gradient(circle, var(--board-target) 0 14%, transparent 16%)",
           };
     }
     if (positionInfo.checkedKing && positionInfo.checkedColor) {
@@ -708,9 +717,9 @@ export default function Home() {
       styles[positionInfo.checkedKing] = {
         ...styles[positionInfo.checkedKing],
         backgroundColor: isPlayer
-          ? "rgba(215, 72, 70, 0.68)"
-          : "rgba(54, 170, 91, 0.68)",
-        boxShadow: `inset 0 0 0 4px ${isPlayer ? "#a62f31" : "#267c43"}`,
+          ? "var(--board-check)"
+          : "var(--board-selected)",
+        boxShadow: `inset 0 0 0 3px ${isPlayer ? "var(--danger)" : "var(--accent)"}`,
       };
     }
     return styles;
@@ -726,8 +735,8 @@ export default function Home() {
     position: fen,
     boardOrientation: playerColor === "w" ? "white" : "black",
     boardStyle: { borderRadius: "0" },
-    lightSquareStyle: { backgroundColor: "#ffffff" },
-    darkSquareStyle: { backgroundColor: "#f1f2f4" },
+    lightSquareStyle: { backgroundColor: "var(--board-light)" },
+    darkSquareStyle: { backgroundColor: "var(--board-dark)" },
     showNotation: false,
     squareStyles,
     animationDurationInMs: 180,
@@ -765,7 +774,6 @@ export default function Home() {
     return (
       <main className="setup-screen">
         <section className="setup-box" aria-label="初回設定">
-          <h1>Chess</h1>
           <DifficultySlider value={savedDifficulty} onChange={setSavedDifficulty} />
           <button className="primary-button" onClick={beginFirstGame}>
             対局開始
@@ -793,34 +801,32 @@ export default function Home() {
 
   return (
     <main className="game-screen">
-      <div className="game-brand">chess</div>
       <header className="topbar">
         <button
           className="icon-button menu-button"
           onClick={() => setSettingsOpen(true)}
           aria-label="設定"
+          title="設定"
         >
-          <GearIcon />
+          <Cog6ToothIcon />
         </button>
         <div className="status-capsule">
           <span className="streak" aria-label={`連続対局 ${streak} 日`}>
-            <FlameIcon />
-            <span>{streak} {streak === 1 ? "DAY" : "DAYS"}</span>
+            <FireIcon />
+            <span>{streak} {streak === 1 ? "day" : "days"}</span>
           </span>
           <span
             className={`material-balance ${playerMaterial.startsWith("-") ? "negative" : ""}`}
             aria-label={`マテリアル差 ${playerMaterial}`}
           >
-            <PointsIcon />
-            <span>{playerMaterial} <small>POINTS</small></span>
+            <ArrowTrendingUpIcon />
+            <span>{playerMaterial} <small>pts</small></span>
           </span>
         </div>
       </header>
 
-      <section className="game-area">
-        <h1 className="game-title">Play Chess</h1>
+      <section className="game-area" aria-label="対局">
         <CharacterRow
-          detail={thinking ? "思考中…" : ""}
           dialogues={visibleDialogues}
           onOpenDialogue={setExplanationDialogue}
           onSpeak={(dialogue) => speak(dialogue.zhHans, true)}
@@ -847,7 +853,7 @@ export default function Home() {
 
         <div className="controls">
           <button className="board-action" onClick={() => startGame()} aria-label="新しい対局" title="新しい対局">
-            <RestartIcon />
+            <ArrowPathIcon />
           </button>
           <span className="turn-status" role="status">{statusText}</span>
           <button
@@ -863,17 +869,12 @@ export default function Home() {
       </section>
 
       {resultOpen && status !== "playing" && (
-        <div
-          className="modal-backdrop result-backdrop"
-          onPointerDown={() => setResultOpen(false)}
+        <Modal
+          className="result-dialog"
+          label="対局結果"
+          onClose={() => setResultOpen(false)}
         >
-          <section
-            className="result-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label="対局結果"
-            onPointerDown={(event) => event.stopPropagation()}
-          >
+          <div className="result-modal">
             <strong>
               {status === "won"
                 ? "勝ち"
@@ -887,19 +888,13 @@ export default function Home() {
             <button className="text-button result-close" onClick={() => setResultOpen(false)}>
               最終盤面を見る
             </button>
-          </section>
-        </div>
+          </div>
+        </Modal>
       )}
 
       {settingsOpen && (
-        <div className="modal-backdrop" onMouseDown={() => setSettingsOpen(false)}>
-          <section
-            className="settings-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label="設定"
-            onMouseDown={(event) => event.stopPropagation()}
-          >
+        <Modal className="settings-dialog" label="設定" onClose={() => setSettingsOpen(false)}>
+          <div className="settings-modal">
             <div className="modal-header settings-header">
               <strong>設定</strong>
               <button
@@ -907,7 +902,7 @@ export default function Home() {
                 onClick={() => setSettingsOpen(false)}
                 aria-label="閉じる"
               >
-                ×
+                <XMarkIcon />
               </button>
             </div>
             <DifficultySlider
@@ -922,12 +917,13 @@ export default function Home() {
               </span>
               <input
                 type="checkbox"
+                role="switch"
                 checked={speechEnabled}
                 onChange={(event) => saveSpeechEnabled(event.target.checked)}
               />
             </label>
-          </section>
-        </div>
+          </div>
+        </Modal>
       )}
 
       {explanationDialogue && (
@@ -938,6 +934,66 @@ export default function Home() {
         />
       )}
     </main>
+  );
+}
+
+function Modal({
+  children,
+  className,
+  label,
+  onClose,
+}: {
+  children: ReactNode;
+  className: string;
+  label: string;
+  onClose: () => void;
+}) {
+  const ref = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = ref.current;
+    const previousFocus = document.activeElement;
+    dialog?.showModal();
+    return () => {
+      dialog?.close();
+      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) {
+        previousFocus.focus({ preventScroll: true });
+      }
+    };
+  }, []);
+
+  return (
+    <dialog
+      ref={ref}
+      className={`app-dialog ${className}`}
+      aria-label={label}
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== "Tab") return;
+        const controls = Array.from(
+          event.currentTarget.querySelectorAll<HTMLElement>(
+            'button:not(:disabled), input:not(:disabled), [tabindex="0"]',
+          ),
+        ).filter((element) => element.getClientRects().length > 0);
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }}
+    >
+      {children}
+    </dialog>
   );
 }
 
@@ -981,23 +1037,20 @@ function DifficultySlider({
 }
 
 function CharacterRow({
-  detail,
   dialogues,
   onOpenDialogue,
   onSpeak,
 }: {
-  detail: string;
   dialogues?: Dialogue[];
   onOpenDialogue?: (dialogue: Dialogue) => void;
   onSpeak?: (dialogue: Dialogue) => void;
 }) {
   return (
     <div className="character-row">
-      <div className="character-placeholder" role="img" aria-label="Oscarの仮キャラクター">
+      <div className="character-placeholder" role="img" aria-label="Oscar">
         <div className="character-head" />
         <div className="character-body" />
       </div>
-      {detail && <span className="thinking-label" role="status">{detail}</span>}
       {dialogues && dialogues.length > 0 && onOpenDialogue && onSpeak && (
         <div className="speech-stack">
           {dialogues.map((dialogue) => (
@@ -1016,7 +1069,7 @@ function CharacterRow({
                 onClick={() => onSpeak(dialogue)}
                 aria-label="中国語をもう一度聞く"
               >
-                <SpeakerIcon />
+                <SpeakerWaveIcon />
               </button>
             </div>
           ))}
@@ -1037,18 +1090,12 @@ function ExplanationModal({
 }) {
   const learningItems = explainDialogue(dialogue);
   return (
-    <div className="modal-backdrop explanation-backdrop" onPointerDown={onClose}>
-      <section
-        className="explanation-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-label="中国語の解説"
-        onPointerDown={(event) => event.stopPropagation()}
-      >
+    <Modal className="explanation-dialog" label="中国語の解説" onClose={onClose}>
+      <div className="explanation-modal">
         <div className="modal-header explanation-header">
           <span>中国語の解説</span>
           <button className="close-button" onClick={onClose} aria-label="閉じる">
-            ×
+            <XMarkIcon />
           </button>
         </div>
         <div className="explanation-full-text">
@@ -1059,7 +1106,7 @@ function ExplanationModal({
               onClick={onSpeak}
               aria-label="中国語をもう一度聞く"
             >
-              <SpeakerIcon />
+              <SpeakerWaveIcon />
             </button>
           </div>
           <p className="explanation-japanese" lang="ja">
@@ -1075,46 +1122,8 @@ function ExplanationModal({
             </div>
           ))}
         </div>
-      </section>
-    </div>
-  );
-}
-
-function FlameIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2c1 6-5 6-3 11-3-1-3-4-3-4s-4 4-3 8a8 8 0 0 0 16-1c0-5-4-7-4-7s1 4-2 5c2-6-1-12-1-12Z" fill="currentColor" /></svg>;
-}
-
-function PointsIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 9h-5v9H8v-9H3l9-9Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg>;
-}
-
-function RestartIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4-6 6 6 6M4 10h10a6 6 0 0 1 0 12" transform="translate(1 -2)" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-}
-
-function FlagIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4c5-5 9 5 14 0v11c-5 5-9-5-14 0" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-}
-
-function GearIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M9.7 2h4.6l.55 2.18c.47.2.91.45 1.31.75l2.12-.63 2.3 4-1.57 1.54c.06.38.09.77.09 1.16s-.03.78-.09 1.16l1.57 1.54-2.3 4-2.12-.63c-.4.3-.84.55-1.31.75L14.3 20H9.7l-.55-2.18a7.35 7.35 0 0 1-1.31-.75l-2.12.63-2.3-4 1.57-1.54A7.2 7.2 0 0 1 4.9 11c0-.39.03-.78.09-1.16L3.42 8.3l2.3-4 2.12.63c.4-.3.84-.55 1.31-.75L9.7 2Zm2.3 5.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
-function SpeakerIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M4 9v6h4l5 4V5L8 9H4Zm12.1-.9a5.5 5.5 0 0 1 0 7.8l-1.4-1.4a3.5 3.5 0 0 0 0-5l1.4-1.4Zm2.8-2.8a9.5 9.5 0 0 1 0 13.4l-1.4-1.4a7.5 7.5 0 0 0 0-10.6l1.4-1.4Z"
-        fill="currentColor"
-      />
-    </svg>
+      </div>
+    </Modal>
   );
 }
 

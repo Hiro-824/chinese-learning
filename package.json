@@ -12,6 +12,7 @@
     "test": "npm run dialogues:check && node --test app/*.test.mjs"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "chess.js": "^1.4.0",
     "next": "16.4.3",
     "react": "19.3.0",
