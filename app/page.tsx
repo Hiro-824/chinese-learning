@@ -2,11 +2,9 @@
 
 import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import {
-  ArrowPathIcon,
   ArrowTrendingUpIcon,
   Cog6ToothIcon,
   FireIcon,
-  FlagIcon,
   SpeakerWaveIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
@@ -107,7 +105,6 @@ export default function Home() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [resultOpen, setResultOpen] = useState(false);
   const [speechEnabled, setSpeechEnabled] = useState(true);
-  const [speechPlaying, setSpeechPlaying] = useState(false);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
   const [pairedDialogue, setPairedDialogue] = useState<Dialogue | null>(null);
   const [explanationDialogue, setExplanationDialogue] =
@@ -120,7 +117,6 @@ export default function Home() {
       speechSafetyTimerRef.current = null;
     }
     speechPlayingRef.current = false;
-    setSpeechPlaying(false);
     const pendingMove = pendingAiMoveRef.current;
     pendingAiMoveRef.current = null;
     pendingMove?.();
@@ -133,7 +129,6 @@ export default function Home() {
       speechSafetyTimerRef.current = null;
     }
     speechPlayingRef.current = false;
-    setSpeechPlaying(false);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     if (runPendingMove) {
       const pendingMove = pendingAiMoveRef.current;
@@ -167,7 +162,6 @@ export default function Home() {
         voices.find((voice) => /^zh(?:-|_)/i.test(voice.lang)) ??
         null;
       speechPlayingRef.current = true;
-      setSpeechPlaying(true);
       utterance.onend = () => finishSpeech(generation);
       utterance.onerror = () => finishSpeech(generation);
       speechSafetyTimerRef.current = window.setTimeout(
@@ -555,8 +549,7 @@ export default function Home() {
       !square ||
       statusRef.current !== "playing" ||
       chessRef.current.turn() !== playerColorRef.current ||
-      thinkingRef.current ||
-      speechPlayingRef.current
+      thinkingRef.current
     ) {
       setLegalTargets([]);
       return;
@@ -573,7 +566,6 @@ export default function Home() {
       promotion ||
       statusRef.current !== "playing" ||
       thinkingRef.current ||
-      speechPlayingRef.current ||
       chessRef.current.turn() !== playerColorRef.current
     ) {
       return;
@@ -622,7 +614,6 @@ export default function Home() {
       !targetSquare ||
       statusRef.current !== "playing" ||
       thinkingRef.current ||
-      speechPlayingRef.current ||
       chessRef.current.turn() !== playerColorRef.current
     ) {
       setSelectedSquare(null);
@@ -650,15 +641,6 @@ export default function Home() {
     }
 
     return finishHumanMove(from, to);
-  }
-
-  function resign() {
-    if (statusRef.current !== "playing") return;
-    workerRef.current?.postMessage("stop");
-    beforeNpcDialogueRef.current = null;
-    pendingAiMoveRef.current = null;
-    showDialogue(selectDialogue("18"));
-    finishGame("lost");
   }
 
   const positionInfo = useMemo(() => {
@@ -742,10 +724,11 @@ export default function Home() {
     animationDurationInMs: 180,
     allowDrawingArrows: false,
     allowAutoScroll: false,
+    // Small mouse movements during a click should not cancel piece selection.
+    dragActivationDistance: 8,
     canDragPiece: ({ piece }) =>
       status === "playing" &&
       !thinking &&
-      !speechPlaying &&
       chessRef.current.turn() === playerColor &&
       piece.pieceType[0] === playerColor,
     onPieceDrag: ({ square }) => {
@@ -852,19 +835,7 @@ export default function Home() {
         </div>
 
         <div className="controls">
-          <button className="board-action" onClick={() => startGame()} aria-label="新しい対局" title="新しい対局">
-            <ArrowPathIcon />
-          </button>
           <span className="turn-status" role="status">{statusText}</span>
-          <button
-            className="board-action resign-button"
-            onClick={resign}
-            disabled={status !== "playing"}
-            aria-label="投了"
-            title="投了"
-          >
-            <FlagIcon />
-          </button>
         </div>
       </section>
 
