@@ -50,7 +50,9 @@ import {
   MAX_DIFFICULTY,
   MIN_DIFFICULTY,
   parseSavedDifficulty,
+  selectAiMove,
 } from "./difficulty";
+import { getDialogueAudioSrc } from "./voice";
 
 type GameStatus = "playing" | "won" | "lost" | "draw";
 
@@ -88,12 +90,13 @@ export default function Home() {
   const engineReadyRef = useRef(false);
   const thinkingRef = useRef(false);
   const gameIdRef = useRef(0);
+  const gameDifficultyRef = useRef(DEFAULT_DIFFICULTY);
   const aiMoveTimerRef = useRef<number | null>(null);
   const thinkingStartedAtRef = useRef(0);
   const usedDialogueIdsRef = useRef(new Set<string>());
   const lastCaptureRef = useRef<PreviousCapture | null>(null);
   const materialHistoryRef = useRef<MaterialHistory>({ npcWasBehind: false, playerWasBehind: false });
-  const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+  const speechAudioRef = useRef<HTMLAudioElement | null>(null);
   const speechEnabledRef = useRef(true);
   const speechPlayingRef = useRef(false);
   const speechGenerationRef = useRef(0);
@@ -102,6 +105,7 @@ export default function Home() {
   const dialogueVisibleUntilRef = useRef(0);
   const beforeNpcDialogueRef = useRef<Dialogue | null>(null);
   const characterPreferenceRef = useRef<CharacterPreference>("female");
+  const characterGenderRef = useRef<CharacterGender>("female");
 
   const [isConfigured, setIsConfigured] = useState<boolean | null>(null);
   const [savedDifficulty, setSavedDifficulty] = useState(DEFAULT_DIFFICULTY);
@@ -118,7 +122,6 @@ export default function Home() {
   } | null>(null);
   const [streak, setStreak] = useState(0);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [resultOpen, setResultOpen] = useState(false);
   const [speechEnabled, setSpeechEnabled] = useState(true);
   const [pinyinEnabled, setPinyinEnabled] = useState(true);
   const [japaneseEnabled, setJapaneseEnabled] = useState(true);
@@ -128,6 +131,17 @@ export default function Home() {
   const [characterPreference, setCharacterPreference] = useState<CharacterPreference>("female");
   const [characterGender, setCharacterGender] = useState<CharacterGender>("female");
 
+  function stopSpeechAudio() {
+    const audio = speechAudioRef.current;
+    speechAudioRef.current = null;
+    if (!audio) return;
+    audio.onended = null;
+    audio.onerror = null;
+    audio.pause();
+    audio.removeAttribute("src");
+    audio.load();
+  }
+
   function finishSpeech(generation: number) {
     if (speechGenerationRef.current !== generation) return;
     if (speechSafetyTimerRef.current !== null) {
@@ -135,6 +149,7 @@ export default function Home() {
       speechSafetyTimerRef.current = null;
     }
     speechPlayingRef.current = false;
+    stopSpeechAudio();
     const pendingMove = pendingAiMoveRef.current;
     pendingAiMoveRef.current = null;
     pendingMove?.();
@@ -147,7 +162,7 @@ export default function Home() {
       speechSafetyTimerRef.current = null;
     }
     speechPlayingRef.current = false;
-    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    stopSpeechAudio();
     if (runPendingMove) {
       const pendingMove = pendingAiMoveRef.current;
       pendingAiMoveRef.current = null;
@@ -155,41 +170,29 @@ export default function Home() {
     }
   }
 
-  function speak(text: string, force = false) {
-    if ((!force && !speechEnabledRef.current) || !("speechSynthesis" in window)) {
+  function speak(dialogue: Dialogue, force = false) {
+    if (!force && !speechEnabledRef.current) return;
+    cancelSpeech();
+    const generation = speechGenerationRef.current;
+    const src = getDialogueAudioSrc(characterGenderRef.current, dialogue.id);
+    if (!src) {
+      finishSpeech(generation);
       return;
     }
     try {
-      if (speechSafetyTimerRef.current !== null) {
-        window.clearTimeout(speechSafetyTimerRef.current);
-        speechSafetyTimerRef.current = null;
-      }
-      window.speechSynthesis.cancel();
-      const generation = speechGenerationRef.current + 1;
-      speechGenerationRef.current = generation;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "zh-CN";
-      utterance.rate = 0.78;
-      const voices = voicesRef.current;
-      utterance.voice =
-        voices.find(
-          (voice) =>
-            /^zh(?:-|_)/i.test(voice.lang) && /google/i.test(voice.name),
-        ) ??
-        voices.find((voice) => /^zh(?:-|_)CN$/i.test(voice.lang)) ??
-        voices.find((voice) => /^zh(?:-|_)/i.test(voice.lang)) ??
-        null;
+      const audio = new Audio(src);
+      speechAudioRef.current = audio;
       speechPlayingRef.current = true;
-      utterance.onend = () => finishSpeech(generation);
-      utterance.onerror = () => finishSpeech(generation);
+      audio.onended = () => finishSpeech(generation);
+      audio.onerror = () => finishSpeech(generation);
       speechSafetyTimerRef.current = window.setTimeout(
         () => finishSpeech(generation),
         10000,
       );
-      window.speechSynthesis.speak(utterance);
+      void audio.play().catch(() => finishSpeech(generation));
     } catch {
-      cancelSpeech(true);
-      // Dialogue remains usable when speech synthesis is unavailable or blocked.
+      finishSpeech(generation);
+      // Dialogue remains usable when audio playback is unavailable or blocked.
     }
   }
 
@@ -209,7 +212,7 @@ export default function Home() {
     setPairedDialogue(previousDialogue ?? null);
     setCurrentDialogue(dialogue);
     setCharacterDialogue(dialogue);
-    speak(dialogue.zhHans);
+    speak(dialogue);
   }
 
   function selectDialogue(
@@ -350,7 +353,6 @@ export default function Home() {
     setLegalTargets([]);
     setPromotion(null);
     setSettingsOpen(false);
-    setResultOpen(true);
     completeToday();
   }
 
@@ -388,9 +390,14 @@ export default function Home() {
 
   function applyAiMove(uci: string) {
     const game = chessRef.current;
-    const from = uci.slice(0, 2) as Square;
-    const to = uci.slice(2, 4) as Square;
-    const promotedPiece = uci[4] as PieceSymbol | undefined;
+    const selectedMove = selectAiMove(
+      gameDifficultyRef.current,
+      uci,
+      game.moves({ verbose: true }).map((move) => `${move.from}${move.to}${move.promotion ?? ""}`),
+    );
+    const from = selectedMove.slice(0, 2) as Square;
+    const to = selectedMove.slice(2, 4) as Square;
+    const promotedPiece = selectedMove[4] as PieceSymbol | undefined;
     let move: Move;
 
     try {
@@ -407,11 +414,13 @@ export default function Home() {
   }
 
   function startGame(difficulty = savedDifficulty) {
+    gameDifficultyRef.current = difficulty;
     const gameId = gameIdRef.current + 1;
     gameIdRef.current = gameId;
     clearAiMoveTimer();
     workerRef.current?.terminate();
-    setCharacterGender(resolveCharacterGender(characterPreferenceRef.current));
+    characterGenderRef.current = resolveCharacterGender(characterPreferenceRef.current);
+    setCharacterGender(characterGenderRef.current);
 
     const color: Color = Math.random() < 0.5 ? "w" : "b";
     const game = new Chess();
@@ -437,7 +446,6 @@ export default function Home() {
     setLegalTargets([]);
     setPromotion(null);
     setSettingsOpen(false);
-    setResultOpen(false);
     setPairedDialogue(null);
     setCurrentDialogue(null);
     setCharacterDialogue(null);
@@ -501,13 +509,6 @@ export default function Home() {
 
   useEffect(() => {
     let cancelled = false;
-    const synth = "speechSynthesis" in window ? window.speechSynthesis : null;
-    const updateVoices = () => {
-      voicesRef.current = synth?.getVoices() ?? [];
-    };
-    updateVoices();
-    synth?.addEventListener("voiceschanged", updateVoices);
-
     const timer = window.setTimeout(() => {
       const storedDifficulty = parseSavedDifficulty(localStorage.getItem(DIFFICULTY_KEY));
       const initialSpeech = localStorage.getItem(SPEECH_ENABLED_KEY) !== "false";
@@ -539,13 +540,8 @@ export default function Home() {
       clearAiMoveTimer();
       workerRef.current?.terminate();
       void audioRef.current?.close();
-      speechGenerationRef.current += 1;
       pendingAiMoveRef.current = null;
-      if (speechSafetyTimerRef.current !== null) {
-        window.clearTimeout(speechSafetyTimerRef.current);
-      }
-      synth?.removeEventListener("voiceschanged", updateVoices);
-      synth?.cancel();
+      cancelSpeech();
     };
     // This initialization intentionally runs once per mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -576,8 +572,10 @@ export default function Home() {
   function saveCharacterPreference(preference: CharacterPreference) {
     characterPreferenceRef.current = preference;
     setCharacterPreference(preference);
-    setCharacterGender(resolveCharacterGender(preference));
+    characterGenderRef.current = resolveCharacterGender(preference);
+    setCharacterGender(characterGenderRef.current);
     localStorage.setItem(CHARACTER_PREFERENCE_KEY, preference);
+    cancelSpeech(true);
   }
 
   function beginFirstGame() {
@@ -825,7 +823,7 @@ export default function Home() {
     : [];
 
   return (
-    <main className="game-screen">
+    <main className={`game-screen${status !== "playing" ? " game-finished" : ""}`}>
       <header className="topbar">
         <button
           className="icon-button menu-button"
@@ -859,7 +857,7 @@ export default function Home() {
           showJapanese={japaneseEnabled}
           onSpeak={(dialogue) => {
             setCharacterDialogue(dialogue);
-            speak(dialogue.zhHans, true);
+            speak(dialogue, true);
           }}
         />
 
@@ -882,34 +880,15 @@ export default function Home() {
           )}
         </div>
 
-        <div className="controls">
+        <div className={`controls${status !== "playing" ? " controls-finished" : ""}`}>
           <span className="turn-status" role="status">{statusText}</span>
+          {status !== "playing" && (
+            <button className="primary-button new-game-button" onClick={() => startGame()}>
+              新しい対局を開始
+            </button>
+          )}
         </div>
       </section>
-
-      {resultOpen && status !== "playing" && (
-        <Modal
-          className="result-dialog"
-          label="対局結果"
-          onClose={() => setResultOpen(false)}
-        >
-          <div className="result-modal">
-            <strong>
-              {status === "won"
-                ? "勝ち"
-                : status === "lost"
-                  ? "負け"
-                  : "引き分け"}
-            </strong>
-            <button className="primary-button" onClick={() => startGame()}>
-              新しい対局
-            </button>
-            <button className="text-button result-close" onClick={() => setResultOpen(false)}>
-              最終盤面を見る
-            </button>
-          </div>
-        </Modal>
-      )}
 
       {settingsOpen && (
         <Modal className="settings-dialog" label="設定" onClose={() => setSettingsOpen(false)}>

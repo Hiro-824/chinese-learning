@@ -6,7 +6,7 @@ import test from "node:test";
 import { Chess } from "chess.js";
 import {
   DEFAULT_DIFFICULTY, ENGINE_MOVE_TIME, MAX_ENGINE_ELO, MIN_ENGINE_ELO,
-  difficultyToElo, getDifficultyCommands, parseSavedDifficulty,
+  difficultyToElo, getDifficultyCommands, parseSavedDifficulty, selectAiMove,
 } from "./difficulty.ts";
 
 test("slider endpoints and intermediate values map monotonically to supported Elo targets", () => {
@@ -33,6 +33,44 @@ test("saved difficulty migrates old settings and preserves zero and fractional v
   }
   for (const invalid of [null, "", " ", "NaN", "Infinity", "-1", "100.1", "unknown", "constructor", "null"]) {
     assert.equal(parseSavedDifficulty(invalid), null);
+  }
+});
+
+test("minimum difficulty chooses an alternative legal move 30% of the time", () => {
+  const game = new Chess();
+  const legalMoves = game.moves({ verbose: true }).map((move) => `${move.from}${move.to}${move.promotion ?? ""}`);
+  const engineMove = "e2e4";
+  let alternatives = 0;
+  for (let sample = 0; sample < 1000; sample++) {
+    const draws = [(sample + 0.5) / 1000, (sample % 100) / 100];
+    const selected = selectAiMove(0, engineMove, legalMoves, () => draws.shift());
+    assert.ok(legalMoves.includes(selected));
+    if (selected !== engineMove) alternatives++;
+  }
+  assert.equal(alternatives, 300);
+  assert.equal(selectAiMove(0, engineMove, legalMoves, () => 0.3), engineMove);
+  const noRandom = () => { throw new Error("Should not randomize this move"); };
+  assert.equal(selectAiMove(0, engineMove, [engineMove], noRandom), engineMove);
+  for (const difficulty of [0.1, 25, 50, 100]) {
+    assert.equal(selectAiMove(difficulty, engineMove, legalMoves, noRandom), engineMove);
+  }
+});
+
+test("beginner alternatives preserve castling, en passant, and every promotion choice", () => {
+  for (const fen of [
+    "r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1",
+    "4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 2",
+    "4k3/P7/8/8/8/8/8/4K3 w - - 0 1",
+  ]) {
+    const game = new Chess(fen);
+    const legalMoves = game.moves({ verbose: true }).map((move) => `${move.from}${move.to}${move.promotion ?? ""}`);
+    const [engineMove, ...alternatives] = legalMoves;
+    for (let index = 0; index < alternatives.length; index++) {
+      const draws = [0, (index + 0.5) / alternatives.length];
+      const selected = selectAiMove(0, engineMove, legalMoves, () => draws.shift());
+      assert.equal(selected, alternatives[index]);
+      assert.ok(new Chess(fen).move({ from: selected.slice(0, 2), to: selected.slice(2, 4), promotion: selected[4] }));
+    }
   }
 });
 

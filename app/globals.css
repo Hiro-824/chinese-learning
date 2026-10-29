@@ -265,6 +265,10 @@ button:disabled {
   overflow-y: auto;
 }
 
+.game-screen.game-finished {
+  --controls-height: 100px;
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -536,6 +540,20 @@ button:disabled {
   padding: 10px 12px;
 }
 
+.controls.controls-finished {
+  flex-direction: column;
+  gap: 8px;
+  width: var(--board-size);
+  height: auto;
+  align-self: center;
+  flex: 0 0 auto;
+  padding: 10px 0;
+}
+
+.new-game-button {
+  width: 100%;
+}
+
 .turn-status {
   color: var(--accent);
   font-size: 13px;
@@ -580,8 +598,7 @@ html:has(.app-dialog[open]) {
   backdrop-filter: blur(6px);
 }
 
-.settings-modal,
-.result-modal {
+.settings-modal {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -702,27 +719,6 @@ html:has(.app-dialog[open]) {
 
 .settings-toggle input:checked::before {
   transform: translateX(18px);
-}
-
-.result-dialog {
-  width: min(320px, calc(100% - 32px));
-}
-
-.result-modal {
-  gap: 12px;
-  padding: 32px 24px 24px;
-}
-
-.result-modal > strong {
-  margin-bottom: 12px;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  text-align: center;
-}
-
-.result-modal .result-close {
-  color: var(--muted);
 }
 
 @media (hover: hover) {

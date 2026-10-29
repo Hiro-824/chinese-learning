@@ -7,6 +7,7 @@ export const DEFAULT_DIFFICULTY = 25;
 export const MIN_ENGINE_ELO = 1320;
 export const MAX_ENGINE_ELO = 3190;
 export const ENGINE_MOVE_TIME = 800;
+export const BEGINNER_ALTERNATIVE_MOVE_CHANCE = 0.3;
 
 const LEGACY_DIFFICULTIES: Record<string, number> = {
   beginner: 0,
@@ -37,4 +38,20 @@ export function getDifficultyCommands(difficulty: number): string[] {
     "setoption name UCI_LimitStrength value true",
     `setoption name UCI_Elo value ${difficultyToElo(difficulty)}`,
   ];
+}
+
+// The engine's Elo floor is still demanding for beginners. At the slider's
+// minimum only, occasionally choose another legal move to allow more mistakes.
+export function selectAiMove(
+  difficulty: number,
+  engineMove: string,
+  legalMoves: readonly string[],
+  random = Math.random,
+) {
+  if (difficulty !== MIN_DIFFICULTY) return engineMove;
+  const alternatives = legalMoves.filter((move) => move !== engineMove);
+  if (alternatives.length === 0 || random() >= BEGINNER_ALTERNATIVE_MOVE_CHANCE) {
+    return engineMove;
+  }
+  return alternatives[Math.floor(random() * alternatives.length)];
 }
