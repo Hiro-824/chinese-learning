@@ -442,6 +442,7 @@ button:disabled {
   align-self: stretch;
   flex: 1;
   min-width: 0;
+  padding-left: 12px;
 }
 
 .voice-credit {
@@ -459,8 +460,13 @@ button:disabled {
 
 .speech-credit {
   flex: 0 0 auto;
-  padding: 0 0 8px 12px;
+  padding: 0 0 8px;
+  letter-spacing: 0.015em;
   text-align: left;
+}
+
+.speech-credit a {
+  color: inherit;
 }
 
 .speech-text {
@@ -471,7 +477,7 @@ button:disabled {
   gap: 4px;
   flex: 1;
   min-width: 0;
-  padding: 8px 0 8px 12px;
+  padding: 8px 0;
   border: 0;
   border-radius: var(--radius);
   background: transparent;
@@ -485,7 +491,8 @@ button:disabled {
 }
 
 .speech-chinese,
-.speech-japanese {
+.speech-japanese,
+.speech-credit {
   display: block;
   color: var(--muted);
   font-size: 12px;
@@ -870,11 +877,16 @@ button:active:not(:disabled) {
 
   .speech-text {
     gap: calc(4 * var(--compact-unit));
-    padding: calc(8 * var(--compact-unit)) 0 calc(8 * var(--compact-unit)) calc(12 * var(--compact-unit));
+    padding: calc(8 * var(--compact-unit)) 0;
+  }
+
+  .speech-content {
+    padding-left: calc(12 * var(--compact-unit));
   }
 
   .speech-chinese,
-  .speech-japanese {
+  .speech-japanese,
+  .speech-credit {
     font-size: calc(12 * var(--compact-unit));
   }
 
