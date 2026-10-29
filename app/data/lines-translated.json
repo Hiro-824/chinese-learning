@@ -355,50 +355,6 @@
     "pinyin": "Hū, rè qǐ lái le!"
   },
   {
-    "id": "translated-5-2",
-    "triggerCode": "5",
-    "zhHans": "你有一颗冰冷的心！",
-    "ja": "冷たい心の持ち主だね！",
-    "learning": [
-      {
-        "phrase": "你",
-        "role": "代名詞",
-        "meaning": "あなた"
-      },
-      {
-        "phrase": "有",
-        "role": "動詞",
-        "meaning": "持っている"
-      },
-      {
-        "phrase": "一颗",
-        "role": "数量表現",
-        "meaning": "一つ（颗は心や小さな粒状の物を数える）"
-      },
-      {
-        "phrase": "冰冷",
-        "role": "形容詞",
-        "meaning": "氷のように冷たい"
-      },
-      {
-        "phrase": "的",
-        "role": "助詞",
-        "meaning": "名詞を修飾する"
-      },
-      {
-        "phrase": "心",
-        "role": "名詞",
-        "meaning": "心"
-      },
-      {
-        "phrase": "你有一颗冰冷的心！",
-        "role": "文法",
-        "meaning": "STEP9・10・16：所有の有・量詞・連体修飾"
-      }
-    ],
-    "pinyin": "Nǐ yǒu yì kē bīng lěng de xīn!"
-  },
-  {
     "id": "translated-6-1",
     "triggerCode": "6",
     "zhHans": "再见了。",
@@ -861,6 +817,50 @@
       }
     ],
     "pinyin": "Wáng hòu…… sǐ le……"
+  },
+  {
+    "id": "translated-10-5",
+    "triggerCode": "10",
+    "zhHans": "你有一颗冰冷的心！",
+    "ja": "冷たい心の持ち主だね！",
+    "learning": [
+      {
+        "phrase": "你",
+        "role": "代名詞",
+        "meaning": "あなた"
+      },
+      {
+        "phrase": "有",
+        "role": "動詞",
+        "meaning": "持っている"
+      },
+      {
+        "phrase": "一颗",
+        "role": "数量表現",
+        "meaning": "一つ（颗は心や小さな粒状の物を数える）"
+      },
+      {
+        "phrase": "冰冷",
+        "role": "形容詞",
+        "meaning": "氷のように冷たい"
+      },
+      {
+        "phrase": "的",
+        "role": "助詞",
+        "meaning": "名詞を修飾する"
+      },
+      {
+        "phrase": "心",
+        "role": "名詞",
+        "meaning": "心"
+      },
+      {
+        "phrase": "你有一颗冰冷的心！",
+        "role": "文法",
+        "meaning": "STEP9・10・16：所有の有・量詞・連体修飾"
+      }
+    ],
+    "pinyin": "Nǐ yǒu yì kē bīng lěng de xīn!"
   },
   {
     "id": "translated-11-1",

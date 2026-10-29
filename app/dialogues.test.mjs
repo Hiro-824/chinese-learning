@@ -40,7 +40,7 @@ test("stored pinyin distinguishes contextual readings, neutral tones and erhua",
   }
 });
 
-test("the original 90 lines retain their text, order and trigger codes", async () => {
+test("the 90 translated lines match the source text, order and trigger codes", async () => {
   const markdown = await readFile(new URL("../drafts/lines-translated.md", import.meta.url), "utf8");
   const expected = [];
   let code;
@@ -79,6 +79,24 @@ test("all ten capture conditions distinguish piece type and actor", () => {
     const fen = `7k/6p1/8/8/1${piece}6/P7/8/3Q3K w - - 0 1`;
     assert.equal(trigger(fen, "axb4", "npc"), npc);
     assert.equal(trigger(fen, "axb4"), player);
+  }
+});
+
+test("cold-heart dialogue responds to the player capturing the NPC queen, for either color", () => {
+  for (const color of ["w", "b"]) {
+    for (const actor of ["player", "npc"]) {
+      for (const captured of ["b", "q"]) {
+        const game = new Chess(color === "w"
+          ? `7k/6p1/8/8/1${captured}6/P7/8/3Q3K w - - 0 1`
+          : `3q3k/8/p7/1${captured.toUpperCase()}6/8/8/6P1/7K b - - 0 1`);
+        const move = game.move(color === "w" ? "axb4" : "axb5");
+        const playerColor = actor === "player" ? color : color === "w" ? "b" : "w";
+        const code = getMoveTriggerCode(move, actor, null, freshHistory());
+        const candidates = getDialogueCandidates(code, getMoveDialogueContext(move, playerColor));
+        assert.equal(candidates.some((dialogue) => dialogue.zhHans === "你有一颗冰冷的心！"),
+          actor === "player" && captured === "q", `${color} ${actor} captures ${captured}`);
+      }
+    }
   }
 });
 
