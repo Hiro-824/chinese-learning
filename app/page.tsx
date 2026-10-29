@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import {
   ArrowTrendingUpIcon,
@@ -17,7 +18,6 @@ import {
 } from "chess.js";
 import { Chessboard, type ChessboardOptions } from "react-chessboard";
 import {
-  explainDialogue,
   getDialogueCandidates,
   getMoveDialogueContext,
   getMoveTriggerCode,
@@ -30,6 +30,7 @@ import {
   type MaterialHistory,
   type PreviousCapture,
 } from "./dialogues";
+import { CHARACTER_EXPRESSIONS, getCharacterExpression, type CharacterExpression } from "./character";
 
 import {
   DEFAULT_DIFFICULTY,
@@ -46,6 +47,8 @@ type GameStatus = "playing" | "won" | "lost" | "draw";
 const DIFFICULTY_KEY = "chess-difficulty";
 const STREAK_KEY = "chess-daily-streak";
 const SPEECH_ENABLED_KEY = "chess-speech-enabled";
+const PINYIN_ENABLED_KEY = "chess-pinyin-enabled";
+const JAPANESE_ENABLED_KEY = "chess-japanese-enabled";
 const FIRST_COLOR_KEY = "chess-first-player-colors:lines-translated";
 const DAILY_GAMES_KEY = "chess-started-games:lines-translated";
 const MIN_AI_VISIBLE_TIME = 800;
@@ -105,10 +108,11 @@ export default function Home() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [resultOpen, setResultOpen] = useState(false);
   const [speechEnabled, setSpeechEnabled] = useState(true);
+  const [pinyinEnabled, setPinyinEnabled] = useState(true);
+  const [japaneseEnabled, setJapaneseEnabled] = useState(true);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
   const [pairedDialogue, setPairedDialogue] = useState<Dialogue | null>(null);
-  const [explanationDialogue, setExplanationDialogue] =
-    useState<Dialogue | null>(null);
+  const [characterDialogue, setCharacterDialogue] = useState<Dialogue | null>(null);
 
   function finishSpeech(generation: number) {
     if (speechGenerationRef.current !== generation) return;
@@ -190,6 +194,7 @@ export default function Home() {
     dialogueVisibleUntilRef.current = performance.now() + visibleTime;
     setPairedDialogue(previousDialogue ?? null);
     setCurrentDialogue(dialogue);
+    setCharacterDialogue(dialogue);
     speak(dialogue.zhHans);
   }
 
@@ -418,9 +423,9 @@ export default function Home() {
     setPromotion(null);
     setSettingsOpen(false);
     setResultOpen(false);
-    setExplanationDialogue(null);
     setPairedDialogue(null);
     setCurrentDialogue(null);
+    setCharacterDialogue(null);
 
     const worker = new Worker("/stockfish/stockfish-19-lite-single.js");
     workerRef.current = worker;
@@ -494,6 +499,8 @@ export default function Home() {
 
       speechEnabledRef.current = initialSpeech;
       setSpeechEnabled(initialSpeech);
+      setPinyinEnabled(localStorage.getItem(PINYIN_ENABLED_KEY) !== "false");
+      setJapaneseEnabled(localStorage.getItem(JAPANESE_ENABLED_KEY) !== "false");
       setStreak(readStreak());
 
       if (cancelled) return;
@@ -536,6 +543,16 @@ export default function Home() {
     setSpeechEnabled(enabled);
     localStorage.setItem(SPEECH_ENABLED_KEY, String(enabled));
     if (!enabled) cancelSpeech(true);
+  }
+
+  function savePinyinEnabled(enabled: boolean) {
+    setPinyinEnabled(enabled);
+    localStorage.setItem(PINYIN_ENABLED_KEY, String(enabled));
+  }
+
+  function saveJapaneseEnabled(enabled: boolean) {
+    setJapaneseEnabled(enabled);
+    localStorage.setItem(JAPANESE_ENABLED_KEY, String(enabled));
   }
 
   function beginFirstGame() {
@@ -811,8 +828,13 @@ export default function Home() {
       <section className="game-area" aria-label="対局">
         <CharacterRow
           dialogues={visibleDialogues}
-          onOpenDialogue={setExplanationDialogue}
-          onSpeak={(dialogue) => speak(dialogue.zhHans, true)}
+          expression={getCharacterExpression(characterDialogue)}
+          showPinyin={pinyinEnabled}
+          showJapanese={japaneseEnabled}
+          onSpeak={(dialogue) => {
+            setCharacterDialogue(dialogue);
+            speak(dialogue.zhHans, true);
+          }}
         />
 
         <div className="board-shell">
@@ -881,30 +903,56 @@ export default function Home() {
               onChange={saveDifficulty}
               nextGame
             />
-            <label className="speech-setting">
-              <span>
-                <strong>自動読み上げ</strong>
-                <small>中国語音声</small>
-              </span>
-              <input
-                type="checkbox"
-                role="switch"
-                checked={speechEnabled}
-                onChange={(event) => saveSpeechEnabled(event.target.checked)}
-              />
-            </label>
+            <SettingsToggle
+              label="拼音を表示"
+              description="オフにすると漢字を大きく表示"
+              checked={pinyinEnabled}
+              onChange={savePinyinEnabled}
+            />
+            <SettingsToggle
+              label="日本語訳を表示"
+              description="漢字の下に表示"
+              checked={japaneseEnabled}
+              onChange={saveJapaneseEnabled}
+            />
+            <SettingsToggle
+              label="自動読み上げ"
+              description="中国語音声"
+              checked={speechEnabled}
+              onChange={saveSpeechEnabled}
+            />
           </div>
         </Modal>
       )}
-
-      {explanationDialogue && (
-        <ExplanationModal
-          dialogue={explanationDialogue}
-          onClose={() => setExplanationDialogue(null)}
-          onSpeak={() => speak(explanationDialogue.zhHans, true)}
-        />
-      )}
     </main>
+  );
+}
+
+function SettingsToggle({
+  label,
+  description,
+  checked,
+  onChange,
+}: {
+  label: string;
+  description: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+}) {
+  return (
+    <label className="settings-toggle">
+      <span>
+        <strong>{label}</strong>
+        <small>{description}</small>
+      </span>
+      <input
+        type="checkbox"
+        role="switch"
+        aria-label={label}
+        checked={checked}
+        onChange={(event) => onChange(event.target.checked)}
+      />
+    </label>
   );
 }
 
@@ -1009,33 +1057,62 @@ function DifficultySlider({
 
 function CharacterRow({
   dialogues,
-  onOpenDialogue,
+  expression,
+  showPinyin,
+  showJapanese,
   onSpeak,
 }: {
   dialogues?: Dialogue[];
-  onOpenDialogue?: (dialogue: Dialogue) => void;
+  expression: CharacterExpression;
+  showPinyin: boolean;
+  showJapanese: boolean;
   onSpeak?: (dialogue: Dialogue) => void;
 }) {
   return (
     <div className="character-row">
-      <div className="character-placeholder" role="img" aria-label="Oscar">
-        <div className="character-head" />
-        <div className="character-body" />
+      <div
+        className="character-portrait"
+        role="img"
+        aria-label={`Oscar：${CHARACTER_EXPRESSIONS[expression].label}`}
+        data-expression={expression}
+      >
+        {Object.entries(CHARACTER_EXPRESSIONS).map(([name, portrait]) => (
+          <Image
+            key={name}
+            className={`character-image${name === expression ? " is-active" : ""}`}
+            src={portrait.src}
+            alt=""
+            fill
+            sizes="144px"
+            unoptimized
+            loading="eager"
+            draggable={false}
+          />
+        ))}
       </div>
-      {dialogues && dialogues.length > 0 && onOpenDialogue && onSpeak && (
+      {dialogues && dialogues.length > 0 && onSpeak && (
         <div className="speech-stack">
           {dialogues.map((dialogue) => (
             <div
               className="speech-bubble"
               key={dialogue.id}
             >
-              <button
+              <a
                 className="speech-text"
-                onClick={() => onOpenDialogue(dialogue)}
+                href={`https://www.google.com/search?${new URLSearchParams({ q: `${dialogue.zhHans}を品詞分解`, udm: "50", hl: "ja" })}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${dialogue.zhHans}を品詞分解（Google AIモードを新しいタブで開く）`}
+                title="Google AIモードで品詞分解を調べる（新しいタブ）"
               >
-                <span lang="zh-CN">{dialogue.zhHans}</span>
-                <span className="speech-pinyin" lang="zh-Latn-pinyin">{dialogue.pinyin}</span>
-              </button>
+                {showPinyin && (
+                  <span className="speech-pinyin speech-primary" lang="zh-Latn-pinyin">{dialogue.pinyin}</span>
+                )}
+                <span className={`speech-chinese${showPinyin ? "" : " speech-primary"}`} lang="zh-CN">{dialogue.zhHans}</span>
+                {showJapanese && (
+                  <span className="speech-japanese" lang="ja">{dialogue.ja}</span>
+                )}
+              </a>
               <button
                 className="speaker-button"
                 onClick={() => onSpeak(dialogue)}
@@ -1048,57 +1125,6 @@ function CharacterRow({
         </div>
       )}
     </div>
-  );
-}
-
-function ExplanationModal({
-  dialogue,
-  onClose,
-  onSpeak,
-}: {
-  dialogue: Dialogue;
-  onClose: () => void;
-  onSpeak: () => void;
-}) {
-  const learningItems = explainDialogue(dialogue);
-  return (
-    <Modal className="explanation-dialog" label="中国語の解説" onClose={onClose}>
-      <div className="explanation-modal">
-        <div className="modal-header explanation-header">
-          <span>中国語の解説</span>
-          <button className="close-button" onClick={onClose} aria-label="閉じる">
-            <XMarkIcon />
-          </button>
-        </div>
-        <div className="explanation-full-text">
-          <div className="explanation-chinese-row">
-            <p lang="zh-CN">{dialogue.zhHans}</p>
-            <button
-              className="speaker-button explanation-speaker"
-              onClick={onSpeak}
-              aria-label="中国語をもう一度聞く"
-            >
-              <SpeakerWaveIcon />
-            </button>
-          </div>
-          <p className="explanation-pinyin" lang="zh-Latn-pinyin">
-            {dialogue.pinyin}
-          </p>
-          <p className="explanation-japanese" lang="ja">
-            {dialogue.ja}
-          </p>
-        </div>
-        <div className="learning-list" aria-label="単語と表現">
-          {learningItems.map((item, index) => (
-            <div className="learning-row" key={`${item.phrase}-${index}`}>
-              <strong lang="zh-CN">{item.phrase}</strong>
-              <span>{item.role}</span>
-              <p>{item.meaning}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Modal>
   );
 }
 

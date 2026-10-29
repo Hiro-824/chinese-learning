@@ -64,6 +64,7 @@ button {
 }
 
 button:focus-visible,
+a:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
@@ -254,14 +255,15 @@ button:disabled {
   align-items: center;
   padding-top: calc(var(--screen-top) + env(safe-area-inset-top));
   padding-bottom: calc(8px + env(safe-area-inset-bottom));
-  overflow: clip;
+  overflow-x: clip;
+  overflow-y: auto;
 }
 
 .topbar {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: var(--board-size);
+  width: var(--content-width);
   min-height: 48px;
   flex: 0 0 48px;
   margin-bottom: 8px;
@@ -354,8 +356,9 @@ button:disabled {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: var(--board-size);
+  width: var(--content-width);
   min-width: 0;
+  flex-shrink: 0;
 }
 
 .character-row {
@@ -363,48 +366,38 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 12px;
-  height: var(--dialogue-height);
-  flex: 0 0 var(--dialogue-height);
+  min-height: var(--dialogue-height);
+  flex: 0 0 auto;
   padding: 6px 8px 0;
 }
 
-.character-placeholder {
+.character-portrait {
   position: relative;
-  width: 20%;
-  height: calc(var(--board-size) * 0.26);
-  max-height: 144px;
-  flex: 0 0 20%;
+  width: 28%;
+  max-width: 144px;
+  height: calc(var(--dialogue-height) - 6px);
+  flex: 0 0 28%;
   align-self: flex-end;
 }
 
-.character-head {
-  position: absolute;
-  z-index: 1;
-  top: 1%;
-  left: 15%;
-  width: 70%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #e6e9dd 10%, #c8d3c1 90%);
-  box-shadow: inset 1px 2px 2px rgb(255 255 255 / 65%), 0 3px 8px rgb(35 57 45 / 8%);
+.character-image {
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
-.character-body {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 58%;
-  border-radius: 42% 42% 10% 10%;
-  background: linear-gradient(120deg, #9eb09f, #6f8b79);
-  box-shadow: inset 1px 1px 0 rgb(255 255 255 / 45%);
+.character-image.is-active {
+  opacity: 1;
 }
 
 .speech-stack {
   display: grid;
   flex: 1;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: auto;
   gap: 8px;
-  height: calc(var(--dialogue-height) - 16px);
+  min-height: calc(var(--dialogue-height) - 16px);
   min-width: 0;
 }
 
@@ -441,26 +434,33 @@ button:disabled {
   gap: 4px;
   flex: 1;
   min-width: 0;
-  min-height: 0;
-  max-height: 100%;
   padding: 8px 0 8px 12px;
   border: 0;
   border-radius: var(--radius);
   background: transparent;
   color: var(--ink);
-  font-size: clamp(16px, 4vw, 19px);
   letter-spacing: 0.015em;
   line-height: 1.35;
   text-align: left;
   overflow-wrap: anywhere;
   cursor: pointer;
-  overflow-y: auto;
+  text-decoration: none;
 }
 
-.speech-pinyin {
+.speech-chinese,
+.speech-japanese {
   display: block;
   color: var(--muted);
   font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.speech-primary {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(16px, 4vw, 19px);
+  font-weight: 600;
   line-height: 1.45;
   letter-spacing: 0.01em;
   overflow-wrap: normal;
@@ -607,7 +607,7 @@ html:has(.app-dialog[open]) {
   line-height: 1;
 }
 
-.speech-setting {
+.settings-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -618,23 +618,23 @@ html:has(.app-dialog[open]) {
   cursor: pointer;
 }
 
-.speech-setting > span {
+.settings-toggle > span {
   display: flex;
   flex-direction: column;
   gap: 2px;
   font-size: 13px;
 }
 
-.speech-setting strong {
+.settings-toggle strong {
   font-weight: 500;
 }
 
-.speech-setting small {
+.settings-toggle small {
   color: var(--muted);
   font-size: 12px;
 }
 
-.speech-setting input {
+.settings-toggle input {
   -webkit-appearance: none;
   appearance: none;
   width: 44px;
@@ -649,7 +649,7 @@ html:has(.app-dialog[open]) {
   transition: background-color 160ms ease;
 }
 
-.speech-setting input::before {
+.settings-toggle input::before {
   content: "";
   display: block;
   width: 18px;
@@ -661,11 +661,11 @@ html:has(.app-dialog[open]) {
   transition: transform 160ms ease;
 }
 
-.speech-setting input:checked {
+.settings-toggle input:checked {
   background: var(--accent);
 }
 
-.speech-setting input:checked::before {
+.settings-toggle input:checked::before {
   transform: translateX(18px);
 }
 
@@ -688,107 +688,6 @@ html:has(.app-dialog[open]) {
 
 .result-modal .result-close {
   color: var(--muted);
-}
-
-.explanation-dialog {
-  width: min(560px, calc(100% - 32px));
-  max-height: min(720px, calc(100svh - 40px));
-}
-
-.explanation-modal {
-  padding: 0 24px 20px;
-}
-
-.explanation-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  margin: 0 -24px;
-  padding: 12px 12px 12px 24px;
-  border-bottom: 1px solid var(--line);
-  background: var(--surface);
-}
-
-.explanation-full-text {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.explanation-chinese-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.explanation-chinese-row p {
-  flex: 1;
-  min-width: 0;
-  margin: 0;
-  font-size: clamp(22px, 4vw, 28px);
-  font-weight: 600;
-  line-height: 1.6;
-  overflow-wrap: anywhere;
-  color: var(--accent);
-}
-
-.explanation-speaker {
-  align-self: flex-start;
-  margin: 0;
-  background: var(--subtle);
-}
-
-.explanation-pinyin {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.explanation-japanese {
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.learning-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.learning-row {
-  display: grid;
-  grid-template-columns: minmax(82px, 1fr) minmax(88px, 0.9fr) minmax(0, 1.8fr);
-  align-items: start;
-  gap: 12px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line);
-  overflow-wrap: anywhere;
-}
-
-.learning-row:last-child {
-  border-bottom: 0;
-}
-
-.learning-row strong {
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.6;
-}
-
-.learning-row span {
-  padding-top: 3px;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.7;
-}
-
-.learning-row p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.75;
 }
 
 @media (hover: hover) {
@@ -817,8 +716,8 @@ button:active:not(:disabled) {
 
 @media (prefers-reduced-motion: reduce) {
   button,
-  .speech-setting input,
-  .speech-setting input::before {
+  .settings-toggle input,
+  .settings-toggle input::before {
     transition: none;
   }
 }
@@ -832,38 +731,6 @@ button:active:not(:disabled) {
   .controls {
     padding-right: 4px;
     padding-left: 4px;
-  }
-
-  .explanation-dialog {
-    inset: auto 0 0;
-    width: 100%;
-    max-height: 85svh;
-    margin: 0;
-    border-bottom: 0;
-    border-radius: 16px 16px 0 0;
-  }
-
-  .explanation-modal {
-    padding: 0 20px max(20px, env(safe-area-inset-bottom));
-  }
-
-  .explanation-header {
-    margin: 0 -20px;
-    padding-left: 20px;
-  }
-
-  .learning-row {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-    gap: 4px 12px;
-  }
-
-  .learning-row span {
-    align-self: center;
-    padding-top: 0;
-  }
-
-  .learning-row p {
-    grid-column: 1 / -1;
   }
 }
 
@@ -911,6 +778,10 @@ button:active:not(:disabled) {
     padding: calc(6 * var(--compact-unit)) calc(8 * var(--compact-unit)) 0;
   }
 
+  .character-portrait {
+    height: calc(178 * var(--compact-unit));
+  }
+
   .game-screen .icon-button,
   .character-row .speaker-button {
     width: calc(44 * var(--compact-unit));
@@ -925,13 +796,21 @@ button:active:not(:disabled) {
   }
 
   .speech-stack {
-    height: calc(168 * var(--compact-unit));
+    min-height: calc(168 * var(--compact-unit));
     gap: calc(8 * var(--compact-unit));
   }
 
   .speech-text {
     gap: calc(4 * var(--compact-unit));
     padding: calc(8 * var(--compact-unit)) 0 calc(8 * var(--compact-unit)) calc(12 * var(--compact-unit));
+  }
+
+  .speech-chinese,
+  .speech-japanese {
+    font-size: calc(12 * var(--compact-unit));
+  }
+
+  .speech-primary {
     font-size: calc(15 * var(--compact-unit));
   }
 
@@ -946,11 +825,11 @@ button:active:not(:disabled) {
 }
 
 @media (forced-colors: active) {
-  .speech-setting input {
+  .settings-toggle input {
     appearance: auto;
   }
 
-  .speech-setting input::before {
+  .settings-toggle input::before {
     display: none;
   }
 }
