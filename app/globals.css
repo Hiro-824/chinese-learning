@@ -630,7 +630,8 @@ html:has(.app-dialog[open]) {
   line-height: 1;
 }
 
-.character-setting {
+.character-setting,
+.voice-setting {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -638,12 +639,14 @@ html:has(.app-dialog[open]) {
   border-top: 1px solid var(--line);
 }
 
-.character-setting label {
+.character-setting label,
+.voice-setting label {
   font-size: 13px;
   font-weight: 500;
 }
 
-.character-setting select {
+.character-setting select,
+.voice-setting select {
   width: 100%;
   min-height: 44px;
   padding: 8px 12px;
@@ -654,7 +657,8 @@ html:has(.app-dialog[open]) {
   cursor: pointer;
 }
 
-.character-setting small {
+.character-setting small,
+.voice-setting small {
   color: var(--muted);
   font-size: 12px;
 }

@@ -52,13 +52,20 @@ import {
   parseSavedDifficulty,
   selectAiMove,
 } from "./difficulty";
-import { getDialogueAudioSrc } from "./voice";
+import {
+  DEFAULT_VOICE_VARIANT,
+  getDialogueAudioSrc,
+  parseVoiceVariant,
+  VOICE_OPTIONS,
+  type VoiceVariant,
+} from "./voice";
 
 type GameStatus = "playing" | "won" | "lost" | "draw";
 
 const DIFFICULTY_KEY = "chess-difficulty";
 const STREAK_KEY = "chess-daily-streak";
 const SPEECH_ENABLED_KEY = "chess-speech-enabled";
+const VOICE_VARIANT_KEY = "chess-voice-variant";
 const PINYIN_ENABLED_KEY = "chess-pinyin-enabled";
 const JAPANESE_ENABLED_KEY = "chess-japanese-enabled";
 const CHARACTER_PREFERENCE_KEY = "chess-character-preference";
@@ -98,6 +105,7 @@ export default function Home() {
   const materialHistoryRef = useRef<MaterialHistory>({ npcWasBehind: false, playerWasBehind: false });
   const speechAudioRef = useRef<HTMLAudioElement | null>(null);
   const speechEnabledRef = useRef(true);
+  const voiceVariantRef = useRef<VoiceVariant>(DEFAULT_VOICE_VARIANT);
   const speechPlayingRef = useRef(false);
   const speechGenerationRef = useRef(0);
   const speechSafetyTimerRef = useRef<number | null>(null);
@@ -123,6 +131,7 @@ export default function Home() {
   const [streak, setStreak] = useState(0);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [speechEnabled, setSpeechEnabled] = useState(true);
+  const [voiceVariant, setVoiceVariant] = useState<VoiceVariant>(DEFAULT_VOICE_VARIANT);
   const [pinyinEnabled, setPinyinEnabled] = useState(true);
   const [japaneseEnabled, setJapaneseEnabled] = useState(true);
   const [currentDialogue, setCurrentDialogue] = useState<Dialogue | null>(null);
@@ -174,7 +183,7 @@ export default function Home() {
     if (!force && !speechEnabledRef.current) return;
     cancelSpeech();
     const generation = speechGenerationRef.current;
-    const src = getDialogueAudioSrc(characterGenderRef.current, dialogue.id);
+    const src = getDialogueAudioSrc(characterGenderRef.current, dialogue.id, voiceVariantRef.current);
     if (!src) {
       finishSpeech(generation);
       return;
@@ -515,6 +524,9 @@ export default function Home() {
 
       speechEnabledRef.current = initialSpeech;
       setSpeechEnabled(initialSpeech);
+      const initialVoice = parseVoiceVariant(localStorage.getItem(VOICE_VARIANT_KEY));
+      voiceVariantRef.current = initialVoice;
+      setVoiceVariant(initialVoice);
       setPinyinEnabled(localStorage.getItem(PINYIN_ENABLED_KEY) !== "false");
       setJapaneseEnabled(localStorage.getItem(JAPANESE_ENABLED_KEY) !== "false");
       const initialCharacter = parseCharacterPreference(localStorage.getItem(CHARACTER_PREFERENCE_KEY));
@@ -562,6 +574,13 @@ export default function Home() {
   function savePinyinEnabled(enabled: boolean) {
     setPinyinEnabled(enabled);
     localStorage.setItem(PINYIN_ENABLED_KEY, String(enabled));
+  }
+
+  function saveVoiceVariant(variant: VoiceVariant) {
+    voiceVariantRef.current = variant;
+    setVoiceVariant(variant);
+    localStorage.setItem(VOICE_VARIANT_KEY, variant);
+    cancelSpeech(true);
   }
 
   function saveJapaneseEnabled(enabled: boolean) {
@@ -921,6 +940,20 @@ export default function Home() {
                 ))}
               </select>
               <small id="character-preference-hint">ランダムは対局ごとに選びます</small>
+            </div>
+            <div className="voice-setting">
+              <label htmlFor="voice-variant">声</label>
+              <select
+                id="voice-variant"
+                value={voiceVariant}
+                aria-describedby="voice-variant-hint"
+                onChange={(event) => saveVoiceVariant(parseVoiceVariant(event.target.value))}
+              >
+                {Object.entries(VOICE_OPTIONS).map(([value, label]) => (
+                  <option key={value} value={value}>{label}</option>
+                ))}
+              </select>
+              <small id="voice-variant-hint">キャラクターの性別に合わせて再生します</small>
             </div>
             <SettingsToggle
               label="拼音を表示"
