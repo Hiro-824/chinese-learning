@@ -1,0 +1,133 @@
+<speak>
+我不喜欢输。
+<break time="1500ms"/>
+我不走！
+<break time="1500ms"/>
+你也喜欢下棋吗？
+<break time="1500ms"/>
+我也来了！
+<break time="1500ms"/>
+我们都准备好了。
+<break time="1500ms"/>
+咱们开始吧！
+<break time="1500ms"/>
+咱们再来一局！
+<break time="1500ms"/>
+咱们明天再玩吧！
+<break time="1500ms"/>
+你们准备好了吗？
+<break time="1500ms"/>
+你们真厉害！
+<break time="1500ms"/>
+你们起得真早！
+<break time="1500ms"/>
+大家准备好了吗？
+<break time="1500ms"/>
+大家都笑我！
+<break time="1500ms"/>
+她是我的朋友。
+<break time="1500ms"/>
+她跑得真快！
+<break time="1500ms"/>
+她回来了！
+<break time="1500ms"/>
+她们都走了。
+<break time="1500ms"/>
+他们都走了。
+<break time="1500ms"/>
+他们不在这里。
+<break time="1500ms"/>
+它不见了！
+<break time="1500ms"/>
+它去哪儿了？
+<break time="1500ms"/>
+它变了！
+<break time="1500ms"/>
+它们去哪儿了？
+<break time="1500ms"/>
+我自己来！
+<break time="1500ms"/>
+你自己来吗？
+<break time="1500ms"/>
+别告诉别人！
+<break time="1500ms"/>
+人家不想输嘛！
+<break time="1500ms"/>
+你不是黑方。
+<break time="1500ms"/>
+我不是黑方。
+<break time="1500ms"/>
+这不是玩笑！
+<break time="1500ms"/>
+你是学生吗？
+<break time="1500ms"/>
+这是你的棋盘吗？
+<break time="1500ms"/>
+这是你的计划吗？
+<break time="1500ms"/>
+我也是学生。
+<break time="1500ms"/>
+她也是王后！
+<break time="1500ms"/>
+我们都是学生。
+<break time="1500ms"/>
+我也不是每次都赢。
+<break time="1500ms"/>
+这个很好！
+<break time="1500ms"/>
+那个更好！
+<break time="1500ms"/>
+这个游戏真有趣！
+<break time="1500ms"/>
+那个办法真好！
+<break time="1500ms"/>
+你喜欢哪个？
+<break time="1500ms"/>
+你要哪个？
+<break time="1500ms"/>
+哪匹马不见了？
+<break time="1500ms"/>
+这些是谁的？
+<break time="1500ms"/>
+那些都是我的！
+<break time="1500ms"/>
+这些是什么？
+<break time="1500ms"/>
+哪些是你的？
+<break time="1500ms"/>
+那些兵都去哪儿了？
+<break time="1500ms"/>
+这是中国的游戏吗？
+<break time="1500ms"/>
+这是我的，你的是那个。
+<break time="1500ms"/>
+白色的是你的。
+<break time="1500ms"/>
+黑色的是你的。
+<break time="1500ms"/>
+我的老师喜欢下棋。
+<break time="1500ms"/>
+我老师会生气的！
+<break time="1500ms"/>
+我们学校也有棋社。
+<break time="1500ms"/>
+我家有棋盘。
+<break time="1500ms"/>
+这是一个重要的问题。
+<break time="1500ms"/>
+这是一个好办法！
+<break time="1500ms"/>
+你玩不玩？
+<break time="1500ms"/>
+你来不来？
+<break time="1500ms"/>
+你走不走？
+<break time="1500ms"/>
+你是不是学生？
+<break time="1500ms"/>
+这是不是将军？
+<break time="1500ms"/>
+这是不是陷阱？
+<break time="1500ms"/>
+你想不想再玩？
+</speak>

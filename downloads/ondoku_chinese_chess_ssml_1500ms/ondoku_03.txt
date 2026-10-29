@@ -1,0 +1,133 @@
+<speak>
+门外有人！
+<break time="1500ms"/>
+敌人在门口！
+<break time="1500ms"/>
+国王在城堡里。
+<break time="1500ms"/>
+别来这儿！
+<break time="1500ms"/>
+快来这儿！
+<break time="1500ms"/>
+别去那儿！
+<break time="1500ms"/>
+你怎么到那儿去了？
+<break time="1500ms"/>
+这里安全吗？
+<break time="1500ms"/>
+这里很危险！
+<break time="1500ms"/>
+那里有什么？
+<break time="1500ms"/>
+那里不安全！
+<break time="1500ms"/>
+你要去哪里？
+<break time="1500ms"/>
+我该去哪里？
+<break time="1500ms"/>
+你那儿有棋盘吗？
+<break time="1500ms"/>
+我这儿有水。
+<break time="1500ms"/>
+你朋友那儿还有人吗？
+<break time="1500ms"/>
+你非常聪明！
+<break time="1500ms"/>
+你非常厉害！
+<break time="1500ms"/>
+今天比较热。
+<break time="1500ms"/>
+这局比较难。
+<break time="1500ms"/>
+我有点儿紧张。
+<break time="1500ms"/>
+我有点儿害怕。
+<break time="1500ms"/>
+我有点儿累了。
+<break time="1500ms"/>
+我不开心。
+<break time="1500ms"/>
+我不害怕！
+<break time="1500ms"/>
+我不很高兴。
+<break time="1500ms"/>
+我很不高兴！
+<break time="1500ms"/>
+今天不很冷。
+<break time="1500ms"/>
+你太快了！
+<break time="1500ms"/>
+这太危险了！
+<break time="1500ms"/>
+你忙不忙？
+<break time="1500ms"/>
+你紧张不紧张？
+<break time="1500ms"/>
+你累不累？
+<break time="1500ms"/>
+这一步难不难？
+<break time="1500ms"/>
+这局有多难？
+<break time="1500ms"/>
+你觉得这局怎么样？
+<break time="1500ms"/>
+这是一个很好的办法。
+<break time="1500ms"/>
+你是一个很强的对手。
+<break time="1500ms"/>
+今天是非常重要的一天。
+<break time="1500ms"/>
+这是一个非常好的主意！
+<break time="1500ms"/>
+这是一场挺有意思的比赛。
+<break time="1500ms"/>
+我想喝热热的茶。
+<break time="1500ms"/>
+我的小小的梦想破灭了。
+<break time="1500ms"/>
+这是你想的办法吗？
+<break time="1500ms"/>
+这是我写的书。
+<break time="1500ms"/>
+我有很多问题！
+<break time="1500ms"/>
+你有不少好办法！
+<break time="1500ms"/>
+今天学了很多东西。
+<break time="1500ms"/>
+我还有很多要学的东西。
+<break time="1500ms"/>
+这局不很难。
+<break time="1500ms"/>
+他被关进监狱了。
+<break time="1500ms"/>
+我在打扫房间。
+<break time="1500ms"/>
+我在收拾桌上的东西。
+<break time="1500ms"/>
+可惜，兵消失了。
+<break time="1500ms"/>
+那可是我喜欢的兵！
+<break time="1500ms"/>
+他们只是我的手和脚。
+<break time="1500ms"/>
+再见了。
+<break time="1500ms"/>
+我那匹可爱的马啊！
+<break time="1500ms"/>
+我刚买了它！
+<break time="1500ms"/>
+呼，热起来了！
+<break time="1500ms"/>
+你有一颗冰冷的心！
+<break time="1500ms"/>
+你累了吗？
+<break time="1500ms"/>
+我攻下了移动的城堡！
+<break time="1500ms"/>
+你的车？我给你洗！
+<break time="1500ms"/>
+喝杯咖啡，冷静一下。
+<break time="1500ms"/>
+喝点水，冷静一下。
+</speak>

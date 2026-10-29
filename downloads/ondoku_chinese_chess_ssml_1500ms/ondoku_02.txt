@@ -1,0 +1,133 @@
+<speak>
+你下不下棋？
+<break time="1500ms"/>
+你喝不喝水？
+<break time="1500ms"/>
+你下棋不下？
+<break time="1500ms"/>
+你喝水不喝？
+<break time="1500ms"/>
+这是什么？
+<break time="1500ms"/>
+你想干什么？
+<break time="1500ms"/>
+谁干的？
+<break time="1500ms"/>
+谁教你的？
+<break time="1500ms"/>
+你的朋友在哪儿？
+<break time="1500ms"/>
+我的朋友去哪儿了？
+<break time="1500ms"/>
+你什么时候回家？
+<break time="1500ms"/>
+你什么时候学的棋？
+<break time="1500ms"/>
+为什么是她？
+<break time="1500ms"/>
+为什么走这一步？
+<break time="1500ms"/>
+今天怎么样？
+<break time="1500ms"/>
+这局怎么样？
+<break time="1500ms"/>
+你觉得怎么样？
+<break time="1500ms"/>
+你有好办法！
+<break time="1500ms"/>
+你有兄弟姐妹吗？
+<break time="1500ms"/>
+你没有朋友了吗？
+<break time="1500ms"/>
+我没有办法了！
+<break time="1500ms"/>
+你有没有秘密？
+<break time="1500ms"/>
+你有没有棋盘？
+<break time="1500ms"/>
+你有没有办法？
+<break time="1500ms"/>
+你有计划没有？
+<break time="1500ms"/>
+这一步真好！
+<break time="1500ms"/>
+再来一局！
+<break time="1500ms"/>
+我带了一本书。
+<break time="1500ms"/>
+我给你一张照片。
+<break time="1500ms"/>
+我要一把椅子。
+<break time="1500ms"/>
+我想吃一条鱼。
+<break time="1500ms"/>
+给我一枝笔。
+<break time="1500ms"/>
+我想吃一块蛋糕。
+<break time="1500ms"/>
+我坐那辆车回家。
+<break time="1500ms"/>
+我的两只眼睛都哭红了！
+<break time="1500ms"/>
+我想买一双新鞋。
+<break time="1500ms"/>
+我穿了一件新衣服。
+<break time="1500ms"/>
+我写了一封信。
+<break time="1500ms"/>
+我坐飞机来的。
+<break time="1500ms"/>
+我看见一架飞机！
+<break time="1500ms"/>
+我想吃一碗面条。
+<break time="1500ms"/>
+喝一杯水吧！
+<break time="1500ms"/>
+这里有一个陷阱！
+<break time="1500ms"/>
+桌上有一个棋盘。
+<break time="1500ms"/>
+前面有敌人！
+<break time="1500ms"/>
+这里没有人帮我！
+<break time="1500ms"/>
+你身边没有人了。
+<break time="1500ms"/>
+这里有陷阱吗？
+<break time="1500ms"/>
+桌上有水吗？
+<break time="1500ms"/>
+国王在哪里？
+<break time="1500ms"/>
+王后不在这里了！
+<break time="1500ms"/>
+敌人在后面！
+<break time="1500ms"/>
+我在家。
+<break time="1500ms"/>
+你的朋友不在这儿。
+<break time="1500ms"/>
+我的朋友都不在了。
+<break time="1500ms"/>
+看后面！
+<break time="1500ms"/>
+看前面！
+<break time="1500ms"/>
+看左边！
+<break time="1500ms"/>
+看右边！
+<break time="1500ms"/>
+他在我旁边！
+<break time="1500ms"/>
+危险在上面！
+<break time="1500ms"/>
+下面也有敌人！
+<break time="1500ms"/>
+我的兵在哪里？
+<break time="1500ms"/>
+棋盘上有什么？
+<break time="1500ms"/>
+城堡里只有你。
+<break time="1500ms"/>
+房间里只有我。
+</speak>

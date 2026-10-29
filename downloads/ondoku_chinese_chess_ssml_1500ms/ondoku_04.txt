@@ -1,0 +1,133 @@
+<speak>
+别生气啊！
+<break time="1500ms"/>
+怎么了？脸都白了！
+<break time="1500ms"/>
+我胸口很疼。
+<break time="1500ms"/>
+王后……死了……
+<break time="1500ms"/>
+我想回家了。
+<break time="1500ms"/>
+我快哭了。
+<break time="1500ms"/>
+啊，头好疼。
+<break time="1500ms"/>
+这局真好玩！
+<break time="1500ms"/>
+你是白方。
+<break time="1500ms"/>
+我是黑方。
+<break time="1500ms"/>
+你是黑方。
+<break time="1500ms"/>
+我是白方。
+<break time="1500ms"/>
+听说国际象棋起源于印度。
+<break time="1500ms"/>
+我们下棋吧！
+<break time="1500ms"/>
+你怕输吗？
+<break time="1500ms"/>
+我一定会赢！
+<break time="1500ms"/>
+欢迎来到国际象棋学校！
+<break time="1500ms"/>
+我们开始吧！
+<break time="1500ms"/>
+我是老师，你是学生。
+<break time="1500ms"/>
+我去找国王了！
+<break time="1500ms"/>
+你逃不掉了！
+<break time="1500ms"/>
+小心背后！
+<break time="1500ms"/>
+陛下要过来了！让路！
+<break time="1500ms"/>
+别过来！
+<break time="1500ms"/>
+这是叛乱！
+<break time="1500ms"/>
+赢了，开心吗？太好了！
+<break time="1500ms"/>
+国破山河在。
+<break time="1500ms"/>
+我讨厌输。
+<break time="1500ms"/>
+你比我强！
+<break time="1500ms"/>
+别告诉我妈妈！
+<break time="1500ms"/>
+别告诉我爸爸！
+<break time="1500ms"/>
+明天我会赢！
+<break time="1500ms"/>
+借你一本棋书？
+<break time="1500ms"/>
+比赛结束了。
+<break time="1500ms"/>
+弱一点也没关系。
+<break time="1500ms"/>
+不甘心吗？
+<break time="1500ms"/>
+真该录个视频！
+<break time="1500ms"/>
+明天再下吧！
+<break time="1500ms"/>
+你看到了吗？
+<break time="1500ms"/>
+王侯将相，宁有种乎！
+<break time="1500ms"/>
+〇〇出现了！
+<break time="1500ms"/>
+王后回来了！
+<break time="1500ms"/>
+我不会放弃！
+<break time="1500ms"/>
+救命！
+<break time="1500ms"/>
+借我手机！我要打电话求救！
+<break time="1500ms"/>
+只剩你一个了。
+<break time="1500ms"/>
+寂寞吗？
+<break time="1500ms"/>
+陛下，您寂寞吗？
+<break time="1500ms"/>
+早上好！
+<break time="1500ms"/>
+你起得真早！
+<break time="1500ms"/>
+外面很亮。
+<break time="1500ms"/>
+晚上好！
+<break time="1500ms"/>
+现在？你不困吗？
+<break time="1500ms"/>
+你睡得真晚！
+<break time="1500ms"/>
+外面已经黑了。
+<break time="1500ms"/>
+现在几点了？
+<break time="1500ms"/>
+陛下进城堡了！
+<break time="1500ms"/>
+陛下，请出来！
+<break time="1500ms"/>
+又见面了！
+<break time="1500ms"/>
+今天都见你好几次了！
+<break time="1500ms"/>
+真快！
+<break time="1500ms"/>
+太快了！
+<break time="1500ms"/>
+形势逆转了！
+<break time="1500ms"/>
+求你了，等一下！
+<break time="1500ms"/>
+小时候，爷爷教过我。
+<break time="1500ms"/>
+小时候，奶奶教过我。
+</speak>
